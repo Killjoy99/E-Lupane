@@ -1,0 +1,15 @@
+id = "com.elupane.php_test"
+name = "PHP Test Plugin"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Test PHP plugin"
+runtime = "process"
+language = "php"
+entry = "plugins/php_test/main.php"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "events.subscribe"
+]
+dependencies = []

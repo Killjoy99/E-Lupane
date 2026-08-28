@@ -1,0 +1,19 @@
+id = "com.elupane.course_management"
+name = "Course Management"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Course management module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/course_management"
+ui = "/ui"
+api = "/api"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "courses.read",
+  "courses.write",
+  "events.subscribe"
+]
+dependencies = []

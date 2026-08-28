@@ -1,0 +1,12 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "entweni_common"
+# name = "entweni_logger" change when I actually publish the module
+requires-python = ">=3.8"
+dynamic = ["version"]
+
+[tool.maturin]
+features = ["python"]  # <-- Enable PyO3 when building for Python

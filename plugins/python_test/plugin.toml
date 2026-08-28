@@ -1,0 +1,15 @@
+id = "com.elupane.python_test"
+name = "Python Test Plugin"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Test Python plugin"
+runtime = "process"
+language = "python"
+entry = "plugins/python_test/main.py"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "events.subscribe"
+]
+dependencies = []

@@ -1,0 +1,13 @@
+[application]
+# The default platform for the application. Web is the default target.
+default_platform = "web"
+
+[web.app]
+# The HTML <title> for the web app. The CLI appends this onto the (empty)
+# <title> tag in `index.html`, so the final rendered title ends up as
+# the value below.
+title = "E-Lupane Frontend"
+
+[web.wasm]
+# The Rust WASM target used to compile the app.
+wasm_target = "wasm32-unknown-unknown"

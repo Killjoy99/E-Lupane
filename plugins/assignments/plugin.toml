@@ -1,0 +1,17 @@
+id = "com.elupane.assignments"
+name = "Assignments"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Assignment management module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/assignments"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "assignments.read",
+  "assignments.write",
+  "events.subscribe"
+]
+dependencies = []

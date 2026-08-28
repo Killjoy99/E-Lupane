@@ -1,0 +1,14 @@
+[package]
+name = "kernel"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+plugin_manager = { path = "../plugin_manager" }
+elupane_core = { path = "../elupane_core" }
+config = { path = "../config" }
+event_bus = { path = "../event_bus" }
+
+tokio.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
