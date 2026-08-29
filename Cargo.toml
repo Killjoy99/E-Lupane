@@ -4,7 +4,8 @@ resolver = "2"
 # The Dioxus frontend is a standalone WASM web crate.
 # It is excluded from the native Rust workspace because it only builds for the
 # wasm32-unknown-unknown target via the Dioxus CLI (`dx build` / `dx serve`).
-exclude = ["frontend"]
+# It lives in `plugins/frontend` (a Dioxus 0.7 fullstack app).
+exclude = ["frontend", "plugins/frontend"]
 
 members = [
 
@@ -29,6 +30,7 @@ members = [
     "plugins/quizzes",
     "plugins/analytics",
     "plugins/notifications",
+    "plugins/frontend",
 
     "services/media_service",
     "services/search_service",

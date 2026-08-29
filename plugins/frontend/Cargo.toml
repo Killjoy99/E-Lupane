@@ -3,6 +3,12 @@ name = "frontend"
 version = "0.1.0"
 edition = "2021"
 
+# This crate is a standalone Dioxus app: it is excluded from the parent
+# E-Lupane workspace (root Cargo.toml `exclude`) and declares its own empty
+# workspace so Cargo treats it as fully independent. It only builds via the
+# Dioxus CLI (`dx build` / `dx serve`) for the wasm32-unknown-unknown target.
+[workspace]
+
 [lib]
 crate-type = ["cdylib", "rlib"]
 path = "src/main.rs"

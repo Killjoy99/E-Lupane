@@ -67,4 +67,5 @@ How the system startsup during installation
 
 ```sh
 cargo run -p gateway # to run the backend.
+./scripts/serve --prod
 ```

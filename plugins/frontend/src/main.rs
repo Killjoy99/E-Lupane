@@ -2,6 +2,8 @@
 
 use dioxus::prelude::*;
 
+use dashboard::Dashboard;
+
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 
 // `db` holds the SQLx (PostgreSQL) connection pool. It is server-only because
@@ -13,6 +15,10 @@ mod db;
 // server: on the client it generates a stub that calls the server over HTTP,
 // while on the server the function bodies run (and may use SQLx via `crate::db`).
 mod server_functions;
+
+// Material Design 3 UI components + the role-based dashboard.
+mod components;
+mod dashboard;
 
 fn main() {
     // Load .env early (before dioxus::serve reads PORT/IP from the environment).
@@ -49,38 +55,8 @@ fn main() {
 }
 
 fn app() -> Element {
-    let mut count = use_signal(|| 0);
-    // `use_action` calls a Dioxus server function (an Axum endpoint) from the
-    // client and tracks its result/loading/error state.
-    let mut health = use_action(|| async move { server_functions::health().await });
-    let mut courses = use_action(|| async move { server_functions::list_courses().await });
-
     rsx! {
         document::Link { rel: "stylesheet", href: MAIN_CSS }
-        div {
-            class: "app",
-            h1 { "E-Lupane · Dioxus 0.7 Fullstack 👋" }
-            p { "Dioxus + SQLx + Axum — served on port 8090." }
-
-            button {
-                class: "btn",
-                onclick: move |_| count += 1,
-                "Client counter: {count}"
-            }
-
-            button {
-                class: "btn",
-                onclick: move |_| health.call(),
-                "Check /api/health (SQLx + Axum)"
-            }
-            p { "Health: {health.value():?}" }
-
-            button {
-                class: "btn",
-                onclick: move |_| courses.call(),
-                "List courses (SQLx + Axum)"
-            }
-            p { "Courses: {courses.value():?}" }
-        }
+        Dashboard {}
     }
 }

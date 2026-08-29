@@ -1,45 +1,356 @@
+/* ============================================================================
+   E-Lupane · Material Design 3 (light) design system
+   ========================================================================== */
+
 :root {
     color-scheme: light;
+
+    /* MD3 color tokens — light scheme */
+    --md-primary: #006a60;
+    --md-on-primary: #ffffff;
+    --md-primary-container: #74f8e8;
+    --md-on-primary-container: #00201c;
+    --md-secondary: #4a635f;
+    --md-on-secondary: #ffffff;
+    --md-secondary-container: #cce8e2;
+    --md-on-secondary-container: #06201c;
+    --md-tertiary: #4c5c92;
+    --md-tertiary-container: #dce1ff;
+    --md-error: #ba1a1a;
+    --md-on-error: #ffffff;
+    --md-error-container: #ffdad6;
+    --md-on-error-container: #410002;
+    --md-background: #fafdfb;
+    --md-on-background: #191c1b;
+    --md-surface: #fafdfb;
+    --md-on-surface: #191c1b;
+    --md-on-surface-variant: #3f4946;
+    --md-surface-container-lowest: #ffffff;
+    --md-surface-container-low: #f4fbf8;
+    --md-surface-container: #eef5f2;
+    --md-surface-container-high: #e8efec;
+    --md-surface-container-highest: #e2e9e6;
+    --md-outline: #6f7976;
+    --md-outline-variant: #bec9c5;
+
+    /* MD3 elevation (light) */
+    --md-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+    --md-shadow-2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --md-shadow-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
+
+    /* Shape */
+    --md-radius-lg: 16px;
+    --md-radius-md: 12px;
+    --md-radius-full: 999px;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    background: #f6f8fa;
-    color: #1f2328;
+    font-family: Roboto, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--md-background);
+    color: var(--md-on-background);
+    -webkit-font-smoothing: antialiased;
 }
 
-.app {
+h1, h2, h3, p {
+    margin: 0;
+}
+
+button {
+    font-family: inherit;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    user-select: none;
+    line-height: 1;
+}
+
+/* ============================================================================
+   App shell
+   ========================================================================== */
+
+.md-app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.md-drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 264px;
+    background: var(--md-surface-container-low);
+    border-right: 1px solid var(--md-outline-variant);
     display: flex;
     flex-direction: column;
+    z-index: 20;
+}
+
+.md-main {
+    flex: 1;
+    margin-left: 264px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.md-topbar {
+    height: 68px;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 100vh;
-    gap: 0.75rem;
+    gap: 12px;
+    padding: 0 24px;
+    background: var(--md-surface);
+    border-bottom: 1px solid var(--md-outline-variant);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.app h1 {
-    margin: 0;
-    font-size: 2rem;
+.md-content {
+    padding: 28px 32px 72px;
+    max-width: 1400px;
+    width: 100%;
 }
 
-.app p {
-    margin: 0;
-    color: #57606a;
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.btn {
-    margin-top: 0.5rem;
-    margin-right: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    border: 1px solid #d0d7de;
-    border-radius: 8px;
-    background: #ffffff;
+
+/* ============================================================================
+   Navigation drawer
+   ========================================================================== */
+
+.md-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 20px 12px;
+}
+
+.md-brand-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--md-primary);
+    color: var(--md-on-primary);
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    box-shadow: var(--md-shadow-1);
+}
+
+.md-brand-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.md-brand-sub {
+    font-size: 12px;
+    color: var(--md-on-surface-variant);
+}
+
+.md-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.md-nav-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--md-on-surface-variant);
+    padding: 14px 16px 6px;
+}
+
+.md-role-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    background: transparent;
+    border-radius: var(--md-radius-full);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--md-on-surface-variant);
     cursor: pointer;
+    text-align: left;
+    transition: background 0.15s;
 }
 
-.btn:hover {
-    background: #f0f3f6;
+.md-role-btn:hover {
+    background: var(--md-surface-container-high);
 }
+
+.md-role-btn.active {
+    background: var(--md-secondary-container);
+    color: var(--md-on-secondary-container);
+    font-weight: 600;
+}
+
+.md-role-check {
+    margin-left: auto;
+    font-size: 18px;
+}
+
+.md-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 11px 16px;
+    border: none;
+    background: transparent;
+    border-radius: var(--md-radius-full);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--md-on-surface-variant);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s;
+}
+
+.md-nav-item:hover {
+    background: var(--md-surface-container-high);
+}
+
+.md-nav-item.active {
+    background: var(--md-secondary-container);
+    color: var(--md-on-secondary-container);
+    font-weight: 600;
+}
+
+.md-drawer-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-top: 1px solid var(--md-outline-variant);
+}
+
+.md-drawer-user-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.md-drawer-user-sub {
+    font-size: 12px;
+    color: var(--md-on-surface-variant);
+}
+
+/* ============================================================================
+   Top app bar
+   ========================================================================== */
+
+.md-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    height: 44px;
+    padding: 0 16px;
+    background: var(--md-surface-container-high);
+    border-radius: var(--md-radius-full);
+    color: var(--md-on-surface-variant);
+}
+
+.md-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    font-size: 14px;
+    color: var(--md-on-surface);
+}
+
+.md-search input::placeholder {
+    color: var(--md-on-surface-variant);
+}
+
+.md-topbar-spacer {
+    flex: 1;
+}
+
+.md-topbar-role {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: var(--md-radius-full);
+    background: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.md-icon-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--md-on-surface-variant);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+}
+
+.md-icon-btn:hover {
+    background: var(--md-surface-container-high);
+}
+
+.md-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    background: var(--md-error);
+    color: var(--md-on-error);
+    font-size: 10px;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+}
+
+.md-topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 8px;
+    border-radius: var(--md-radius-full);
+}
+
+.md-topbar-user-name {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.md-topbar-user-sub {
+    font-size: 12px;
+    color: var(--md-on-surface-variant);
+}
+
