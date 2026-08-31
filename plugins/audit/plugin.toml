@@ -1,0 +1,17 @@
+id = "com.elupane.audit"
+name = "Audit"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Audit logging module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/audit"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "audit.read",
+  "audit.write",
+  "events.subscribe"
+]
+dependencies = []

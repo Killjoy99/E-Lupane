@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 serde.workspace = true
 tracing.workspace = true
-dotenvy.workspace =true
+dotenvy.workspace = true
+anyhow.workspace = true
 
 common = {path = "../common", features = ["init"]}

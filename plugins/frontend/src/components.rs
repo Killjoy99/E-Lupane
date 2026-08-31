@@ -35,13 +35,19 @@ pub fn Button(
     variant: Option<&'static str>,
     icon: Option<&'static str>,
     class: Option<&'static str>,
+    disabled: Option<bool>,
 ) -> Element {
     let variant = variant.unwrap_or("filled");
     let class = class.unwrap_or("");
+    let disabled = disabled.unwrap_or(false);
     rsx! {
         button {
             class: format!("md-btn md-btn-{variant} {class}"),
+            disabled: disabled,
             onclick: move |e| {
+                if disabled {
+                    return;
+                }
                 if let Some(handler) = onclick {
                     handler.call(e);
                 }
@@ -90,8 +96,8 @@ pub fn StatusChip(status: &'static str, label: Option<&'static str>) -> Element 
     let label = label.unwrap_or(status);
     let tone = match status {
         "ok" | "connected" | "running" | "signed" | "graded" | "active" | "on-track"
-        | "submitted" | "healthy" | "success" | "available" => "ok",
-        "warn" | "pending" | "at-risk" | "flagged" | "review" | "degraded" => "warn",
+        | "submitted" | "healthy" | "success" | "available" | "live" | "online" => "ok",
+        "warn" | "pending" | "at-risk" | "flagged" | "review" | "degraded" | "scheduled" => "warn",
         "danger" | "error" | "offline" | "failed" | "rejected" | "stopped" => "danger",
         _ => "muted",
     };

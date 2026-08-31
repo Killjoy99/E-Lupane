@@ -4,7 +4,7 @@ version = "1.0.0"
 authors = [
   "Philani Dlamini"
 ]
-description = "Course management module"
+description = "Course management module: courses, instructors, statuses, publishing, duplication"
 runtime = "process"
 language = "rust"
 entry = "target/debug/course_management"
@@ -14,6 +14,10 @@ minimum_core_version = "1.0.0"
 capabilities = [
   "courses.read",
   "courses.write",
+  "courses.publish",
+  "courses.delete",
+  "courses.duplicate",
+  "courses.preview",
   "events.subscribe"
 ]
-dependencies = []
+dependencies = ["com.elupane.auth"]

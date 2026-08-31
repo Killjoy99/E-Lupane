@@ -1,0 +1,9 @@
+warning: /mnt/d/Work/E-Lupane/plugins/frontend/Cargo.toml: file `/mnt/d/Work/E-Lupane/plugins/frontend/src/main.rs` found to be present in multiple build targets:
+  * `lib` target `frontend`
+  * `bin` target `frontend`
+    Checking web-sys v0.3.104
+   Compiling dioxus-interpreter-js v0.7.10
+    Checking sledgehammer_bindgen v0.6.0
+    Checking reqwest v0.12.28
+    Checking axum v0.8.9
+   Compiling dioxus-web v0.7.10

@@ -48,6 +48,11 @@ if [ "$PROD_MODE" = true ]; then
         exit 1
     fi
 
+    # The gateway launches each backend plugin from its workspace binary
+    # (e.g. target/debug/auth), so those binaries must exist first.
+    log "Building workspace (backend plugin binaries)..."
+    cargo build --workspace
+
     log "Building frontend binary..."
     cd "$FRONTEND_DIR"
     cargo build --features server
@@ -84,6 +89,12 @@ fi
 # DEV MODE — separate processes with hot-reload
 # =========================================================================
 log "Development mode: backend gateway + dx serve (hot-reload)."
+
+# The gateway launches each backend plugin from its workspace binary
+# (e.g. target/debug/auth), so those binaries must exist first.
+# `cargo run -p gateway` alone only builds the gateway, not the plugins.
+log "Building workspace (backend plugin binaries)..."
+cargo build --workspace
 
 # Temporarily disable the frontend plugin manifest to avoid port conflict
 # with dx serve (which also binds port 8090).

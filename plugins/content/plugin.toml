@@ -1,0 +1,23 @@
+id = "com.elupane.content"
+name = "Content"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Learning content and media module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/content"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "content.module.read",
+  "content.module.write",
+  "content.lesson.read",
+  "content.lesson.write",
+  "content.item.read",
+  "content.item.write",
+  "content.file.read",
+  "content.file.write",
+  "events.subscribe"
+]
+dependencies = []

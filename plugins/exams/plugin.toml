@@ -1,0 +1,17 @@
+id = "com.elupane.exams"
+name = "Exams"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Examination management module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/exams"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "exams.read",
+  "exams.write",
+  "events.subscribe"
+]
+dependencies = []

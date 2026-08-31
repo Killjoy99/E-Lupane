@@ -1,6 +1,11 @@
-// Installer state
+//! Installer state + entry point used by the rest of the workspace.
+//!
+//! `InstallerState` tracks what a completed run has provisioned so callers can
+//! decide whether more work is required.
 
-#[derive(Debug)]
+use crate::bootstrap;
+
+#[derive(Debug, Default)]
 pub struct InstallerState {
     pub postgres_installed: bool,
     pub redis_installed: bool,
@@ -9,6 +14,8 @@ pub struct InstallerState {
     pub config_generated: bool,
 }
 
-pub async fn run_installer() -> anyhow::Result<()>{
-    bootstrap::run().await
+/// Convenience wrapper around [`bootstrap::run`] — full setup
+/// (install what is missing, then configure).
+pub fn run_installer() -> anyhow::Result<()> {
+    bootstrap::run(true, true)
 }

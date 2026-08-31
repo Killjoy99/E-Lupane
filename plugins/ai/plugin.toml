@@ -1,0 +1,17 @@
+id = "com.elupane.ai"
+name = "AI"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "AI assistance and intelligence module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/ai"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "ai.read",
+  "ai.write",
+  "events.subscribe"
+]
+dependencies = []

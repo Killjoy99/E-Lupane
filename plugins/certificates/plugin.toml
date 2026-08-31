@@ -1,0 +1,17 @@
+id = "com.elupane.certificates"
+name = "Certificates"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Certificate issuance module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/certificates"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "certificates.read",
+  "certificates.write",
+  "events.subscribe"
+]
+dependencies = []

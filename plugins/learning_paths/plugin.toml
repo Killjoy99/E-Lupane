@@ -1,0 +1,17 @@
+id = "com.elupane.learning_paths"
+name = "Learning Paths"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Learning paths and progression module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/learning_paths"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "learning_paths.read",
+  "learning_paths.write",
+  "events.subscribe"
+]
+dependencies = []

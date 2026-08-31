@@ -1,0 +1,17 @@
+id = "com.elupane.attendance"
+name = "Attendance"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Attendance tracking module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/attendance"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "attendance.read",
+  "attendance.write",
+  "events.subscribe"
+]
+dependencies = []

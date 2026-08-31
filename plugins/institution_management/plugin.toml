@@ -1,0 +1,21 @@
+id = "com.elupane.institution_management"
+name = "Institution Management"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Institution and campus management: universities, colleges, campuses, locations"
+runtime = "process"
+language = "rust"
+entry = "target/debug/institution_management"
+ui = "/ui"
+api = "/api"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "institution.read",
+  "institution.write",
+  "campus.read",
+  "campus.write",
+  "events.subscribe"
+]
+dependencies = ["com.elupane.auth"]

@@ -1,4 +1,4 @@
-use tracing::{info, debug};
+use tracing::info;
 
 #[derive(Debug, Clone)]
 pub struct CheckResult {

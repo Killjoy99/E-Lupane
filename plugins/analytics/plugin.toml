@@ -1,0 +1,18 @@
+id = "analytics"
+name = "Analytics"
+version = "0.1.0"
+description = "Analytics and reporting with student, instructor, and admin dashboards."
+
+[permissions]
+student_read = ["View student analytics", "analytics.student.read"]
+instructor_read = ["View instructor analytics", "analytics.instructor.read"]
+admin_read = ["View admin analytics", "analytics.admin.read"]
+reports_read = ["View reports", "analytics.reports.read"]
+reports_write = ["Generate reports", "analytics.reports.write"]
+events_subscribe = ["Subscribe to events", "events.subscribe"]
+
+[migrations]
+0011 = "migrations/0011_analytics.sql"
+
+[routes]
+prefix = "/api/analytics"

@@ -1,0 +1,136 @@
+  0.00s  INFO Building project...
+  7.57s  INFO  [1m[91merror[0m[1m: expected identifier[0m
+   [1m[94m--> [0msrc/enrollments_ui.rs:156:30
+    [1m[94m|[0m
+[1m[94m156[0m [1m[94m|[0m                 let on_close = move |_| editor.set(None);
+    [1m[94m|[0m                              [1m[91m^[0m
+
+
+  7.61s  INFO  [1m[91merror[0m[1m: expected identifier[0m
+   [1m[94m--> [0msrc/enrollments_ui.rs:419:20
+    [1m[94m|[0m
+[1m[94m419[0m [1m[94m|[0m                 rsx! {
+    [1m[94m|[0m                    [1m[91m^[0m
+
+
+ 10.76s  INFO  [1m[91merror[0m[1m: expected identifier[0m
+   [1m[94m--> [0msrc/enrollments_ui.rs:156:30
+    [1m[94m|[0m
+[1m[94m156[0m [1m[94m|[0m                 let on_close = move |_| editor.set(None);
+    [1m[94m|[0m                              [1m[91m^[0m
+
+
+ 10.79s  INFO  [1m[91merror[0m[1m: expected identifier[0m
+   [1m[94m--> [0msrc/enrollments_ui.rs:419:20
+    [1m[94m|[0m
+[1m[94m419[0m [1m[94m|[0m                 rsx! {
+    [1m[94m|[0m                    [1m[91m^[0m
+
+
+ 11.69s  INFO  [1m[91merror[E0599][0m[1m: no method named `session` found for struct `UiCtx` in the current scope[0m
+   [1m[94m--> [0msrc/enrollments_ui.rs:167:40
+    [1m[94m|[0m
+[1m[94m167[0m [1m[94m|[0m     let token = use_context::<UiCtx>().session().map(|s| s.token.clone());
+    [1m[94m|[0m                                        [1m[91m^^^^^^^[0m [1m[91mfield, not a method[0m
+    [1m[94m|[0m
+   [1m[94m::: [0msrc/dashboard.rs:152:1
+    [1m[94m|[0m
+[1m[94m152[0m [1m[94m|[0m pub(crate) struct UiCtx {
+    [1m[94m|[0m [1m[94m-----------------------[0m [1m[94mmethod `session` not found for this struct[0m
+    [1m[94m|[0m
+[1m[96mhelp[0m: to call the trait object stored in `session`, surround the field access with parentheses
+    [1m[94m|[0m
+[1m[94m167[0m [1m[94m| [0m    let token = [92m([0muse_context::<UiCtx>().session[92m)[0m().map(|s| s.token.clone());
+    [1m[94m|[0m                 [92m+[0m                              [92m+[0m
+
+
+ 11.74s  INFO  [1m[91merror[E0308][0m[1m: mismatched types[0m
+   [1m[94m--> [0msrc/enrollments_ui.rs:181:65
+    [1m[94m|[0m
+[1m[94m181[0m [1m[94m|[0m [1m[94m...[0m                   let _ = enrollments_action(tok, act, eid, None).await;
+    [1m[94m|[0m                               [1m[94m------------------[0m      [1m[91m^^^[0m [1m[91mexpected `String`, found `&&str`[0m
+    [1m[94m|[0m                               [1m[94m|[0m
+    [1m[94m|[0m                               [1m[94marguments to this function are incorrect[0m
+    [1m[94m|[0m
+[1m[92mnote[0m: function defined here
+   [1m[94m--> [0msrc/server_functions.rs:301:14
+    [1m[94m|[0m
+[1m[94m300[0m [1m[94m|[0m #[post("/api/enrollments/action")]
+    [1m[94m|[0m [1m[94m----------------------------------[0m
+[1m[94m301[0m [1m[94m|[0m pub async fn enrollments_action(
+    [1m[94m|[0m              [1m[92m^^^^^^^^^^^^^^^^^^[0m
+[1m[96mhelp[0m: try using a conversion method
+    [1m[94m|[0m
+[1m[94m181[0m [1m[94m| [0m                                let _ = enrollments_action(tok, act[92m.to_string()[0m, eid, None).await;
+    [1m[94m|[0m                                                                    [92m++++++++++++[0m
+
+
+ 11.78s  INFO  [1m[91merror[E0308][0m[1m: mismatched types[0m
+   [1m[94m--> [0msrc/enrollments_ui.rs:268:54
+    [1m[94m|[0m
+[1m[94m268[0m [1m[94m|[0m [1m[94m...[0m                   enrollments_bulk(token, course_id, list, None).await
+    [1m[94m|[0m                       [1m[94m----------------[0m [1m[91m^^^^^[0m [1m[91mexpected `String`, found `Option<String>`[0m
+    [1m[94m|[0m                       [1m[94m|[0m
+    [1m[94m|[0m                       [1m[94marguments to this function are incorrect[0m
+    [1m[94m|[0m
+    [1m[94m= [0m[1mnote[0m: expected struct `std::string::String`
+                 found enum `[1m[35mstd::option::Option[0m[1m[35m<[0mstd::string::String[1m[35m>[0m`
+[1m[92mnote[0m: function defined here
+   [1m[94m--> [0msrc/server_functions.rs:289:14
+    [1m[94m|[0m
+[1m[94m288[0m [1m[94m|[0m #[post("/api/enrollments/bulk")]
+    [1m[94m|[0m [1m[94m--------------------------------[0m
+[1m[94m289[0m [1m[94m|[0m pub async fn enrollments_bulk(
+    [1m[94m|[0m              [1m[92m^^^^^^^^^^^^^^^^[0m
+[1m[96mhelp[0m: consider using `Option::expect` to unwrap the `std::option::Option<std::string::String>` value, panicking if the value is an `Option::None`
+    [1m[94m|[0m
+[1m[94m268[0m [1m[94m| [0m                                    enrollments_bulk(token[92m.expect("REASON")[0m, course_id, list, None).await
+    [1m[94m|[0m                                                           [92m+++++++++++++++++[0m
+
+
+ 11.78s  INFO  [1m[91merror[E0308][0m[1m: mismatched types[0m
+   [1m[94m--> [0msrc/enrollments_ui.rs:272:63
+    [1m[94m|[0m
+[1m[94m272[0m [1m[94m|[0m [1m[94m...[0m                   enrollments_invite_create(token, course_id, None, mu).await
+    [1m[94m|[0m                       [1m[94m-------------------------[0m [1m[91m^^^^^[0m [1m[91mexpected `String`, found `Option<String>`[0m
+    [1m[94m|[0m                       [1m[94m|[0m
+    [1m[94m|[0m                       [1m[94marguments to this function are incorrect[0m
+    [1m[94m|[0m
+    [1m[94m= [0m[1mnote[0m: expected struct `std::string::String`
+                 found enum `[1m[35mstd::option::Option[0m[1m[35m<[0mstd::string::String[1m[35m>[0m`
+[1m[92mnote[0m: function defined here
+   [1m[94m--> [0msrc/server_functions.rs:346:14
+    [1m[94m|[0m
+[1m[94m345[0m [1m[94m|[0m #[post("/api/enrollments/invite/create")]
+    [1m[94m|[0m [1m[94m-----------------------------------------[0m
+[1m[94m346[0m [1m[94m|[0m pub async fn enrollments_invite_create(
+    [1m[94m|[0m              [1m[92m^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1m[96mhelp[0m: consider using `Option::expect` to unwrap the `std::option::Option<std::string::String>` value, panicking if the value is an `Option::None`
+    [1m[94m|[0m
+[1m[94m272[0m [1m[94m| [0m                                    enrollments_invite_create(token[92m.expect("REASON")[0m, course_id, None, mu).await
+    [1m[94m|[0m                                                                    [92m+++++++++++++++++[0m
+
+
+ 11.78s  INFO  [1m[91merror[E0308][0m[1m: mismatched types[0m
+   [1m[94m--> [0msrc/enrollments_ui.rs:275:56
+    [1m[94m|[0m
+[1m[94m275[0m [1m[94m|[0m [1m[94m...[0m                   enrollments_enroll(token, course_id, student, None).await
+    [1m[94m|[0m                       [1m[94m------------------[0m [1m[91m^^^^^[0m [1m[91mexpected `String`, found `Option<String>`[0m
+    [1m[94m|[0m                       [1m[94m|[0m
+    [1m[94m|[0m                       [1m[94marguments to this function are incorrect[0m
+    [1m[94m|[0m
+    [1m[94m= [0m[1mnote[0m: expected struct `std::string::String`
+                 found enum `[1m[35mstd::option::Option[0m[1m[35m<[0mstd::string::String[1m[35m>[0m`
+[1m[92mnote[0m: function defined here
+   [1m[94m--> [0msrc/server_functions.rs:278:14
+    [1m[94m|[0m
+[1m[94m277[0m [1m[94m|[0m #[post("/api/enrollments/enroll")]
+    [1m[94m|[0m [1m[94m----------------------------------[0m
+[1m[94m278[0m [1m[94m|[0m pub async fn enrollments_enroll(
+    [1m[94m|[0m              [1m[92m^^^^^^^^^^^^^^^^^^[0m
+[1m[96mhelp[0m: consider using `Option::expect` to unwrap the `std::option::Option<std::string::String>` value, panicking if the value is an `Option::None`
+    [1m[94m|[0m
+[1m[94m275[0m [1m[94m| [0m                                    enrollments_enroll(token[92m.expect("REASON")[0m, course_id, student, None).await
+    [1m[94m|[0m                                                             [92m+++++++++++++++++[0m
+
+

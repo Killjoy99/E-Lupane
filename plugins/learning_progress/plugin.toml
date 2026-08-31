@@ -1,0 +1,15 @@
+id = "learning_progress"
+name = "Learning Progress"
+version = "0.1.0"
+description = "Detailed learning progress tracking with resume and completion status."
+
+[permissions]
+progress_read = ["View progress", "learning_progress.read"]
+progress_write = ["Update progress", "learning_progress.write"]
+events_subscribe = ["Subscribe to events", "events.subscribe"]
+
+[migrations]
+0013 = "migrations/0013_learning_progress.sql"
+
+[routes]
+prefix = "/api/learning-progress"

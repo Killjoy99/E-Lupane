@@ -3,8 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#006A60" />
+    <meta name="theme-color" content="#D71920" />
     <title></title>
+    <script>
+      // Apply the saved LSU theme before the page paints (prevents a flash).
+      try {
+        if (localStorage.getItem('elupane-theme') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

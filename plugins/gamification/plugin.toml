@@ -1,0 +1,17 @@
+id = "com.elupane.gamification"
+name = "Gamification"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Gamification and achievements module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/gamification"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "gamification.read",
+  "gamification.write",
+  "events.subscribe"
+]
+dependencies = []

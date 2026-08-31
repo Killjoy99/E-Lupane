@@ -1,6 +1,5 @@
-// check which OS we are running on
-mod utils;
-use utils::OperatingSystem;
+// Check which OS we are running on.
+use crate::checks::utils::OperatingSystem;
 
 pub fn current_os() -> OperatingSystem {
     match std::env::consts::OS {

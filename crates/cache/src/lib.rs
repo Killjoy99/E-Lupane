@@ -1,14 +1,9 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+//! Redis connectivity for the E-Lupane platform.
+//!
+//! `connection` manages the shared client, `pubsub` wraps Pub/Sub for
+//! broadcasts/events, and `session` provides an expiring session store.
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub mod connection;
+pub mod pubsub;
+pub mod session;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}

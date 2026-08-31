@@ -1,6 +1,5 @@
-use std::process::Command;
-
 use crate::report::CheckResult;
+use crate::wsl;
 
 #[derive(Debug)]
 pub struct RedisStatus {
@@ -16,19 +15,17 @@ pub fn check() -> CheckResult {
         (true, true) => CheckResult::success(
             "Redis",
             format!(
-                "Installed and running ({})",
-                status.version.unwrap_or_else(|| "unknown".into())
+                "installed & running ({})",
+                status.version.unwrap_or_else(|| "unknown version".into())
             ),
         ),
-
         (true, false) => CheckResult::failure(
             "Redis",
-            "Installed but not running",
+            "installed but not running",
         ),
-
         _ => CheckResult::failure(
             "Redis",
-            "Not installed",
+            "not installed",
         ),
     }
 }
@@ -42,40 +39,18 @@ pub fn get_status() -> RedisStatus {
 }
 
 pub fn is_installed() -> bool {
-    Command::new("redis-server")
-        .arg("--version")
-        .output()
-        .map(|o| o.status.success())
-        .unwrap_or(false)
+    wsl::run_ok("command -v redis-server >/dev/null 2>&1")
 }
 
 pub fn is_running() -> bool {
-    let output = Command::new("redis-cli")
-        .arg("ping")
-        .output();
-
-    match output {
-        Ok(output) => {
-            let stdout =
-                String::from_utf8_lossy(&output.stdout);
-
-            stdout.contains("PONG")
-        }
-
-        Err(_) => false,
-    }
+    wsl::run_output("redis-cli -h 127.0.0.1 ping").contains("PONG")
 }
 
 pub fn get_version() -> Option<String> {
-    let output = Command::new("redis-server")
-        .arg("--version")
-        .output()
-        .ok()?;
-
-    let version =
-        String::from_utf8_lossy(&output.stdout)
-            .trim()
-            .to_string();
-
-    Some(version)
+    let version = wsl::run_output("redis-server --version");
+    if version.is_empty() {
+        None
+    } else {
+        Some(version)
+    }
 }

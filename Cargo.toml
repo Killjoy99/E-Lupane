@@ -20,6 +20,7 @@ members = [
     "crates/gateway",
     "crates/common",
     "crates/installer",
+    "crates/messaging_core",
 
     "crates/sdk/rust_sdk",
     "crates/sdk/python_sdk",
@@ -30,7 +31,28 @@ members = [
     "plugins/quizzes",
     "plugins/analytics",
     "plugins/notifications",
-    "plugins/frontend",
+
+    "plugins/academics",
+    "plugins/ai",
+    "plugins/attendance",
+    "plugins/auth",
+    "plugins/audit",
+    "plugins/certificates",
+    "plugins/content",
+    "plugins/courses",
+    "plugins/discussions",
+    "plugins/enrollments",
+    "plugins/exams",
+    "plugins/files",
+    "plugins/gamification",
+    "plugins/grades",
+    "plugins/learning_progress",
+    "plugins/learning_paths",
+    "plugins/live_classes",
+    "plugins/messaging",
+    "plugins/payments",
+    "plugins/search",
+    "plugins/settings",
 
     "services/media_service",
     "services/search_service",
@@ -49,6 +71,14 @@ chrono = { version = "0.4", features = ["serde"] }
 async-trait = "0.1"
 toml = "1.1.2"
 dotenvy = "0.15.7"
+
+redis = { version = "1.3.0", features = ["tokio-comp", "streams"] }
+futures-util = "0.3"
+jsonwebtoken = "9"
+bcrypt = "0.15"
+base64 = "0.22"
+sha2 = "0.10"
+hex = "0.4"
 
 actix-web = "4"
 sqlx = { version = "0.9.0", features = ["chrono", "migrate", "postgres", "runtime-tokio", "uuid"] }

@@ -16,7 +16,10 @@ path = "src/main.rs"
 [dependencies]
 dioxus = { version = "0.7", features = ["fullstack"] }
 serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 anyhow = "1"
+uuid = { version = "1", features = ["serde"] }
+chrono = { version = "0.4", features = ["serde"] }
 
 # Server-only dependencies: SQLx (PostgreSQL) and dotenvy. These cannot be
 # compiled to WASM, so they are optional and only enabled by the `server`
@@ -24,10 +27,19 @@ anyhow = "1"
 sqlx = { version = "0.9", optional = true, default-features = false, features = ["runtime-tokio", "postgres", "chrono", "uuid"] }
 dotenvy = { version = "0.15", optional = true }
 
+# Server-only bridge to the plugin system: request/response RPC with the auth
+# plugin over the Redis messaging layer (shared crates, referenced by path).
+cache = { path = "../../crates/cache", optional = true }
+messaging_core = { path = "../../crates/messaging_core", optional = true }
+
+# Server-only: the live-session WebSocket signaling relay (video/chat/whiteboard).
+tokio = { version = "1", optional = true, features = ["rt-multi-thread", "macros", "sync"] }
+futures-util = { version = "0.3", optional = true }
+
 [features]
 # `web` targets the WASM client, `server` targets the native fullstack server
 # (Axum + SQLx). `dx` enables the right one automatically per platform.
 default = []
-server = ["dioxus/server", "dep:sqlx", "dep:dotenvy"]
+server = ["dioxus/server", "dep:sqlx", "dep:dotenvy", "dep:cache", "dep:messaging_core", "dep:tokio", "dep:futures-util"]
 web = ["dioxus/web"]
 

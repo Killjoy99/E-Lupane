@@ -1,0 +1,32 @@
+id = "com.elupane.academics"
+name = "Academics"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Academic structure and curriculum: faculties, departments, programs, academic years, semesters, cohorts, course offerings"
+runtime = "process"
+language = "rust"
+entry = "target/debug/academics"
+ui = "/ui"
+api = "/api"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "academics.faculty.read",
+  "academics.faculty.write",
+  "academics.department.read",
+  "academics.department.write",
+  "academics.program.read",
+  "academics.program.write",
+  "academics.year.read",
+  "academics.year.write",
+  "academics.semester.read",
+  "academics.semester.write",
+  "academics.class.read",
+  "academics.class.write",
+  "academics.offering.read",
+  "academics.offering.write",
+  "events.subscribe"
+]
+dependencies = ["com.elupane.auth", "com.elupane.institution_management", "com.elupane.course_management"]
+

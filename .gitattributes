@@ -1,0 +1,7 @@
+# Normalise all text files; keep the working tree consistent across Windows/WSL.
+* text=auto
+
+# Shell scripts must always be LF so their shebangs (#!/usr/bin/env bash)
+# work when executed from WSL/Linux — a CRLF here produces
+# `env: 'bash\r': No such file or directory`.
+*.sh text eol=lf

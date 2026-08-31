@@ -1,0 +1,1093 @@
+warning: D:\Work\E-Lupane\plugins\frontend\Cargo.toml: file `D:\Work\E-Lupane\plugins\frontend\src\main.rs` found to be present in multiple build targets:
+  * `lib` target `frontend`
+  * `bin` target `frontend`
+    Checking web-sys v0.3.104
+    Checking wasm-streams v0.4.2
+    Checking gloo-utils v0.2.0
+    Checking dioxus-asset-resolver v0.7.10
+    Checking dioxus-interpreter-js v0.7.10
+    Checking gloo-net v0.6.0
+    Checking dioxus-fullstack v0.7.10
+    Checking dioxus-web v0.7.10
+    Checking dioxus v0.7.10
+    Checking frontend v0.1.0 (D:\Work\E-Lupane\plugins\frontend)
+warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:19:9
+   |
+19 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:25:9
+   |
+25 |     let mut assignments = use_resource(move || {
+   |         ----^^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:101:9
+    |
+101 |     let mut data = use_resource(move || {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:190:9
+    |
+190 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:191:9
+    |
+191 |     let mut message: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:309:9
+    |
+309 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:420:9
+    |
+420 |     let mut submissions = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:505:33
+    |
+505 | ...                   let mut marks = marks;
+    |                           ----^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:506:33
+    |
+506 | ...                   let mut comments = comments;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:507:33
+    |
+507 | ...                   let mut feedback = feedback;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:477:9
+    |
+477 |     let mut done: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:538:9
+    |
+538 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:548:9
+    |
+548 |     let mut assignments = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src\courses_ui.rs:16:9
+   |
+16 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src\courses_ui.rs:22:9
+   |
+22 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\courses_ui.rs:145:9
+    |
+145 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\courses_ui.rs:153:9
+    |
+153 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\courses_ui.rs:297:9
+    |
+297 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\courses_ui.rs:298:9
+    |
+298 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:30:9
+   |
+30 |     let mut enrl = use_resource(move || {
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:94:9
+   |
+94 |     let mut roster = use_resource(move || {
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:219:9
+    |
+219 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:220:9
+    |
+220 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:367:9
+    |
+367 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `user_name`
+   --> src\dashboard.rs:355:10
+    |
+355 |     let (user_name, user_sub) = match &session {
+    |          ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_user_name`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `user_sub`
+   --> src\dashboard.rs:355:21
+    |
+355 |     let (user_name, user_sub) = match &session {
+    |                     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_user_sub`
+
+warning: variable does not need to be mutable
+   --> src\dashboard.rs:609:9
+    |
+609 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: constant `MAIN_CSS` is never used
+ --> src\main.rs:7:7
+  |
+7 | const MAIN_CSS: Asset = asset!("/assets/main.css");
+  |       ^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `DASHBOARD_CSS` is never used
+ --> src\main.rs:8:7
+  |
+8 | const DASHBOARD_CSS: Asset = asset!("/assets/dashboard.css");
+  |       ^^^^^^^^^^^^^
+
+warning: function `main` is never used
+  --> src\main.rs:57:4
+   |
+57 | fn main() {
+   |    ^^^^
+
+warning: function `app` is never used
+  --> src\main.rs:95:4
+   |
+95 | fn app() -> Element {
+   |    ^^^
+
+warning: struct `ResourceView` is never constructed
+  --> src\assignments_types.rs:28:12
+   |
+28 | pub struct ResourceView {
+   |            ^^^^^^^^^^^^
+
+warning: struct `GradeView` is never constructed
+  --> src\assignments_types.rs:71:12
+   |
+71 | pub struct GradeView {
+   |            ^^^^^^^^^
+
+warning: struct `GradeHistoryEntry` is never constructed
+  --> src\assignments_types.rs:85:12
+   |
+85 | pub struct GradeHistoryEntry {
+   |            ^^^^^^^^^^^^^^^^^
+
+warning: struct `GradeHistoryView` is never constructed
+  --> src\assignments_types.rs:97:12
+   |
+97 | pub struct GradeHistoryView {
+   |            ^^^^^^^^^^^^^^^^
+
+warning: struct `DownloadView` is never constructed
+   --> src\assignments_types.rs:102:12
+    |
+102 | pub struct DownloadView {
+    |            ^^^^^^^^^^^^
+
+warning: struct `AssignmentInput` is never constructed
+   --> src\assignments_types.rs:113:12
+    |
+113 | pub struct AssignmentInput {
+    |            ^^^^^^^^^^^^^^^
+
+warning: struct `FileUploadInput` is never constructed
+   --> src\assignments_types.rs:128:12
+    |
+128 | pub struct FileUploadInput {
+    |            ^^^^^^^^^^^^^^^
+
+warning: struct `LinkInput` is never constructed
+   --> src\assignments_types.rs:136:12
+    |
+136 | pub struct LinkInput {
+    |            ^^^^^^^^^
+
+warning: struct `CourseInput` is never constructed
+  --> src\course_types.rs:37:12
+   |
+37 | pub struct CourseInput {
+   |            ^^^^^^^^^^^
+
+warning: constant `COURSE_STATUSES` is never used
+  --> src\course_types.rs:57:11
+   |
+57 | pub const COURSE_STATUSES: [&str; 5] = [
+   |           ^^^^^^^^^^^^^^^
+
+warning: function `course_status_label` is never used
+  --> src\course_types.rs:66:8
+   |
+66 | pub fn course_status_label(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^^^^^^^^^
+
+warning: function `course_status_tone` is never used
+  --> src\course_types.rs:78:8
+   |
+78 | pub fn course_status_tone(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^^^^^^^^
+
+warning: function `can_publish_from` is never used
+  --> src\course_types.rs:89:8
+   |
+89 | pub fn can_publish_from(status: &str) -> bool {
+   |        ^^^^^^^^^^^^^^^^
+
+warning: function `can_manage_course` is never used
+  --> src\course_types.rs:94:8
+   |
+94 | pub fn can_manage_course(course: &CourseView, user_id: Uuid, is_admin: bool) -> bool {
+   |        ^^^^^^^^^^^^^^^^^
+
+warning: struct `HistoryView` is never constructed
+  --> src\enrollment_types.rs:31:12
+   |
+31 | pub struct HistoryView {
+   |            ^^^^^^^^^^^
+
+warning: struct `InviteView` is never constructed
+  --> src\enrollment_types.rs:42:12
+   |
+42 | pub struct InviteView {
+   |            ^^^^^^^^^^
+
+warning: struct `BulkEntryResult` is never constructed
+  --> src\enrollment_types.rs:56:12
+   |
+56 | pub struct BulkEntryResult {
+   |            ^^^^^^^^^^^^^^^
+
+warning: struct `BulkEnrollView` is never constructed
+  --> src\enrollment_types.rs:65:12
+   |
+65 | pub struct BulkEnrollView {
+   |            ^^^^^^^^^^^^^^
+
+warning: struct `AccessView` is never constructed
+  --> src\enrollment_types.rs:74:12
+   |
+74 | pub struct AccessView {
+   |            ^^^^^^^^^^
+
+warning: constant `ENROLLMENT_STATES` is never used
+  --> src\enrollment_types.rs:85:11
+   |
+85 | pub const ENROLLMENT_STATES: [&str; 6] = [
+   |           ^^^^^^^^^^^^^^^^^
+
+warning: function `state_label` is never used
+  --> src\enrollment_types.rs:95:8
+   |
+95 | pub fn state_label(state: &str) -> &'static str {
+   |        ^^^^^^^^^^^
+
+warning: function `state_tone` is never used
+   --> src\enrollment_types.rs:108:8
+    |
+108 | pub fn state_tone(state: &str) -> &'static str {
+    |        ^^^^^^^^^^
+
+warning: function `available_transitions` is never used
+   --> src\enrollment_types.rs:121:8
+    |
+121 | pub fn available_transitions(state: &str) -> &'static [(&'static str, &'static str)] {
+    |        ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `own_action` is never used
+   --> src\enrollment_types.rs:136:8
+    |
+136 | pub fn own_action(state: &str) -> Option<(&'static str, &'static str)> {
+    |        ^^^^^^^^^^
+
+warning: function `fmt_dt` is never used
+ --> src\ui_helpers.rs:6:8
+  |
+6 | pub fn fmt_dt(dt: Option<chrono::DateTime<chrono::Utc>>) -> String {
+  |        ^^^^^^
+
+warning: function `read_file_base64` is never used
+  --> src\ui_helpers.rs:14:14
+   |
+14 | pub async fn read_file_base64(input_id: &str) -> Option<assignments_types::FileUploadInput> {
+   |              ^^^^^^^^^^^^^^^^
+
+warning: function `run_student_submit` is never used
+   --> src\assignments_ui.rs:243:10
+    |
+243 | async fn run_student_submit(
+    |          ^^^^^^^^^^^^^^^^^^
+
+warning: variants `AddStudent`, `Bulk`, and `Invite` are never constructed
+   --> src\enrollments_ui.rs:199:5
+    |
+198 | enum EditorMode {
+    |      ---------- variants in this enum
+199 |     AddStudent,
+    |     ^^^^^^^^^^
+200 |     Bulk,
+    |     ^^^^
+201 |     Invite,
+    |     ^^^^^^
+    |
+    = note: `EditorMode` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: struct `Course` is never constructed
+ --> src\mock_data.rs:6:19
+  |
+6 | pub(crate) struct Course {
+  |                   ^^^^^^
+
+warning: constant `COURSES` is never used
+  --> src\mock_data.rs:17:18
+   |
+17 | pub(crate) const COURSES: &[Course] = &[
+   |                  ^^^^^^^
+
+warning: struct `Assignment` is never constructed
+  --> src\mock_data.rs:25:19
+   |
+25 | pub(crate) struct Assignment {
+   |                   ^^^^^^^^^^
+
+warning: constant `ASSIGNMENTS` is never used
+  --> src\mock_data.rs:33:18
+   |
+33 | pub(crate) const ASSIGNMENTS: &[Assignment] = &[
+   |                  ^^^^^^^^^^^
+
+warning: struct `Quiz` is never constructed
+  --> src\mock_data.rs:40:19
+   |
+40 | pub(crate) struct Quiz {
+   |                   ^^^^
+
+warning: constant `QUIZZES` is never used
+  --> src\mock_data.rs:47:18
+   |
+47 | pub(crate) const QUIZZES: &[Quiz] = &[
+   |                  ^^^^^^^
+
+warning: struct `Announcement` is never constructed
+  --> src\mock_data.rs:52:19
+   |
+52 | pub(crate) struct Announcement {
+   |                   ^^^^^^^^^^^^
+
+warning: constant `ANNOUNCEMENTS` is never used
+  --> src\mock_data.rs:59:18
+   |
+59 | pub(crate) const ANNOUNCEMENTS: &[Announcement] = &[
+   |                  ^^^^^^^^^^^^^
+
+warning: struct `StudentRow` is never constructed
+  --> src\mock_data.rs:65:19
+   |
+65 | pub(crate) struct StudentRow {
+   |                   ^^^^^^^^^^
+
+warning: constant `ROSTER` is never used
+  --> src\mock_data.rs:73:18
+   |
+73 | pub(crate) const ROSTER: &[StudentRow] = &[
+   |                  ^^^^^^
+
+warning: struct `Submission` is never constructed
+  --> src\mock_data.rs:82:19
+   |
+82 | pub(crate) struct Submission {
+   |                   ^^^^^^^^^^
+
+warning: constant `SUBMISSIONS` is never used
+  --> src\mock_data.rs:90:18
+   |
+90 | pub(crate) const SUBMISSIONS: &[Submission] = &[
+   |                  ^^^^^^^^^^^
+
+warning: struct `Deadline` is never constructed
+  --> src\mock_data.rs:97:19
+   |
+97 | pub(crate) struct Deadline {
+   |                   ^^^^^^^^
+
+warning: constant `DEADLINES` is never used
+   --> src\mock_data.rs:104:18
+    |
+104 | pub(crate) const DEADLINES: &[Deadline] = &[
+    |                  ^^^^^^^^^
+
+warning: struct `PluginRow` is never constructed
+   --> src\mock_data.rs:111:19
+    |
+111 | pub(crate) struct PluginRow {
+    |                   ^^^^^^^^^
+
+warning: constant `PLUGINS` is never used
+   --> src\mock_data.rs:120:18
+    |
+120 | pub(crate) const PLUGINS: &[PluginRow] = &[
+    |                  ^^^^^^^
+
+warning: struct `Service` is never constructed
+   --> src\mock_data.rs:129:19
+    |
+129 | pub(crate) struct Service {
+    |                   ^^^^^^^
+
+warning: constant `SERVICES` is never used
+   --> src\mock_data.rs:135:18
+    |
+135 | pub(crate) const SERVICES: &[Service] = &[
+    |                  ^^^^^^^^
+
+warning: struct `Sdk` is never constructed
+   --> src\mock_data.rs:144:19
+    |
+144 | pub(crate) struct Sdk {
+    |                   ^^^
+
+warning: constant `SDKS` is never used
+   --> src\mock_data.rs:151:18
+    |
+151 | pub(crate) const SDKS: &[Sdk] = &[
+    |                  ^^^^
+
+warning: struct `UserRow` is never constructed
+   --> src\mock_data.rs:159:19
+    |
+159 | pub(crate) struct UserRow {
+    |                   ^^^^^^^
+
+warning: constant `USERS` is never used
+   --> src\mock_data.rs:167:18
+    |
+167 | pub(crate) const USERS: &[UserRow] = &[
+    |                  ^^^^^
+
+warning: struct `Institution` is never constructed
+   --> src\mock_data.rs:176:19
+    |
+176 | pub(crate) struct Institution {
+    |                   ^^^^^^^^^^^
+
+warning: constant `INSTITUTIONS` is never used
+   --> src\mock_data.rs:183:18
+    |
+183 | pub(crate) const INSTITUTIONS: &[Institution] = &[
+    |                  ^^^^^^^^^^^^
+
+warning: struct `Approval` is never constructed
+   --> src\mock_data.rs:190:19
+    |
+190 | pub(crate) struct Approval {
+    |                   ^^^^^^^^
+
+warning: constant `APPROVALS` is never used
+   --> src\mock_data.rs:197:18
+    |
+197 | pub(crate) const APPROVALS: &[Approval] = &[
+    |                  ^^^^^^^^^
+
+warning: struct `Activity` is never constructed
+   --> src\mock_data.rs:202:19
+    |
+202 | pub(crate) struct Activity {
+    |                   ^^^^^^^^
+
+warning: constant `ACTIVITY` is never used
+   --> src\mock_data.rs:209:18
+    |
+209 | pub(crate) const ACTIVITY: &[Activity] = &[
+    |                  ^^^^^^^^
+
+warning: constant `ROLE_SPLIT` is never used
+   --> src\mock_data.rs:216:18
+    |
+216 | pub(crate) const ROLE_SPLIT: &[(&str, u32, &str)] = &[
+    |                  ^^^^^^^^^^
+
+warning: struct `Msg` is never constructed
+   --> src\mock_data.rs:225:19
+    |
+225 | pub(crate) struct Msg {
+    |                   ^^^
+
+warning: struct `Conversation` is never constructed
+   --> src\mock_data.rs:231:19
+    |
+231 | pub(crate) struct Conversation {
+    |                   ^^^^^^^^^^^^
+
+warning: constant `CONVERSATIONS` is never used
+   --> src\mock_data.rs:243:18
+    |
+243 | pub(crate) const CONVERSATIONS: &[Conversation] = &[
+    |                  ^^^^^^^^^^^^^
+
+warning: constant `WEEKLY_ACTIVITY` is never used
+   --> src\mock_data.rs:306:18
+    |
+306 | pub(crate) const WEEKLY_ACTIVITY: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^^^^^^
+
+warning: constant `ENGAGEMENT` is never used
+   --> src\mock_data.rs:316:18
+    |
+316 | pub(crate) const ENGAGEMENT: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^
+
+warning: constant `GRADE_DIST` is never used
+   --> src\mock_data.rs:324:18
+    |
+324 | pub(crate) const GRADE_DIST: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^
+
+warning: constant `WEEKLY_TREND` is never used
+   --> src\mock_data.rs:332:18
+    |
+332 | pub(crate) const WEEKLY_TREND: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^^^
+
+warning: struct `TtSlot` is never constructed
+   --> src\mock_data.rs:343:19
+    |
+343 | pub(crate) struct TtSlot {
+    |                   ^^^^^^
+
+warning: struct `TtDay` is never constructed
+   --> src\mock_data.rs:350:19
+    |
+350 | pub(crate) struct TtDay {
+    |                   ^^^^^
+
+warning: constant `TIMETABLE` is never used
+   --> src\mock_data.rs:355:18
+    |
+355 | pub(crate) const TIMETABLE: &[TtDay] = &[
+    |                  ^^^^^^^^^
+
+warning: struct `Certificate` is never constructed
+   --> src\mock_data.rs:395:19
+    |
+395 | pub(crate) struct Certificate {
+    |                   ^^^^^^^^^^^
+
+warning: constant `CERTIFICATES` is never used
+   --> src\mock_data.rs:404:18
+    |
+404 | pub(crate) const CERTIFICATES: &[Certificate] = &[
+    |                  ^^^^^^^^^^^^
+
+warning: struct `ApiEndpoint` is never constructed
+   --> src\mock_data.rs:412:19
+    |
+412 | pub(crate) struct ApiEndpoint {
+    |                   ^^^^^^^^^^^
+
+warning: struct `ApiGroup` is never constructed
+   --> src\mock_data.rs:419:19
+    |
+419 | pub(crate) struct ApiGroup {
+    |                   ^^^^^^^^
+
+warning: constant `API_GROUPS` is never used
+   --> src\mock_data.rs:425:18
+    |
+425 | pub(crate) const API_GROUPS: &[ApiGroup] = &[
+    |                  ^^^^^^^^^^
+
+warning: struct `Webhook` is never constructed
+   --> src\mock_data.rs:470:19
+    |
+470 | pub(crate) struct Webhook {
+    |                   ^^^^^^^
+
+warning: constant `WEBHOOKS` is never used
+   --> src\mock_data.rs:477:18
+    |
+477 | pub(crate) const WEBHOOKS: &[Webhook] = &[
+    |                  ^^^^^^^^
+
+warning: constant `ROLES` is never used
+   --> src\mock_data.rs:486:18
+    |
+486 | pub(crate) const ROLES: &[&str] = &["Super admin", "Institution admin", "Lecturer", "Student", "Developer"];
+    |                  ^^^^^
+
+warning: constant `ROLE_ICONS` is never used
+   --> src\mock_data.rs:487:18
+    |
+487 | pub(crate) const ROLE_ICONS: &[(&str, &str)] = &[
+    |                  ^^^^^^^^^^
+
+warning: constant `PERMISSIONS` is never used
+   --> src\mock_data.rs:495:18
+    |
+495 | pub(crate) const PERMISSIONS: &[(&str, &str)] = &[
+    |                  ^^^^^^^^^^^
+
+warning: constant `PERM_MATRIX` is never used
+   --> src\mock_data.rs:507:18
+    |
+507 | pub(crate) const PERM_MATRIX: &[&[bool]] = &[
+    |                  ^^^^^^^^^^^
+
+warning: constant `AUDIT_LOG` is never used
+   --> src\mock_data.rs:520:18
+    |
+520 | pub(crate) const AUDIT_LOG: &[(&str, &str, &str, &str)] = &[
+    |                  ^^^^^^^^^
+
+warning: constant `NOTIFICATIONS` is never used
+   --> src\mock_data.rs:531:18
+    |
+531 | pub(crate) const NOTIFICATIONS: &[(&str, &str, &str, &str)] = &[
+    |                  ^^^^^^^^^^^^^
+
+warning: struct `Lesson` is never constructed
+   --> src\mock_data.rs:541:19
+    |
+541 | pub(crate) struct Lesson {
+    |                   ^^^^^^
+
+warning: constant `LESSONS` is never used
+   --> src\mock_data.rs:554:18
+    |
+554 | pub(crate) const LESSONS: &[Lesson] = &[
+    |                  ^^^^^^^
+
+warning: constant `ROOM_PARTICIPANTS` is never used
+   --> src\mock_data.rs:562:18
+    |
+562 | pub(crate) const ROOM_PARTICIPANTS: &[(&str, &str, &str, bool, bool)] = &[
+    |                  ^^^^^^^^^^^^^^^^^
+
+warning: constant `LOCAL_MEDIA_JS` is never used
+   --> src\mock_data.rs:573:18
+    |
+573 | pub(crate) const LOCAL_MEDIA_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+warning: constant `START_SHARE_JS` is never used
+   --> src\mock_data.rs:582:18
+    |
+582 | pub(crate) const START_SHARE_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+warning: constant `STOP_SHARE_JS` is never used
+   --> src\mock_data.rs:599:18
+    |
+599 | pub(crate) const STOP_SHARE_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+warning: constant `STOP_MEDIA_JS` is never used
+   --> src\mock_data.rs:606:18
+    |
+606 | pub(crate) const STOP_MEDIA_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+warning: function `pct` is never used
+  --> src\mock_pages.rs:13:8
+   |
+13 | pub fn pct(v: f64) -> String {
+   |        ^^^
+
+warning: function `course_card` is never used
+  --> src\mock_pages.rs:17:8
+   |
+17 | pub fn course_card(c: &Course) -> Element {
+   |        ^^^^^^^^^^^
+
+warning: function `bar_chart` is never used
+  --> src\mock_pages.rs:40:8
+   |
+40 | pub fn bar_chart(data: &'static [(&'static str, f64, &'static str)]) -> Element {
+   |        ^^^^^^^^^
+
+warning: function `h_bar` is never used
+  --> src\mock_pages.rs:59:8
+   |
+59 | pub fn h_bar(label: &str, value: f64, tone: &str) -> Element {
+   |        ^^^^^
+
+warning: function `student_overview` is never used
+  --> src\mock_pages.rs:76:8
+   |
+76 | pub fn student_overview(search: &str) -> Element {
+   |        ^^^^^^^^^^^^^^^^
+
+warning: function `student_timetable` is never used
+   --> src\mock_pages.rs:193:8
+    |
+193 | pub fn student_timetable() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+warning: function `student_certificates` is never used
+   --> src\mock_pages.rs:220:8
+    |
+220 | pub fn student_certificates() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `push_message` is never used
+   --> src\mock_pages.rs:251:8
+    |
+251 | pub fn push_message(
+    |        ^^^^^^^^^^^^
+
+warning: function `student_grades` is never used
+   --> src\mock_pages.rs:355:8
+    |
+355 | pub fn student_grades() -> Element {
+    |        ^^^^^^^^^^^^^^
+
+warning: function `lecturer_course_card` is never used
+   --> src\mock_pages.rs:397:8
+    |
+397 | pub fn lecturer_course_card(c: &Course) -> Element {
+    |        ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `lecturer_overview` is never used
+   --> src\mock_pages.rs:426:8
+    |
+426 | pub fn lecturer_overview() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+warning: function `lecturer_students` is never used
+   --> src\mock_pages.rs:510:8
+    |
+510 | pub fn lecturer_students() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+warning: function `lecturer_gradebook` is never used
+   --> src\mock_pages.rs:542:8
+    |
+542 | pub fn lecturer_gradebook() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+warning: function `lecturer_analytics` is never used
+   --> src\mock_pages.rs:584:8
+    |
+584 | pub fn lecturer_analytics() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+warning: function `DeveloperOverview` is never used
+   --> src\mock_pages.rs:667:8
+    |
+667 | pub fn DeveloperOverview() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+warning: function `developer_plugins` is never used
+   --> src\mock_pages.rs:792:8
+    |
+792 | pub fn developer_plugins(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+warning: function `developer_sdks` is never used
+   --> src\mock_pages.rs:848:8
+    |
+848 | pub fn developer_sdks() -> Element {
+    |        ^^^^^^^^^^^^^^
+
+warning: function `developer_docs` is never used
+   --> src\mock_pages.rs:881:8
+    |
+881 | pub fn developer_docs(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^
+
+warning: function `developer_webhooks` is never used
+   --> src\mock_pages.rs:924:8
+    |
+924 | pub fn developer_webhooks() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+warning: function `developer_system` is never used
+    --> src\mock_pages.rs:1009:8
+     |
+1009 | pub fn developer_system() -> Element {
+     |        ^^^^^^^^^^^^^^^^
+
+warning: function `admin_overview` is never used
+    --> src\mock_pages.rs:1070:8
+     |
+1070 | pub fn admin_overview() -> Element {
+     |        ^^^^^^^^^^^^^^
+
+warning: function `admin_users` is never used
+    --> src\mock_pages.rs:1157:8
+     |
+1157 | pub fn admin_users(search: &str) -> Element {
+     |        ^^^^^^^^^^^
+
+warning: function `admin_institutions` is never used
+    --> src\mock_pages.rs:1204:8
+     |
+1204 | pub fn admin_institutions(search: &str) -> Element {
+     |        ^^^^^^^^^^^^^^^^^^
+
+warning: function `admin_audit` is never used
+    --> src\mock_pages.rs:1397:8
+     |
+1397 | pub fn admin_audit() -> Element {
+     |        ^^^^^^^^^^^
+
+warning: function `push_chat` is never used
+    --> src\mock_pages.rs:1424:8
+     |
+1424 | pub fn push_chat(mut chat: Signal<Vec<(bool, String)>>, mut draft: Signal<String>) {
+     |        ^^^^^^^^^
+
+warning: struct `Health` is never constructed
+  --> src\server_functions.rs:72:12
+   |
+72 | pub struct Health {
+   |            ^^^^^^
+
+warning: struct `Course` is never constructed
+  --> src\server_functions.rs:78:12
+   |
+78 | pub struct Course {
+   |            ^^^^^^
+
+warning: function `Icon` is never used
+  --> src\components.rs:10:8
+   |
+10 | pub fn Icon(name: &'static str, class: Option<&'static str>) -> Element {
+   |        ^^^^
+
+warning: function `Divider` is never used
+   --> src\components.rs:184:8
+    |
+184 | pub fn Divider(class: Option<&'static str>) -> Element {
+    |        ^^^^^^^
+
+warning: variants `Student`, `Lecturer`, `Developer`, and `Admin` are never constructed
+  --> src\dashboard.rs:20:5
+   |
+19 | pub enum Role {
+   |          ---- variants in this enum
+20 |     Student,
+   |     ^^^^^^^
+21 |     Lecturer,
+   |     ^^^^^^^^
+22 |     Developer,
+   |     ^^^^^^^^^
+23 |     Admin,
+   |     ^^^^^
+   |
+   = note: `Role` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: associated items `ALL`, `label`, and `icon` are never used
+  --> src\dashboard.rs:27:11
+   |
+26 | impl Role {
+   | --------- associated items in this implementation
+27 |     const ALL: [Role; 4] = [Role::Student, Role::Lecturer, Role::Developer, Role::Admin];
+   |           ^^^
+28 |
+29 |     pub(crate) fn label(self) -> &'static str {
+   |                   ^^^^^
+...
+38 |     pub(crate) fn icon(self) -> &'static str {
+   |                   ^^^^
+
+warning: struct `Persona` is never constructed
+  --> src\dashboard.rs:48:19
+   |
+48 | pub(crate) struct Persona {
+   |                   ^^^^^^^
+
+warning: function `persona` is never used
+  --> src\dashboard.rs:55:15
+   |
+55 | pub(crate) fn persona(role: Role) -> &'static Persona {
+   |               ^^^^^^^
+
+warning: function `greeting` is never used
+  --> src\dashboard.rs:84:15
+   |
+84 | pub(crate) fn greeting(role: Role) -> &'static str {
+   |               ^^^^^^^^
+
+warning: struct `NavItem` is never constructed
+  --> src\dashboard.rs:97:8
+   |
+97 | struct NavItem {
+   |        ^^^^^^^
+
+warning: function `nav_items` is never used
+   --> src\dashboard.rs:103:4
+    |
+103 | fn nav_items(role: Role) -> &'static [NavItem] {
+    |    ^^^^^^^^^
+
+warning: struct `UiCtx` is never constructed
+   --> src\dashboard.rs:152:19
+    |
+152 | pub(crate) struct UiCtx {
+    |                   ^^^^^
+
+warning: function `Dashboard` is never used
+   --> src\dashboard.rs:166:8
+    |
+166 | pub fn Dashboard() -> Element {
+    |        ^^^^^^^^^
+
+warning: function `render_page` is never used
+   --> src\dashboard.rs:487:4
+    |
+487 | fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'static str>) -> Element {
+    |    ^^^^^^^^^^^
+
+warning: function `role_for_roles` is never used
+   --> src\dashboard.rs:541:4
+    |
+541 | fn role_for_roles(roles: &[String]) -> Role {
+    |    ^^^^^^^^^^^^^^
+
+warning: function `initials_of` is never used
+   --> src\dashboard.rs:563:4
+    |
+563 | fn initials_of(full_name: &str) -> String {
+    |    ^^^^^^^^^^^
+
+warning: function `perform_login` is never used
+   --> src\dashboard.rs:578:10
+    |
+578 | async fn perform_login(
+    |          ^^^^^^^^^^^^^
+
+warning: `frontend` (lib) generated 160 warnings (run `cargo fix --lib -p frontend` to apply 27 suggestions)
+warning: struct `GradeHistoryEntry` is never constructed
+  --> src\assignments_types.rs:85:12
+   |
+85 | pub struct GradeHistoryEntry {
+   |            ^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `grade` is never read
+  --> src\mock_data.rs:30:9
+   |
+25 | pub(crate) struct Assignment {
+   |                   ---------- field in this struct
+...
+30 |     pub grade: Option<&'static str>,
+   |         ^^^^^
+
+warning: field `body` is never read
+  --> src\mock_data.rs:54:9
+   |
+52 | pub(crate) struct Announcement {
+   |                   ------------ field in this struct
+53 |     pub title: &'static str,
+54 |     pub body: &'static str,
+   |         ^^^^
+
+warning: field `initials` is never read
+  --> src\dashboard.rs:51:5
+   |
+48 | pub(crate) struct Persona {
+   |                   ------- field in this struct
+...
+51 |     initials: &'static str,
+   |     ^^^^^^^^
+
+warning: `frontend` (bin "frontend") generated 43 warnings (39 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 27.48s

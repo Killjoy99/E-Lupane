@@ -1,0 +1,21 @@
+id = "com.elupane.live_classes"
+name = "Live Classes"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Live learning sessions: scheduling, attendance, chat and session resources"
+runtime = "process"
+language = "rust"
+entry = "target/debug/live_classes"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "live_classes.read",
+  "live_classes.write",
+  "events.subscribe"
+]
+dependencies = [
+  "com.elupane.auth",
+  "com.elupane.course_management",
+  "com.elupane.enrollments"
+]

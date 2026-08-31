@@ -5,33 +5,35 @@
 :root {
     color-scheme: light;
 
-    /* MD3 color tokens — light scheme */
-    --md-primary: #006a60;
+    /* MD3 color tokens — LSU (Lupane State University) light scheme */
+    --md-primary: #d71920;
     --md-on-primary: #ffffff;
-    --md-primary-container: #74f8e8;
-    --md-on-primary-container: #00201c;
-    --md-secondary: #4a635f;
+    --md-primary-container: #ffdad5;
+    --md-on-primary-container: #410002;
+    --md-secondary: #b44300;
     --md-on-secondary: #ffffff;
-    --md-secondary-container: #cce8e2;
-    --md-on-secondary-container: #06201c;
-    --md-tertiary: #4c5c92;
-    --md-tertiary-container: #dce1ff;
+    --md-secondary-container: #ffdbc9;
+    --md-on-secondary-container: #361400;
+    --md-tertiary: #725900;
+    --md-on-tertiary: #ffffff;
+    --md-tertiary-container: #ffe082;
+    --md-on-tertiary-container: #221a00;
     --md-error: #ba1a1a;
     --md-on-error: #ffffff;
     --md-error-container: #ffdad6;
     --md-on-error-container: #410002;
-    --md-background: #fafdfb;
-    --md-on-background: #191c1b;
-    --md-surface: #fafdfb;
-    --md-on-surface: #191c1b;
-    --md-on-surface-variant: #3f4946;
+    --md-background: #ffffff;
+    --md-on-background: #111111;
+    --md-surface: #f6f4ee;
+    --md-on-surface: #111111;
+    --md-on-surface-variant: #4a4a45;
     --md-surface-container-lowest: #ffffff;
-    --md-surface-container-low: #f4fbf8;
-    --md-surface-container: #eef5f2;
-    --md-surface-container-high: #e8efec;
-    --md-surface-container-highest: #e2e9e6;
-    --md-outline: #6f7976;
-    --md-outline-variant: #bec9c5;
+    --md-surface-container-low: #f0eee6;
+    --md-surface-container: #e9e7de;
+    --md-surface-container-high: #dcdad1;
+    --md-surface-container-highest: #d1cfc5;
+    --md-outline: #6f6f68;
+    --md-outline-variant: #c5c3ba;
 
     /* MD3 elevation (light) */
     --md-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
@@ -42,6 +44,44 @@
     --md-radius-lg: 16px;
     --md-radius-md: 12px;
     --md-radius-full: 999px;
+}
+
+/* LSU dark scheme */
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    --md-primary: #f0554f;
+    --md-on-primary: #410003;
+    --md-primary-container: #5c0d10;
+    --md-on-primary-container: #ffdad5;
+    --md-secondary: #ff8a4c;
+    --md-on-secondary: #3d1e00;
+    --md-secondary-container: #4a2500;
+    --md-on-secondary-container: #ffdbc9;
+    --md-tertiary: #f5e874;
+    --md-on-tertiary: #3a2f00;
+    --md-tertiary-container: #544600;
+    --md-on-tertiary-container: #fff09c;
+    --md-error: #ffb4ab;
+    --md-on-error: #690005;
+    --md-error-container: #93000a;
+    --md-on-error-container: #ffdad6;
+    --md-background: #0d0d0d;
+    --md-on-background: #f2f0e9;
+    --md-surface: #1d1d1b;
+    --md-on-surface: #f2f0e9;
+    --md-on-surface-variant: #c5c3b9;
+    --md-surface-container-lowest: #000000;
+    --md-surface-container-low: #232321;
+    --md-surface-container: #1d1d1b;
+    --md-surface-container-high: #2b2b28;
+    --md-surface-container-highest: #363632;
+    --md-outline: #8f8d84;
+    --md-outline-variant: #494945;
+
+    --md-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+    --md-shadow-2: 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
+    --md-shadow-3: 0 4px 8px 3px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -175,38 +215,6 @@ button {
     letter-spacing: 1px;
     color: var(--md-on-surface-variant);
     padding: 14px 16px 6px;
-}
-
-.md-role-btn {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    padding: 10px 14px;
-    border: none;
-    background: transparent;
-    border-radius: var(--md-radius-full);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--md-on-surface-variant);
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.15s;
-}
-
-.md-role-btn:hover {
-    background: var(--md-surface-container-high);
-}
-
-.md-role-btn.active {
-    background: var(--md-secondary-container);
-    color: var(--md-on-secondary-container);
-    font-weight: 600;
-}
-
-.md-role-check {
-    margin-left: auto;
-    font-size: 18px;
 }
 
 .md-nav-item {

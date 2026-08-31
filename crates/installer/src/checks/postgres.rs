@@ -1,12 +1,13 @@
-use std::process::Command;
-
 use crate::report::CheckResult;
+use crate::wsl;
 
 #[derive(Debug)]
 pub struct PostgresStatus {
     pub installed: bool,
     pub running: bool,
     pub version: Option<String>,
+    pub role_ready: bool,
+    pub database_ready: bool,
 }
 
 pub fn check() -> CheckResult {
@@ -16,60 +17,85 @@ pub fn check() -> CheckResult {
         (true, true) => CheckResult::success(
             "PostgreSQL",
             format!(
-                "Installed and running ({})",
-                status.version.unwrap_or_else(|| "unknown".into())
+                "installed & running ({})",
+                status.version.unwrap_or_else(|| "unknown version".into())
             ),
         ),
-
         (true, false) => CheckResult::failure(
             "PostgreSQL",
-            "Installed but not running",
+            "installed but not running",
         ),
-
         _ => CheckResult::failure(
             "PostgreSQL",
-            "Not installed",
+            "not installed",
+        ),
+    }
+}
+
+/// Verify the application role + database have been provisioned.
+pub fn check_config() -> CheckResult {
+    let status = get_status();
+
+    if !status.installed {
+        return CheckResult::failure("PostgreSQL (elupane)", "PostgreSQL not installed");
+    }
+
+    match (status.role_ready, status.database_ready) {
+        (true, true) => CheckResult::success(
+            "PostgreSQL (elupane)",
+            format!("role '{}' + database '{}' ready", crate::DB_USER, crate::DB_NAME),
+        ),
+        (false, _) => CheckResult::failure(
+            "PostgreSQL (elupane)",
+            format!("role '{}' not created", crate::DB_USER),
+        ),
+        _ => CheckResult::failure(
+            "PostgreSQL (elupane)",
+            format!("database '{}' not created", crate::DB_NAME),
         ),
     }
 }
 
 pub fn get_status() -> PostgresStatus {
-    let installed = is_installed();
-    let running = is_running();
-    let version = get_version();
-
     PostgresStatus {
-        installed,
-        running,
-        version,
+        installed: is_installed(),
+        running: is_running(),
+        version: get_version(),
+        role_ready: role_exists(),
+        database_ready: database_exists(),
     }
 }
 
 pub fn is_installed() -> bool {
-    Command::new("psql")
-        .arg("--version")
-        .output()
-        .map(|o| o.status.success())
-        .unwrap_or(false)
+    wsl::run_ok("command -v psql >/dev/null 2>&1 && command -v pg_lsclusters >/dev/null 2>&1")
 }
 
 pub fn is_running() -> bool {
-    Command::new("pg_isready")
-        .output()
-        .map(|o| o.status.success())
-        .unwrap_or(false)
+    wsl::run_ok("pg_isready -h 127.0.0.1 -p 5432")
 }
 
 pub fn get_version() -> Option<String> {
-    let output = Command::new("psql")
-        .arg("--version")
-        .output()
-        .ok()?;
+    let version = wsl::run_output("psql --version");
+    if version.is_empty() {
+        None
+    } else {
+        Some(version)
+    }
+}
 
-    let version =
-        String::from_utf8_lossy(&output.stdout)
-            .trim()
-            .to_string();
+/// Check whether the `elupane` role exists (as the postgres superuser over the
+/// local unix socket via peer auth).
+pub fn role_exists() -> bool {
+    wsl::run_root_output(&format!(
+        "su -s /bin/bash postgres -c \"psql -Atc \\\"SELECT 1 FROM pg_roles WHERE rolname='{}'\\\"\"",
+        crate::DB_USER
+    )) == "1"
+}
 
-    Some(version)
+/// Check whether the `elupane` database exists.
+pub fn database_exists() -> bool {
+    wsl::run_root_output(&format!(
+        "su -s /bin/bash postgres -c \"psql -Atc \\\"SELECT 1 FROM pg_database WHERE datname='{}'\\\"\"",
+        crate::DB_NAME
+    )) == "1"
 }

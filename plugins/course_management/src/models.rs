@@ -1,21 +1,34 @@
-#[derive(sqlx::FromRow)]
+//! Database row models.
+
+use chrono::{DateTime, Utc};
+use serde_json::Value;
+use sqlx::FromRow;
+use uuid::Uuid;
+
+#[derive(Debug, Clone, FromRow)]
+#[allow(dead_code)]
 pub struct Course {
-
     pub id: Uuid,
-
-    pub programme_id: Option<Uuid>,
-
-    pub course_code: String,
-
-    pub course_name: String,
-
-    pub description: Option<String>,
-
-    pub credits: i32,
-
-    pub semester: Option<i32>,
-
-    pub level: Option<i32>,
-
-    pub active: bool,
+    pub code: String,
+    pub title: String,
+    pub short_description: String,
+    pub description: String,
+    pub thumbnail: String,
+    pub banner: String,
+    pub category: String,
+    pub subject: String,
+    pub level: String,
+    pub language: String,
+    pub difficulty: String,
+    pub duration: String,
+    pub learning_objectives: Value,
+    pub target_audience: Value,
+    pub prerequisites: Value,
+    pub tags: Value,
+    pub status: String,
+    pub owner_id: Uuid,
+    pub created_by: Uuid,
+    pub updated_by: Option<Uuid>,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
 }

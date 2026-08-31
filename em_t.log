@@ -1,0 +1,81 @@
+   Compiling enrollments v0.1.0 (/mnt/d/Work/E-Lupane/plugins/enrollments)
+warning: struct `Caller` is never constructed
+   --> plugins/enrollments/src/authz.rs:147:12
+    |
+147 | pub struct Caller {
+    |            ^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: associated items `new`, `user_id`, `is_admin`, and `is_instructor` are never used
+   --> plugins/enrollments/src/authz.rs:152:12
+    |
+151 | impl Caller {
+    | ----------- associated items in this implementation
+152 |     pub fn new(claims: Claims) -> Self {
+    |            ^^^
+...
+156 |     pub fn user_id(&self) -> Result<Uuid> {
+    |            ^^^^^^^
+...
+160 |     pub fn is_admin(&self) -> bool {
+    |            ^^^^^^^^
+...
+164 |     pub fn is_instructor(&self) -> bool {
+    |            ^^^^^^^^^^^^^
+
+warning: struct `SetStateRequest` is never constructed
+   --> plugins/enrollments/src/dto.rs:224:12
+    |
+224 | pub struct SetStateRequest {
+    |            ^^^^^^^^^^^^^^^
+
+warning: function `count_enrollments` is never used
+  --> plugins/enrollments/src/repository.rs:73:14
+   |
+73 | pub async fn count_enrollments(pool: &PgPool, course_id: Uuid, state: &str) -> Result<i64> {
+   |              ^^^^^^^^^^^^^^^^^
+
+warning: function `update_enrollment_state` is never used
+   --> plugins/enrollments/src/repository.rs:118:14
+    |
+118 | pub async fn update_enrollment_state(
+    |              ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `expire_due_enrollments` is never used
+   --> plugins/enrollments/src/repository.rs:153:14
+    |
+153 | pub async fn expire_due_enrollments(pool: &PgPool) -> Result<Vec<Uuid>> {
+    |              ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `insert_enrollment` is never used
+   --> plugins/enrollments/src/repository.rs:168:14
+    |
+168 | pub async fn insert_enrollment(
+    |              ^^^^^^^^^^^^^^^^^
+
+warning: `enrollments` (bin "enrollments" test) generated 7 warnings
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.10s
+     Running unittests src/main.rs (target/debug/deps/enrollments-cba64efe8b946346)
+
+running 17 tests
+test dto::tests::active_lifecycle ... ok
+test dto::tests::approval_flow ... ok
+test dto::tests::invite_token_shape ... ok
+test dto::tests::only_active_grants_content_access ... ok
+test authz::tests::rejects_garbage_token ... ok
+test dto::tests::re_enrollment_flows ... ok
+test dto::tests::source_round_trips ... ok
+test dto::tests::state_round_trips ... ok
+test dto::tests::suspension_cycle ... ok
+test authz::tests::unauthorized_lecturer_cannot_enroll_others ... ok
+test authz::tests::token_round_trip ... ok
+test authz::tests::students_can_only_change_their_own_enrollment ... ok
+test authz::tests::instructor_checks_enforced ... ok
+test authz::tests::students_only_enroll_themselves ... ok
+test authz::tests::content_access_requires_active_enrollment_or_manager ... ok
+test authz::tests::only_managers_manage_the_roster ... ok
+test authz::tests::role_classification ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

@@ -1,0 +1,20 @@
+id = "quizzes"
+name = "Quizzes"
+version = "0.1.0"
+description = "Quiz engine with auto-grading, attempts, and question banks."
+
+[permissions]
+quiz_read = ["View quizzes", "quizzes.quiz.read"]
+quiz_write = ["Manage quizzes", "quizzes.quiz.write"]
+question_read = ["View questions", "quizzes.question.read"]
+question_write = ["Manage questions", "quizzes.question.write"]
+attempt_read = ["View attempts", "quizzes.attempt.read"]
+attempt_write = ["Take quizzes", "quizzes.attempt.write"]
+attempt_grade = ["Grade attempts", "quizzes.attempt.grade"]
+events_subscribe = ["Subscribe to events", "events.subscribe"]
+
+[migrations]
+0010 = "migrations/0010_quizzes.sql"
+
+[routes]
+prefix = "/api/quizzes"

@@ -1,0 +1,17 @@
+id = "com.elupane.discussions"
+name = "Discussions"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Discussion forums module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/discussions"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "discussions.read",
+  "discussions.write",
+  "events.subscribe"
+]
+dependencies = []

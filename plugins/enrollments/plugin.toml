@@ -1,0 +1,20 @@
+id = "com.elupane.enrollments"
+name = "Enrollments"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Course enrollment and registration module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/enrollments"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "enrollments.read",
+  "enrollments.write",
+  "events.subscribe"
+]
+dependencies = [
+  "com.elupane.auth",
+  "com.elupane.course_management"
+]

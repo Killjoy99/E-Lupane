@@ -1,0 +1,42 @@
+   Compiling messaging_core v0.1.0 (/mnt/d/Work/E-Lupane/crates/messaging_core)
+   Compiling common v0.1.0 (/mnt/d/Work/E-Lupane/crates/common)
+warning: field `registry` is never read
+  --> crates/plugin_manager/src/lib.rs:19:5
+   |
+17 | pub struct PluginManager {
+   |            ------------- field in this struct
+18 |     plugins: RwLock<HashMap<String, Arc<dyn Plugin>>>,
+19 |     registry: RwLock<PluginRegistry>,
+   |     ^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `plugin_manager` (lib) generated 1 warning
+   Compiling rust_sdk v0.1.0 (/mnt/d/Work/E-Lupane/crates/sdk/rust_sdk)
+   Compiling kernel v0.1.0 (/mnt/d/Work/E-Lupane/crates/kernel)
+   Compiling installer v0.1.0 (/mnt/d/Work/E-Lupane/crates/installer)
+   Compiling auth v0.1.0 (/mnt/d/Work/E-Lupane/plugins/auth)
+warning: function `run_output_err` is never used
+  --> crates/installer/src/wsl.rs:39:8
+   |
+39 | pub fn run_output_err(cmd: &str) -> String {
+   |        ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `InstallerState` is never constructed
+ --> crates/installer/src/installer_state.rs:9:12
+  |
+9 | pub struct InstallerState {
+  |            ^^^^^^^^^^^^^^
+
+warning: function `run_installer` is never used
+  --> crates/installer/src/installer_state.rs:19:8
+   |
+19 | pub fn run_installer() -> anyhow::Result<()> {
+   |        ^^^^^^^^^^^^^
+
+   Compiling gateway v0.1.0 (/mnt/d/Work/E-Lupane/crates/gateway)
+warning: `installer` (bin "installer") generated 3 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 13.33s
+EXIT=0

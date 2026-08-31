@@ -1,29 +1,43 @@
-use tokio::sync::broadcast;
+//! Redis-backed event bus.
+//!
+//! System and domain events are serialised to JSON and broadcast on Redis
+//! Pub/Sub (`elupane:events:system`). This connects the plugin *processes*,
+//! unlike the old in-process `tokio::broadcast` channel.
 
+use anyhow::Result;
+use futures_util::{Stream, StreamExt};
+use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug)]
+/// Well-known system event channel.
+pub const SYSTEM_CHANNEL: &str = "elupane:events:system";
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub enum SystemEvent {
     PluginLoaded(String),
     PluginEnabled(String),
     PluginDisabled(String),
 }
 
-#[derive(Clone)]
-pub struct EventBus {
-    sender: broadcast::Sender<String>,
-}
+/// A thin typed wrapper over the shared Redis client.
+#[derive(Clone, Copy, Default)]
+pub struct EventBus;
 
 impl EventBus {
-    pub fn new(buffer: usize) -> Self {
-        let (sender, _) = broadcast::channel(buffer);
-        Self { sender }
+    pub fn new() -> Self {
+        Self
     }
 
-    pub fn publish(&self, event: String) {
-        let _ = self.sender.send(event);
+    /// Publish a system event to all subscribers.
+    pub async fn publish(&self, event: SystemEvent) -> Result<()> {
+        let payload = serde_json::to_vec(&event)?;
+        cache::pubsub::publish(SYSTEM_CHANNEL, payload).await
     }
 
-    pub fn subscribe(&self) -> broadcast::Receiver<String> {
-        self.sender.subscribe()
+    /// Subscribe to system events (dedicated Pub/Sub connection).
+    pub async fn subscribe(&self) -> Result<impl Stream<Item = SystemEvent>> {
+        let stream = cache::pubsub::subscribe(SYSTEM_CHANNEL).await?;
+        Ok(stream.filter_map(|raw| async move {
+            serde_json::from_str::<SystemEvent>(&raw).ok()
+        }))
     }
 }

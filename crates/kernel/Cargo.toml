@@ -8,7 +8,10 @@ plugin_manager = { path = "../plugin_manager" }
 elupane_core = { path = "../elupane_core" }
 config = { path = "../config" }
 event_bus = { path = "../event_bus" }
+cache = { path = "../cache" }
+messaging_core = { path = "../messaging_core" }
 
 tokio.workspace = true
 anyhow.workspace = true
 tracing.workspace = true
+futures-util.workspace = true

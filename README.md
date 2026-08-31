@@ -53,6 +53,60 @@ sudo service postgresql start
 sudo service redis-server start
 ```
 
+## `Database Setup`
+
+E-Lupane uses **PostgreSQL** for its relational data and **Redis** for the
+inter-plugin messaging backbone. On Windows these run inside **WSL** and are
+reached from the Windows app through WSL's `localhost` port forwarding.
+
+### `1. Provision with the installer`
+
+The `installer` crate (`crates/installer`) installs and configures both
+services. It is **idempotent** — safe to run repeatedly — and:
+
+1. checks whether PostgreSQL and Redis are installed, running, and configured;
+2. installs anything that is missing (`apt` inside the WSL distro);
+3. starts the `postgresql` / `redis-server` services and enables them on boot;
+4. creates the application role `elupane` (`LOGIN`, `CREATEDB`,
+   password `elupane`) and the `elupane` database owned by it;
+5. writes `DATABASE_URL` + `REDIS_URL` into the root `.env`.
+
+```sh
+cargo run -p installer              # checks + report
+cargo run -p installer -- --setup   # full setup (install + configure)
+cargo run -p installer -- --install     # install missing components only
+cargo run -p installer -- --configure   # configure existing components only
+cargo run -p installer -- --help        # full usage / options
+```
+
+The resulting connection strings:
+
+```sh
+DATABASE_URL=postgres://elupane:elupane@localhost:5432/elupane
+REDIS_URL=redis://127.0.0.1:6379
+```
+
+### `2. Manual service management (inside WSL)`
+
+```sh
+wsl -u root -e bash -lc "systemctl status postgresql"     # PostgreSQL
+wsl -u root -e bash -lc "systemctl status redis-server"   # Redis
+# start / stop / enable on boot use the same pattern:
+#   systemctl start|stop|enable|disable <service>
+```
+
+### `3. Application configuration`
+
+The `.env` files already point at the `elupane` database:
+
+* root `.env` — used by the backend gateway and plugins:
+  `DATABASE_URL=postgres://elupane:elupane@localhost:5432/elupane`
+* `plugins/frontend/.env` — used by the Dioxus fullstack server:
+  `DATABASE_URL=postgres://elupane:elupane@localhost:5432/elupane?sslmode=disable`
+
+The code defaults (`plugins/auth/src/main.rs`, `plugins/frontend/src/db.rs`)
+match these credentials, so the system works out of the box.
+
 ## `Startup Flow`
 
 How the system startsup during installation
@@ -66,6 +120,20 @@ How the system startsup during installation
 ## `How to run`
 
 ```sh
-cargo run -p gateway # to run the backend.
-./scripts/serve --prod
+# 1. One-time database setup (install Postgres + Redis, start services, create
+#    elupane user + database, write .env) — see "Database Setup" above.
+cargo run -p installer -- --setup
+
+# 2. Run the backend (gateway supervises all plugins, including auth).
+cargo run -p gateway
+
+# Or the full stack via serve.sh:
+./scripts/serve.sh --prod     # production: gateway launches plugins + frontend
+./scripts/serve.sh            # dev: gateway + dx serve (hot-reload)
+```
+
+## WSL PROXY
+```sh
+export http_proxy=10.76.156.214:8080
+export https_proxy=10.76.156.214:8080
 ```

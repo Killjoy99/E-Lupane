@@ -1,0 +1,17 @@
+id = "com.elupane.courses"
+name = "Courses"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Course catalogue and offering module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/courses"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "courses.read",
+  "courses.write",
+  "events.subscribe"
+]
+dependencies = []

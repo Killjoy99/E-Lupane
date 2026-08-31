@@ -1,14 +1,8 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+//! Permission and capability primitives for the E-Lupane plugin system.
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub mod capability;
+pub mod rbac;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use capability::{Capability, CapabilitySet};
+pub use rbac::{Role, UserPrincipal, any_grants};
+

@@ -1,0 +1,20 @@
+id = "grades"
+name = "Grades"
+version = "0.1.0"
+description = "Gradebook module with weighted categories, grade scales, overrides, and history."
+
+[permissions]
+manage_categories = ["Manage grade categories", "grades:manage_categories"]
+manage_scales = ["Manage grade scales", "grades:manage_scales"]
+grade = ["Record grades", "grades:grade"]
+override = ["Override grades", "grades:override"]
+view_own = ["View own grades", "grades:view_own"]
+view_course = ["View course grades", "grades:view_course"]
+finalize = ["Finalize grades", "grades:finalize"]
+export = ["Export grades", "grades:export"]
+
+[migrations]
+0009 = "migrations/0009_grades.sql"
+
+[routes]
+prefix = "/api/grades"

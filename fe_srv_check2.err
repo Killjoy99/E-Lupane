@@ -1,0 +1,251 @@
+warning: D:\Work\E-Lupane\plugins\frontend\Cargo.toml: file `D:\Work\E-Lupane\plugins\frontend\src\main.rs` found to be present in multiple build targets:
+  * `lib` target `frontend`
+  * `bin` target `frontend`
+    Checking frontend v0.1.0 (D:\Work\E-Lupane\plugins\frontend)
+warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:19:9
+   |
+19 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:25:9
+   |
+25 |     let mut assignments = use_resource(move || {
+   |         ----^^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:101:9
+    |
+101 |     let mut data = use_resource(move || {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:190:9
+    |
+190 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:191:9
+    |
+191 |     let mut message: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:309:9
+    |
+309 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:420:9
+    |
+420 |     let mut submissions = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:505:33
+    |
+505 | ...                   let mut marks = marks;
+    |                           ----^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:506:33
+    |
+506 | ...                   let mut comments = comments;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:507:33
+    |
+507 | ...                   let mut feedback = feedback;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:477:9
+    |
+477 |     let mut done: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:538:9
+    |
+538 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:548:9
+    |
+548 |     let mut assignments = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src\courses_ui.rs:16:9
+   |
+16 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src\courses_ui.rs:22:9
+   |
+22 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\courses_ui.rs:145:9
+    |
+145 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\courses_ui.rs:153:9
+    |
+153 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\courses_ui.rs:297:9
+    |
+297 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\courses_ui.rs:298:9
+    |
+298 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:30:9
+   |
+30 |     let mut enrl = use_resource(move || {
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:94:9
+   |
+94 |     let mut roster = use_resource(move || {
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+error[E0507]: cannot move out of value, a captured variable in an `FnMut` closure
+   --> src\enrollments_ui.rs:177:30
+    |
+167 |       let token = (use_context::<UiCtx>().session)()
+    |           ----- captured outer variable
+...
+172 | /     rsx! {
+173 | |         div { class: "row-actions",
+174 | |             for (act, label) in enrollment_types::available_transitions(current.as_str()) {
+175 | |                 Button {
+176 | |                     variant: "text",
+177 | |                     onclick: move |_| {
+    | |                              ^^^^^^^^ value is moved here
+178 | |                         let token = token.clone();
+    | |                                     -----
+    | |                                     |
+    | |                                     variable moved due to use in closure
+    | |                                     move occurs because value has type `std::option::Option<std::string::String>`, which does not implement the `Copy` trait
+...   |
+191 | |     }
+    | |_____- captured by this `FnMut` closure
+    |
+help: `Fn` and `FnMut` closures require captured values to be able to be consumed multiple times, but `FnOnce` closures may consume them only once
+   --> C:\Users\dlami\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib/rustlib/src/rust\library\core\src\iter\traits\iterator.rs:836:12
+    |
+836 |         F: FnMut(Self::Item) -> B,
+    |            ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:216:9
+    |
+216 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:217:9
+    |
+217 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:364:9
+    |
+364 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `user_name`
+   --> src\dashboard.rs:355:10
+    |
+355 |     let (user_name, user_sub) = match &session {
+    |          ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_user_name`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `user_sub`
+   --> src\dashboard.rs:355:21
+    |
+355 |     let (user_name, user_sub) = match &session {
+    |                     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_user_sub`
+
+warning: variable does not need to be mutable
+   --> src\dashboard.rs:609:9
+    |
+609 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+For more information about this error, try `rustc --explain E0507`.
+warning: `frontend` (lib) generated 27 warnings
+error: could not compile `frontend` (lib) due to 1 previous error; 27 warnings emitted

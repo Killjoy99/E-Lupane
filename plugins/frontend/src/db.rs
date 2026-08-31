@@ -18,7 +18,7 @@ pub async fn init() {
     dotenvy::dotenv().ok();
 
     let url = std::env::var("DATABASE_URL").unwrap_or_else(|_| {
-        "postgres://postgres:postgres@localhost:5432/elupane?sslmode=disable".to_string()
+        "postgres://elupane:elupane@localhost:5432/elupane?sslmode=disable".to_string()
     });
 
     match PgPoolOptions::new()

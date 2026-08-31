@@ -1,0 +1,17 @@
+id = "com.elupane.messaging"
+name = "Messaging"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Messaging and conversations module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/messaging"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "messaging.read",
+  "messaging.write",
+  "events.subscribe"
+]
+dependencies = []

@@ -1,0 +1,17 @@
+id = "com.elupane.search"
+name = "Search"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Search and indexing module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/search"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "search.read",
+  "search.write",
+  "events.subscribe"
+]
+dependencies = []

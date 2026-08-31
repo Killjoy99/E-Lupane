@@ -1,0 +1,21 @@
+[package]
+name = "content"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio.workspace = true
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+dotenvy.workspace = true
+sqlx.workspace = true
+jsonwebtoken.workspace = true
+base64.workspace = true
+
+cache = { path = "../../crates/cache" }
+elupane_core = { path = "../../crates/elupane_core" }
+permissions = { path = "../../crates/permissions" }
+rust_sdk = { path = "../../crates/sdk/rust_sdk" }

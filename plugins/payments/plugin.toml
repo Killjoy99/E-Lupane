@@ -1,0 +1,17 @@
+id = "com.elupane.payments"
+name = "Payments"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Payments and billing module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/payments"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "payments.read",
+  "payments.write",
+  "events.subscribe"
+]
+dependencies = []

@@ -1,0 +1,25 @@
+id = "com.elupane.auth"
+name = "Auth"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "Authentication and user management with roles and permissions"
+runtime = "process"
+language = "rust"
+entry = "target/debug/auth"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "auth.user.create",
+  "auth.user.read",
+  "auth.user.update",
+  "auth.user.delete",
+  "auth.role.list",
+  "auth.role.assign",
+  "auth.permission.list",
+  "auth.login",
+  "auth.verify",
+  "events.subscribe"
+]
+dependencies = []
+

@@ -1,0 +1,17 @@
+id = "com.elupane.settings"
+name = "Settings"
+version = "1.0.0"
+authors = [
+  "Philani Dlamini"
+]
+description = "System settings module"
+runtime = "process"
+language = "rust"
+entry = "target/debug/settings"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "settings.read",
+  "settings.write",
+  "events.subscribe"
+]
+dependencies = []

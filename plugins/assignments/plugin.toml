@@ -4,14 +4,28 @@ version = "1.0.0"
 authors = [
   "Philani Dlamini"
 ]
-description = "Assignment management module"
+description = "Assignment management: creation, submission, deadlines, late handling, and grading"
 runtime = "process"
 language = "rust"
 entry = "target/debug/assignments"
 minimum_core_version = "1.0.0"
 capabilities = [
-  "assignments.read",
-  "assignments.write",
+  "assignment.create",
+  "assignment.read",
+  "assignment.update",
+  "assignment.delete",
+  "assignment.resource.attach",
+  "assignment.resource.remove",
+  "assignment.resource.download",
+  "submission.submit",
+  "submission.status",
+  "submission.download",
+  "grade.create",
+  "grade.get",
+  "grade.history",
+  "rubric.create",
+  "rubric.get",
+  "rubric.list",
   "events.subscribe"
 ]
-dependencies = []
+dependencies = ["com.elupane.auth"]
