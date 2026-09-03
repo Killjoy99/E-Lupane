@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 
 use dashboard::Dashboard;
 
-const MAIN_CSS: Asset = asset!("/assets/main.css");
+const MAIN_CSS: Asset = asset!("/assets/main1.css");
 const DASHBOARD_CSS: Asset = asset!("/assets/dashboard.css");
 
 // `db` holds the SQLx (PostgreSQL) connection pool. It is server-only because

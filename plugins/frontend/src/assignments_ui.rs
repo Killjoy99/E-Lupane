@@ -146,7 +146,7 @@ pub fn StudentAssignmentDetail(
                         tr {
                             td { "{submitted}" }
                             td { "#{sub.attempt}" }
-                            td { StatusChip { status: tone } }
+                            td { StatusChip { status: tone.to_string() } }
                             td { "{grade_cell}" }
                         }
                     }
@@ -486,7 +486,7 @@ pub fn SubmissionRow(
             td { "{submission.student_id}" }
             td { "#{submission.attempt}" }
             td { "{submitted}" }
-            td { if submission.is_late { StatusChip { status: "flagged", label: Some("late") } } else { "—" } }
+            td { if submission.is_late { StatusChip { status: "flagged".to_string(), label: Some("late".to_string()) } } else { "—" } }
             td { if let Some(t) = submission.text.as_ref() { "{t}" } else { "—" } }
             td { "{counts}" }
             td {

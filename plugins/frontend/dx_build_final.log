@@ -1,0 +1,93 @@
+[INFO] dx::cli::build: Building project... 
+
+[INFO] dx::build::builder: error: mismatched closing delimiter: `}`
+   --> src\mock_pages.rs:189:49
+    |
+189 | ...                   div { class: format!("tt-slot {}", if s.live { "live" } else { "" } }),
+    |                           -               ^ unclosed delimiter                            ^ mismatched closing delimiter
+    |                           |
+    |                           closing delimiter possibly meant for this
+
+ 
+
+[INFO] dx::build::builder: error: unexpected closing delimiter: `}`
+   --> src\mock_pages.rs:199:5
+    |
+188 |                         for s in d.slots.iter() {
+    |                                                 - the nearest open delimiter
+189 |                             div { class: format!("tt-slot {}", if s.live { "live" } else { "" } }),
+    |                                                                                                  - missing open `(` for this delimiter
+...
+199 |     }
+    |     ^ unexpected closing delimiter
+
+ 
+
+error: could not compile `frontend` (lib) due to 2 previous errors
+[INFO] dx::build::builder: error: mismatched closing delimiter: `}`
+   --> src\mock_pages.rs:189:49
+    |
+189 | ...                   div { class: format!("tt-slot {}", if s.live { "live" } else { "" } }),
+    |                           -               ^ unclosed delimiter                            ^ mismatched closing delimiter
+    |                           |
+    |                           closing delimiter possibly meant for this
+
+ 
+
+[INFO] dx::build::builder: error: unexpected closing delimiter: `}`
+   --> src\mock_pages.rs:199:5
+    |
+188 |                         for s in d.slots.iter() {
+    |                                                 - the nearest open delimiter
+189 |                             div { class: format!("tt-slot {}", if s.live { "live" } else { "" } }),
+    |                                                                                                  - missing open `(` for this delimiter
+...
+199 |     }
+    |     ^ unexpected closing delimiter
+
+ 
+
+[INFO] dx::cli::build: Building project... 
+
+[INFO] dx::cli::build: Building project... 
+
+[INFO] dx::build::builder: error: this file contains an unclosed delimiter
+   --> src\mock_pages.rs:893:3
+    |
+383 | pub fn lecturer_gradebook() -> Element {
+    |                                        - unclosed delimiter
+...
+438 | pub fn lecturer_analytics() -> Element {
+    |                                        - unclosed delimiter
+...
+475 | pub fn lecturer_overview() -> Element {
+    |                                       - unclosed delimiter
+...
+791 | pub fn admin_institutions(search: &str) -> Element {
+    |                                                    - unclosed delimiter
+...
+893 | }
+    |  ^
+
+ 
+
+[INFO] dx::build::builder: error: this file contains an unclosed delimiter
+   --> src\mock_pages.rs:893:3
+    |
+383 | pub fn lecturer_gradebook() -> Element {
+    |                                        - unclosed delimiter
+...
+438 | pub fn lecturer_analytics() -> Element {
+    |                                        - unclosed delimiter
+...
+475 | pub fn lecturer_overview() -> Element {
+    |                                       - unclosed delimiter
+...
+791 | pub fn admin_institutions(search: &str) -> Element {
+    |                                                    - unclosed delimiter
+...
+893 | }
+    |  ^
+
+ 
+

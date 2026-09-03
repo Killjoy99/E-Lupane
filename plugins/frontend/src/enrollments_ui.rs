@@ -62,7 +62,7 @@ pub fn StudentEnrollments() -> Element {
                                 for e in items.iter() {
                                     tr {
                                         td { "{e.course_id}" }
-                                        td { StatusChip { status: enrollment_types::state_tone(e.state.as_str()), label: enrollment_types::state_label(e.state.as_str()) } }
+                                        td { StatusChip { status: enrollment_types::state_tone(e.state.as_str()).to_string(), label: Some(enrollment_types::state_label(e.state.as_str()).to_string()) } }
                                         td { "{e.source}" }
                                         td { if let Some(exp) = &e.expires_at { "{exp}" } else { "—" } }
                                     }
@@ -138,7 +138,7 @@ pub fn EnrollmentRoster(course_id: uuid::Uuid) -> Element {
                                 for e in items.iter() {
                                     tr {
                                         td { "{e.student.full_name} ({e.student.username})" }
-                                        td { StatusChip { status: enrollment_types::state_tone(e.state.as_str()), label: enrollment_types::state_label(e.state.as_str()) } }
+                                        td { StatusChip { status: enrollment_types::state_tone(e.state.as_str()).to_string(), label: Some(enrollment_types::state_label(e.state.as_str()).to_string()) } }
                                         td { "{e.source}" }
                                         td { "{e.created_at}" }
                                         td { EnrollmentManagerActions { enrollment: e.clone(), on_change: { let mut refresh = refresh; move |_| refresh += 1 } } }

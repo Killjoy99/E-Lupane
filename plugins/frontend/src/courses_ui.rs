@@ -237,7 +237,7 @@ pub fn CourseRow(
         tr {
             td { class: "td-strong", "{course.code}" }
             td { "{course.title}" }
-            td { StatusChip { status: tone, label: Some(label) } }
+            td { StatusChip { status: tone.to_string(), label: Some(label.to_string()) } }
             td { "{course.difficulty}" }
             td { class: "row-actions",
                 Button { variant: "tonal", icon: "edit", onclick: move |_| on_edit.call(()), "Edit" }

@@ -1,0 +1,4227 @@
+  0.00s  INFO Building project...
+  4.96s  INFO  [1m[93mwarning[0m[1m[97m: unused imports: `create_item`, `create_lesson`, `create_module`, `delete_file`, `delete_item`, `delete_lesson`, `delete_module`, `download_file`, `get_file`, `get_item`, `get_lesson`, `get_module`, `list_files`, `list_items`, `list_lessons`, `list_modules`, `reorder_items`, `reorder_lessons`, `reorder_modules`, `set_lesson_status`, `set_module_status`, `update_item`, `update_lesson`, `update_module`, and `upload_file`[0m
+  [1m[96m--> [0msrc\server_functions.rs:25:5
+   [1m[96m|[0m
+[1m[96m25[0m [1m[96m|[0m     create_item, create_lesson, create_module, delete_file, delete_item, delete_lesson, delete_module,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m
+[1m[96m26[0m [1m[96m|[0m     download_file, get_file, get_item, get_lesson, get_module, list_files, list_items, list_lessons,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^[0m  [1m[93m^^^^^^^^[0m  [1m[93m^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^[0m
+[1m[96m27[0m [1m[96m|[0m     list_modules, reorder_items, reorder_lessons, reorder_modules, set_lesson_status,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^^^^^[0m
+[1m[96m28[0m [1m[96m|[0m     set_module_status, update_item, update_lesson, update_module, upload_file,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+
+  6.26s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_bridge.rs:81:9
+   [1m[96m|[0m
+[1m[96m81[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+
+  6.27s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_bridge.rs:92:9
+   [1m[96m|[0m
+[1m[96m92[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  6.27s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_bridge.rs:175:9
+    [1m[96m|[0m
+[1m[96m175[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  6.27s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_bridge.rs:186:9
+    [1m[96m|[0m
+[1m[96m186[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  6.27s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_bridge.rs:272:9
+    [1m[96m|[0m
+[1m[96m272[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  6.27s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_bridge.rs:283:9
+    [1m[96m|[0m
+[1m[96m283[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.19s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\assignments_ui.rs:19:9
+   [1m[96m|[0m
+[1m[96m19[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\assignments_ui.rs:25:9
+   [1m[96m|[0m
+[1m[96m25[0m [1m[96m|[0m     let mut assignments = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:101:9
+    [1m[96m|[0m
+[1m[96m101[0m [1m[96m|[0m     let mut data = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:190:9
+    [1m[96m|[0m
+[1m[96m190[0m [1m[96m|[0m     let mut busy = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:191:9
+    [1m[96m|[0m
+[1m[96m191[0m [1m[96m|[0m     let mut message: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:309:9
+    [1m[96m|[0m
+[1m[96m309[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:420:9
+    [1m[96m|[0m
+[1m[96m420[0m [1m[96m|[0m     let mut submissions = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:505:33
+    [1m[96m|[0m
+[1m[96m505[0m [1m[96m|[0m [1m[96m...[0m                   let mut marks = marks;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:506:33
+    [1m[96m|[0m
+[1m[96m506[0m [1m[96m|[0m [1m[96m...[0m                   let mut comments = comments;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:507:33
+    [1m[96m|[0m
+[1m[96m507[0m [1m[96m|[0m [1m[96m...[0m                   let mut feedback = feedback;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:477:9
+    [1m[96m|[0m
+[1m[96m477[0m [1m[96m|[0m     let mut done: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:538:9
+    [1m[96m|[0m
+[1m[96m538[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:548:9
+    [1m[96m|[0m
+[1m[96m548[0m [1m[96m|[0m     let mut assignments = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\courses_ui.rs:16:9
+   [1m[96m|[0m
+[1m[96m16[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\courses_ui.rs:22:9
+   [1m[96m|[0m
+[1m[96m22[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:145:9
+    [1m[96m|[0m
+[1m[96m145[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:153:9
+    [1m[96m|[0m
+[1m[96m153[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.21s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:297:9
+    [1m[96m|[0m
+[1m[96m297[0m [1m[96m|[0m     let mut busy = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.21s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:298:9
+    [1m[96m|[0m
+[1m[96m298[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.21s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:17:9
+   [1m[96m|[0m
+[1m[96m17[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.21s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:22:9
+   [1m[96m|[0m
+[1m[96m22[0m [1m[96m|[0m     let mut expanded: Signal<Option<Uuid>> = use_signal(|| None);
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.21s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:24:9
+   [1m[96m|[0m
+[1m[96m24[0m [1m[96m|[0m     let mut modules = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.21s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_ui.rs:257:9
+    [1m[96m|[0m
+[1m[96m257[0m [1m[96m|[0m     let mut lessons = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.22s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\enrollments_ui.rs:30:9
+   [1m[96m|[0m
+[1m[96m30[0m [1m[96m|[0m     let mut enrl = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.22s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\enrollments_ui.rs:94:9
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m     let mut roster = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.22s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:219:9
+    [1m[96m|[0m
+[1m[96m219[0m [1m[96m|[0m     let mut busy: Signal<bool> = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.22s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:220:9
+    [1m[96m|[0m
+[1m[96m220[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.22s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:367:9
+    [1m[96m|[0m
+[1m[96m367[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.22s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_room.rs:38:9
+   [1m[96m|[0m
+[1m[96m38[0m [1m[96m|[0m     let mut tool_color = use_signal(|| "#1a73e8".to_string());
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.22s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\live_room.rs:152:9
+    [1m[96m|[0m
+[1m[96m152[0m [1m[96m|[0m     let mut send_chat = {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.23s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:23:9
+   [1m[96m|[0m
+[1m[96m23[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.23s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:26:9
+   [1m[96m|[0m
+[1m[96m26[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.23s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:52:9
+   [1m[96m|[0m
+[1m[96m52[0m [1m[96m|[0m     let mut sessions = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.23s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\live_classes_ui.rs:314:9
+    [1m[96m|[0m
+[1m[96m314[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.56s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\assignments_ui.rs:19:9
+   [1m[96m|[0m
+[1m[96m19[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.57s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\assignments_ui.rs:25:9
+   [1m[96m|[0m
+[1m[96m25[0m [1m[96m|[0m     let mut assignments = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.57s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:101:9
+    [1m[96m|[0m
+[1m[96m101[0m [1m[96m|[0m     let mut data = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:190:9
+    [1m[96m|[0m
+[1m[96m190[0m [1m[96m|[0m     let mut busy = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:191:9
+    [1m[96m|[0m
+[1m[96m191[0m [1m[96m|[0m     let mut message: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:309:9
+    [1m[96m|[0m
+[1m[96m309[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:420:9
+    [1m[96m|[0m
+[1m[96m420[0m [1m[96m|[0m     let mut submissions = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:505:33
+    [1m[96m|[0m
+[1m[96m505[0m [1m[96m|[0m [1m[96m...[0m                   let mut marks = marks;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:506:33
+    [1m[96m|[0m
+[1m[96m506[0m [1m[96m|[0m [1m[96m...[0m                   let mut comments = comments;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:507:33
+    [1m[96m|[0m
+[1m[96m507[0m [1m[96m|[0m [1m[96m...[0m                   let mut feedback = feedback;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:477:9
+    [1m[96m|[0m
+[1m[96m477[0m [1m[96m|[0m     let mut done: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:538:9
+    [1m[96m|[0m
+[1m[96m538[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:548:9
+    [1m[96m|[0m
+[1m[96m548[0m [1m[96m|[0m     let mut assignments = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\courses_ui.rs:16:9
+   [1m[96m|[0m
+[1m[96m16[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\courses_ui.rs:22:9
+   [1m[96m|[0m
+[1m[96m22[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:145:9
+    [1m[96m|[0m
+[1m[96m145[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:153:9
+    [1m[96m|[0m
+[1m[96m153[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:297:9
+    [1m[96m|[0m
+[1m[96m297[0m [1m[96m|[0m     let mut busy = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:298:9
+    [1m[96m|[0m
+[1m[96m298[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:17:9
+   [1m[96m|[0m
+[1m[96m17[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:22:9
+   [1m[96m|[0m
+[1m[96m22[0m [1m[96m|[0m     let mut expanded: Signal<Option<Uuid>> = use_signal(|| None);
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:24:9
+   [1m[96m|[0m
+[1m[96m24[0m [1m[96m|[0m     let mut modules = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.58s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_ui.rs:257:9
+    [1m[96m|[0m
+[1m[96m257[0m [1m[96m|[0m     let mut lessons = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\enrollments_ui.rs:30:9
+   [1m[96m|[0m
+[1m[96m30[0m [1m[96m|[0m     let mut enrl = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\enrollments_ui.rs:94:9
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m     let mut roster = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:219:9
+    [1m[96m|[0m
+[1m[96m219[0m [1m[96m|[0m     let mut busy: Signal<bool> = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:220:9
+    [1m[96m|[0m
+[1m[96m220[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:367:9
+    [1m[96m|[0m
+[1m[96m367[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_room.rs:38:9
+   [1m[96m|[0m
+[1m[96m38[0m [1m[96m|[0m     let mut tool_color = use_signal(|| "#1a73e8".to_string());
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\live_room.rs:152:9
+    [1m[96m|[0m
+[1m[96m152[0m [1m[96m|[0m     let mut send_chat = {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: unused variable: `drawer_name`[0m
+   [1m[96m--> [0msrc\dashboard.rs:286:10
+    [1m[96m|[0m
+[1m[96m286[0m [1m[96m|[0m     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^[0m [1m[93mhelp: if this is intentional, prefix it with an underscore: `_drawer_name`[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: unused variable: `drawer_sub`[0m
+   [1m[96m--> [0msrc\dashboard.rs:286:23
+    [1m[96m|[0m
+[1m[96m286[0m [1m[96m|[0m     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    [1m[96m|[0m                       [1m[93m^^^^^^^^^^[0m [1m[93mhelp: if this is intentional, prefix it with an underscore: `_drawer_sub`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:23:9
+   [1m[96m|[0m
+[1m[96m23[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:26:9
+   [1m[96m|[0m
+[1m[96m26[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.59s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:52:9
+   [1m[96m|[0m
+[1m[96m52[0m [1m[96m|[0m     let mut sessions = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.60s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\live_classes_ui.rs:314:9
+    [1m[96m|[0m
+[1m[96m314[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.63s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:680:9
+    [1m[96m|[0m
+[1m[96m680[0m [1m[96m|[0m     let mut busy: Signal<bool> = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.68s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:843:9
+    [1m[96m|[0m
+[1m[96m843[0m [1m[96m|[0m     let mut refresh = use_signal(|| 0u32);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.68s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:844:9
+    [1m[96m|[0m
+[1m[96m844[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: constant `MAIN_CSS` is never used[0m
+ [1m[96m--> [0msrc\main.rs:7:7
+  [1m[96m|[0m
+[1m[96m7[0m [1m[96m|[0m const MAIN_CSS: Asset = asset!("/assets/main1.css");
+  [1m[96m|[0m       [1m[93m^^^^^^^^[0m
+  [1m[96m|[0m
+  [1m[96m= [0m[1m[97mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: constant `DASHBOARD_CSS` is never used[0m
+ [1m[96m--> [0msrc\main.rs:8:7
+  [1m[96m|[0m
+[1m[96m8[0m [1m[96m|[0m const DASHBOARD_CSS: Asset = asset!("/assets/dashboard.css");
+  [1m[96m|[0m       [1m[93m^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `main` is never used[0m
+  [1m[96m--> [0msrc\main.rs:78:4
+   [1m[96m|[0m
+[1m[96m78[0m [1m[96m|[0m fn main() {
+   [1m[96m|[0m    [1m[93m^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `app` is never used[0m
+   [1m[96m--> [0msrc\main.rs:119:4
+    [1m[96m|[0m
+[1m[96m119[0m [1m[96m|[0m fn app() -> Element {
+    [1m[96m|[0m    [1m[93m^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `ResourceView` is never constructed[0m
+  [1m[96m--> [0msrc\assignments_types.rs:28:12
+   [1m[96m|[0m
+[1m[96m28[0m [1m[96m|[0m pub struct ResourceView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `GradeView` is never constructed[0m
+  [1m[96m--> [0msrc\assignments_types.rs:71:12
+   [1m[96m|[0m
+[1m[96m71[0m [1m[96m|[0m pub struct GradeView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `GradeHistoryEntry` is never constructed[0m
+  [1m[96m--> [0msrc\assignments_types.rs:85:12
+   [1m[96m|[0m
+[1m[96m85[0m [1m[96m|[0m pub struct GradeHistoryEntry {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `GradeHistoryView` is never constructed[0m
+  [1m[96m--> [0msrc\assignments_types.rs:97:12
+   [1m[96m|[0m
+[1m[96m97[0m [1m[96m|[0m pub struct GradeHistoryView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `DownloadView` is never constructed[0m
+   [1m[96m--> [0msrc\assignments_types.rs:102:12
+    [1m[96m|[0m
+[1m[96m102[0m [1m[96m|[0m pub struct DownloadView {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `AssignmentInput` is never constructed[0m
+   [1m[96m--> [0msrc\assignments_types.rs:113:12
+    [1m[96m|[0m
+[1m[96m113[0m [1m[96m|[0m pub struct AssignmentInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `FileUploadInput` is never constructed[0m
+   [1m[96m--> [0msrc\assignments_types.rs:128:12
+    [1m[96m|[0m
+[1m[96m128[0m [1m[96m|[0m pub struct FileUploadInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `LinkInput` is never constructed[0m
+   [1m[96m--> [0msrc\assignments_types.rs:136:12
+    [1m[96m|[0m
+[1m[96m136[0m [1m[96m|[0m pub struct LinkInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `CourseInput` is never constructed[0m
+  [1m[96m--> [0msrc\course_types.rs:37:12
+   [1m[96m|[0m
+[1m[96m37[0m [1m[96m|[0m pub struct CourseInput {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: constant `COURSE_STATUSES` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:57:11
+   [1m[96m|[0m
+[1m[96m57[0m [1m[96m|[0m pub const COURSE_STATUSES: [&str; 5] = [
+   [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `course_status_label` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:66:8
+   [1m[96m|[0m
+[1m[96m66[0m [1m[96m|[0m pub fn course_status_label(status: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `course_status_tone` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:78:8
+   [1m[96m|[0m
+[1m[96m78[0m [1m[96m|[0m pub fn course_status_tone(status: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `can_publish_from` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:89:8
+   [1m[96m|[0m
+[1m[96m89[0m [1m[96m|[0m pub fn can_publish_from(status: &str) -> bool {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `can_manage_course` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:94:8
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m pub fn can_manage_course(course: &CourseView, user_id: Uuid, is_admin: bool) -> bool {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `HistoryView` is never constructed[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:31:12
+   [1m[96m|[0m
+[1m[96m31[0m [1m[96m|[0m pub struct HistoryView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `InviteView` is never constructed[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:42:12
+   [1m[96m|[0m
+[1m[96m42[0m [1m[96m|[0m pub struct InviteView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `BulkEntryResult` is never constructed[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:56:12
+   [1m[96m|[0m
+[1m[96m56[0m [1m[96m|[0m pub struct BulkEntryResult {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `BulkEnrollView` is never constructed[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:65:12
+   [1m[96m|[0m
+[1m[96m65[0m [1m[96m|[0m pub struct BulkEnrollView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: struct `AccessView` is never constructed[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:74:12
+   [1m[96m|[0m
+[1m[96m74[0m [1m[96m|[0m pub struct AccessView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: constant `ENROLLMENT_STATES` is never used[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:85:11
+   [1m[96m|[0m
+[1m[96m85[0m [1m[96m|[0m pub const ENROLLMENT_STATES: [&str; 6] = [
+   [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `state_label` is never used[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:95:8
+   [1m[96m|[0m
+[1m[96m95[0m [1m[96m|[0m pub fn state_label(state: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `state_tone` is never used[0m
+   [1m[96m--> [0msrc\enrollment_types.rs:108:8
+    [1m[96m|[0m
+[1m[96m108[0m [1m[96m|[0m pub fn state_tone(state: &str) -> &'static str {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `available_transitions` is never used[0m
+   [1m[96m--> [0msrc\enrollment_types.rs:121:8
+    [1m[96m|[0m
+[1m[96m121[0m [1m[96m|[0m pub fn available_transitions(state: &str) -> &'static [(&'static str, &'static str)] {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.83s  INFO  [1m[93mwarning[0m[1m[97m: function `own_action` is never used[0m
+   [1m[96m--> [0msrc\enrollment_types.rs:136:8
+    [1m[96m|[0m
+[1m[96m136[0m [1m[96m|[0m pub fn own_action(state: &str) -> Option<(&'static str, &'static str)> {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `LiveAttendanceView` is never constructed[0m
+  [1m[96m--> [0msrc\live_types.rs:37:12
+   [1m[96m|[0m
+[1m[96m37[0m [1m[96m|[0m pub struct LiveAttendanceView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `LiveChatMessageView` is never constructed[0m
+  [1m[96m--> [0msrc\live_types.rs:48:12
+   [1m[96m|[0m
+[1m[96m48[0m [1m[96m|[0m pub struct LiveChatMessageView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `LiveResourceView` is never constructed[0m
+  [1m[96m--> [0msrc\live_types.rs:57:12
+   [1m[96m|[0m
+[1m[96m57[0m [1m[96m|[0m pub struct LiveResourceView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `status_label` is never used[0m
+  [1m[96m--> [0msrc\live_types.rs:68:8
+   [1m[96m|[0m
+[1m[96m68[0m [1m[96m|[0m pub fn status_label(status: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `status_tone` is never used[0m
+  [1m[96m--> [0msrc\live_types.rs:79:8
+   [1m[96m|[0m
+[1m[96m79[0m [1m[96m|[0m pub fn status_tone(status: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `ContentItemView` is never constructed[0m
+  [1m[96m--> [0msrc\content_types.rs:40:12
+   [1m[96m|[0m
+[1m[96m40[0m [1m[96m|[0m pub struct ContentItemView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `ContentFileView` is never constructed[0m
+  [1m[96m--> [0msrc\content_types.rs:58:12
+   [1m[96m|[0m
+[1m[96m58[0m [1m[96m|[0m pub struct ContentFileView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `FileDownloadView` is never constructed[0m
+  [1m[96m--> [0msrc\content_types.rs:69:12
+   [1m[96m|[0m
+[1m[96m69[0m [1m[96m|[0m pub struct FileDownloadView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `CreateModuleInput` is never constructed[0m
+  [1m[96m--> [0msrc\content_types.rs:77:12
+   [1m[96m|[0m
+[1m[96m77[0m [1m[96m|[0m pub struct CreateModuleInput {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `UpdateModuleInput` is never constructed[0m
+  [1m[96m--> [0msrc\content_types.rs:85:12
+   [1m[96m|[0m
+[1m[96m85[0m [1m[96m|[0m pub struct UpdateModuleInput {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `CreateLessonInput` is never constructed[0m
+  [1m[96m--> [0msrc\content_types.rs:93:12
+   [1m[96m|[0m
+[1m[96m93[0m [1m[96m|[0m pub struct CreateLessonInput {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `UpdateLessonInput` is never constructed[0m
+   [1m[96m--> [0msrc\content_types.rs:101:12
+    [1m[96m|[0m
+[1m[96m101[0m [1m[96m|[0m pub struct UpdateLessonInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `CreateContentItemInput` is never constructed[0m
+   [1m[96m--> [0msrc\content_types.rs:109:12
+    [1m[96m|[0m
+[1m[96m109[0m [1m[96m|[0m pub struct CreateContentItemInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `UpdateContentItemInput` is never constructed[0m
+   [1m[96m--> [0msrc\content_types.rs:121:12
+    [1m[96m|[0m
+[1m[96m121[0m [1m[96m|[0m pub struct UpdateContentItemInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONTENT_TYPES` is never used[0m
+   [1m[96m--> [0msrc\content_types.rs:132:11
+    [1m[96m|[0m
+[1m[96m132[0m [1m[96m|[0m pub const CONTENT_TYPES: [&str; 9] = [
+    [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONTENT_STATUSES` is never used[0m
+   [1m[96m--> [0msrc\content_types.rs:136:11
+    [1m[96m|[0m
+[1m[96m136[0m [1m[96m|[0m pub const CONTENT_STATUSES: [&str; 3] = ["draft", "published", "unpublished"];
+    [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `fmt_dt` is never used[0m
+ [1m[96m--> [0msrc\ui_helpers.rs:6:8
+  [1m[96m|[0m
+[1m[96m6[0m [1m[96m|[0m pub fn fmt_dt(dt: Option<chrono::DateTime<chrono::Utc>>) -> String {
+  [1m[96m|[0m        [1m[93m^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `read_file_base64` is never used[0m
+  [1m[96m--> [0msrc\ui_helpers.rs:14:14
+   [1m[96m|[0m
+[1m[96m14[0m [1m[96m|[0m pub async fn read_file_base64(input_id: &str) -> Option<assignments_types::FileUploadInput> {
+   [1m[96m|[0m              [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `run_student_submit` is never used[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:243:10
+    [1m[96m|[0m
+[1m[96m243[0m [1m[96m|[0m async fn run_student_submit(
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: variants `AddStudent`, `Bulk`, and `Invite` are never constructed[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:199:5
+    [1m[96m|[0m
+[1m[96m198[0m [1m[96m|[0m enum EditorMode {
+    [1m[96m|[0m      [1m[96m----------[0m [1m[96mvariants in this enum[0m
+[1m[96m199[0m [1m[96m|[0m     AddStudent,
+    [1m[96m|[0m     [1m[93m^^^^^^^^^^[0m
+[1m[96m200[0m [1m[96m|[0m     Bulk,
+    [1m[96m|[0m     [1m[93m^^^^[0m
+[1m[96m201[0m [1m[96m|[0m     Invite,
+    [1m[96m|[0m     [1m[93m^^^^^^[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mnote[0m: `EditorMode` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `start_session` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:367:14
+    [1m[96m|[0m
+[1m[96m367[0m [1m[96m|[0m pub async fn start_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<()> {
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `end_session` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:373:14
+    [1m[96m|[0m
+[1m[96m373[0m [1m[96m|[0m pub async fn end_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<()> {
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `join_session` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:379:14
+    [1m[96m|[0m
+[1m[96m379[0m [1m[96m|[0m pub async fn join_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<LiveJoinView> {
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `js_str` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:383:4
+    [1m[96m|[0m
+[1m[96m383[0m [1m[96m|[0m fn js_str(s: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: function `gloo_timers_sleep` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:390:10
+    [1m[96m|[0m
+[1m[96m390[0m [1m[96m|[0m async fn gloo_timers_sleep() {
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `LIVE_ROOM_JS` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:399:7
+    [1m[96m|[0m
+[1m[96m399[0m [1m[96m|[0m const LIVE_ROOM_JS: &str = r#"(function(){
+    [1m[96m|[0m       [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `Course` is never constructed[0m
+ [1m[96m--> [0msrc\mock_data.rs:6:19
+  [1m[96m|[0m
+[1m[96m6[0m [1m[96m|[0m pub(crate) struct Course {
+  [1m[96m|[0m                   [1m[93m^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `COURSES` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:17:18
+   [1m[96m|[0m
+[1m[96m17[0m [1m[96m|[0m pub(crate) const COURSES: &[Course] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `Assignment` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:25:19
+   [1m[96m|[0m
+[1m[96m25[0m [1m[96m|[0m pub(crate) struct Assignment {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `ASSIGNMENTS` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:33:18
+   [1m[96m|[0m
+[1m[96m33[0m [1m[96m|[0m pub(crate) const ASSIGNMENTS: &[Assignment] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `Quiz` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:40:19
+   [1m[96m|[0m
+[1m[96m40[0m [1m[96m|[0m pub(crate) struct Quiz {
+   [1m[96m|[0m                   [1m[93m^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `QUIZZES` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:47:18
+   [1m[96m|[0m
+[1m[96m47[0m [1m[96m|[0m pub(crate) const QUIZZES: &[Quiz] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `Announcement` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:52:19
+   [1m[96m|[0m
+[1m[96m52[0m [1m[96m|[0m pub(crate) struct Announcement {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `ANNOUNCEMENTS` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:59:18
+   [1m[96m|[0m
+[1m[96m59[0m [1m[96m|[0m pub(crate) const ANNOUNCEMENTS: &[Announcement] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `StudentRow` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:65:19
+   [1m[96m|[0m
+[1m[96m65[0m [1m[96m|[0m pub(crate) struct StudentRow {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROSTER` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:73:18
+   [1m[96m|[0m
+[1m[96m73[0m [1m[96m|[0m pub(crate) const ROSTER: &[StudentRow] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `Submission` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:82:19
+   [1m[96m|[0m
+[1m[96m82[0m [1m[96m|[0m pub(crate) struct Submission {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `SUBMISSIONS` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:90:18
+   [1m[96m|[0m
+[1m[96m90[0m [1m[96m|[0m pub(crate) const SUBMISSIONS: &[Submission] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `Deadline` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:97:19
+   [1m[96m|[0m
+[1m[96m97[0m [1m[96m|[0m pub(crate) struct Deadline {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `DEADLINES` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:104:18
+    [1m[96m|[0m
+[1m[96m104[0m [1m[96m|[0m pub(crate) const DEADLINES: &[Deadline] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `PluginRow` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:111:19
+    [1m[96m|[0m
+[1m[96m111[0m [1m[96m|[0m pub(crate) struct PluginRow {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `PLUGINS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:120:18
+    [1m[96m|[0m
+[1m[96m120[0m [1m[96m|[0m pub(crate) const PLUGINS: &[PluginRow] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `Service` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:129:19
+    [1m[96m|[0m
+[1m[96m129[0m [1m[96m|[0m pub(crate) struct Service {
+    [1m[96m|[0m                   [1m[93m^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `SERVICES` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:135:18
+    [1m[96m|[0m
+[1m[96m135[0m [1m[96m|[0m pub(crate) const SERVICES: &[Service] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `Sdk` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:144:19
+    [1m[96m|[0m
+[1m[96m144[0m [1m[96m|[0m pub(crate) struct Sdk {
+    [1m[96m|[0m                   [1m[93m^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: constant `SDKS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:151:18
+    [1m[96m|[0m
+[1m[96m151[0m [1m[96m|[0m pub(crate) const SDKS: &[Sdk] = &[
+    [1m[96m|[0m                  [1m[93m^^^^[0m
+
+
+  7.84s  INFO  [1m[93mwarning[0m[1m[97m: struct `UserRow` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:159:19
+    [1m[96m|[0m
+[1m[96m159[0m [1m[96m|[0m pub(crate) struct UserRow {
+    [1m[96m|[0m                   [1m[93m^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `USERS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:167:18
+    [1m[96m|[0m
+[1m[96m167[0m [1m[96m|[0m pub(crate) const USERS: &[UserRow] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `Institution` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:176:19
+    [1m[96m|[0m
+[1m[96m176[0m [1m[96m|[0m pub(crate) struct Institution {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `INSTITUTIONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:183:18
+    [1m[96m|[0m
+[1m[96m183[0m [1m[96m|[0m pub(crate) const INSTITUTIONS: &[Institution] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `Approval` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:190:19
+    [1m[96m|[0m
+[1m[96m190[0m [1m[96m|[0m pub(crate) struct Approval {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `APPROVALS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:197:18
+    [1m[96m|[0m
+[1m[96m197[0m [1m[96m|[0m pub(crate) const APPROVALS: &[Approval] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `Activity` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:202:19
+    [1m[96m|[0m
+[1m[96m202[0m [1m[96m|[0m pub(crate) struct Activity {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `ACTIVITY` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:209:18
+    [1m[96m|[0m
+[1m[96m209[0m [1m[96m|[0m pub(crate) const ACTIVITY: &[Activity] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROLE_SPLIT` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:216:18
+    [1m[96m|[0m
+[1m[96m216[0m [1m[96m|[0m pub(crate) const ROLE_SPLIT: &[(&str, u32, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `Msg` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:225:19
+    [1m[96m|[0m
+[1m[96m225[0m [1m[96m|[0m pub(crate) struct Msg {
+    [1m[96m|[0m                   [1m[93m^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `Conversation` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:231:19
+    [1m[96m|[0m
+[1m[96m231[0m [1m[96m|[0m pub(crate) struct Conversation {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONVERSATIONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:243:18
+    [1m[96m|[0m
+[1m[96m243[0m [1m[96m|[0m pub(crate) const CONVERSATIONS: &[Conversation] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `WEEKLY_ACTIVITY` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:306:18
+    [1m[96m|[0m
+[1m[96m306[0m [1m[96m|[0m pub(crate) const WEEKLY_ACTIVITY: &[(&str, f64, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `ENGAGEMENT` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:316:18
+    [1m[96m|[0m
+[1m[96m316[0m [1m[96m|[0m pub(crate) const ENGAGEMENT: &[(&str, f64, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `GRADE_DIST` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:324:18
+    [1m[96m|[0m
+[1m[96m324[0m [1m[96m|[0m pub(crate) const GRADE_DIST: &[(&str, f64, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `WEEKLY_TREND` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:332:18
+    [1m[96m|[0m
+[1m[96m332[0m [1m[96m|[0m pub(crate) const WEEKLY_TREND: &[(&str, f64, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `TtSlot` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:343:19
+    [1m[96m|[0m
+[1m[96m343[0m [1m[96m|[0m pub(crate) struct TtSlot {
+    [1m[96m|[0m                   [1m[93m^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `TtDay` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:350:19
+    [1m[96m|[0m
+[1m[96m350[0m [1m[96m|[0m pub(crate) struct TtDay {
+    [1m[96m|[0m                   [1m[93m^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `TIMETABLE` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:355:18
+    [1m[96m|[0m
+[1m[96m355[0m [1m[96m|[0m pub(crate) const TIMETABLE: &[TtDay] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `Certificate` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:395:19
+    [1m[96m|[0m
+[1m[96m395[0m [1m[96m|[0m pub(crate) struct Certificate {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `CERTIFICATES` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:404:18
+    [1m[96m|[0m
+[1m[96m404[0m [1m[96m|[0m pub(crate) const CERTIFICATES: &[Certificate] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `ApiEndpoint` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:412:19
+    [1m[96m|[0m
+[1m[96m412[0m [1m[96m|[0m pub(crate) struct ApiEndpoint {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `ApiGroup` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:419:19
+    [1m[96m|[0m
+[1m[96m419[0m [1m[96m|[0m pub(crate) struct ApiGroup {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `API_GROUPS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:425:18
+    [1m[96m|[0m
+[1m[96m425[0m [1m[96m|[0m pub(crate) const API_GROUPS: &[ApiGroup] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `Webhook` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:470:19
+    [1m[96m|[0m
+[1m[96m470[0m [1m[96m|[0m pub(crate) struct Webhook {
+    [1m[96m|[0m                   [1m[93m^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `WEBHOOKS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:477:18
+    [1m[96m|[0m
+[1m[96m477[0m [1m[96m|[0m pub(crate) const WEBHOOKS: &[Webhook] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROLES` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:486:18
+    [1m[96m|[0m
+[1m[96m486[0m [1m[96m|[0m pub(crate) const ROLES: &[&str] = &["Super admin", "Institution admin", "Lecturer", "Student", "Developer"];
+    [1m[96m|[0m                  [1m[93m^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROLE_ICONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:487:18
+    [1m[96m|[0m
+[1m[96m487[0m [1m[96m|[0m pub(crate) const ROLE_ICONS: &[(&str, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `PERMISSIONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:495:18
+    [1m[96m|[0m
+[1m[96m495[0m [1m[96m|[0m pub(crate) const PERMISSIONS: &[(&str, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `PERM_MATRIX` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:507:18
+    [1m[96m|[0m
+[1m[96m507[0m [1m[96m|[0m pub(crate) const PERM_MATRIX: &[&[bool]] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `AUDIT_LOG` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:520:18
+    [1m[96m|[0m
+[1m[96m520[0m [1m[96m|[0m pub(crate) const AUDIT_LOG: &[(&str, &str, &str, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `NOTIFICATIONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:531:18
+    [1m[96m|[0m
+[1m[96m531[0m [1m[96m|[0m pub(crate) const NOTIFICATIONS: &[(&str, &str, &str, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: struct `Lesson` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:541:19
+    [1m[96m|[0m
+[1m[96m541[0m [1m[96m|[0m pub(crate) struct Lesson {
+    [1m[96m|[0m                   [1m[93m^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `LESSONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:554:18
+    [1m[96m|[0m
+[1m[96m554[0m [1m[96m|[0m pub(crate) const LESSONS: &[Lesson] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROOM_PARTICIPANTS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:562:18
+    [1m[96m|[0m
+[1m[96m562[0m [1m[96m|[0m pub(crate) const ROOM_PARTICIPANTS: &[(&str, &str, &str, bool, bool)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `LOCAL_MEDIA_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:573:18
+    [1m[96m|[0m
+[1m[96m573[0m [1m[96m|[0m pub(crate) const LOCAL_MEDIA_JS: &str = r#"(async () => {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `START_SHARE_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:582:18
+    [1m[96m|[0m
+[1m[96m582[0m [1m[96m|[0m pub(crate) const START_SHARE_JS: &str = r#"(async () => {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `STOP_SHARE_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:599:18
+    [1m[96m|[0m
+[1m[96m599[0m [1m[96m|[0m pub(crate) const STOP_SHARE_JS: &str = r#"(function() {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: constant `STOP_MEDIA_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:606:18
+    [1m[96m|[0m
+[1m[96m606[0m [1m[96m|[0m pub(crate) const STOP_MEDIA_JS: &str = r#"(function() {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `student_timetable` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:179:8
+    [1m[96m|[0m
+[1m[96m179[0m [1m[96m|[0m pub fn student_timetable() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `student_grades` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:201:8
+    [1m[96m|[0m
+[1m[96m201[0m [1m[96m|[0m pub fn student_grades() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `student_certificates` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:257:8
+    [1m[96m|[0m
+[1m[96m257[0m [1m[96m|[0m pub fn student_certificates() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `student_overview` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:283:8
+    [1m[96m|[0m
+[1m[96m283[0m [1m[96m|[0m pub fn student_overview(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `lecturer_students` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:346:8
+    [1m[96m|[0m
+[1m[96m346[0m [1m[96m|[0m pub fn lecturer_students() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `lecturer_gradebook` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:381:8
+    [1m[96m|[0m
+[1m[96m381[0m [1m[96m|[0m pub fn lecturer_gradebook() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `lecturer_analytics` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:437:8
+    [1m[96m|[0m
+[1m[96m437[0m [1m[96m|[0m pub fn lecturer_analytics() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `lecturer_overview` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:475:8
+    [1m[96m|[0m
+[1m[96m475[0m [1m[96m|[0m pub fn lecturer_overview() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_plugins` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:526:8
+    [1m[96m|[0m
+[1m[96m526[0m [1m[96m|[0m pub fn developer_plugins(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_sdks` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:558:8
+    [1m[96m|[0m
+[1m[96m558[0m [1m[96m|[0m pub fn developer_sdks() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `sdk_label` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:584:4
+    [1m[96m|[0m
+[1m[96m584[0m [1m[96m|[0m fn sdk_label(status: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+
+  7.85s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_system` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:593:8
+    [1m[96m|[0m
+[1m[96m593[0m [1m[96m|[0m pub fn developer_system() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_webhooks` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:625:8
+    [1m[96m|[0m
+[1m[96m625[0m [1m[96m|[0m pub fn developer_webhooks() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_docs` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:648:8
+    [1m[96m|[0m
+[1m[96m648[0m [1m[96m|[0m pub fn developer_docs(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `method_tone` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:680:4
+    [1m[96m|[0m
+[1m[96m680[0m [1m[96m|[0m fn method_tone(m: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `DeveloperOverview` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:690:8
+    [1m[96m|[0m
+[1m[96m690[0m [1m[96m|[0m pub fn DeveloperOverview() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `admin_users` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:745:8
+    [1m[96m|[0m
+[1m[96m745[0m [1m[96m|[0m pub fn admin_users(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `role_icon` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:783:4
+    [1m[96m|[0m
+[1m[96m783[0m [1m[96m|[0m fn role_icon(role: &str) -> &str {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `perm_granted` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:792:4
+    [1m[96m|[0m
+[1m[96m792[0m [1m[96m|[0m fn perm_granted(perm: usize, role: usize) -> bool {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `admin_institutions` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:796:8
+    [1m[96m|[0m
+[1m[96m796[0m [1m[96m|[0m pub fn admin_institutions(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `admin_audit` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:828:8
+    [1m[96m|[0m
+[1m[96m828[0m [1m[96m|[0m pub fn admin_audit() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `admin_overview` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:856:8
+    [1m[96m|[0m
+[1m[96m856[0m [1m[96m|[0m pub fn admin_overview() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: struct `Health` is never constructed[0m
+  [1m[96m--> [0msrc\server_functions.rs:87:12
+   [1m[96m|[0m
+[1m[96m87[0m [1m[96m|[0m pub struct Health {
+   [1m[96m|[0m            [1m[93m^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: struct `Course` is never constructed[0m
+  [1m[96m--> [0msrc\server_functions.rs:93:12
+   [1m[96m|[0m
+[1m[96m93[0m [1m[96m|[0m pub struct Course {
+   [1m[96m|[0m            [1m[93m^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: struct `CreateUserInput` is never constructed[0m
+   [1m[96m--> [0msrc\server_functions.rs:223:12
+    [1m[96m|[0m
+[1m[96m223[0m [1m[96m|[0m pub struct CreateUserInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: struct `BulkCreateUserInput` is never constructed[0m
+   [1m[96m--> [0msrc\server_functions.rs:254:12
+    [1m[96m|[0m
+[1m[96m254[0m [1m[96m|[0m pub struct BulkCreateUserInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `Icon` is never used[0m
+  [1m[96m--> [0msrc\components.rs:10:8
+   [1m[96m|[0m
+[1m[96m10[0m [1m[96m|[0m pub fn Icon(name: &'static str, class: Option<&'static str>) -> Element {
+   [1m[96m|[0m        [1m[93m^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `Divider` is never used[0m
+   [1m[96m--> [0msrc\components.rs:184:8
+    [1m[96m|[0m
+[1m[96m184[0m [1m[96m|[0m pub fn Divider(class: Option<&'static str>) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: constant `LOGO` is never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:16:7
+   [1m[96m|[0m
+[1m[96m16[0m [1m[96m|[0m const LOGO: Asset = asset!("/assets/logo.png");
+   [1m[96m|[0m       [1m[93m^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: variants `Student`, `Lecturer`, `Developer`, and `Admin` are never constructed[0m
+  [1m[96m--> [0msrc\dashboard.rs:24:5
+   [1m[96m|[0m
+[1m[96m23[0m [1m[96m|[0m pub enum Role {
+   [1m[96m|[0m          [1m[96m----[0m [1m[96mvariants in this enum[0m
+[1m[96m24[0m [1m[96m|[0m     Student,
+   [1m[96m|[0m     [1m[93m^^^^^^^[0m
+[1m[96m25[0m [1m[96m|[0m     Lecturer,
+   [1m[96m|[0m     [1m[93m^^^^^^^^[0m
+[1m[96m26[0m [1m[96m|[0m     Developer,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^[0m
+[1m[96m27[0m [1m[96m|[0m     Admin,
+   [1m[96m|[0m     [1m[93m^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `Role` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: methods `label` and `icon` are never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:31:19
+   [1m[96m|[0m
+[1m[96m30[0m [1m[96m|[0m impl Role {
+   [1m[96m|[0m [1m[96m---------[0m [1m[96mmethods in this implementation[0m
+[1m[96m31[0m [1m[96m|[0m     pub(crate) fn label(self) -> &'static str {
+   [1m[96m|[0m                   [1m[93m^^^^^[0m
+[1m[96m...[0m
+[1m[96m40[0m [1m[96m|[0m     pub(crate) fn icon(self) -> &'static str {
+   [1m[96m|[0m                   [1m[93m^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: struct `Persona` is never constructed[0m
+  [1m[96m--> [0msrc\dashboard.rs:50:19
+   [1m[96m|[0m
+[1m[96m50[0m [1m[96m|[0m pub(crate) struct Persona {
+   [1m[96m|[0m                   [1m[93m^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `persona` is never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:57:15
+   [1m[96m|[0m
+[1m[96m57[0m [1m[96m|[0m pub(crate) fn persona(role: Role) -> &'static Persona {
+   [1m[96m|[0m               [1m[93m^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `greeting` is never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:86:15
+   [1m[96m|[0m
+[1m[96m86[0m [1m[96m|[0m pub(crate) fn greeting(role: Role) -> &'static str {
+   [1m[96m|[0m               [1m[93m^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: struct `NavItem` is never constructed[0m
+  [1m[96m--> [0msrc\dashboard.rs:99:8
+   [1m[96m|[0m
+[1m[96m99[0m [1m[96m|[0m struct NavItem {
+   [1m[96m|[0m        [1m[93m^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `nav_items` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:105:4
+    [1m[96m|[0m
+[1m[96m105[0m [1m[96m|[0m fn nav_items(role: Role) -> &'static [NavItem] {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: struct `UiCtx` is never constructed[0m
+   [1m[96m--> [0msrc\dashboard.rs:157:19
+    [1m[96m|[0m
+[1m[96m157[0m [1m[96m|[0m pub(crate) struct UiCtx {
+    [1m[96m|[0m                   [1m[93m^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `Dashboard` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:171:8
+    [1m[96m|[0m
+[1m[96m171[0m [1m[96m|[0m pub fn Dashboard() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `render_page` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:483:4
+    [1m[96m|[0m
+[1m[96m483[0m [1m[96m|[0m fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'static str>) -> Element {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `role_for_roles` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:612:4
+    [1m[96m|[0m
+[1m[96m612[0m [1m[96m|[0m fn role_for_roles(roles: &[String]) -> Role {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `initials_of` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:634:4
+    [1m[96m|[0m
+[1m[96m634[0m [1m[96m|[0m fn initials_of(full_name: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^[0m
+
+
+  7.86s  INFO  [1m[93mwarning[0m[1m[97m: function `perform_login` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:649:10
+    [1m[96m|[0m
+[1m[96m649[0m [1m[96m|[0m async fn perform_login(
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^^^[0m
+
+
+  7.97s  INFO  [1m[93mwarning[0m[1m[97m: unused variable: `drawer_name`[0m
+   [1m[96m--> [0msrc\dashboard.rs:286:10
+    [1m[96m|[0m
+[1m[96m286[0m [1m[96m|[0m     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^[0m [1m[93mhelp: if this is intentional, prefix it with an underscore: `_drawer_name`[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+
+  7.97s  INFO  [1m[93mwarning[0m[1m[97m: unused variable: `drawer_sub`[0m
+   [1m[96m--> [0msrc\dashboard.rs:286:23
+    [1m[96m|[0m
+[1m[96m286[0m [1m[96m|[0m     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    [1m[96m|[0m                       [1m[93m^^^^^^^^^^[0m [1m[93mhelp: if this is intentional, prefix it with an underscore: `_drawer_sub`[0m
+
+
+  8.01s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:680:9
+    [1m[96m|[0m
+[1m[96m680[0m [1m[96m|[0m     let mut busy: Signal<bool> = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  8.07s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:843:9
+    [1m[96m|[0m
+[1m[96m843[0m [1m[96m|[0m     let mut refresh = use_signal(|| 0u32);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  8.07s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:844:9
+    [1m[96m|[0m
+[1m[96m844[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: constant `MAIN_CSS` is never used[0m
+ [1m[96m--> [0msrc\main.rs:7:7
+  [1m[96m|[0m
+[1m[96m7[0m [1m[96m|[0m const MAIN_CSS: Asset = asset!("/assets/main1.css");
+  [1m[96m|[0m       [1m[93m^^^^^^^^[0m
+  [1m[96m|[0m
+  [1m[96m= [0m[1m[97mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: constant `DASHBOARD_CSS` is never used[0m
+ [1m[96m--> [0msrc\main.rs:8:7
+  [1m[96m|[0m
+[1m[96m8[0m [1m[96m|[0m const DASHBOARD_CSS: Asset = asset!("/assets/dashboard.css");
+  [1m[96m|[0m       [1m[93m^^^^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `main` is never used[0m
+  [1m[96m--> [0msrc\main.rs:78:4
+   [1m[96m|[0m
+[1m[96m78[0m [1m[96m|[0m fn main() {
+   [1m[96m|[0m    [1m[93m^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `app` is never used[0m
+   [1m[96m--> [0msrc\main.rs:119:4
+    [1m[96m|[0m
+[1m[96m119[0m [1m[96m|[0m fn app() -> Element {
+    [1m[96m|[0m    [1m[93m^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `init` is never used[0m
+  [1m[96m--> [0msrc\db.rs:17:14
+   [1m[96m|[0m
+[1m[96m17[0m [1m[96m|[0m pub async fn init() {
+   [1m[96m|[0m              [1m[93m^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: field `reason` is never read[0m
+  [1m[96m--> [0msrc\auth_bridge.rs:50:5
+   [1m[96m|[0m
+[1m[96m47[0m [1m[96m|[0m struct VerifyResponse {
+   [1m[96m|[0m        [1m[96m--------------[0m [1m[96mfield in this struct[0m
+[1m[96m...[0m
+[1m[96m50[0m [1m[96m|[0m     reason: Option<String>,
+   [1m[96m|[0m     [1m[93m^^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `VerifyResponse` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: field `index` is never read[0m
+  [1m[96m--> [0msrc\auth_bridge.rs:61:5
+   [1m[96m|[0m
+[1m[96m60[0m [1m[96m|[0m struct BulkCreateError {
+   [1m[96m|[0m        [1m[96m---------------[0m [1m[96mfield in this struct[0m
+[1m[96m61[0m [1m[96m|[0m     index: usize,
+   [1m[96m|[0m     [1m[93m^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `BulkCreateError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `init` is never used[0m
+  [1m[96m--> [0msrc\auth_bridge.rs:78:14
+   [1m[96m|[0m
+[1m[96m78[0m [1m[96m|[0m pub async fn init() {
+   [1m[96m|[0m              [1m[93m^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: constant `COURSE_STATUSES` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:57:11
+   [1m[96m|[0m
+[1m[96m57[0m [1m[96m|[0m pub const COURSE_STATUSES: [&str; 5] = [
+   [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `course_status_label` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:66:8
+   [1m[96m|[0m
+[1m[96m66[0m [1m[96m|[0m pub fn course_status_label(status: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `course_status_tone` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:78:8
+   [1m[96m|[0m
+[1m[96m78[0m [1m[96m|[0m pub fn course_status_tone(status: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `can_publish_from` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:89:8
+   [1m[96m|[0m
+[1m[96m89[0m [1m[96m|[0m pub fn can_publish_from(status: &str) -> bool {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `can_manage_course` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:94:8
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m pub fn can_manage_course(course: &CourseView, user_id: Uuid, is_admin: bool) -> bool {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: constant `ENROLLMENT_STATES` is never used[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:85:11
+   [1m[96m|[0m
+[1m[96m85[0m [1m[96m|[0m pub const ENROLLMENT_STATES: [&str; 6] = [
+   [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `state_label` is never used[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:95:8
+   [1m[96m|[0m
+[1m[96m95[0m [1m[96m|[0m pub fn state_label(state: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `state_tone` is never used[0m
+   [1m[96m--> [0msrc\enrollment_types.rs:108:8
+    [1m[96m|[0m
+[1m[96m108[0m [1m[96m|[0m pub fn state_tone(state: &str) -> &'static str {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `available_transitions` is never used[0m
+   [1m[96m--> [0msrc\enrollment_types.rs:121:8
+    [1m[96m|[0m
+[1m[96m121[0m [1m[96m|[0m pub fn available_transitions(state: &str) -> &'static [(&'static str, &'static str)] {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.39s  INFO  [1m[93mwarning[0m[1m[97m: function `own_action` is never used[0m
+   [1m[96m--> [0msrc\enrollment_types.rs:136:8
+    [1m[96m|[0m
+[1m[96m136[0m [1m[96m|[0m pub fn own_action(state: &str) -> Option<(&'static str, &'static str)> {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `status_label` is never used[0m
+  [1m[96m--> [0msrc\live_types.rs:68:8
+   [1m[96m|[0m
+[1m[96m68[0m [1m[96m|[0m pub fn status_label(status: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `status_tone` is never used[0m
+  [1m[96m--> [0msrc\live_types.rs:79:8
+   [1m[96m|[0m
+[1m[96m79[0m [1m[96m|[0m pub fn status_tone(status: &str) -> &'static str {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `download_submission_file` is never used[0m
+   [1m[96m--> [0msrc\assignments_bridge.rs:188:14
+    [1m[96m|[0m
+[1m[96m188[0m [1m[96m|[0m pub async fn download_submission_file(
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `submit_for_review` is never used[0m
+   [1m[96m--> [0msrc\course_bridge.rs:188:14
+    [1m[96m|[0m
+[1m[96m188[0m [1m[96m|[0m pub async fn submit_for_review(token: &str, course_id: uuid::Uuid) -> Result<CourseView> {
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `Room` is never constructed[0m
+  [1m[96m--> [0msrc\live_signaling.rs:43:8
+   [1m[96m|[0m
+[1m[96m43[0m [1m[96m|[0m struct Room {
+   [1m[96m|[0m        [1m[93m^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `PeerInfo` is never constructed[0m
+  [1m[96m--> [0msrc\live_signaling.rs:49:8
+   [1m[96m|[0m
+[1m[96m49[0m [1m[96m|[0m struct PeerInfo {
+   [1m[96m|[0m        [1m[93m^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: static `ROOMS` is never used[0m
+  [1m[96m--> [0msrc\live_signaling.rs:55:8
+   [1m[96m|[0m
+[1m[96m55[0m [1m[96m|[0m static ROOMS: OnceLock<Mutex<HashMap<Uuid, std::sync::Arc<Room>>>> = OnceLock::new();
+   [1m[96m|[0m        [1m[93m^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `room_for` is never used[0m
+  [1m[96m--> [0msrc\live_signaling.rs:57:4
+   [1m[96m|[0m
+[1m[96m57[0m [1m[96m|[0m fn room_for(session_id: Uuid) -> std::sync::Arc<Room> {
+   [1m[96m|[0m    [1m[93m^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `WsParams` is never constructed[0m
+  [1m[96m--> [0msrc\live_signaling.rs:70:12
+   [1m[96m|[0m
+[1m[96m70[0m [1m[96m|[0m pub struct WsParams {
+   [1m[96m|[0m            [1m[93m^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `default_role` is never used[0m
+  [1m[96m--> [0msrc\live_signaling.rs:83:4
+   [1m[96m|[0m
+[1m[96m83[0m [1m[96m|[0m fn default_role() -> String {
+   [1m[96m|[0m    [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `ws_handler` is never used[0m
+  [1m[96m--> [0msrc\live_signaling.rs:88:14
+   [1m[96m|[0m
+[1m[96m88[0m [1m[96m|[0m pub async fn ws_handler(
+   [1m[96m|[0m              [1m[93m^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `axum_unauthorized` is never used[0m
+   [1m[96m--> [0msrc\live_signaling.rs:104:4
+    [1m[96m|[0m
+[1m[96m104[0m [1m[96m|[0m fn axum_unauthorized() -> dioxus::server::axum::http::StatusCode {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `handle_socket` is never used[0m
+   [1m[96m--> [0msrc\live_signaling.rs:108:10
+    [1m[96m|[0m
+[1m[96m108[0m [1m[96m|[0m async fn handle_socket(
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONTENT_TYPES` is never used[0m
+   [1m[96m--> [0msrc\content_types.rs:132:11
+    [1m[96m|[0m
+[1m[96m132[0m [1m[96m|[0m pub const CONTENT_TYPES: [&str; 9] = [
+    [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONTENT_STATUSES` is never used[0m
+   [1m[96m--> [0msrc\content_types.rs:136:11
+    [1m[96m|[0m
+[1m[96m136[0m [1m[96m|[0m pub const CONTENT_STATUSES: [&str; 3] = ["draft", "published", "unpublished"];
+    [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `fmt_dt` is never used[0m
+ [1m[96m--> [0msrc\ui_helpers.rs:6:8
+  [1m[96m|[0m
+[1m[96m6[0m [1m[96m|[0m pub fn fmt_dt(dt: Option<chrono::DateTime<chrono::Utc>>) -> String {
+  [1m[96m|[0m        [1m[93m^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `read_file_base64` is never used[0m
+  [1m[96m--> [0msrc\ui_helpers.rs:14:14
+   [1m[96m|[0m
+[1m[96m14[0m [1m[96m|[0m pub async fn read_file_base64(input_id: &str) -> Option<assignments_types::FileUploadInput> {
+   [1m[96m|[0m              [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `run_student_submit` is never used[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:243:10
+    [1m[96m|[0m
+[1m[96m243[0m [1m[96m|[0m async fn run_student_submit(
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: variants `AddStudent`, `Bulk`, and `Invite` are never constructed[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:199:5
+    [1m[96m|[0m
+[1m[96m198[0m [1m[96m|[0m enum EditorMode {
+    [1m[96m|[0m      [1m[96m----------[0m [1m[96mvariants in this enum[0m
+[1m[96m199[0m [1m[96m|[0m     AddStudent,
+    [1m[96m|[0m     [1m[93m^^^^^^^^^^[0m
+[1m[96m200[0m [1m[96m|[0m     Bulk,
+    [1m[96m|[0m     [1m[93m^^^^[0m
+[1m[96m201[0m [1m[96m|[0m     Invite,
+    [1m[96m|[0m     [1m[93m^^^^^^[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mnote[0m: `EditorMode` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `start_session` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:367:14
+    [1m[96m|[0m
+[1m[96m367[0m [1m[96m|[0m pub async fn start_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<()> {
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `end_session` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:373:14
+    [1m[96m|[0m
+[1m[96m373[0m [1m[96m|[0m pub async fn end_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<()> {
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `join_session` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:379:14
+    [1m[96m|[0m
+[1m[96m379[0m [1m[96m|[0m pub async fn join_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<LiveJoinView> {
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `js_str` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:383:4
+    [1m[96m|[0m
+[1m[96m383[0m [1m[96m|[0m fn js_str(s: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: function `gloo_timers_sleep` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:390:10
+    [1m[96m|[0m
+[1m[96m390[0m [1m[96m|[0m async fn gloo_timers_sleep() {
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `LIVE_ROOM_JS` is never used[0m
+   [1m[96m--> [0msrc\live_room.rs:399:7
+    [1m[96m|[0m
+[1m[96m399[0m [1m[96m|[0m const LIVE_ROOM_JS: &str = r#"(function(){
+    [1m[96m|[0m       [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `Course` is never constructed[0m
+ [1m[96m--> [0msrc\mock_data.rs:6:19
+  [1m[96m|[0m
+[1m[96m6[0m [1m[96m|[0m pub(crate) struct Course {
+  [1m[96m|[0m                   [1m[93m^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `COURSES` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:17:18
+   [1m[96m|[0m
+[1m[96m17[0m [1m[96m|[0m pub(crate) const COURSES: &[Course] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `Assignment` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:25:19
+   [1m[96m|[0m
+[1m[96m25[0m [1m[96m|[0m pub(crate) struct Assignment {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `ASSIGNMENTS` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:33:18
+   [1m[96m|[0m
+[1m[96m33[0m [1m[96m|[0m pub(crate) const ASSIGNMENTS: &[Assignment] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `Quiz` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:40:19
+   [1m[96m|[0m
+[1m[96m40[0m [1m[96m|[0m pub(crate) struct Quiz {
+   [1m[96m|[0m                   [1m[93m^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `QUIZZES` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:47:18
+   [1m[96m|[0m
+[1m[96m47[0m [1m[96m|[0m pub(crate) const QUIZZES: &[Quiz] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `Announcement` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:52:19
+   [1m[96m|[0m
+[1m[96m52[0m [1m[96m|[0m pub(crate) struct Announcement {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `ANNOUNCEMENTS` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:59:18
+   [1m[96m|[0m
+[1m[96m59[0m [1m[96m|[0m pub(crate) const ANNOUNCEMENTS: &[Announcement] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `StudentRow` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:65:19
+   [1m[96m|[0m
+[1m[96m65[0m [1m[96m|[0m pub(crate) struct StudentRow {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROSTER` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:73:18
+   [1m[96m|[0m
+[1m[96m73[0m [1m[96m|[0m pub(crate) const ROSTER: &[StudentRow] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `Submission` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:82:19
+   [1m[96m|[0m
+[1m[96m82[0m [1m[96m|[0m pub(crate) struct Submission {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `SUBMISSIONS` is never used[0m
+  [1m[96m--> [0msrc\mock_data.rs:90:18
+   [1m[96m|[0m
+[1m[96m90[0m [1m[96m|[0m pub(crate) const SUBMISSIONS: &[Submission] = &[
+   [1m[96m|[0m                  [1m[93m^^^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `Deadline` is never constructed[0m
+  [1m[96m--> [0msrc\mock_data.rs:97:19
+   [1m[96m|[0m
+[1m[96m97[0m [1m[96m|[0m pub(crate) struct Deadline {
+   [1m[96m|[0m                   [1m[93m^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `DEADLINES` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:104:18
+    [1m[96m|[0m
+[1m[96m104[0m [1m[96m|[0m pub(crate) const DEADLINES: &[Deadline] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `PluginRow` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:111:19
+    [1m[96m|[0m
+[1m[96m111[0m [1m[96m|[0m pub(crate) struct PluginRow {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `PLUGINS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:120:18
+    [1m[96m|[0m
+[1m[96m120[0m [1m[96m|[0m pub(crate) const PLUGINS: &[PluginRow] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `Service` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:129:19
+    [1m[96m|[0m
+[1m[96m129[0m [1m[96m|[0m pub(crate) struct Service {
+    [1m[96m|[0m                   [1m[93m^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `SERVICES` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:135:18
+    [1m[96m|[0m
+[1m[96m135[0m [1m[96m|[0m pub(crate) const SERVICES: &[Service] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: struct `Sdk` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:144:19
+    [1m[96m|[0m
+[1m[96m144[0m [1m[96m|[0m pub(crate) struct Sdk {
+    [1m[96m|[0m                   [1m[93m^^^[0m
+
+
+  8.40s  INFO  [1m[93mwarning[0m[1m[97m: constant `SDKS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:151:18
+    [1m[96m|[0m
+[1m[96m151[0m [1m[96m|[0m pub(crate) const SDKS: &[Sdk] = &[
+    [1m[96m|[0m                  [1m[93m^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `UserRow` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:159:19
+    [1m[96m|[0m
+[1m[96m159[0m [1m[96m|[0m pub(crate) struct UserRow {
+    [1m[96m|[0m                   [1m[93m^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `USERS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:167:18
+    [1m[96m|[0m
+[1m[96m167[0m [1m[96m|[0m pub(crate) const USERS: &[UserRow] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `Institution` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:176:19
+    [1m[96m|[0m
+[1m[96m176[0m [1m[96m|[0m pub(crate) struct Institution {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `INSTITUTIONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:183:18
+    [1m[96m|[0m
+[1m[96m183[0m [1m[96m|[0m pub(crate) const INSTITUTIONS: &[Institution] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `Approval` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:190:19
+    [1m[96m|[0m
+[1m[96m190[0m [1m[96m|[0m pub(crate) struct Approval {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `APPROVALS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:197:18
+    [1m[96m|[0m
+[1m[96m197[0m [1m[96m|[0m pub(crate) const APPROVALS: &[Approval] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `Activity` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:202:19
+    [1m[96m|[0m
+[1m[96m202[0m [1m[96m|[0m pub(crate) struct Activity {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `ACTIVITY` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:209:18
+    [1m[96m|[0m
+[1m[96m209[0m [1m[96m|[0m pub(crate) const ACTIVITY: &[Activity] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROLE_SPLIT` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:216:18
+    [1m[96m|[0m
+[1m[96m216[0m [1m[96m|[0m pub(crate) const ROLE_SPLIT: &[(&str, u32, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `Msg` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:225:19
+    [1m[96m|[0m
+[1m[96m225[0m [1m[96m|[0m pub(crate) struct Msg {
+    [1m[96m|[0m                   [1m[93m^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `Conversation` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:231:19
+    [1m[96m|[0m
+[1m[96m231[0m [1m[96m|[0m pub(crate) struct Conversation {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONVERSATIONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:243:18
+    [1m[96m|[0m
+[1m[96m243[0m [1m[96m|[0m pub(crate) const CONVERSATIONS: &[Conversation] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `WEEKLY_ACTIVITY` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:306:18
+    [1m[96m|[0m
+[1m[96m306[0m [1m[96m|[0m pub(crate) const WEEKLY_ACTIVITY: &[(&str, f64, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `ENGAGEMENT` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:316:18
+    [1m[96m|[0m
+[1m[96m316[0m [1m[96m|[0m pub(crate) const ENGAGEMENT: &[(&str, f64, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `GRADE_DIST` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:324:18
+    [1m[96m|[0m
+[1m[96m324[0m [1m[96m|[0m pub(crate) const GRADE_DIST: &[(&str, f64, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `WEEKLY_TREND` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:332:18
+    [1m[96m|[0m
+[1m[96m332[0m [1m[96m|[0m pub(crate) const WEEKLY_TREND: &[(&str, f64, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `TtSlot` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:343:19
+    [1m[96m|[0m
+[1m[96m343[0m [1m[96m|[0m pub(crate) struct TtSlot {
+    [1m[96m|[0m                   [1m[93m^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `TtDay` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:350:19
+    [1m[96m|[0m
+[1m[96m350[0m [1m[96m|[0m pub(crate) struct TtDay {
+    [1m[96m|[0m                   [1m[93m^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `TIMETABLE` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:355:18
+    [1m[96m|[0m
+[1m[96m355[0m [1m[96m|[0m pub(crate) const TIMETABLE: &[TtDay] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `Certificate` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:395:19
+    [1m[96m|[0m
+[1m[96m395[0m [1m[96m|[0m pub(crate) struct Certificate {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `CERTIFICATES` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:404:18
+    [1m[96m|[0m
+[1m[96m404[0m [1m[96m|[0m pub(crate) const CERTIFICATES: &[Certificate] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `ApiEndpoint` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:412:19
+    [1m[96m|[0m
+[1m[96m412[0m [1m[96m|[0m pub(crate) struct ApiEndpoint {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `ApiGroup` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:419:19
+    [1m[96m|[0m
+[1m[96m419[0m [1m[96m|[0m pub(crate) struct ApiGroup {
+    [1m[96m|[0m                   [1m[93m^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `API_GROUPS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:425:18
+    [1m[96m|[0m
+[1m[96m425[0m [1m[96m|[0m pub(crate) const API_GROUPS: &[ApiGroup] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `Webhook` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:470:19
+    [1m[96m|[0m
+[1m[96m470[0m [1m[96m|[0m pub(crate) struct Webhook {
+    [1m[96m|[0m                   [1m[93m^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `WEBHOOKS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:477:18
+    [1m[96m|[0m
+[1m[96m477[0m [1m[96m|[0m pub(crate) const WEBHOOKS: &[Webhook] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROLES` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:486:18
+    [1m[96m|[0m
+[1m[96m486[0m [1m[96m|[0m pub(crate) const ROLES: &[&str] = &["Super admin", "Institution admin", "Lecturer", "Student", "Developer"];
+    [1m[96m|[0m                  [1m[93m^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROLE_ICONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:487:18
+    [1m[96m|[0m
+[1m[96m487[0m [1m[96m|[0m pub(crate) const ROLE_ICONS: &[(&str, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `PERMISSIONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:495:18
+    [1m[96m|[0m
+[1m[96m495[0m [1m[96m|[0m pub(crate) const PERMISSIONS: &[(&str, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `PERM_MATRIX` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:507:18
+    [1m[96m|[0m
+[1m[96m507[0m [1m[96m|[0m pub(crate) const PERM_MATRIX: &[&[bool]] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `AUDIT_LOG` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:520:18
+    [1m[96m|[0m
+[1m[96m520[0m [1m[96m|[0m pub(crate) const AUDIT_LOG: &[(&str, &str, &str, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `NOTIFICATIONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:531:18
+    [1m[96m|[0m
+[1m[96m531[0m [1m[96m|[0m pub(crate) const NOTIFICATIONS: &[(&str, &str, &str, &str)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: struct `Lesson` is never constructed[0m
+   [1m[96m--> [0msrc\mock_data.rs:541:19
+    [1m[96m|[0m
+[1m[96m541[0m [1m[96m|[0m pub(crate) struct Lesson {
+    [1m[96m|[0m                   [1m[93m^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `LESSONS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:554:18
+    [1m[96m|[0m
+[1m[96m554[0m [1m[96m|[0m pub(crate) const LESSONS: &[Lesson] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROOM_PARTICIPANTS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:562:18
+    [1m[96m|[0m
+[1m[96m562[0m [1m[96m|[0m pub(crate) const ROOM_PARTICIPANTS: &[(&str, &str, &str, bool, bool)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `LOCAL_MEDIA_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:573:18
+    [1m[96m|[0m
+[1m[96m573[0m [1m[96m|[0m pub(crate) const LOCAL_MEDIA_JS: &str = r#"(async () => {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `START_SHARE_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:582:18
+    [1m[96m|[0m
+[1m[96m582[0m [1m[96m|[0m pub(crate) const START_SHARE_JS: &str = r#"(async () => {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `STOP_SHARE_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:599:18
+    [1m[96m|[0m
+[1m[96m599[0m [1m[96m|[0m pub(crate) const STOP_SHARE_JS: &str = r#"(function() {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: constant `STOP_MEDIA_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:606:18
+    [1m[96m|[0m
+[1m[96m606[0m [1m[96m|[0m pub(crate) const STOP_MEDIA_JS: &str = r#"(function() {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `student_timetable` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:179:8
+    [1m[96m|[0m
+[1m[96m179[0m [1m[96m|[0m pub fn student_timetable() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `student_grades` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:201:8
+    [1m[96m|[0m
+[1m[96m201[0m [1m[96m|[0m pub fn student_grades() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `student_certificates` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:257:8
+    [1m[96m|[0m
+[1m[96m257[0m [1m[96m|[0m pub fn student_certificates() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `student_overview` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:283:8
+    [1m[96m|[0m
+[1m[96m283[0m [1m[96m|[0m pub fn student_overview(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `lecturer_students` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:346:8
+    [1m[96m|[0m
+[1m[96m346[0m [1m[96m|[0m pub fn lecturer_students() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `lecturer_gradebook` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:381:8
+    [1m[96m|[0m
+[1m[96m381[0m [1m[96m|[0m pub fn lecturer_gradebook() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `lecturer_analytics` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:437:8
+    [1m[96m|[0m
+[1m[96m437[0m [1m[96m|[0m pub fn lecturer_analytics() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `lecturer_overview` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:475:8
+    [1m[96m|[0m
+[1m[96m475[0m [1m[96m|[0m pub fn lecturer_overview() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_plugins` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:526:8
+    [1m[96m|[0m
+[1m[96m526[0m [1m[96m|[0m pub fn developer_plugins(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_sdks` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:558:8
+    [1m[96m|[0m
+[1m[96m558[0m [1m[96m|[0m pub fn developer_sdks() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `sdk_label` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:584:4
+    [1m[96m|[0m
+[1m[96m584[0m [1m[96m|[0m fn sdk_label(status: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_system` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:593:8
+    [1m[96m|[0m
+[1m[96m593[0m [1m[96m|[0m pub fn developer_system() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_webhooks` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:625:8
+    [1m[96m|[0m
+[1m[96m625[0m [1m[96m|[0m pub fn developer_webhooks() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `developer_docs` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:648:8
+    [1m[96m|[0m
+[1m[96m648[0m [1m[96m|[0m pub fn developer_docs(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `method_tone` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:680:4
+    [1m[96m|[0m
+[1m[96m680[0m [1m[96m|[0m fn method_tone(m: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `DeveloperOverview` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:690:8
+    [1m[96m|[0m
+[1m[96m690[0m [1m[96m|[0m pub fn DeveloperOverview() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `admin_users` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:745:8
+    [1m[96m|[0m
+[1m[96m745[0m [1m[96m|[0m pub fn admin_users(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `role_icon` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:783:4
+    [1m[96m|[0m
+[1m[96m783[0m [1m[96m|[0m fn role_icon(role: &str) -> &str {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `perm_granted` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:792:4
+    [1m[96m|[0m
+[1m[96m792[0m [1m[96m|[0m fn perm_granted(perm: usize, role: usize) -> bool {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^[0m
+
+
+  8.41s  INFO  [1m[93mwarning[0m[1m[97m: function `admin_institutions` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:796:8
+    [1m[96m|[0m
+[1m[96m796[0m [1m[96m|[0m pub fn admin_institutions(search: &str) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `admin_audit` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:828:8
+    [1m[96m|[0m
+[1m[96m828[0m [1m[96m|[0m pub fn admin_audit() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `admin_overview` is never used[0m
+   [1m[96m--> [0msrc\mock_pages.rs:856:8
+    [1m[96m|[0m
+[1m[96m856[0m [1m[96m|[0m pub fn admin_overview() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `Icon` is never used[0m
+  [1m[96m--> [0msrc\components.rs:10:8
+   [1m[96m|[0m
+[1m[96m10[0m [1m[96m|[0m pub fn Icon(name: &'static str, class: Option<&'static str>) -> Element {
+   [1m[96m|[0m        [1m[93m^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `Divider` is never used[0m
+   [1m[96m--> [0msrc\components.rs:184:8
+    [1m[96m|[0m
+[1m[96m184[0m [1m[96m|[0m pub fn Divider(class: Option<&'static str>) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: constant `LOGO` is never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:16:7
+   [1m[96m|[0m
+[1m[96m16[0m [1m[96m|[0m const LOGO: Asset = asset!("/assets/logo.png");
+   [1m[96m|[0m       [1m[93m^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: variants `Student`, `Lecturer`, `Developer`, and `Admin` are never constructed[0m
+  [1m[96m--> [0msrc\dashboard.rs:24:5
+   [1m[96m|[0m
+[1m[96m23[0m [1m[96m|[0m pub enum Role {
+   [1m[96m|[0m          [1m[96m----[0m [1m[96mvariants in this enum[0m
+[1m[96m24[0m [1m[96m|[0m     Student,
+   [1m[96m|[0m     [1m[93m^^^^^^^[0m
+[1m[96m25[0m [1m[96m|[0m     Lecturer,
+   [1m[96m|[0m     [1m[93m^^^^^^^^[0m
+[1m[96m26[0m [1m[96m|[0m     Developer,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^[0m
+[1m[96m27[0m [1m[96m|[0m     Admin,
+   [1m[96m|[0m     [1m[93m^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `Role` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: methods `label` and `icon` are never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:31:19
+   [1m[96m|[0m
+[1m[96m30[0m [1m[96m|[0m impl Role {
+   [1m[96m|[0m [1m[96m---------[0m [1m[96mmethods in this implementation[0m
+[1m[96m31[0m [1m[96m|[0m     pub(crate) fn label(self) -> &'static str {
+   [1m[96m|[0m                   [1m[93m^^^^^[0m
+[1m[96m...[0m
+[1m[96m40[0m [1m[96m|[0m     pub(crate) fn icon(self) -> &'static str {
+   [1m[96m|[0m                   [1m[93m^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: struct `Persona` is never constructed[0m
+  [1m[96m--> [0msrc\dashboard.rs:50:19
+   [1m[96m|[0m
+[1m[96m50[0m [1m[96m|[0m pub(crate) struct Persona {
+   [1m[96m|[0m                   [1m[93m^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `persona` is never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:57:15
+   [1m[96m|[0m
+[1m[96m57[0m [1m[96m|[0m pub(crate) fn persona(role: Role) -> &'static Persona {
+   [1m[96m|[0m               [1m[93m^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `greeting` is never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:86:15
+   [1m[96m|[0m
+[1m[96m86[0m [1m[96m|[0m pub(crate) fn greeting(role: Role) -> &'static str {
+   [1m[96m|[0m               [1m[93m^^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: struct `NavItem` is never constructed[0m
+  [1m[96m--> [0msrc\dashboard.rs:99:8
+   [1m[96m|[0m
+[1m[96m99[0m [1m[96m|[0m struct NavItem {
+   [1m[96m|[0m        [1m[93m^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `nav_items` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:105:4
+    [1m[96m|[0m
+[1m[96m105[0m [1m[96m|[0m fn nav_items(role: Role) -> &'static [NavItem] {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: struct `UiCtx` is never constructed[0m
+   [1m[96m--> [0msrc\dashboard.rs:157:19
+    [1m[96m|[0m
+[1m[96m157[0m [1m[96m|[0m pub(crate) struct UiCtx {
+    [1m[96m|[0m                   [1m[93m^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `Dashboard` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:171:8
+    [1m[96m|[0m
+[1m[96m171[0m [1m[96m|[0m pub fn Dashboard() -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `render_page` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:483:4
+    [1m[96m|[0m
+[1m[96m483[0m [1m[96m|[0m fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'static str>) -> Element {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `role_for_roles` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:612:4
+    [1m[96m|[0m
+[1m[96m612[0m [1m[96m|[0m fn role_for_roles(roles: &[String]) -> Role {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `initials_of` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:634:4
+    [1m[96m|[0m
+[1m[96m634[0m [1m[96m|[0m fn initials_of(full_name: &str) -> String {
+    [1m[96m|[0m    [1m[93m^^^^^^^^^^^[0m
+
+
+  8.42s  INFO  [1m[93mwarning[0m[1m[97m: function `perform_login` is never used[0m
+   [1m[96m--> [0msrc\dashboard.rs:649:10
+    [1m[96m|[0m
+[1m[96m649[0m [1m[96m|[0m async fn perform_login(
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^^^[0m
+
+
+ 13.01s  INFO Compiled [287/288]: frontend
+ 18.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\assignments_ui.rs:19:9
+   [1m[96m|[0m
+[1m[96m19[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\assignments_ui.rs:25:9
+   [1m[96m|[0m
+[1m[96m25[0m [1m[96m|[0m     let mut assignments = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:101:9
+    [1m[96m|[0m
+[1m[96m101[0m [1m[96m|[0m     let mut data = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:190:9
+    [1m[96m|[0m
+[1m[96m190[0m [1m[96m|[0m     let mut busy = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:191:9
+    [1m[96m|[0m
+[1m[96m191[0m [1m[96m|[0m     let mut message: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:309:9
+    [1m[96m|[0m
+[1m[96m309[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:420:9
+    [1m[96m|[0m
+[1m[96m420[0m [1m[96m|[0m     let mut submissions = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:505:33
+    [1m[96m|[0m
+[1m[96m505[0m [1m[96m|[0m [1m[96m...[0m                   let mut marks = marks;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:506:33
+    [1m[96m|[0m
+[1m[96m506[0m [1m[96m|[0m [1m[96m...[0m                   let mut comments = comments;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:507:33
+    [1m[96m|[0m
+[1m[96m507[0m [1m[96m|[0m [1m[96m...[0m                   let mut feedback = feedback;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:477:9
+    [1m[96m|[0m
+[1m[96m477[0m [1m[96m|[0m     let mut done: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:538:9
+    [1m[96m|[0m
+[1m[96m538[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:548:9
+    [1m[96m|[0m
+[1m[96m548[0m [1m[96m|[0m     let mut assignments = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\courses_ui.rs:16:9
+   [1m[96m|[0m
+[1m[96m16[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\courses_ui.rs:22:9
+   [1m[96m|[0m
+[1m[96m22[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:145:9
+    [1m[96m|[0m
+[1m[96m145[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:153:9
+    [1m[96m|[0m
+[1m[96m153[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:297:9
+    [1m[96m|[0m
+[1m[96m297[0m [1m[96m|[0m     let mut busy = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:298:9
+    [1m[96m|[0m
+[1m[96m298[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:17:9
+   [1m[96m|[0m
+[1m[96m17[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:22:9
+   [1m[96m|[0m
+[1m[96m22[0m [1m[96m|[0m     let mut expanded: Signal<Option<Uuid>> = use_signal(|| None);
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:24:9
+   [1m[96m|[0m
+[1m[96m24[0m [1m[96m|[0m     let mut modules = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_ui.rs:257:9
+    [1m[96m|[0m
+[1m[96m257[0m [1m[96m|[0m     let mut lessons = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.42s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\enrollments_ui.rs:30:9
+   [1m[96m|[0m
+[1m[96m30[0m [1m[96m|[0m     let mut enrl = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.42s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\enrollments_ui.rs:94:9
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m     let mut roster = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.42s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:219:9
+    [1m[96m|[0m
+[1m[96m219[0m [1m[96m|[0m     let mut busy: Signal<bool> = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.42s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:220:9
+    [1m[96m|[0m
+[1m[96m220[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.42s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:367:9
+    [1m[96m|[0m
+[1m[96m367[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.42s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_room.rs:38:9
+   [1m[96m|[0m
+[1m[96m38[0m [1m[96m|[0m     let mut tool_color = use_signal(|| "#1a73e8".to_string());
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.42s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\live_room.rs:152:9
+    [1m[96m|[0m
+[1m[96m152[0m [1m[96m|[0m     let mut send_chat = {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.43s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:23:9
+   [1m[96m|[0m
+[1m[96m23[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.43s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:26:9
+   [1m[96m|[0m
+[1m[96m26[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.43s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:52:9
+   [1m[96m|[0m
+[1m[96m52[0m [1m[96m|[0m     let mut sessions = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.43s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\live_classes_ui.rs:314:9
+    [1m[96m|[0m
+[1m[96m314[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.78s  INFO  [1m[93mwarning[0m[1m[97m: unused variable: `drawer_name`[0m
+   [1m[96m--> [0msrc\dashboard.rs:286:10
+    [1m[96m|[0m
+[1m[96m286[0m [1m[96m|[0m     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^[0m [1m[93mhelp: if this is intentional, prefix it with an underscore: `_drawer_name`[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+
+ 18.78s  INFO  [1m[93mwarning[0m[1m[97m: unused variable: `drawer_sub`[0m
+   [1m[96m--> [0msrc\dashboard.rs:286:23
+    [1m[96m|[0m
+[1m[96m286[0m [1m[96m|[0m     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    [1m[96m|[0m                       [1m[93m^^^^^^^^^^[0m [1m[93mhelp: if this is intentional, prefix it with an underscore: `_drawer_sub`[0m
+
+
+ 18.81s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:680:9
+    [1m[96m|[0m
+[1m[96m680[0m [1m[96m|[0m     let mut busy: Signal<bool> = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.86s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:843:9
+    [1m[96m|[0m
+[1m[96m843[0m [1m[96m|[0m     let mut refresh = use_signal(|| 0u32);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 18.86s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:844:9
+    [1m[96m|[0m
+[1m[96m844[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: struct `GradeHistoryEntry` is never constructed[0m
+  [1m[96m--> [0msrc\assignments_types.rs:85:12
+   [1m[96m|[0m
+[1m[96m85[0m [1m[96m|[0m pub struct GradeHistoryEntry {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: struct `GradeHistoryView` is never constructed[0m
+  [1m[96m--> [0msrc\assignments_types.rs:97:12
+   [1m[96m|[0m
+[1m[96m97[0m [1m[96m|[0m pub struct GradeHistoryView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: struct `DownloadView` is never constructed[0m
+   [1m[96m--> [0msrc\assignments_types.rs:102:12
+    [1m[96m|[0m
+[1m[96m102[0m [1m[96m|[0m pub struct DownloadView {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: constant `COURSE_STATUSES` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:57:11
+   [1m[96m|[0m
+[1m[96m57[0m [1m[96m|[0m pub const COURSE_STATUSES: [&str; 5] = [
+   [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: function `can_publish_from` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:89:8
+   [1m[96m|[0m
+[1m[96m89[0m [1m[96m|[0m pub fn can_publish_from(status: &str) -> bool {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: function `can_manage_course` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:94:8
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m pub fn can_manage_course(course: &CourseView, user_id: Uuid, is_admin: bool) -> bool {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: struct `HistoryView` is never constructed[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:31:12
+   [1m[96m|[0m
+[1m[96m31[0m [1m[96m|[0m pub struct HistoryView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: struct `AccessView` is never constructed[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:74:12
+   [1m[96m|[0m
+[1m[96m74[0m [1m[96m|[0m pub struct AccessView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: constant `ENROLLMENT_STATES` is never used[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:85:11
+   [1m[96m|[0m
+[1m[96m85[0m [1m[96m|[0m pub const ENROLLMENT_STATES: [&str; 6] = [
+   [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: function `own_action` is never used[0m
+   [1m[96m--> [0msrc\enrollment_types.rs:136:8
+    [1m[96m|[0m
+[1m[96m136[0m [1m[96m|[0m pub fn own_action(state: &str) -> Option<(&'static str, &'static str)> {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: struct `LiveAttendanceView` is never constructed[0m
+  [1m[96m--> [0msrc\live_types.rs:37:12
+   [1m[96m|[0m
+[1m[96m37[0m [1m[96m|[0m pub struct LiveAttendanceView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^^[0m
+
+
+ 19.16s  INFO  [1m[93mwarning[0m[1m[97m: struct `LiveResourceView` is never constructed[0m
+  [1m[96m--> [0msrc\live_types.rs:57:12
+   [1m[96m|[0m
+[1m[96m57[0m [1m[96m|[0m pub struct LiveResourceView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: struct `ContentItemView` is never constructed[0m
+  [1m[96m--> [0msrc\content_types.rs:40:12
+   [1m[96m|[0m
+[1m[96m40[0m [1m[96m|[0m pub struct ContentItemView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: struct `ContentFileView` is never constructed[0m
+  [1m[96m--> [0msrc\content_types.rs:58:12
+   [1m[96m|[0m
+[1m[96m58[0m [1m[96m|[0m pub struct ContentFileView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: struct `FileDownloadView` is never constructed[0m
+  [1m[96m--> [0msrc\content_types.rs:69:12
+   [1m[96m|[0m
+[1m[96m69[0m [1m[96m|[0m pub struct FileDownloadView {
+   [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: struct `CreateContentItemInput` is never constructed[0m
+   [1m[96m--> [0msrc\content_types.rs:109:12
+    [1m[96m|[0m
+[1m[96m109[0m [1m[96m|[0m pub struct CreateContentItemInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: struct `UpdateContentItemInput` is never constructed[0m
+   [1m[96m--> [0msrc\content_types.rs:121:12
+    [1m[96m|[0m
+[1m[96m121[0m [1m[96m|[0m pub struct UpdateContentItemInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONTENT_TYPES` is never used[0m
+   [1m[96m--> [0msrc\content_types.rs:132:11
+    [1m[96m|[0m
+[1m[96m132[0m [1m[96m|[0m pub const CONTENT_TYPES: [&str; 9] = [
+    [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONTENT_STATUSES` is never used[0m
+   [1m[96m--> [0msrc\content_types.rs:136:11
+    [1m[96m|[0m
+[1m[96m136[0m [1m[96m|[0m pub const CONTENT_STATUSES: [&str; 3] = ["draft", "published", "unpublished"];
+    [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: multiple fields are never read[0m
+  [1m[96m--> [0msrc\mock_data.rs:7:9
+   [1m[96m|[0m
+[1m[96m 6[0m [1m[96m|[0m pub(crate) struct Course {
+   [1m[96m|[0m                   [1m[96m------[0m [1m[96mfields in this struct[0m
+[1m[96m 7[0m [1m[96m|[0m     pub code: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+[1m[96m 8[0m [1m[96m|[0m     pub name: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+[1m[96m 9[0m [1m[96m|[0m     pub instructor: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^^^^^^^[0m
+[1m[96m10[0m [1m[96m|[0m     pub progress: f64,
+   [1m[96m|[0m         [1m[93m^^^^^^^^[0m
+[1m[96m11[0m [1m[96m|[0m     pub students: u32,
+   [1m[96m|[0m         [1m[93m^^^^^^^^[0m
+[1m[96m12[0m [1m[96m|[0m     pub pending: u32,
+   [1m[96m|[0m         [1m[93m^^^^^^^[0m
+[1m[96m13[0m [1m[96m|[0m     pub tone: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+[1m[96m14[0m [1m[96m|[0m     pub icon: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: fields `title`, `course`, `when`, and `info` are never read[0m
+  [1m[96m--> [0msrc\mock_data.rs:41:9
+   [1m[96m|[0m
+[1m[96m40[0m [1m[96m|[0m pub(crate) struct Quiz {
+   [1m[96m|[0m                   [1m[96m----[0m [1m[96mfields in this struct[0m
+[1m[96m41[0m [1m[96m|[0m     pub title: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^^[0m
+[1m[96m42[0m [1m[96m|[0m     pub course: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^^^[0m
+[1m[96m43[0m [1m[96m|[0m     pub when: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+[1m[96m44[0m [1m[96m|[0m     pub info: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: field `initials` is never read[0m
+  [1m[96m--> [0msrc\mock_data.rs:67:9
+   [1m[96m|[0m
+[1m[96m65[0m [1m[96m|[0m pub(crate) struct StudentRow {
+   [1m[96m|[0m                   [1m[96m----------[0m [1m[96mfield in this struct[0m
+[1m[96m66[0m [1m[96m|[0m     pub name: &'static str,
+[1m[96m67[0m [1m[96m|[0m     pub initials: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: field `tone` is never read[0m
+   [1m[96m--> [0msrc\mock_data.rs:206:9
+    [1m[96m|[0m
+[1m[96m202[0m [1m[96m|[0m pub(crate) struct Activity {
+    [1m[96m|[0m                   [1m[96m--------[0m [1m[96mfield in this struct[0m
+[1m[96m...[0m
+[1m[96m206[0m [1m[96m|[0m     pub tone: &'static str,
+    [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: field `role` is never read[0m
+   [1m[96m--> [0msrc\mock_data.rs:233:9
+    [1m[96m|[0m
+[1m[96m231[0m [1m[96m|[0m pub(crate) struct Conversation {
+    [1m[96m|[0m                   [1m[96m------------[0m [1m[96mfield in this struct[0m
+[1m[96m232[0m [1m[96m|[0m     pub person: &'static str,
+[1m[96m233[0m [1m[96m|[0m     pub role: &'static str,
+    [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: fields `id`, `duration`, and `host` are never read[0m
+   [1m[96m--> [0msrc\mock_data.rs:542:9
+    [1m[96m|[0m
+[1m[96m541[0m [1m[96m|[0m pub(crate) struct Lesson {
+    [1m[96m|[0m                   [1m[96m------[0m [1m[96mfields in this struct[0m
+[1m[96m542[0m [1m[96m|[0m     pub id: &'static str,
+    [1m[96m|[0m         [1m[93m^^[0m
+[1m[96m...[0m
+[1m[96m547[0m [1m[96m|[0m     pub duration: &'static str,
+    [1m[96m|[0m         [1m[93m^^^^^^^^[0m
+[1m[96m548[0m [1m[96m|[0m     pub status: &'static str, // live | scheduled | ended
+[1m[96m549[0m [1m[96m|[0m     pub host: &'static str,
+    [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROOM_PARTICIPANTS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:562:18
+    [1m[96m|[0m
+[1m[96m562[0m [1m[96m|[0m pub(crate) const ROOM_PARTICIPANTS: &[(&str, &str, &str, bool, bool)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: constant `LOCAL_MEDIA_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:573:18
+    [1m[96m|[0m
+[1m[96m573[0m [1m[96m|[0m pub(crate) const LOCAL_MEDIA_JS: &str = r#"(async () => {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: constant `START_SHARE_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:582:18
+    [1m[96m|[0m
+[1m[96m582[0m [1m[96m|[0m pub(crate) const START_SHARE_JS: &str = r#"(async () => {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: constant `STOP_SHARE_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:599:18
+    [1m[96m|[0m
+[1m[96m599[0m [1m[96m|[0m pub(crate) const STOP_SHARE_JS: &str = r#"(function() {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: constant `STOP_MEDIA_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:606:18
+    [1m[96m|[0m
+[1m[96m606[0m [1m[96m|[0m pub(crate) const STOP_MEDIA_JS: &str = r#"(function() {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: struct `Health` is never constructed[0m
+  [1m[96m--> [0msrc\server_functions.rs:87:12
+   [1m[96m|[0m
+[1m[96m87[0m [1m[96m|[0m pub struct Health {
+   [1m[96m|[0m            [1m[93m^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: struct `Course` is never constructed[0m
+  [1m[96m--> [0msrc\server_functions.rs:93:12
+   [1m[96m|[0m
+[1m[96m93[0m [1m[96m|[0m pub struct Course {
+   [1m[96m|[0m            [1m[93m^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: struct `CreateUserInput` is never constructed[0m
+   [1m[96m--> [0msrc\server_functions.rs:223:12
+    [1m[96m|[0m
+[1m[96m223[0m [1m[96m|[0m pub struct CreateUserInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: struct `BulkCreateUserInput` is never constructed[0m
+   [1m[96m--> [0msrc\server_functions.rs:254:12
+    [1m[96m|[0m
+[1m[96m254[0m [1m[96m|[0m pub struct BulkCreateUserInput {
+    [1m[96m|[0m            [1m[93m^^^^^^^^^^^^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: function `Icon` is never used[0m
+  [1m[96m--> [0msrc\components.rs:10:8
+   [1m[96m|[0m
+[1m[96m10[0m [1m[96m|[0m pub fn Icon(name: &'static str, class: Option<&'static str>) -> Element {
+   [1m[96m|[0m        [1m[93m^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: function `Divider` is never used[0m
+   [1m[96m--> [0msrc\components.rs:184:8
+    [1m[96m|[0m
+[1m[96m184[0m [1m[96m|[0m pub fn Divider(class: Option<&'static str>) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: field `initials` is never read[0m
+  [1m[96m--> [0msrc\dashboard.rs:53:5
+   [1m[96m|[0m
+[1m[96m50[0m [1m[96m|[0m pub(crate) struct Persona {
+   [1m[96m|[0m                   [1m[96m-------[0m [1m[96mfield in this struct[0m
+[1m[96m...[0m
+[1m[96m53[0m [1m[96m|[0m     initials: &'static str,
+   [1m[96m|[0m     [1m[93m^^^^^^^^[0m
+
+
+ 19.17s  INFO  [1m[93mwarning[0m[1m[97m: function `greeting` is never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:86:15
+   [1m[96m|[0m
+[1m[96m86[0m [1m[96m|[0m pub(crate) fn greeting(role: Role) -> &'static str {
+   [1m[96m|[0m               [1m[93m^^^^^^^^[0m
+
+
+ 22.84s  INFO Compiled [437/438]: frontend
+ 25.80s  INFO  [1m[93mwarning[0m[1m[97m: unused imports: `create_item`, `create_lesson`, `create_module`, `delete_file`, `delete_item`, `delete_lesson`, `delete_module`, `download_file`, `get_file`, `get_item`, `get_lesson`, `get_module`, `list_files`, `list_items`, `list_lessons`, `list_modules`, `reorder_items`, `reorder_lessons`, `reorder_modules`, `set_lesson_status`, `set_module_status`, `update_item`, `update_lesson`, `update_module`, and `upload_file`[0m
+  [1m[96m--> [0msrc\server_functions.rs:25:5
+   [1m[96m|[0m
+[1m[96m25[0m [1m[96m|[0m     create_item, create_lesson, create_module, delete_file, delete_item, delete_lesson, delete_module,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m
+[1m[96m26[0m [1m[96m|[0m     download_file, get_file, get_item, get_lesson, get_module, list_files, list_items, list_lessons,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^[0m  [1m[93m^^^^^^^^[0m  [1m[93m^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^[0m
+[1m[96m27[0m [1m[96m|[0m     list_modules, reorder_items, reorder_lessons, reorder_modules, set_lesson_status,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^^^^^[0m
+[1m[96m28[0m [1m[96m|[0m     set_module_status, update_item, update_lesson, update_module, upload_file,
+   [1m[96m|[0m     [1m[93m^^^^^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^^^[0m  [1m[93m^^^^^^^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+
+ 27.19s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_bridge.rs:81:9
+   [1m[96m|[0m
+[1m[96m81[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+
+ 27.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_bridge.rs:92:9
+   [1m[96m|[0m
+[1m[96m92[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 27.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_bridge.rs:175:9
+    [1m[96m|[0m
+[1m[96m175[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 27.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_bridge.rs:186:9
+    [1m[96m|[0m
+[1m[96m186[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 27.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_bridge.rs:272:9
+    [1m[96m|[0m
+[1m[96m272[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 27.20s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_bridge.rs:283:9
+    [1m[96m|[0m
+[1m[96m283[0m [1m[96m|[0m     let mut map = serde_json::to_value(input)?
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 27.87s  INFO Compiled [288/288]: frontend
+ 27.91s  INFO Bundling app...
+ 28.38s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\assignments_ui.rs:19:9
+   [1m[96m|[0m
+[1m[96m19[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.38s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\assignments_ui.rs:25:9
+   [1m[96m|[0m
+[1m[96m25[0m [1m[96m|[0m     let mut assignments = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.38s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:101:9
+    [1m[96m|[0m
+[1m[96m101[0m [1m[96m|[0m     let mut data = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:190:9
+    [1m[96m|[0m
+[1m[96m190[0m [1m[96m|[0m     let mut busy = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:191:9
+    [1m[96m|[0m
+[1m[96m191[0m [1m[96m|[0m     let mut message: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:309:9
+    [1m[96m|[0m
+[1m[96m309[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:420:9
+    [1m[96m|[0m
+[1m[96m420[0m [1m[96m|[0m     let mut submissions = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:505:33
+    [1m[96m|[0m
+[1m[96m505[0m [1m[96m|[0m [1m[96m...[0m                   let mut marks = marks;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:506:33
+    [1m[96m|[0m
+[1m[96m506[0m [1m[96m|[0m [1m[96m...[0m                   let mut comments = comments;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:507:33
+    [1m[96m|[0m
+[1m[96m507[0m [1m[96m|[0m [1m[96m...[0m                   let mut feedback = feedback;
+    [1m[96m|[0m                           [1m[96m----[0m[1m[93m^^^^^^^^[0m
+    [1m[96m|[0m                           [1m[96m|[0m
+    [1m[96m|[0m                           [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:477:9
+    [1m[96m|[0m
+[1m[96m477[0m [1m[96m|[0m     let mut done: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:538:9
+    [1m[96m|[0m
+[1m[96m538[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\assignments_ui.rs:548:9
+    [1m[96m|[0m
+[1m[96m548[0m [1m[96m|[0m     let mut assignments = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\courses_ui.rs:16:9
+   [1m[96m|[0m
+[1m[96m16[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\courses_ui.rs:22:9
+   [1m[96m|[0m
+[1m[96m22[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:145:9
+    [1m[96m|[0m
+[1m[96m145[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.39s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:153:9
+    [1m[96m|[0m
+[1m[96m153[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:297:9
+    [1m[96m|[0m
+[1m[96m297[0m [1m[96m|[0m     let mut busy = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\courses_ui.rs:298:9
+    [1m[96m|[0m
+[1m[96m298[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:17:9
+   [1m[96m|[0m
+[1m[96m17[0m [1m[96m|[0m     let mut ctx = use_context::<UiCtx>();
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:22:9
+   [1m[96m|[0m
+[1m[96m22[0m [1m[96m|[0m     let mut expanded: Signal<Option<Uuid>> = use_signal(|| None);
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\content_ui.rs:24:9
+   [1m[96m|[0m
+[1m[96m24[0m [1m[96m|[0m     let mut modules = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.40s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\content_ui.rs:257:9
+    [1m[96m|[0m
+[1m[96m257[0m [1m[96m|[0m     let mut lessons = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\enrollments_ui.rs:30:9
+   [1m[96m|[0m
+[1m[96m30[0m [1m[96m|[0m     let mut enrl = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\enrollments_ui.rs:94:9
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m     let mut roster = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:219:9
+    [1m[96m|[0m
+[1m[96m219[0m [1m[96m|[0m     let mut busy: Signal<bool> = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:220:9
+    [1m[96m|[0m
+[1m[96m220[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\enrollments_ui.rs:367:9
+    [1m[96m|[0m
+[1m[96m367[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_room.rs:38:9
+   [1m[96m|[0m
+[1m[96m38[0m [1m[96m|[0m     let mut tool_color = use_signal(|| "#1a73e8".to_string());
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\live_room.rs:152:9
+    [1m[96m|[0m
+[1m[96m152[0m [1m[96m|[0m     let mut send_chat = {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:23:9
+   [1m[96m|[0m
+[1m[96m23[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.41s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:26:9
+   [1m[96m|[0m
+[1m[96m26[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.42s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+  [1m[96m--> [0msrc\live_classes_ui.rs:52:9
+   [1m[96m|[0m
+[1m[96m52[0m [1m[96m|[0m     let mut sessions = use_resource(move || {
+   [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^^[0m
+   [1m[96m|[0m         [1m[96m|[0m
+   [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.42s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\live_classes_ui.rs:314:9
+    [1m[96m|[0m
+[1m[96m314[0m [1m[96m|[0m     let mut error: Signal<Option<String>> = use_signal(|| None);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 28.46s  INFO Running wasm-bindgen...
+ 28.96s  INFO  [1m[93mwarning[0m[1m[97m: unused variable: `drawer_name`[0m
+   [1m[96m--> [0msrc\dashboard.rs:286:10
+    [1m[96m|[0m
+[1m[96m286[0m [1m[96m|[0m     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    [1m[96m|[0m          [1m[93m^^^^^^^^^^^[0m [1m[93mhelp: if this is intentional, prefix it with an underscore: `_drawer_name`[0m
+    [1m[96m|[0m
+    [1m[96m= [0m[1m[97mnote[0m: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+
+ 28.96s  INFO  [1m[93mwarning[0m[1m[97m: unused variable: `drawer_sub`[0m
+   [1m[96m--> [0msrc\dashboard.rs:286:23
+    [1m[96m|[0m
+[1m[96m286[0m [1m[96m|[0m     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    [1m[96m|[0m                       [1m[93m^^^^^^^^^^[0m [1m[93mhelp: if this is intentional, prefix it with an underscore: `_drawer_sub`[0m
+
+
+ 29.00s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:680:9
+    [1m[96m|[0m
+[1m[96m680[0m [1m[96m|[0m     let mut busy: Signal<bool> = use_signal(|| false);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 29.06s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:843:9
+    [1m[96m|[0m
+[1m[96m843[0m [1m[96m|[0m     let mut refresh = use_signal(|| 0u32);
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 29.06s  INFO  [1m[93mwarning[0m[1m[97m: variable does not need to be mutable[0m
+   [1m[96m--> [0msrc\dashboard.rs:844:9
+    [1m[96m|[0m
+[1m[96m844[0m [1m[96m|[0m     let mut courses = use_resource(move || {
+    [1m[96m|[0m         [1m[96m----[0m[1m[93m^^^^^^^[0m
+    [1m[96m|[0m         [1m[96m|[0m
+    [1m[96m|[0m         [1m[96mhelp: remove this `mut`[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: field `reason` is never read[0m
+  [1m[96m--> [0msrc\auth_bridge.rs:50:5
+   [1m[96m|[0m
+[1m[96m47[0m [1m[96m|[0m struct VerifyResponse {
+   [1m[96m|[0m        [1m[96m--------------[0m [1m[96mfield in this struct[0m
+[1m[96m...[0m
+[1m[96m50[0m [1m[96m|[0m     reason: Option<String>,
+   [1m[96m|[0m     [1m[93m^^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `VerifyResponse` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   [1m[96m= [0m[1m[97mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: field `index` is never read[0m
+  [1m[96m--> [0msrc\auth_bridge.rs:61:5
+   [1m[96m|[0m
+[1m[96m60[0m [1m[96m|[0m struct BulkCreateError {
+   [1m[96m|[0m        [1m[96m---------------[0m [1m[96mfield in this struct[0m
+[1m[96m61[0m [1m[96m|[0m     index: usize,
+   [1m[96m|[0m     [1m[93m^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `BulkCreateError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: constant `COURSE_STATUSES` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:57:11
+   [1m[96m|[0m
+[1m[96m57[0m [1m[96m|[0m pub const COURSE_STATUSES: [&str; 5] = [
+   [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: function `can_publish_from` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:89:8
+   [1m[96m|[0m
+[1m[96m89[0m [1m[96m|[0m pub fn can_publish_from(status: &str) -> bool {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: function `can_manage_course` is never used[0m
+  [1m[96m--> [0msrc\course_types.rs:94:8
+   [1m[96m|[0m
+[1m[96m94[0m [1m[96m|[0m pub fn can_manage_course(course: &CourseView, user_id: Uuid, is_admin: bool) -> bool {
+   [1m[96m|[0m        [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: constant `ENROLLMENT_STATES` is never used[0m
+  [1m[96m--> [0msrc\enrollment_types.rs:85:11
+   [1m[96m|[0m
+[1m[96m85[0m [1m[96m|[0m pub const ENROLLMENT_STATES: [&str; 6] = [
+   [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: function `own_action` is never used[0m
+   [1m[96m--> [0msrc\enrollment_types.rs:136:8
+    [1m[96m|[0m
+[1m[96m136[0m [1m[96m|[0m pub fn own_action(state: &str) -> Option<(&'static str, &'static str)> {
+    [1m[96m|[0m        [1m[93m^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: function `download_submission_file` is never used[0m
+   [1m[96m--> [0msrc\assignments_bridge.rs:188:14
+    [1m[96m|[0m
+[1m[96m188[0m [1m[96m|[0m pub async fn download_submission_file(
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: function `submit_for_review` is never used[0m
+   [1m[96m--> [0msrc\course_bridge.rs:188:14
+    [1m[96m|[0m
+[1m[96m188[0m [1m[96m|[0m pub async fn submit_for_review(token: &str, course_id: uuid::Uuid) -> Result<CourseView> {
+    [1m[96m|[0m              [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONTENT_TYPES` is never used[0m
+   [1m[96m--> [0msrc\content_types.rs:132:11
+    [1m[96m|[0m
+[1m[96m132[0m [1m[96m|[0m pub const CONTENT_TYPES: [&str; 9] = [
+    [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: constant `CONTENT_STATUSES` is never used[0m
+   [1m[96m--> [0msrc\content_types.rs:136:11
+    [1m[96m|[0m
+[1m[96m136[0m [1m[96m|[0m pub const CONTENT_STATUSES: [&str; 3] = ["draft", "published", "unpublished"];
+    [1m[96m|[0m           [1m[93m^^^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: multiple fields are never read[0m
+  [1m[96m--> [0msrc\mock_data.rs:7:9
+   [1m[96m|[0m
+[1m[96m 6[0m [1m[96m|[0m pub(crate) struct Course {
+   [1m[96m|[0m                   [1m[96m------[0m [1m[96mfields in this struct[0m
+[1m[96m 7[0m [1m[96m|[0m     pub code: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+[1m[96m 8[0m [1m[96m|[0m     pub name: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+[1m[96m 9[0m [1m[96m|[0m     pub instructor: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^^^^^^^[0m
+[1m[96m10[0m [1m[96m|[0m     pub progress: f64,
+   [1m[96m|[0m         [1m[93m^^^^^^^^[0m
+[1m[96m11[0m [1m[96m|[0m     pub students: u32,
+   [1m[96m|[0m         [1m[93m^^^^^^^^[0m
+[1m[96m12[0m [1m[96m|[0m     pub pending: u32,
+   [1m[96m|[0m         [1m[93m^^^^^^^[0m
+[1m[96m13[0m [1m[96m|[0m     pub tone: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+[1m[96m14[0m [1m[96m|[0m     pub icon: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: fields `title`, `course`, `when`, and `info` are never read[0m
+  [1m[96m--> [0msrc\mock_data.rs:41:9
+   [1m[96m|[0m
+[1m[96m40[0m [1m[96m|[0m pub(crate) struct Quiz {
+   [1m[96m|[0m                   [1m[96m----[0m [1m[96mfields in this struct[0m
+[1m[96m41[0m [1m[96m|[0m     pub title: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^^[0m
+[1m[96m42[0m [1m[96m|[0m     pub course: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^^^[0m
+[1m[96m43[0m [1m[96m|[0m     pub when: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+[1m[96m44[0m [1m[96m|[0m     pub info: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: field `initials` is never read[0m
+  [1m[96m--> [0msrc\mock_data.rs:67:9
+   [1m[96m|[0m
+[1m[96m65[0m [1m[96m|[0m pub(crate) struct StudentRow {
+   [1m[96m|[0m                   [1m[96m----------[0m [1m[96mfield in this struct[0m
+[1m[96m66[0m [1m[96m|[0m     pub name: &'static str,
+[1m[96m67[0m [1m[96m|[0m     pub initials: &'static str,
+   [1m[96m|[0m         [1m[93m^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: field `tone` is never read[0m
+   [1m[96m--> [0msrc\mock_data.rs:206:9
+    [1m[96m|[0m
+[1m[96m202[0m [1m[96m|[0m pub(crate) struct Activity {
+    [1m[96m|[0m                   [1m[96m--------[0m [1m[96mfield in this struct[0m
+[1m[96m...[0m
+[1m[96m206[0m [1m[96m|[0m     pub tone: &'static str,
+    [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: field `role` is never read[0m
+   [1m[96m--> [0msrc\mock_data.rs:233:9
+    [1m[96m|[0m
+[1m[96m231[0m [1m[96m|[0m pub(crate) struct Conversation {
+    [1m[96m|[0m                   [1m[96m------------[0m [1m[96mfield in this struct[0m
+[1m[96m232[0m [1m[96m|[0m     pub person: &'static str,
+[1m[96m233[0m [1m[96m|[0m     pub role: &'static str,
+    [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: fields `id`, `duration`, and `host` are never read[0m
+   [1m[96m--> [0msrc\mock_data.rs:542:9
+    [1m[96m|[0m
+[1m[96m541[0m [1m[96m|[0m pub(crate) struct Lesson {
+    [1m[96m|[0m                   [1m[96m------[0m [1m[96mfields in this struct[0m
+[1m[96m542[0m [1m[96m|[0m     pub id: &'static str,
+    [1m[96m|[0m         [1m[93m^^[0m
+[1m[96m...[0m
+[1m[96m547[0m [1m[96m|[0m     pub duration: &'static str,
+    [1m[96m|[0m         [1m[93m^^^^^^^^[0m
+[1m[96m548[0m [1m[96m|[0m     pub status: &'static str, // live | scheduled | ended
+[1m[96m549[0m [1m[96m|[0m     pub host: &'static str,
+    [1m[96m|[0m         [1m[93m^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: constant `ROOM_PARTICIPANTS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:562:18
+    [1m[96m|[0m
+[1m[96m562[0m [1m[96m|[0m pub(crate) const ROOM_PARTICIPANTS: &[(&str, &str, &str, bool, bool)] = &[
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: constant `LOCAL_MEDIA_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:573:18
+    [1m[96m|[0m
+[1m[96m573[0m [1m[96m|[0m pub(crate) const LOCAL_MEDIA_JS: &str = r#"(async () => {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: constant `START_SHARE_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:582:18
+    [1m[96m|[0m
+[1m[96m582[0m [1m[96m|[0m pub(crate) const START_SHARE_JS: &str = r#"(async () => {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: constant `STOP_SHARE_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:599:18
+    [1m[96m|[0m
+[1m[96m599[0m [1m[96m|[0m pub(crate) const STOP_SHARE_JS: &str = r#"(function() {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: constant `STOP_MEDIA_JS` is never used[0m
+   [1m[96m--> [0msrc\mock_data.rs:606:18
+    [1m[96m|[0m
+[1m[96m606[0m [1m[96m|[0m pub(crate) const STOP_MEDIA_JS: &str = r#"(function() {
+    [1m[96m|[0m                  [1m[93m^^^^^^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: function `Icon` is never used[0m
+  [1m[96m--> [0msrc\components.rs:10:8
+   [1m[96m|[0m
+[1m[96m10[0m [1m[96m|[0m pub fn Icon(name: &'static str, class: Option<&'static str>) -> Element {
+   [1m[96m|[0m        [1m[93m^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: function `Divider` is never used[0m
+   [1m[96m--> [0msrc\components.rs:184:8
+    [1m[96m|[0m
+[1m[96m184[0m [1m[96m|[0m pub fn Divider(class: Option<&'static str>) -> Element {
+    [1m[96m|[0m        [1m[93m^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: field `initials` is never read[0m
+  [1m[96m--> [0msrc\dashboard.rs:53:5
+   [1m[96m|[0m
+[1m[96m50[0m [1m[96m|[0m pub(crate) struct Persona {
+   [1m[96m|[0m                   [1m[96m-------[0m [1m[96mfield in this struct[0m
+[1m[96m...[0m
+[1m[96m53[0m [1m[96m|[0m     initials: &'static str,
+   [1m[96m|[0m     [1m[93m^^^^^^^^[0m
+
+
+ 29.46s  INFO  [1m[93mwarning[0m[1m[97m: function `greeting` is never used[0m
+  [1m[96m--> [0msrc\dashboard.rs:86:15
+   [1m[96m|[0m
+[1m[96m86[0m [1m[96m|[0m pub(crate) fn greeting(role: Role) -> &'static str {
+   [1m[96m|[0m               [1m[93m^^^^^^^^[0m
+
+
+ 37.54s  INFO Copying asset (1/3): D:\Work\E-Lupane\plugins\frontend\assets\logo.png
+ 37.54s  INFO Copying asset (2/3): D:\Work\E-Lupane\plugins\frontend\assets\dashboard.css
+ 37.54s  INFO Copying asset (3/3): D:\Work\E-Lupane\plugins\frontend\assets\main1.css
+ 37.54s  INFO Client build completed successfully! 🚀 path="D:\\Work\\E-Lupane\\plugins\\frontend\\target\\dx\\frontend\\debug\\web\\public"
+ 46.19s  INFO Compiled [438/438]: frontend
+ 46.23s  INFO Bundling app...
+ 46.32s  INFO Server build completed successfully! 🚀 path="D:\\Work\\E-Lupane\\plugins\\frontend\\target\\dx\\frontend\\debug\\web"

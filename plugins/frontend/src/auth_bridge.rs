@@ -15,6 +15,7 @@ use std::time::Duration;
 
 use anyhow::{anyhow, Result};
 use serde::Deserialize;
+use serde::Serialize;
 use serde_json::json;
 
 use messaging_core::rpc::RequestClient;
@@ -62,14 +63,14 @@ struct BulkCreateError {
     message: String,
 }
 
-#[derive(Debug, Deserialize)]
-struct CreateUserInput {
-    username: String,
-    email: String,
-    password: String,
-    full_name: String,
-    roles: Vec<String>,
-    admin_token: Option<String>,
+#[derive(Debug, Deserialize, Serialize)]
+pub struct CreateUserInput {
+    pub username: String,
+    pub email: String,
+    pub password: String,
+    pub full_name: String,
+    pub roles: Vec<String>,
+    pub admin_token: Option<String>,
 }
 
 /// Connect the shared Redis client. Idempotent; best-effort at boot so the

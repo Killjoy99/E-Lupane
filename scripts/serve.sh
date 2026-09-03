@@ -11,6 +11,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 FRONTEND_DIR="$PROJECT_ROOT/plugins/frontend"
+HOST="${HOST:-0.0.0.0}"
 PORT="${PORT:-8090}"
 PROD_MODE=false
 
@@ -127,7 +128,7 @@ sleep 2
 
 log "Starting Dioxus frontend (dx serve --port $PORT)..."
 cd "$FRONTEND_DIR"
-nohup dx serve --port "$PORT" > "$FRONTEND_LOG" 2>&1 &
+nohup dx serve --addr 0.0.0.0 --port "$PORT" > "$FRONTEND_LOG" 2>&1 &
 FRONTEND_PID=$!
 echo "$FRONTEND_PID" > /tmp/elupane_frontend.pid
 log "Frontend PID: $FRONTEND_PID (logs: $FRONTEND_LOG)"

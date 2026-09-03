@@ -20,6 +20,7 @@ use crate::course_types::{CourseInput, CourseView};
 use crate::enrollment_types::{
     AccessView, BulkEnrollView, EnrollmentView, HistoryView, InviteView,
 };
+#[cfg(feature = "server")]
 use crate::content_bridge::{
     create_item, create_lesson, create_module, delete_file, delete_item, delete_lesson, delete_module,
     download_file, get_file, get_item, get_lesson, get_module, list_files, list_items, list_lessons,
@@ -50,6 +51,24 @@ pub async fn health() -> anyhow::Result<Health> {
         database,
     })
 }
+
+/// Validates an opaque Google OAuth session and returns the signed-in profile.
+#[post("/api/auth/verify")]
+pub async fn auth_verify(token: String) -> anyhow::Result<AuthSession> {
+    let user = crate::google_classroom_bridge::verify_session(&token)?;
+    Ok(AuthSession {
+        token,
+        user: AuthUser {
+            id: user.id,
+            username: user.username,
+            email: user.email,
+            full_name: user.full_name,
+            active: user.active,
+            roles: user.roles,
+        },
+    })
+}
+
 
 /// `/api/courses` — read rows from the `courses` table using SQLx.
 ///

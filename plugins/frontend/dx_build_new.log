@@ -1,0 +1,42 @@
+[INFO] dx::cli::build: Building project... 
+
+[INFO] dx::build::builder: error: this file contains an unclosed delimiter
+   --> src\mock_pages.rs:893:3
+    |
+383 | pub fn lecturer_gradebook() -> Element {
+    |                                        - unclosed delimiter
+...
+438 | pub fn lecturer_analytics() -> Element {
+    |                                        - unclosed delimiter
+...
+475 | pub fn lecturer_overview() -> Element {
+    |                                       - unclosed delimiter
+...
+791 | pub fn admin_institutions(search: &str) -> Element {
+    |                                                    - unclosed delimiter
+...
+893 | }
+    |  ^
+
+ 
+
+[INFO] dx::build::builder: error: this file contains an unclosed delimiter
+   --> src\mock_pages.rs:893:3
+    |
+383 | pub fn lecturer_gradebook() -> Element {
+    |                                        - unclosed delimiter
+...
+438 | pub fn lecturer_analytics() -> Element {
+    |                                        - unclosed delimiter
+...
+475 | pub fn lecturer_overview() -> Element {
+    |                                       - unclosed delimiter
+...
+791 | pub fn admin_institutions(search: &str) -> Element {
+    |                                                    - unclosed delimiter
+...
+893 | }
+    |  ^
+
+ 
+

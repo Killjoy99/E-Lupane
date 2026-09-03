@@ -92,14 +92,14 @@ pub fn Chip(
 
 /// Small pill that reflects a status (`ok` / `warn` / `danger` / `muted`).
 #[component]
-pub fn StatusChip(status: &'static str, label: Option<&'static str>) -> Element {
-    let label = label.unwrap_or(status);
-    let tone = match status {
+pub fn StatusChip(status: String, label: Option<String>) -> Element {
+    let label = label.unwrap_or(status.clone());
+    let tone = match status.as_str() {
         "ok" | "connected" | "running" | "signed" | "graded" | "active" | "on-track"
-        | "submitted" | "healthy" | "success" | "available" | "live" | "online" => "ok",
-        "warn" | "pending" | "at-risk" | "flagged" | "review" | "degraded" | "scheduled" => "warn",
-        "danger" | "error" | "offline" | "failed" | "rejected" | "stopped" => "danger",
-        _ => "muted",
+        | "submitted" | "healthy" | "success" | "available" | "live" | "online" => "ok".to_string(),
+        "warn" | "pending" | "at-risk" | "flagged" | "review" | "degraded" | "scheduled" => "warn".to_string(),
+        "danger" | "error" | "offline" | "failed" | "rejected" | "stopped" => "danger".to_string(),
+        _ => "muted".to_string(),
     };
     rsx! {
         span { class: format!("md-status md-status-{tone}"),
@@ -188,7 +188,7 @@ pub fn Divider(class: Option<&'static str>) -> Element {
 
 /// Full-width empty/under-construction state.
 #[component]
-pub fn Placeholder(title: &'static str, desc: &'static str, icon: &'static str) -> Element {
+pub fn Placeholder(title: &'static str, desc: String, icon: &'static str) -> Element {
     rsx! {
         div { class: "md-card placeholder",
             span { class: "material-symbols-outlined placeholder-icon", "{icon}" }

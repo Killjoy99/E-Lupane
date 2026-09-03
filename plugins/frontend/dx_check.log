@@ -1,0 +1,4769 @@
+[INFO] dx::cli::build: Building project... 
+
+[INFO] dx::build::builder: warning: unused imports: `create_item`, `create_lesson`, `create_module`, `delete_file`, `delete_item`, `delete_lesson`, `delete_module`, `download_file`, `get_file`, `get_item`, `get_lesson`, `get_module`, `list_files`, `list_items`, `list_lessons`, `list_modules`, `reorder_items`, `reorder_lessons`, `reorder_modules`, `set_lesson_status`, `set_module_status`, `update_item`, `update_lesson`, `update_module`, and `upload_file`
+  --> src\server_functions.rs:25:5
+   |
+25 |     create_item, create_lesson, create_module, delete_file, delete_item, delete_lesson, delete_module,
+   |     ^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^^^
+26 |     download_file, get_file, get_item, get_lesson, get_module, list_files, list_items, list_lessons,
+   |     ^^^^^^^^^^^^^  ^^^^^^^^  ^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^^^
+27 |     list_modules, reorder_items, reorder_lessons, reorder_modules, set_lesson_status,
+   |     ^^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^
+28 |     set_module_status, update_item, update_lesson, update_module, upload_file,
+   |     ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_bridge.rs:81:9
+   |
+81 |     let mut map = serde_json::to_value(input)?
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_bridge.rs:92:9
+   |
+92 |     let mut map = serde_json::to_value(input)?
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_bridge.rs:175:9
+    |
+175 |     let mut map = serde_json::to_value(input)?
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_bridge.rs:186:9
+    |
+186 |     let mut map = serde_json::to_value(input)?
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_bridge.rs:272:9
+    |
+272 |     let mut map = serde_json::to_value(input)?
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_bridge.rs:283:9
+    |
+283 |     let mut map = serde_json::to_value(input)?
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:19:9
+   |
+19 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:25:9
+   |
+25 |     let mut assignments = use_resource(move || {
+   |         ----^^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:101:9
+    |
+101 |     let mut data = use_resource(move || {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:190:9
+    |
+190 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:191:9
+    |
+191 |     let mut message: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:309:9
+    |
+309 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:420:9
+    |
+420 |     let mut submissions = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:505:33
+    |
+505 | ...                   let mut marks = marks;
+    |                           ----^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:506:33
+    |
+506 | ...                   let mut comments = comments;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:507:33
+    |
+507 | ...                   let mut feedback = feedback;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:477:9
+    |
+477 |     let mut done: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:538:9
+    |
+538 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:548:9
+    |
+548 |     let mut assignments = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\courses_ui.rs:16:9
+   |
+16 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\courses_ui.rs:22:9
+   |
+22 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:145:9
+    |
+145 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:153:9
+    |
+153 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:297:9
+    |
+297 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:298:9
+    |
+298 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:17:9
+   |
+17 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:22:9
+   |
+22 |     let mut expanded: Signal<Option<Uuid>> = use_signal(|| None);
+   |         ----^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:24:9
+   |
+24 |     let mut modules = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_ui.rs:257:9
+    |
+257 |     let mut lessons = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:30:9
+   |
+30 |     let mut enrl = use_resource(move || {
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:94:9
+   |
+94 |     let mut roster = use_resource(move || {
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:219:9
+    |
+219 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:220:9
+    |
+220 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:367:9
+    |
+367 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_room.rs:38:9
+   |
+38 |     let mut tool_color = use_signal(|| "#1a73e8".to_string());
+   |         ----^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\live_room.rs:152:9
+    |
+152 |     let mut send_chat = {
+    |         ----^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:23:9
+   |
+23 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+   |         ----^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:26:9
+   |
+26 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:52:9
+   |
+52 |     let mut sessions = use_resource(move || {
+   |         ----^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\live_classes_ui.rs:314:9
+    |
+314 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:19:9
+   |
+19 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:25:9
+   |
+25 |     let mut assignments = use_resource(move || {
+   |         ----^^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:101:9
+    |
+101 |     let mut data = use_resource(move || {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:190:9
+    |
+190 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:191:9
+    |
+191 |     let mut message: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:309:9
+    |
+309 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:420:9
+    |
+420 |     let mut submissions = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:505:33
+    |
+505 | ...                   let mut marks = marks;
+    |                           ----^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:506:33
+    |
+506 | ...                   let mut comments = comments;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:507:33
+    |
+507 | ...                   let mut feedback = feedback;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:477:9
+    |
+477 |     let mut done: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:538:9
+    |
+538 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:548:9
+    |
+548 |     let mut assignments = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\courses_ui.rs:16:9
+   |
+16 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\courses_ui.rs:22:9
+   |
+22 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:145:9
+    |
+145 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:153:9
+    |
+153 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:297:9
+    |
+297 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:298:9
+    |
+298 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:17:9
+   |
+17 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:22:9
+   |
+22 |     let mut expanded: Signal<Option<Uuid>> = use_signal(|| None);
+   |         ----^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:24:9
+   |
+24 |     let mut modules = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_ui.rs:257:9
+    |
+257 |     let mut lessons = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:30:9
+   |
+30 |     let mut enrl = use_resource(move || {
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:94:9
+   |
+94 |     let mut roster = use_resource(move || {
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:219:9
+    |
+219 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:220:9
+    |
+220 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:367:9
+    |
+367 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_room.rs:38:9
+   |
+38 |     let mut tool_color = use_signal(|| "#1a73e8".to_string());
+   |         ----^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\live_room.rs:152:9
+    |
+152 |     let mut send_chat = {
+    |         ----^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: unused variable: `drawer_name`
+   --> src\dashboard.rs:286:10
+    |
+286 |     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    |          ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_drawer_name`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: unused variable: `drawer_sub`
+   --> src\dashboard.rs:286:23
+    |
+286 |     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    |                       ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_drawer_sub`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:23:9
+   |
+23 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+   |         ----^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:26:9
+   |
+26 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:52:9
+   |
+52 |     let mut sessions = use_resource(move || {
+   |         ----^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\live_classes_ui.rs:314:9
+    |
+314 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:680:9
+    |
+680 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:843:9
+    |
+843 |     let mut refresh = use_signal(|| 0u32);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:844:9
+    |
+844 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: constant `MAIN_CSS` is never used
+ --> src\main.rs:7:7
+  |
+7 | const MAIN_CSS: Asset = asset!("/assets/main1.css");
+  |       ^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: constant `DASHBOARD_CSS` is never used
+ --> src\main.rs:8:7
+  |
+8 | const DASHBOARD_CSS: Asset = asset!("/assets/dashboard.css");
+  |       ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `main` is never used
+  --> src\main.rs:78:4
+   |
+78 | fn main() {
+   |    ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `app` is never used
+   --> src\main.rs:119:4
+    |
+119 | fn app() -> Element {
+    |    ^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `ResourceView` is never constructed
+  --> src\assignments_types.rs:28:12
+   |
+28 | pub struct ResourceView {
+   |            ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `GradeView` is never constructed
+  --> src\assignments_types.rs:71:12
+   |
+71 | pub struct GradeView {
+   |            ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `GradeHistoryEntry` is never constructed
+  --> src\assignments_types.rs:85:12
+   |
+85 | pub struct GradeHistoryEntry {
+   |            ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `GradeHistoryView` is never constructed
+  --> src\assignments_types.rs:97:12
+   |
+97 | pub struct GradeHistoryView {
+   |            ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `DownloadView` is never constructed
+   --> src\assignments_types.rs:102:12
+    |
+102 | pub struct DownloadView {
+    |            ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `AssignmentInput` is never constructed
+   --> src\assignments_types.rs:113:12
+    |
+113 | pub struct AssignmentInput {
+    |            ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `FileUploadInput` is never constructed
+   --> src\assignments_types.rs:128:12
+    |
+128 | pub struct FileUploadInput {
+    |            ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `LinkInput` is never constructed
+   --> src\assignments_types.rs:136:12
+    |
+136 | pub struct LinkInput {
+    |            ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `CourseInput` is never constructed
+  --> src\course_types.rs:37:12
+   |
+37 | pub struct CourseInput {
+   |            ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `COURSE_STATUSES` is never used
+  --> src\course_types.rs:57:11
+   |
+57 | pub const COURSE_STATUSES: [&str; 5] = [
+   |           ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `course_status_label` is never used
+  --> src\course_types.rs:66:8
+   |
+66 | pub fn course_status_label(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `course_status_tone` is never used
+  --> src\course_types.rs:78:8
+   |
+78 | pub fn course_status_tone(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `can_publish_from` is never used
+  --> src\course_types.rs:89:8
+   |
+89 | pub fn can_publish_from(status: &str) -> bool {
+   |        ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `can_manage_course` is never used
+  --> src\course_types.rs:94:8
+   |
+94 | pub fn can_manage_course(course: &CourseView, user_id: Uuid, is_admin: bool) -> bool {
+   |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `HistoryView` is never constructed
+  --> src\enrollment_types.rs:31:12
+   |
+31 | pub struct HistoryView {
+   |            ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `InviteView` is never constructed
+  --> src\enrollment_types.rs:42:12
+   |
+42 | pub struct InviteView {
+   |            ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `BulkEntryResult` is never constructed
+  --> src\enrollment_types.rs:56:12
+   |
+56 | pub struct BulkEntryResult {
+   |            ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `BulkEnrollView` is never constructed
+  --> src\enrollment_types.rs:65:12
+   |
+65 | pub struct BulkEnrollView {
+   |            ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `AccessView` is never constructed
+  --> src\enrollment_types.rs:74:12
+   |
+74 | pub struct AccessView {
+   |            ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ENROLLMENT_STATES` is never used
+  --> src\enrollment_types.rs:85:11
+   |
+85 | pub const ENROLLMENT_STATES: [&str; 6] = [
+   |           ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `state_label` is never used
+  --> src\enrollment_types.rs:95:8
+   |
+95 | pub fn state_label(state: &str) -> &'static str {
+   |        ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `state_tone` is never used
+   --> src\enrollment_types.rs:108:8
+    |
+108 | pub fn state_tone(state: &str) -> &'static str {
+    |        ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `available_transitions` is never used
+   --> src\enrollment_types.rs:121:8
+    |
+121 | pub fn available_transitions(state: &str) -> &'static [(&'static str, &'static str)] {
+    |        ^^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `own_action` is never used
+   --> src\enrollment_types.rs:136:8
+    |
+136 | pub fn own_action(state: &str) -> Option<(&'static str, &'static str)> {
+    |        ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `LiveAttendanceView` is never constructed
+  --> src\live_types.rs:37:12
+   |
+37 | pub struct LiveAttendanceView {
+   |            ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `LiveChatMessageView` is never constructed
+  --> src\live_types.rs:48:12
+   |
+48 | pub struct LiveChatMessageView {
+   |            ^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `LiveResourceView` is never constructed
+  --> src\live_types.rs:57:12
+   |
+57 | pub struct LiveResourceView {
+   |            ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `status_label` is never used
+  --> src\live_types.rs:68:8
+   |
+68 | pub fn status_label(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `status_tone` is never used
+  --> src\live_types.rs:79:8
+   |
+79 | pub fn status_tone(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `ContentItemView` is never constructed
+  --> src\content_types.rs:40:12
+   |
+40 | pub struct ContentItemView {
+   |            ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `ContentFileView` is never constructed
+  --> src\content_types.rs:58:12
+   |
+58 | pub struct ContentFileView {
+   |            ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `FileDownloadView` is never constructed
+  --> src\content_types.rs:69:12
+   |
+69 | pub struct FileDownloadView {
+   |            ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `CreateModuleInput` is never constructed
+  --> src\content_types.rs:77:12
+   |
+77 | pub struct CreateModuleInput {
+   |            ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `UpdateModuleInput` is never constructed
+  --> src\content_types.rs:85:12
+   |
+85 | pub struct UpdateModuleInput {
+   |            ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `CreateLessonInput` is never constructed
+  --> src\content_types.rs:93:12
+   |
+93 | pub struct CreateLessonInput {
+   |            ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `UpdateLessonInput` is never constructed
+   --> src\content_types.rs:101:12
+    |
+101 | pub struct UpdateLessonInput {
+    |            ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `CreateContentItemInput` is never constructed
+   --> src\content_types.rs:109:12
+    |
+109 | pub struct CreateContentItemInput {
+    |            ^^^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `UpdateContentItemInput` is never constructed
+   --> src\content_types.rs:121:12
+    |
+121 | pub struct UpdateContentItemInput {
+    |            ^^^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONTENT_TYPES` is never used
+   --> src\content_types.rs:132:11
+    |
+132 | pub const CONTENT_TYPES: [&str; 9] = [
+    |           ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONTENT_STATUSES` is never used
+   --> src\content_types.rs:136:11
+    |
+136 | pub const CONTENT_STATUSES: [&str; 3] = ["draft", "published", "unpublished"];
+    |           ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `fmt_dt` is never used
+ --> src\ui_helpers.rs:6:8
+  |
+6 | pub fn fmt_dt(dt: Option<chrono::DateTime<chrono::Utc>>) -> String {
+  |        ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `read_file_base64` is never used
+  --> src\ui_helpers.rs:14:14
+   |
+14 | pub async fn read_file_base64(input_id: &str) -> Option<assignments_types::FileUploadInput> {
+   |              ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `run_student_submit` is never used
+   --> src\assignments_ui.rs:243:10
+    |
+243 | async fn run_student_submit(
+    |          ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: variants `AddStudent`, `Bulk`, and `Invite` are never constructed
+   --> src\enrollments_ui.rs:199:5
+    |
+198 | enum EditorMode {
+    |      ---------- variants in this enum
+199 |     AddStudent,
+    |     ^^^^^^^^^^
+200 |     Bulk,
+    |     ^^^^
+201 |     Invite,
+    |     ^^^^^^
+    |
+    = note: `EditorMode` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+ 
+
+[INFO] dx::build::builder: warning: function `start_session` is never used
+   --> src\live_room.rs:367:14
+    |
+367 | pub async fn start_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<()> {
+    |              ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `end_session` is never used
+   --> src\live_room.rs:373:14
+    |
+373 | pub async fn end_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<()> {
+    |              ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `join_session` is never used
+   --> src\live_room.rs:379:14
+    |
+379 | pub async fn join_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<LiveJoinView> {
+    |              ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `js_str` is never used
+   --> src\live_room.rs:383:4
+    |
+383 | fn js_str(s: &str) -> String {
+    |    ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `gloo_timers_sleep` is never used
+   --> src\live_room.rs:390:10
+    |
+390 | async fn gloo_timers_sleep() {
+    |          ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LIVE_ROOM_JS` is never used
+   --> src\live_room.rs:399:7
+    |
+399 | const LIVE_ROOM_JS: &str = r#"(function(){
+    |       ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Course` is never constructed
+ --> src\mock_data.rs:6:19
+  |
+6 | pub(crate) struct Course {
+  |                   ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `COURSES` is never used
+  --> src\mock_data.rs:17:18
+   |
+17 | pub(crate) const COURSES: &[Course] = &[
+   |                  ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Assignment` is never constructed
+  --> src\mock_data.rs:25:19
+   |
+25 | pub(crate) struct Assignment {
+   |                   ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ASSIGNMENTS` is never used
+  --> src\mock_data.rs:33:18
+   |
+33 | pub(crate) const ASSIGNMENTS: &[Assignment] = &[
+   |                  ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Quiz` is never constructed
+  --> src\mock_data.rs:40:19
+   |
+40 | pub(crate) struct Quiz {
+   |                   ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `QUIZZES` is never used
+  --> src\mock_data.rs:47:18
+   |
+47 | pub(crate) const QUIZZES: &[Quiz] = &[
+   |                  ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Announcement` is never constructed
+  --> src\mock_data.rs:52:19
+   |
+52 | pub(crate) struct Announcement {
+   |                   ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ANNOUNCEMENTS` is never used
+  --> src\mock_data.rs:59:18
+   |
+59 | pub(crate) const ANNOUNCEMENTS: &[Announcement] = &[
+   |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `StudentRow` is never constructed
+  --> src\mock_data.rs:65:19
+   |
+65 | pub(crate) struct StudentRow {
+   |                   ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROSTER` is never used
+  --> src\mock_data.rs:73:18
+   |
+73 | pub(crate) const ROSTER: &[StudentRow] = &[
+   |                  ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Submission` is never constructed
+  --> src\mock_data.rs:82:19
+   |
+82 | pub(crate) struct Submission {
+   |                   ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `SUBMISSIONS` is never used
+  --> src\mock_data.rs:90:18
+   |
+90 | pub(crate) const SUBMISSIONS: &[Submission] = &[
+   |                  ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Deadline` is never constructed
+  --> src\mock_data.rs:97:19
+   |
+97 | pub(crate) struct Deadline {
+   |                   ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `DEADLINES` is never used
+   --> src\mock_data.rs:104:18
+    |
+104 | pub(crate) const DEADLINES: &[Deadline] = &[
+    |                  ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `PluginRow` is never constructed
+   --> src\mock_data.rs:111:19
+    |
+111 | pub(crate) struct PluginRow {
+    |                   ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `PLUGINS` is never used
+   --> src\mock_data.rs:120:18
+    |
+120 | pub(crate) const PLUGINS: &[PluginRow] = &[
+    |                  ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Service` is never constructed
+   --> src\mock_data.rs:129:19
+    |
+129 | pub(crate) struct Service {
+    |                   ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `SERVICES` is never used
+   --> src\mock_data.rs:135:18
+    |
+135 | pub(crate) const SERVICES: &[Service] = &[
+    |                  ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Sdk` is never constructed
+   --> src\mock_data.rs:144:19
+    |
+144 | pub(crate) struct Sdk {
+    |                   ^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `SDKS` is never used
+   --> src\mock_data.rs:151:18
+    |
+151 | pub(crate) const SDKS: &[Sdk] = &[
+    |                  ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `UserRow` is never constructed
+   --> src\mock_data.rs:159:19
+    |
+159 | pub(crate) struct UserRow {
+    |                   ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `USERS` is never used
+   --> src\mock_data.rs:167:18
+    |
+167 | pub(crate) const USERS: &[UserRow] = &[
+    |                  ^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Institution` is never constructed
+   --> src\mock_data.rs:176:19
+    |
+176 | pub(crate) struct Institution {
+    |                   ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `INSTITUTIONS` is never used
+   --> src\mock_data.rs:183:18
+    |
+183 | pub(crate) const INSTITUTIONS: &[Institution] = &[
+    |                  ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Approval` is never constructed
+   --> src\mock_data.rs:190:19
+    |
+190 | pub(crate) struct Approval {
+    |                   ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `APPROVALS` is never used
+   --> src\mock_data.rs:197:18
+    |
+197 | pub(crate) const APPROVALS: &[Approval] = &[
+    |                  ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Activity` is never constructed
+   --> src\mock_data.rs:202:19
+    |
+202 | pub(crate) struct Activity {
+    |                   ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ACTIVITY` is never used
+   --> src\mock_data.rs:209:18
+    |
+209 | pub(crate) const ACTIVITY: &[Activity] = &[
+    |                  ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROLE_SPLIT` is never used
+   --> src\mock_data.rs:216:18
+    |
+216 | pub(crate) const ROLE_SPLIT: &[(&str, u32, &str)] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Msg` is never constructed
+   --> src\mock_data.rs:225:19
+    |
+225 | pub(crate) struct Msg {
+    |                   ^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Conversation` is never constructed
+   --> src\mock_data.rs:231:19
+    |
+231 | pub(crate) struct Conversation {
+    |                   ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONVERSATIONS` is never used
+   --> src\mock_data.rs:243:18
+    |
+243 | pub(crate) const CONVERSATIONS: &[Conversation] = &[
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `WEEKLY_ACTIVITY` is never used
+   --> src\mock_data.rs:306:18
+    |
+306 | pub(crate) const WEEKLY_ACTIVITY: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ENGAGEMENT` is never used
+   --> src\mock_data.rs:316:18
+    |
+316 | pub(crate) const ENGAGEMENT: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `GRADE_DIST` is never used
+   --> src\mock_data.rs:324:18
+    |
+324 | pub(crate) const GRADE_DIST: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `WEEKLY_TREND` is never used
+   --> src\mock_data.rs:332:18
+    |
+332 | pub(crate) const WEEKLY_TREND: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `TtSlot` is never constructed
+   --> src\mock_data.rs:343:19
+    |
+343 | pub(crate) struct TtSlot {
+    |                   ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `TtDay` is never constructed
+   --> src\mock_data.rs:350:19
+    |
+350 | pub(crate) struct TtDay {
+    |                   ^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `TIMETABLE` is never used
+   --> src\mock_data.rs:355:18
+    |
+355 | pub(crate) const TIMETABLE: &[TtDay] = &[
+    |                  ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Certificate` is never constructed
+   --> src\mock_data.rs:395:19
+    |
+395 | pub(crate) struct Certificate {
+    |                   ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CERTIFICATES` is never used
+   --> src\mock_data.rs:404:18
+    |
+404 | pub(crate) const CERTIFICATES: &[Certificate] = &[
+    |                  ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `ApiEndpoint` is never constructed
+   --> src\mock_data.rs:412:19
+    |
+412 | pub(crate) struct ApiEndpoint {
+    |                   ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `ApiGroup` is never constructed
+   --> src\mock_data.rs:419:19
+    |
+419 | pub(crate) struct ApiGroup {
+    |                   ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `API_GROUPS` is never used
+   --> src\mock_data.rs:425:18
+    |
+425 | pub(crate) const API_GROUPS: &[ApiGroup] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Webhook` is never constructed
+   --> src\mock_data.rs:470:19
+    |
+470 | pub(crate) struct Webhook {
+    |                   ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `WEBHOOKS` is never used
+   --> src\mock_data.rs:477:18
+    |
+477 | pub(crate) const WEBHOOKS: &[Webhook] = &[
+    |                  ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROLES` is never used
+   --> src\mock_data.rs:486:18
+    |
+486 | pub(crate) const ROLES: &[&str] = &["Super admin", "Institution admin", "Lecturer", "Student", "Developer"];
+    |                  ^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROLE_ICONS` is never used
+   --> src\mock_data.rs:487:18
+    |
+487 | pub(crate) const ROLE_ICONS: &[(&str, &str)] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `PERMISSIONS` is never used
+   --> src\mock_data.rs:495:18
+    |
+495 | pub(crate) const PERMISSIONS: &[(&str, &str)] = &[
+    |                  ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `PERM_MATRIX` is never used
+   --> src\mock_data.rs:507:18
+    |
+507 | pub(crate) const PERM_MATRIX: &[&[bool]] = &[
+    |                  ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `AUDIT_LOG` is never used
+   --> src\mock_data.rs:520:18
+    |
+520 | pub(crate) const AUDIT_LOG: &[(&str, &str, &str, &str)] = &[
+    |                  ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `NOTIFICATIONS` is never used
+   --> src\mock_data.rs:531:18
+    |
+531 | pub(crate) const NOTIFICATIONS: &[(&str, &str, &str, &str)] = &[
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Lesson` is never constructed
+   --> src\mock_data.rs:541:19
+    |
+541 | pub(crate) struct Lesson {
+    |                   ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LESSONS` is never used
+   --> src\mock_data.rs:554:18
+    |
+554 | pub(crate) const LESSONS: &[Lesson] = &[
+    |                  ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROOM_PARTICIPANTS` is never used
+   --> src\mock_data.rs:562:18
+    |
+562 | pub(crate) const ROOM_PARTICIPANTS: &[(&str, &str, &str, bool, bool)] = &[
+    |                  ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LOCAL_MEDIA_JS` is never used
+   --> src\mock_data.rs:573:18
+    |
+573 | pub(crate) const LOCAL_MEDIA_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `START_SHARE_JS` is never used
+   --> src\mock_data.rs:582:18
+    |
+582 | pub(crate) const START_SHARE_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `STOP_SHARE_JS` is never used
+   --> src\mock_data.rs:599:18
+    |
+599 | pub(crate) const STOP_SHARE_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `STOP_MEDIA_JS` is never used
+   --> src\mock_data.rs:606:18
+    |
+606 | pub(crate) const STOP_MEDIA_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `student_timetable` is never used
+   --> src\mock_pages.rs:179:8
+    |
+179 | pub fn student_timetable() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `student_grades` is never used
+   --> src\mock_pages.rs:201:8
+    |
+201 | pub fn student_grades() -> Element {
+    |        ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `student_certificates` is never used
+   --> src\mock_pages.rs:257:8
+    |
+257 | pub fn student_certificates() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `student_overview` is never used
+   --> src\mock_pages.rs:283:8
+    |
+283 | pub fn student_overview(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `lecturer_students` is never used
+   --> src\mock_pages.rs:346:8
+    |
+346 | pub fn lecturer_students() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `lecturer_gradebook` is never used
+   --> src\mock_pages.rs:381:8
+    |
+381 | pub fn lecturer_gradebook() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `lecturer_analytics` is never used
+   --> src\mock_pages.rs:437:8
+    |
+437 | pub fn lecturer_analytics() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `lecturer_overview` is never used
+   --> src\mock_pages.rs:475:8
+    |
+475 | pub fn lecturer_overview() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_plugins` is never used
+   --> src\mock_pages.rs:526:8
+    |
+526 | pub fn developer_plugins(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_sdks` is never used
+   --> src\mock_pages.rs:558:8
+    |
+558 | pub fn developer_sdks() -> Element {
+    |        ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `sdk_label` is never used
+   --> src\mock_pages.rs:584:4
+    |
+584 | fn sdk_label(status: &str) -> String {
+    |    ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_system` is never used
+   --> src\mock_pages.rs:593:8
+    |
+593 | pub fn developer_system() -> Element {
+    |        ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_webhooks` is never used
+   --> src\mock_pages.rs:625:8
+    |
+625 | pub fn developer_webhooks() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_docs` is never used
+   --> src\mock_pages.rs:648:8
+    |
+648 | pub fn developer_docs(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `method_tone` is never used
+   --> src\mock_pages.rs:680:4
+    |
+680 | fn method_tone(m: &str) -> String {
+    |    ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `DeveloperOverview` is never used
+   --> src\mock_pages.rs:690:8
+    |
+690 | pub fn DeveloperOverview() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `admin_users` is never used
+   --> src\mock_pages.rs:745:8
+    |
+745 | pub fn admin_users(search: &str) -> Element {
+    |        ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `role_icon` is never used
+   --> src\mock_pages.rs:783:4
+    |
+783 | fn role_icon(role: &str) -> &str {
+    |    ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `perm_granted` is never used
+   --> src\mock_pages.rs:792:4
+    |
+792 | fn perm_granted(perm: usize, role: usize) -> bool {
+    |    ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `admin_institutions` is never used
+   --> src\mock_pages.rs:796:8
+    |
+796 | pub fn admin_institutions(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `admin_audit` is never used
+   --> src\mock_pages.rs:828:8
+    |
+828 | pub fn admin_audit() -> Element {
+    |        ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `admin_overview` is never used
+   --> src\mock_pages.rs:856:8
+    |
+856 | pub fn admin_overview() -> Element {
+    |        ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Health` is never constructed
+  --> src\server_functions.rs:87:12
+   |
+87 | pub struct Health {
+   |            ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Course` is never constructed
+  --> src\server_functions.rs:93:12
+   |
+93 | pub struct Course {
+   |            ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `CreateUserInput` is never constructed
+   --> src\server_functions.rs:223:12
+    |
+223 | pub struct CreateUserInput {
+    |            ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `BulkCreateUserInput` is never constructed
+   --> src\server_functions.rs:254:12
+    |
+254 | pub struct BulkCreateUserInput {
+    |            ^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Icon` is never used
+  --> src\components.rs:10:8
+   |
+10 | pub fn Icon(name: &'static str, class: Option<&'static str>) -> Element {
+   |        ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Divider` is never used
+   --> src\components.rs:184:8
+    |
+184 | pub fn Divider(class: Option<&'static str>) -> Element {
+    |        ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LOGO` is never used
+  --> src\dashboard.rs:16:7
+   |
+16 | const LOGO: Asset = asset!("/assets/logo.png");
+   |       ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: variants `Student`, `Lecturer`, `Developer`, and `Admin` are never constructed
+  --> src\dashboard.rs:24:5
+   |
+23 | pub enum Role {
+   |          ---- variants in this enum
+24 |     Student,
+   |     ^^^^^^^
+25 |     Lecturer,
+   |     ^^^^^^^^
+26 |     Developer,
+   |     ^^^^^^^^^
+27 |     Admin,
+   |     ^^^^^
+   |
+   = note: `Role` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+ 
+
+[INFO] dx::build::builder: warning: methods `label` and `icon` are never used
+  --> src\dashboard.rs:31:19
+   |
+30 | impl Role {
+   | --------- methods in this implementation
+31 |     pub(crate) fn label(self) -> &'static str {
+   |                   ^^^^^
+...
+40 |     pub(crate) fn icon(self) -> &'static str {
+   |                   ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Persona` is never constructed
+  --> src\dashboard.rs:50:19
+   |
+50 | pub(crate) struct Persona {
+   |                   ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `persona` is never used
+  --> src\dashboard.rs:57:15
+   |
+57 | pub(crate) fn persona(role: Role) -> &'static Persona {
+   |               ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `greeting` is never used
+  --> src\dashboard.rs:86:15
+   |
+86 | pub(crate) fn greeting(role: Role) -> &'static str {
+   |               ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `NavItem` is never constructed
+  --> src\dashboard.rs:99:8
+   |
+99 | struct NavItem {
+   |        ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `nav_items` is never used
+   --> src\dashboard.rs:105:4
+    |
+105 | fn nav_items(role: Role) -> &'static [NavItem] {
+    |    ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `UiCtx` is never constructed
+   --> src\dashboard.rs:157:19
+    |
+157 | pub(crate) struct UiCtx {
+    |                   ^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Dashboard` is never used
+   --> src\dashboard.rs:171:8
+    |
+171 | pub fn Dashboard() -> Element {
+    |        ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `render_page` is never used
+   --> src\dashboard.rs:483:4
+    |
+483 | fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'static str>) -> Element {
+    |    ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `role_for_roles` is never used
+   --> src\dashboard.rs:612:4
+    |
+612 | fn role_for_roles(roles: &[String]) -> Role {
+    |    ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `initials_of` is never used
+   --> src\dashboard.rs:634:4
+    |
+634 | fn initials_of(full_name: &str) -> String {
+    |    ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `perform_login` is never used
+   --> src\dashboard.rs:649:10
+    |
+649 | async fn perform_login(
+    |          ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: unused variable: `drawer_name`
+   --> src\dashboard.rs:286:10
+    |
+286 |     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    |          ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_drawer_name`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: unused variable: `drawer_sub`
+   --> src\dashboard.rs:286:23
+    |
+286 |     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    |                       ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_drawer_sub`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:680:9
+    |
+680 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:843:9
+    |
+843 |     let mut refresh = use_signal(|| 0u32);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:844:9
+    |
+844 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: constant `MAIN_CSS` is never used
+ --> src\main.rs:7:7
+  |
+7 | const MAIN_CSS: Asset = asset!("/assets/main1.css");
+  |       ^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: constant `DASHBOARD_CSS` is never used
+ --> src\main.rs:8:7
+  |
+8 | const DASHBOARD_CSS: Asset = asset!("/assets/dashboard.css");
+  |       ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `main` is never used
+  --> src\main.rs:78:4
+   |
+78 | fn main() {
+   |    ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `app` is never used
+   --> src\main.rs:119:4
+    |
+119 | fn app() -> Element {
+    |    ^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `init` is never used
+  --> src\db.rs:17:14
+   |
+17 | pub async fn init() {
+   |              ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: field `reason` is never read
+  --> src\auth_bridge.rs:50:5
+   |
+47 | struct VerifyResponse {
+   |        -------------- field in this struct
+...
+50 |     reason: Option<String>,
+   |     ^^^^^^
+   |
+   = note: `VerifyResponse` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+ 
+
+[INFO] dx::build::builder: warning: field `index` is never read
+  --> src\auth_bridge.rs:61:5
+   |
+60 | struct BulkCreateError {
+   |        --------------- field in this struct
+61 |     index: usize,
+   |     ^^^^^
+   |
+   = note: `BulkCreateError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+ 
+
+[INFO] dx::build::builder: warning: function `init` is never used
+  --> src\auth_bridge.rs:78:14
+   |
+78 | pub async fn init() {
+   |              ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `COURSE_STATUSES` is never used
+  --> src\course_types.rs:57:11
+   |
+57 | pub const COURSE_STATUSES: [&str; 5] = [
+   |           ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `course_status_label` is never used
+  --> src\course_types.rs:66:8
+   |
+66 | pub fn course_status_label(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `course_status_tone` is never used
+  --> src\course_types.rs:78:8
+   |
+78 | pub fn course_status_tone(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `can_publish_from` is never used
+  --> src\course_types.rs:89:8
+   |
+89 | pub fn can_publish_from(status: &str) -> bool {
+   |        ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `can_manage_course` is never used
+  --> src\course_types.rs:94:8
+   |
+94 | pub fn can_manage_course(course: &CourseView, user_id: Uuid, is_admin: bool) -> bool {
+   |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ENROLLMENT_STATES` is never used
+  --> src\enrollment_types.rs:85:11
+   |
+85 | pub const ENROLLMENT_STATES: [&str; 6] = [
+   |           ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `state_label` is never used
+  --> src\enrollment_types.rs:95:8
+   |
+95 | pub fn state_label(state: &str) -> &'static str {
+   |        ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `state_tone` is never used
+   --> src\enrollment_types.rs:108:8
+    |
+108 | pub fn state_tone(state: &str) -> &'static str {
+    |        ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `available_transitions` is never used
+   --> src\enrollment_types.rs:121:8
+    |
+121 | pub fn available_transitions(state: &str) -> &'static [(&'static str, &'static str)] {
+    |        ^^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `own_action` is never used
+   --> src\enrollment_types.rs:136:8
+    |
+136 | pub fn own_action(state: &str) -> Option<(&'static str, &'static str)> {
+    |        ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `status_label` is never used
+  --> src\live_types.rs:68:8
+   |
+68 | pub fn status_label(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `status_tone` is never used
+  --> src\live_types.rs:79:8
+   |
+79 | pub fn status_tone(status: &str) -> &'static str {
+   |        ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `download_submission_file` is never used
+   --> src\assignments_bridge.rs:188:14
+    |
+188 | pub async fn download_submission_file(
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `submit_for_review` is never used
+   --> src\course_bridge.rs:188:14
+    |
+188 | pub async fn submit_for_review(token: &str, course_id: uuid::Uuid) -> Result<CourseView> {
+    |              ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Room` is never constructed
+  --> src\live_signaling.rs:43:8
+   |
+43 | struct Room {
+   |        ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `PeerInfo` is never constructed
+  --> src\live_signaling.rs:49:8
+   |
+49 | struct PeerInfo {
+   |        ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: static `ROOMS` is never used
+  --> src\live_signaling.rs:55:8
+   |
+55 | static ROOMS: OnceLock<Mutex<HashMap<Uuid, std::sync::Arc<Room>>>> = OnceLock::new();
+   |        ^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `room_for` is never used
+  --> src\live_signaling.rs:57:4
+   |
+57 | fn room_for(session_id: Uuid) -> std::sync::Arc<Room> {
+   |    ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `WsParams` is never constructed
+  --> src\live_signaling.rs:70:12
+   |
+70 | pub struct WsParams {
+   |            ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `default_role` is never used
+  --> src\live_signaling.rs:83:4
+   |
+83 | fn default_role() -> String {
+   |    ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `ws_handler` is never used
+  --> src\live_signaling.rs:88:14
+   |
+88 | pub async fn ws_handler(
+   |              ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `axum_unauthorized` is never used
+   --> src\live_signaling.rs:104:4
+    |
+104 | fn axum_unauthorized() -> dioxus::server::axum::http::StatusCode {
+    |    ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `handle_socket` is never used
+   --> src\live_signaling.rs:108:10
+    |
+108 | async fn handle_socket(
+    |          ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONTENT_TYPES` is never used
+   --> src\content_types.rs:132:11
+    |
+132 | pub const CONTENT_TYPES: [&str; 9] = [
+    |           ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONTENT_STATUSES` is never used
+   --> src\content_types.rs:136:11
+    |
+136 | pub const CONTENT_STATUSES: [&str; 3] = ["draft", "published", "unpublished"];
+    |           ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `fmt_dt` is never used
+ --> src\ui_helpers.rs:6:8
+  |
+6 | pub fn fmt_dt(dt: Option<chrono::DateTime<chrono::Utc>>) -> String {
+  |        ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `read_file_base64` is never used
+  --> src\ui_helpers.rs:14:14
+   |
+14 | pub async fn read_file_base64(input_id: &str) -> Option<assignments_types::FileUploadInput> {
+   |              ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `run_student_submit` is never used
+   --> src\assignments_ui.rs:243:10
+    |
+243 | async fn run_student_submit(
+    |          ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: variants `AddStudent`, `Bulk`, and `Invite` are never constructed
+   --> src\enrollments_ui.rs:199:5
+    |
+198 | enum EditorMode {
+    |      ---------- variants in this enum
+199 |     AddStudent,
+    |     ^^^^^^^^^^
+200 |     Bulk,
+    |     ^^^^
+201 |     Invite,
+    |     ^^^^^^
+    |
+    = note: `EditorMode` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+ 
+
+[INFO] dx::build::builder: warning: function `start_session` is never used
+   --> src\live_room.rs:367:14
+    |
+367 | pub async fn start_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<()> {
+    |              ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `end_session` is never used
+   --> src\live_room.rs:373:14
+    |
+373 | pub async fn end_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<()> {
+    |              ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `join_session` is never used
+   --> src\live_room.rs:379:14
+    |
+379 | pub async fn join_session(token: String, session_id: uuid::Uuid) -> anyhow::Result<LiveJoinView> {
+    |              ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `js_str` is never used
+   --> src\live_room.rs:383:4
+    |
+383 | fn js_str(s: &str) -> String {
+    |    ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `gloo_timers_sleep` is never used
+   --> src\live_room.rs:390:10
+    |
+390 | async fn gloo_timers_sleep() {
+    |          ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LIVE_ROOM_JS` is never used
+   --> src\live_room.rs:399:7
+    |
+399 | const LIVE_ROOM_JS: &str = r#"(function(){
+    |       ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Course` is never constructed
+ --> src\mock_data.rs:6:19
+  |
+6 | pub(crate) struct Course {
+  |                   ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `COURSES` is never used
+  --> src\mock_data.rs:17:18
+   |
+17 | pub(crate) const COURSES: &[Course] = &[
+   |                  ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Assignment` is never constructed
+  --> src\mock_data.rs:25:19
+   |
+25 | pub(crate) struct Assignment {
+   |                   ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ASSIGNMENTS` is never used
+  --> src\mock_data.rs:33:18
+   |
+33 | pub(crate) const ASSIGNMENTS: &[Assignment] = &[
+   |                  ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Quiz` is never constructed
+  --> src\mock_data.rs:40:19
+   |
+40 | pub(crate) struct Quiz {
+   |                   ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `QUIZZES` is never used
+  --> src\mock_data.rs:47:18
+   |
+47 | pub(crate) const QUIZZES: &[Quiz] = &[
+   |                  ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Announcement` is never constructed
+  --> src\mock_data.rs:52:19
+   |
+52 | pub(crate) struct Announcement {
+   |                   ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ANNOUNCEMENTS` is never used
+  --> src\mock_data.rs:59:18
+   |
+59 | pub(crate) const ANNOUNCEMENTS: &[Announcement] = &[
+   |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `StudentRow` is never constructed
+  --> src\mock_data.rs:65:19
+   |
+65 | pub(crate) struct StudentRow {
+   |                   ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROSTER` is never used
+  --> src\mock_data.rs:73:18
+   |
+73 | pub(crate) const ROSTER: &[StudentRow] = &[
+   |                  ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Submission` is never constructed
+  --> src\mock_data.rs:82:19
+   |
+82 | pub(crate) struct Submission {
+   |                   ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `SUBMISSIONS` is never used
+  --> src\mock_data.rs:90:18
+   |
+90 | pub(crate) const SUBMISSIONS: &[Submission] = &[
+   |                  ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Deadline` is never constructed
+  --> src\mock_data.rs:97:19
+   |
+97 | pub(crate) struct Deadline {
+   |                   ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `DEADLINES` is never used
+   --> src\mock_data.rs:104:18
+    |
+104 | pub(crate) const DEADLINES: &[Deadline] = &[
+    |                  ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `PluginRow` is never constructed
+   --> src\mock_data.rs:111:19
+    |
+111 | pub(crate) struct PluginRow {
+    |                   ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `PLUGINS` is never used
+   --> src\mock_data.rs:120:18
+    |
+120 | pub(crate) const PLUGINS: &[PluginRow] = &[
+    |                  ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Service` is never constructed
+   --> src\mock_data.rs:129:19
+    |
+129 | pub(crate) struct Service {
+    |                   ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `SERVICES` is never used
+   --> src\mock_data.rs:135:18
+    |
+135 | pub(crate) const SERVICES: &[Service] = &[
+    |                  ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Sdk` is never constructed
+   --> src\mock_data.rs:144:19
+    |
+144 | pub(crate) struct Sdk {
+    |                   ^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `SDKS` is never used
+   --> src\mock_data.rs:151:18
+    |
+151 | pub(crate) const SDKS: &[Sdk] = &[
+    |                  ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `UserRow` is never constructed
+   --> src\mock_data.rs:159:19
+    |
+159 | pub(crate) struct UserRow {
+    |                   ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `USERS` is never used
+   --> src\mock_data.rs:167:18
+    |
+167 | pub(crate) const USERS: &[UserRow] = &[
+    |                  ^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Institution` is never constructed
+   --> src\mock_data.rs:176:19
+    |
+176 | pub(crate) struct Institution {
+    |                   ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `INSTITUTIONS` is never used
+   --> src\mock_data.rs:183:18
+    |
+183 | pub(crate) const INSTITUTIONS: &[Institution] = &[
+    |                  ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Approval` is never constructed
+   --> src\mock_data.rs:190:19
+    |
+190 | pub(crate) struct Approval {
+    |                   ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `APPROVALS` is never used
+   --> src\mock_data.rs:197:18
+    |
+197 | pub(crate) const APPROVALS: &[Approval] = &[
+    |                  ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Activity` is never constructed
+   --> src\mock_data.rs:202:19
+    |
+202 | pub(crate) struct Activity {
+    |                   ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ACTIVITY` is never used
+   --> src\mock_data.rs:209:18
+    |
+209 | pub(crate) const ACTIVITY: &[Activity] = &[
+    |                  ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROLE_SPLIT` is never used
+   --> src\mock_data.rs:216:18
+    |
+216 | pub(crate) const ROLE_SPLIT: &[(&str, u32, &str)] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Msg` is never constructed
+   --> src\mock_data.rs:225:19
+    |
+225 | pub(crate) struct Msg {
+    |                   ^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Conversation` is never constructed
+   --> src\mock_data.rs:231:19
+    |
+231 | pub(crate) struct Conversation {
+    |                   ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONVERSATIONS` is never used
+   --> src\mock_data.rs:243:18
+    |
+243 | pub(crate) const CONVERSATIONS: &[Conversation] = &[
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `WEEKLY_ACTIVITY` is never used
+   --> src\mock_data.rs:306:18
+    |
+306 | pub(crate) const WEEKLY_ACTIVITY: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ENGAGEMENT` is never used
+   --> src\mock_data.rs:316:18
+    |
+316 | pub(crate) const ENGAGEMENT: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `GRADE_DIST` is never used
+   --> src\mock_data.rs:324:18
+    |
+324 | pub(crate) const GRADE_DIST: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `WEEKLY_TREND` is never used
+   --> src\mock_data.rs:332:18
+    |
+332 | pub(crate) const WEEKLY_TREND: &[(&str, f64, &str)] = &[
+    |                  ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `TtSlot` is never constructed
+   --> src\mock_data.rs:343:19
+    |
+343 | pub(crate) struct TtSlot {
+    |                   ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `TtDay` is never constructed
+   --> src\mock_data.rs:350:19
+    |
+350 | pub(crate) struct TtDay {
+    |                   ^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `TIMETABLE` is never used
+   --> src\mock_data.rs:355:18
+    |
+355 | pub(crate) const TIMETABLE: &[TtDay] = &[
+    |                  ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Certificate` is never constructed
+   --> src\mock_data.rs:395:19
+    |
+395 | pub(crate) struct Certificate {
+    |                   ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CERTIFICATES` is never used
+   --> src\mock_data.rs:404:18
+    |
+404 | pub(crate) const CERTIFICATES: &[Certificate] = &[
+    |                  ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `ApiEndpoint` is never constructed
+   --> src\mock_data.rs:412:19
+    |
+412 | pub(crate) struct ApiEndpoint {
+    |                   ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `ApiGroup` is never constructed
+   --> src\mock_data.rs:419:19
+    |
+419 | pub(crate) struct ApiGroup {
+    |                   ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `API_GROUPS` is never used
+   --> src\mock_data.rs:425:18
+    |
+425 | pub(crate) const API_GROUPS: &[ApiGroup] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Webhook` is never constructed
+   --> src\mock_data.rs:470:19
+    |
+470 | pub(crate) struct Webhook {
+    |                   ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `WEBHOOKS` is never used
+   --> src\mock_data.rs:477:18
+    |
+477 | pub(crate) const WEBHOOKS: &[Webhook] = &[
+    |                  ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROLES` is never used
+   --> src\mock_data.rs:486:18
+    |
+486 | pub(crate) const ROLES: &[&str] = &["Super admin", "Institution admin", "Lecturer", "Student", "Developer"];
+    |                  ^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROLE_ICONS` is never used
+   --> src\mock_data.rs:487:18
+    |
+487 | pub(crate) const ROLE_ICONS: &[(&str, &str)] = &[
+    |                  ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `PERMISSIONS` is never used
+   --> src\mock_data.rs:495:18
+    |
+495 | pub(crate) const PERMISSIONS: &[(&str, &str)] = &[
+    |                  ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `PERM_MATRIX` is never used
+   --> src\mock_data.rs:507:18
+    |
+507 | pub(crate) const PERM_MATRIX: &[&[bool]] = &[
+    |                  ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `AUDIT_LOG` is never used
+   --> src\mock_data.rs:520:18
+    |
+520 | pub(crate) const AUDIT_LOG: &[(&str, &str, &str, &str)] = &[
+    |                  ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `NOTIFICATIONS` is never used
+   --> src\mock_data.rs:531:18
+    |
+531 | pub(crate) const NOTIFICATIONS: &[(&str, &str, &str, &str)] = &[
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Lesson` is never constructed
+   --> src\mock_data.rs:541:19
+    |
+541 | pub(crate) struct Lesson {
+    |                   ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LESSONS` is never used
+   --> src\mock_data.rs:554:18
+    |
+554 | pub(crate) const LESSONS: &[Lesson] = &[
+    |                  ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROOM_PARTICIPANTS` is never used
+   --> src\mock_data.rs:562:18
+    |
+562 | pub(crate) const ROOM_PARTICIPANTS: &[(&str, &str, &str, bool, bool)] = &[
+    |                  ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LOCAL_MEDIA_JS` is never used
+   --> src\mock_data.rs:573:18
+    |
+573 | pub(crate) const LOCAL_MEDIA_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `START_SHARE_JS` is never used
+   --> src\mock_data.rs:582:18
+    |
+582 | pub(crate) const START_SHARE_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `STOP_SHARE_JS` is never used
+   --> src\mock_data.rs:599:18
+    |
+599 | pub(crate) const STOP_SHARE_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `STOP_MEDIA_JS` is never used
+   --> src\mock_data.rs:606:18
+    |
+606 | pub(crate) const STOP_MEDIA_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `student_timetable` is never used
+   --> src\mock_pages.rs:179:8
+    |
+179 | pub fn student_timetable() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `student_grades` is never used
+   --> src\mock_pages.rs:201:8
+    |
+201 | pub fn student_grades() -> Element {
+    |        ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `student_certificates` is never used
+   --> src\mock_pages.rs:257:8
+    |
+257 | pub fn student_certificates() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `student_overview` is never used
+   --> src\mock_pages.rs:283:8
+    |
+283 | pub fn student_overview(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `lecturer_students` is never used
+   --> src\mock_pages.rs:346:8
+    |
+346 | pub fn lecturer_students() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `lecturer_gradebook` is never used
+   --> src\mock_pages.rs:381:8
+    |
+381 | pub fn lecturer_gradebook() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `lecturer_analytics` is never used
+   --> src\mock_pages.rs:437:8
+    |
+437 | pub fn lecturer_analytics() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `lecturer_overview` is never used
+   --> src\mock_pages.rs:475:8
+    |
+475 | pub fn lecturer_overview() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_plugins` is never used
+   --> src\mock_pages.rs:526:8
+    |
+526 | pub fn developer_plugins(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_sdks` is never used
+   --> src\mock_pages.rs:558:8
+    |
+558 | pub fn developer_sdks() -> Element {
+    |        ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `sdk_label` is never used
+   --> src\mock_pages.rs:584:4
+    |
+584 | fn sdk_label(status: &str) -> String {
+    |    ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_system` is never used
+   --> src\mock_pages.rs:593:8
+    |
+593 | pub fn developer_system() -> Element {
+    |        ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_webhooks` is never used
+   --> src\mock_pages.rs:625:8
+    |
+625 | pub fn developer_webhooks() -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `developer_docs` is never used
+   --> src\mock_pages.rs:648:8
+    |
+648 | pub fn developer_docs(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `method_tone` is never used
+   --> src\mock_pages.rs:680:4
+    |
+680 | fn method_tone(m: &str) -> String {
+    |    ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `DeveloperOverview` is never used
+   --> src\mock_pages.rs:690:8
+    |
+690 | pub fn DeveloperOverview() -> Element {
+    |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `admin_users` is never used
+   --> src\mock_pages.rs:745:8
+    |
+745 | pub fn admin_users(search: &str) -> Element {
+    |        ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `role_icon` is never used
+   --> src\mock_pages.rs:783:4
+    |
+783 | fn role_icon(role: &str) -> &str {
+    |    ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `perm_granted` is never used
+   --> src\mock_pages.rs:792:4
+    |
+792 | fn perm_granted(perm: usize, role: usize) -> bool {
+    |    ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `admin_institutions` is never used
+   --> src\mock_pages.rs:796:8
+    |
+796 | pub fn admin_institutions(search: &str) -> Element {
+    |        ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `admin_audit` is never used
+   --> src\mock_pages.rs:828:8
+    |
+828 | pub fn admin_audit() -> Element {
+    |        ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `admin_overview` is never used
+   --> src\mock_pages.rs:856:8
+    |
+856 | pub fn admin_overview() -> Element {
+    |        ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Icon` is never used
+  --> src\components.rs:10:8
+   |
+10 | pub fn Icon(name: &'static str, class: Option<&'static str>) -> Element {
+   |        ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Divider` is never used
+   --> src\components.rs:184:8
+    |
+184 | pub fn Divider(class: Option<&'static str>) -> Element {
+    |        ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LOGO` is never used
+  --> src\dashboard.rs:16:7
+   |
+16 | const LOGO: Asset = asset!("/assets/logo.png");
+   |       ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: variants `Student`, `Lecturer`, `Developer`, and `Admin` are never constructed
+  --> src\dashboard.rs:24:5
+   |
+23 | pub enum Role {
+   |          ---- variants in this enum
+24 |     Student,
+   |     ^^^^^^^
+25 |     Lecturer,
+   |     ^^^^^^^^
+26 |     Developer,
+   |     ^^^^^^^^^
+27 |     Admin,
+   |     ^^^^^
+   |
+   = note: `Role` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+ 
+
+[INFO] dx::build::builder: warning: methods `label` and `icon` are never used
+  --> src\dashboard.rs:31:19
+   |
+30 | impl Role {
+   | --------- methods in this implementation
+31 |     pub(crate) fn label(self) -> &'static str {
+   |                   ^^^^^
+...
+40 |     pub(crate) fn icon(self) -> &'static str {
+   |                   ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Persona` is never constructed
+  --> src\dashboard.rs:50:19
+   |
+50 | pub(crate) struct Persona {
+   |                   ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `persona` is never used
+  --> src\dashboard.rs:57:15
+   |
+57 | pub(crate) fn persona(role: Role) -> &'static Persona {
+   |               ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `greeting` is never used
+  --> src\dashboard.rs:86:15
+   |
+86 | pub(crate) fn greeting(role: Role) -> &'static str {
+   |               ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `NavItem` is never constructed
+  --> src\dashboard.rs:99:8
+   |
+99 | struct NavItem {
+   |        ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `nav_items` is never used
+   --> src\dashboard.rs:105:4
+    |
+105 | fn nav_items(role: Role) -> &'static [NavItem] {
+    |    ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `UiCtx` is never constructed
+   --> src\dashboard.rs:157:19
+    |
+157 | pub(crate) struct UiCtx {
+    |                   ^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Dashboard` is never used
+   --> src\dashboard.rs:171:8
+    |
+171 | pub fn Dashboard() -> Element {
+    |        ^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `render_page` is never used
+   --> src\dashboard.rs:483:4
+    |
+483 | fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'static str>) -> Element {
+    |    ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `role_for_roles` is never used
+   --> src\dashboard.rs:612:4
+    |
+612 | fn role_for_roles(roles: &[String]) -> Role {
+    |    ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `initials_of` is never used
+   --> src\dashboard.rs:634:4
+    |
+634 | fn initials_of(full_name: &str) -> String {
+    |    ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `perform_login` is never used
+   --> src\dashboard.rs:649:10
+    |
+649 | async fn perform_login(
+    |          ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: Compiled [287/288]: frontend 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:19:9
+   |
+19 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:25:9
+   |
+25 |     let mut assignments = use_resource(move || {
+   |         ----^^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:101:9
+    |
+101 |     let mut data = use_resource(move || {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:190:9
+    |
+190 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:191:9
+    |
+191 |     let mut message: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:309:9
+    |
+309 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:420:9
+    |
+420 |     let mut submissions = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:505:33
+    |
+505 | ...                   let mut marks = marks;
+    |                           ----^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:506:33
+    |
+506 | ...                   let mut comments = comments;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:507:33
+    |
+507 | ...                   let mut feedback = feedback;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:477:9
+    |
+477 |     let mut done: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:538:9
+    |
+538 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:548:9
+    |
+548 |     let mut assignments = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\courses_ui.rs:16:9
+   |
+16 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\courses_ui.rs:22:9
+   |
+22 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:145:9
+    |
+145 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:153:9
+    |
+153 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:297:9
+    |
+297 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:298:9
+    |
+298 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:17:9
+   |
+17 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:22:9
+   |
+22 |     let mut expanded: Signal<Option<Uuid>> = use_signal(|| None);
+   |         ----^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:24:9
+   |
+24 |     let mut modules = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_ui.rs:257:9
+    |
+257 |     let mut lessons = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:30:9
+   |
+30 |     let mut enrl = use_resource(move || {
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:94:9
+   |
+94 |     let mut roster = use_resource(move || {
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:219:9
+    |
+219 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:220:9
+    |
+220 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:367:9
+    |
+367 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_room.rs:38:9
+   |
+38 |     let mut tool_color = use_signal(|| "#1a73e8".to_string());
+   |         ----^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\live_room.rs:152:9
+    |
+152 |     let mut send_chat = {
+    |         ----^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:23:9
+   |
+23 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+   |         ----^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:26:9
+   |
+26 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:52:9
+   |
+52 |     let mut sessions = use_resource(move || {
+   |         ----^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\live_classes_ui.rs:314:9
+    |
+314 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: unused variable: `drawer_name`
+   --> src\dashboard.rs:286:10
+    |
+286 |     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    |          ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_drawer_name`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: unused variable: `drawer_sub`
+   --> src\dashboard.rs:286:23
+    |
+286 |     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    |                       ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_drawer_sub`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:680:9
+    |
+680 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:843:9
+    |
+843 |     let mut refresh = use_signal(|| 0u32);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:844:9
+    |
+844 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: struct `GradeHistoryEntry` is never constructed
+  --> src\assignments_types.rs:85:12
+   |
+85 | pub struct GradeHistoryEntry {
+   |            ^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: struct `GradeHistoryView` is never constructed
+  --> src\assignments_types.rs:97:12
+   |
+97 | pub struct GradeHistoryView {
+   |            ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `DownloadView` is never constructed
+   --> src\assignments_types.rs:102:12
+    |
+102 | pub struct DownloadView {
+    |            ^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `COURSE_STATUSES` is never used
+  --> src\course_types.rs:57:11
+   |
+57 | pub const COURSE_STATUSES: [&str; 5] = [
+   |           ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `can_publish_from` is never used
+  --> src\course_types.rs:89:8
+   |
+89 | pub fn can_publish_from(status: &str) -> bool {
+   |        ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `can_manage_course` is never used
+  --> src\course_types.rs:94:8
+   |
+94 | pub fn can_manage_course(course: &CourseView, user_id: Uuid, is_admin: bool) -> bool {
+   |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `HistoryView` is never constructed
+  --> src\enrollment_types.rs:31:12
+   |
+31 | pub struct HistoryView {
+   |            ^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `AccessView` is never constructed
+  --> src\enrollment_types.rs:74:12
+   |
+74 | pub struct AccessView {
+   |            ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ENROLLMENT_STATES` is never used
+  --> src\enrollment_types.rs:85:11
+   |
+85 | pub const ENROLLMENT_STATES: [&str; 6] = [
+   |           ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `own_action` is never used
+   --> src\enrollment_types.rs:136:8
+    |
+136 | pub fn own_action(state: &str) -> Option<(&'static str, &'static str)> {
+    |        ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `LiveAttendanceView` is never constructed
+  --> src\live_types.rs:37:12
+   |
+37 | pub struct LiveAttendanceView {
+   |            ^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `LiveResourceView` is never constructed
+  --> src\live_types.rs:57:12
+   |
+57 | pub struct LiveResourceView {
+   |            ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `ContentItemView` is never constructed
+  --> src\content_types.rs:40:12
+   |
+40 | pub struct ContentItemView {
+   |            ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `ContentFileView` is never constructed
+  --> src\content_types.rs:58:12
+   |
+58 | pub struct ContentFileView {
+   |            ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `FileDownloadView` is never constructed
+  --> src\content_types.rs:69:12
+   |
+69 | pub struct FileDownloadView {
+   |            ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `CreateContentItemInput` is never constructed
+   --> src\content_types.rs:109:12
+    |
+109 | pub struct CreateContentItemInput {
+    |            ^^^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `UpdateContentItemInput` is never constructed
+   --> src\content_types.rs:121:12
+    |
+121 | pub struct UpdateContentItemInput {
+    |            ^^^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONTENT_TYPES` is never used
+   --> src\content_types.rs:132:11
+    |
+132 | pub const CONTENT_TYPES: [&str; 9] = [
+    |           ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONTENT_STATUSES` is never used
+   --> src\content_types.rs:136:11
+    |
+136 | pub const CONTENT_STATUSES: [&str; 3] = ["draft", "published", "unpublished"];
+    |           ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: multiple fields are never read
+  --> src\mock_data.rs:7:9
+   |
+ 6 | pub(crate) struct Course {
+   |                   ------ fields in this struct
+ 7 |     pub code: &'static str,
+   |         ^^^^
+ 8 |     pub name: &'static str,
+   |         ^^^^
+ 9 |     pub instructor: &'static str,
+   |         ^^^^^^^^^^
+10 |     pub progress: f64,
+   |         ^^^^^^^^
+11 |     pub students: u32,
+   |         ^^^^^^^^
+12 |     pub pending: u32,
+   |         ^^^^^^^
+13 |     pub tone: &'static str,
+   |         ^^^^
+14 |     pub icon: &'static str,
+   |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: fields `title`, `course`, `when`, and `info` are never read
+  --> src\mock_data.rs:41:9
+   |
+40 | pub(crate) struct Quiz {
+   |                   ---- fields in this struct
+41 |     pub title: &'static str,
+   |         ^^^^^
+42 |     pub course: &'static str,
+   |         ^^^^^^
+43 |     pub when: &'static str,
+   |         ^^^^
+44 |     pub info: &'static str,
+   |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: field `initials` is never read
+  --> src\mock_data.rs:67:9
+   |
+65 | pub(crate) struct StudentRow {
+   |                   ---------- field in this struct
+66 |     pub name: &'static str,
+67 |     pub initials: &'static str,
+   |         ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: field `tone` is never read
+   --> src\mock_data.rs:206:9
+    |
+202 | pub(crate) struct Activity {
+    |                   -------- field in this struct
+...
+206 |     pub tone: &'static str,
+    |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: field `role` is never read
+   --> src\mock_data.rs:233:9
+    |
+231 | pub(crate) struct Conversation {
+    |                   ------------ field in this struct
+232 |     pub person: &'static str,
+233 |     pub role: &'static str,
+    |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: fields `id`, `duration`, and `host` are never read
+   --> src\mock_data.rs:542:9
+    |
+541 | pub(crate) struct Lesson {
+    |                   ------ fields in this struct
+542 |     pub id: &'static str,
+    |         ^^
+...
+547 |     pub duration: &'static str,
+    |         ^^^^^^^^
+548 |     pub status: &'static str, // live | scheduled | ended
+549 |     pub host: &'static str,
+    |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROOM_PARTICIPANTS` is never used
+   --> src\mock_data.rs:562:18
+    |
+562 | pub(crate) const ROOM_PARTICIPANTS: &[(&str, &str, &str, bool, bool)] = &[
+    |                  ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LOCAL_MEDIA_JS` is never used
+   --> src\mock_data.rs:573:18
+    |
+573 | pub(crate) const LOCAL_MEDIA_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `START_SHARE_JS` is never used
+   --> src\mock_data.rs:582:18
+    |
+582 | pub(crate) const START_SHARE_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `STOP_SHARE_JS` is never used
+   --> src\mock_data.rs:599:18
+    |
+599 | pub(crate) const STOP_SHARE_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `STOP_MEDIA_JS` is never used
+   --> src\mock_data.rs:606:18
+    |
+606 | pub(crate) const STOP_MEDIA_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Health` is never constructed
+  --> src\server_functions.rs:87:12
+   |
+87 | pub struct Health {
+   |            ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `Course` is never constructed
+  --> src\server_functions.rs:93:12
+   |
+93 | pub struct Course {
+   |            ^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `CreateUserInput` is never constructed
+   --> src\server_functions.rs:223:12
+    |
+223 | pub struct CreateUserInput {
+    |            ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: struct `BulkCreateUserInput` is never constructed
+   --> src\server_functions.rs:254:12
+    |
+254 | pub struct BulkCreateUserInput {
+    |            ^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Icon` is never used
+  --> src\components.rs:10:8
+   |
+10 | pub fn Icon(name: &'static str, class: Option<&'static str>) -> Element {
+   |        ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Divider` is never used
+   --> src\components.rs:184:8
+    |
+184 | pub fn Divider(class: Option<&'static str>) -> Element {
+    |        ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: field `initials` is never read
+  --> src\dashboard.rs:53:5
+   |
+50 | pub(crate) struct Persona {
+   |                   ------- field in this struct
+...
+53 |     initials: &'static str,
+   |     ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `greeting` is never used
+  --> src\dashboard.rs:86:15
+   |
+86 | pub(crate) fn greeting(role: Role) -> &'static str {
+   |               ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: Compiled [437/438]: frontend 
+
+[INFO] dx::build::builder: warning: unused imports: `create_item`, `create_lesson`, `create_module`, `delete_file`, `delete_item`, `delete_lesson`, `delete_module`, `download_file`, `get_file`, `get_item`, `get_lesson`, `get_module`, `list_files`, `list_items`, `list_lessons`, `list_modules`, `reorder_items`, `reorder_lessons`, `reorder_modules`, `set_lesson_status`, `set_module_status`, `update_item`, `update_lesson`, `update_module`, and `upload_file`
+  --> src\server_functions.rs:25:5
+   |
+25 |     create_item, create_lesson, create_module, delete_file, delete_item, delete_lesson, delete_module,
+   |     ^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^^^
+26 |     download_file, get_file, get_item, get_lesson, get_module, list_files, list_items, list_lessons,
+   |     ^^^^^^^^^^^^^  ^^^^^^^^  ^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^^^^^
+27 |     list_modules, reorder_items, reorder_lessons, reorder_modules, set_lesson_status,
+   |     ^^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^
+28 |     set_module_status, update_item, update_lesson, update_module, upload_file,
+   |     ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^^^  ^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_bridge.rs:81:9
+   |
+81 |     let mut map = serde_json::to_value(input)?
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_bridge.rs:92:9
+   |
+92 |     let mut map = serde_json::to_value(input)?
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_bridge.rs:175:9
+    |
+175 |     let mut map = serde_json::to_value(input)?
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_bridge.rs:186:9
+    |
+186 |     let mut map = serde_json::to_value(input)?
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_bridge.rs:272:9
+    |
+272 |     let mut map = serde_json::to_value(input)?
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_bridge.rs:283:9
+    |
+283 |     let mut map = serde_json::to_value(input)?
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: Compiled [288/288]: frontend 
+
+[INFO] dx::build::builder: Bundling app... 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:19:9
+   |
+19 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\assignments_ui.rs:25:9
+   |
+25 |     let mut assignments = use_resource(move || {
+   |         ----^^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:101:9
+    |
+101 |     let mut data = use_resource(move || {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:190:9
+    |
+190 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:191:9
+    |
+191 |     let mut message: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:309:9
+    |
+309 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:420:9
+    |
+420 |     let mut submissions = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:505:33
+    |
+505 | ...                   let mut marks = marks;
+    |                           ----^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:506:33
+    |
+506 | ...                   let mut comments = comments;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:507:33
+    |
+507 | ...                   let mut feedback = feedback;
+    |                           ----^^^^^^^^
+    |                           |
+    |                           help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:477:9
+    |
+477 |     let mut done: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:538:9
+    |
+538 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\assignments_ui.rs:548:9
+    |
+548 |     let mut assignments = use_resource(move || {
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\courses_ui.rs:16:9
+   |
+16 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\courses_ui.rs:22:9
+   |
+22 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:145:9
+    |
+145 |     let mut ctx = use_context::<UiCtx>();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:153:9
+    |
+153 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:297:9
+    |
+297 |     let mut busy = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\courses_ui.rs:298:9
+    |
+298 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:17:9
+   |
+17 |     let mut ctx = use_context::<UiCtx>();
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:22:9
+   |
+22 |     let mut expanded: Signal<Option<Uuid>> = use_signal(|| None);
+   |         ----^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\content_ui.rs:24:9
+   |
+24 |     let mut modules = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\content_ui.rs:257:9
+    |
+257 |     let mut lessons = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:30:9
+   |
+30 |     let mut enrl = use_resource(move || {
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\enrollments_ui.rs:94:9
+   |
+94 |     let mut roster = use_resource(move || {
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:219:9
+    |
+219 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:220:9
+    |
+220 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\enrollments_ui.rs:367:9
+    |
+367 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_room.rs:38:9
+   |
+38 |     let mut tool_color = use_signal(|| "#1a73e8".to_string());
+   |         ----^^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\live_room.rs:152:9
+    |
+152 |     let mut send_chat = {
+    |         ----^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:23:9
+   |
+23 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+   |         ----^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:26:9
+   |
+26 |     let mut courses = use_resource(move || {
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+  --> src\live_classes_ui.rs:52:9
+   |
+52 |     let mut sessions = use_resource(move || {
+   |         ----^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\live_classes_ui.rs:314:9
+    |
+314 |     let mut error: Signal<Option<String>> = use_signal(|| None);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: Running wasm-bindgen... 
+
+[INFO] dx::build::builder: warning: unused variable: `drawer_name`
+   --> src\dashboard.rs:286:10
+    |
+286 |     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    |          ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_drawer_name`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: unused variable: `drawer_sub`
+   --> src\dashboard.rs:286:23
+    |
+286 |     let (drawer_name, drawer_sub) = match (ctx.session)() {
+    |                       ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_drawer_sub`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:680:9
+    |
+680 |     let mut busy: Signal<bool> = use_signal(|| false);
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:843:9
+    |
+843 |     let mut refresh = use_signal(|| 0u32);
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: variable does not need to be mutable
+   --> src\dashboard.rs:844:9
+    |
+844 |     let mut courses = use_resource(move || {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+ 
+
+[INFO] dx::build::builder: warning: field `reason` is never read
+  --> src\auth_bridge.rs:50:5
+   |
+47 | struct VerifyResponse {
+   |        -------------- field in this struct
+...
+50 |     reason: Option<String>,
+   |     ^^^^^^
+   |
+   = note: `VerifyResponse` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+ 
+
+[INFO] dx::build::builder: warning: field `index` is never read
+  --> src\auth_bridge.rs:61:5
+   |
+60 | struct BulkCreateError {
+   |        --------------- field in this struct
+61 |     index: usize,
+   |     ^^^^^
+   |
+   = note: `BulkCreateError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+ 
+
+[INFO] dx::build::builder: warning: constant `COURSE_STATUSES` is never used
+  --> src\course_types.rs:57:11
+   |
+57 | pub const COURSE_STATUSES: [&str; 5] = [
+   |           ^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `can_publish_from` is never used
+  --> src\course_types.rs:89:8
+   |
+89 | pub fn can_publish_from(status: &str) -> bool {
+   |        ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `can_manage_course` is never used
+  --> src\course_types.rs:94:8
+   |
+94 | pub fn can_manage_course(course: &CourseView, user_id: Uuid, is_admin: bool) -> bool {
+   |        ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ENROLLMENT_STATES` is never used
+  --> src\enrollment_types.rs:85:11
+   |
+85 | pub const ENROLLMENT_STATES: [&str; 6] = [
+   |           ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `own_action` is never used
+   --> src\enrollment_types.rs:136:8
+    |
+136 | pub fn own_action(state: &str) -> Option<(&'static str, &'static str)> {
+    |        ^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `download_submission_file` is never used
+   --> src\assignments_bridge.rs:188:14
+    |
+188 | pub async fn download_submission_file(
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `submit_for_review` is never used
+   --> src\course_bridge.rs:188:14
+    |
+188 | pub async fn submit_for_review(token: &str, course_id: uuid::Uuid) -> Result<CourseView> {
+    |              ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONTENT_TYPES` is never used
+   --> src\content_types.rs:132:11
+    |
+132 | pub const CONTENT_TYPES: [&str; 9] = [
+    |           ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `CONTENT_STATUSES` is never used
+   --> src\content_types.rs:136:11
+    |
+136 | pub const CONTENT_STATUSES: [&str; 3] = ["draft", "published", "unpublished"];
+    |           ^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: multiple fields are never read
+  --> src\mock_data.rs:7:9
+   |
+ 6 | pub(crate) struct Course {
+   |                   ------ fields in this struct
+ 7 |     pub code: &'static str,
+   |         ^^^^
+ 8 |     pub name: &'static str,
+   |         ^^^^
+ 9 |     pub instructor: &'static str,
+   |         ^^^^^^^^^^
+10 |     pub progress: f64,
+   |         ^^^^^^^^
+11 |     pub students: u32,
+   |         ^^^^^^^^
+12 |     pub pending: u32,
+   |         ^^^^^^^
+13 |     pub tone: &'static str,
+   |         ^^^^
+14 |     pub icon: &'static str,
+   |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: fields `title`, `course`, `when`, and `info` are never read
+  --> src\mock_data.rs:41:9
+   |
+40 | pub(crate) struct Quiz {
+   |                   ---- fields in this struct
+41 |     pub title: &'static str,
+   |         ^^^^^
+42 |     pub course: &'static str,
+   |         ^^^^^^
+43 |     pub when: &'static str,
+   |         ^^^^
+44 |     pub info: &'static str,
+   |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: field `initials` is never read
+  --> src\mock_data.rs:67:9
+   |
+65 | pub(crate) struct StudentRow {
+   |                   ---------- field in this struct
+66 |     pub name: &'static str,
+67 |     pub initials: &'static str,
+   |         ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: field `tone` is never read
+   --> src\mock_data.rs:206:9
+    |
+202 | pub(crate) struct Activity {
+    |                   -------- field in this struct
+...
+206 |     pub tone: &'static str,
+    |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: field `role` is never read
+   --> src\mock_data.rs:233:9
+    |
+231 | pub(crate) struct Conversation {
+    |                   ------------ field in this struct
+232 |     pub person: &'static str,
+233 |     pub role: &'static str,
+    |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: fields `id`, `duration`, and `host` are never read
+   --> src\mock_data.rs:542:9
+    |
+541 | pub(crate) struct Lesson {
+    |                   ------ fields in this struct
+542 |     pub id: &'static str,
+    |         ^^
+...
+547 |     pub duration: &'static str,
+    |         ^^^^^^^^
+548 |     pub status: &'static str, // live | scheduled | ended
+549 |     pub host: &'static str,
+    |         ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `ROOM_PARTICIPANTS` is never used
+   --> src\mock_data.rs:562:18
+    |
+562 | pub(crate) const ROOM_PARTICIPANTS: &[(&str, &str, &str, bool, bool)] = &[
+    |                  ^^^^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `LOCAL_MEDIA_JS` is never used
+   --> src\mock_data.rs:573:18
+    |
+573 | pub(crate) const LOCAL_MEDIA_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `START_SHARE_JS` is never used
+   --> src\mock_data.rs:582:18
+    |
+582 | pub(crate) const START_SHARE_JS: &str = r#"(async () => {
+    |                  ^^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `STOP_SHARE_JS` is never used
+   --> src\mock_data.rs:599:18
+    |
+599 | pub(crate) const STOP_SHARE_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: constant `STOP_MEDIA_JS` is never used
+   --> src\mock_data.rs:606:18
+    |
+606 | pub(crate) const STOP_MEDIA_JS: &str = r#"(function() {
+    |                  ^^^^^^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Icon` is never used
+  --> src\components.rs:10:8
+   |
+10 | pub fn Icon(name: &'static str, class: Option<&'static str>) -> Element {
+   |        ^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `Divider` is never used
+   --> src\components.rs:184:8
+    |
+184 | pub fn Divider(class: Option<&'static str>) -> Element {
+    |        ^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: field `initials` is never read
+  --> src\dashboard.rs:53:5
+   |
+50 | pub(crate) struct Persona {
+   |                   ------- field in this struct
+...
+53 |     initials: &'static str,
+   |     ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: warning: function `greeting` is never used
+  --> src\dashboard.rs:86:15
+   |
+86 | pub(crate) fn greeting(role: Role) -> &'static str {
+   |               ^^^^^^^^
+
+ 
+
+[INFO] dx::build::builder: Copying asset (1/3): D:\Work\E-Lupane\plugins\frontend\assets\logo.png 
+
+[INFO] dx::build::builder: Copying asset (2/3): D:\Work\E-Lupane\plugins\frontend\assets\dashboard.css 
+
+[INFO] dx::build::builder: Copying asset (3/3): D:\Work\E-Lupane\plugins\frontend\assets\main1.css 
+
+[INFO] dx::cli::build: Client build completed successfully! 🚀 path="\"D:\\\\Work\\\\E-Lupane\\\\plugins\\\\frontend\\\\target\\\\dx\\\\frontend\\\\debug\\\\web\\\\public\"" 
+
+[INFO] dx::build::builder: Compiled [438/438]: frontend 
+
+[INFO] dx::build::builder: Bundling app... 
+
+[INFO] dx::cli::build: Server build completed successfully! 🚀 path="\"D:\\\\Work\\\\E-Lupane\\\\plugins\\\\frontend\\\\target\\\\dx\\\\frontend\\\\debug\\\\web\"" 
+

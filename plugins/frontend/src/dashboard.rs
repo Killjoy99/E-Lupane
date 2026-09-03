@@ -6,11 +6,14 @@ use dioxus::prelude::*;
 use crate::assignments_ui::*;
 use crate::components::*;
 use crate::content_ui::CourseModules;
+use crate::course_types::CourseView;
 use crate::courses_ui::*;
 use crate::enrollments_ui::*;
 use crate::mock_data::NOTIFICATIONS;
 use crate::mock_pages::*;
-use crate::server_functions::{auth_login, auth_verify, AuthSession};
+use crate::server_functions::{auth_login, auth_verify, courses_list, AuthSession};
+
+const LOGO: Asset = asset!("/assets/logo.png");
 
 // ---------------------------------------------------------------------------
 // Roles & personas
@@ -298,11 +301,11 @@ fn Sidebar(role: Signal<Role>, active_view: Signal<&'static str>) -> Element {
         aside { class: "md-drawer",
             div { class: "md-brand",
                 div { class: "md-brand-logo",
-                    span { class: "material-symbols-outlined", "rocket_launch" }
+                    img { src: LOGO, alt: "E-Lupane logo" }
                 }
                 div {
                     div { class: "md-brand-name", "E-Lupane" }
-                    div { class: "md-brand-sub", "Learning OS" }
+                    div { class: "md-brand-sub", "LL-OS" }
                 }
             }
 
@@ -317,14 +320,14 @@ fn Sidebar(role: Signal<Role>, active_view: Signal<&'static str>) -> Element {
                     }
                 }
             }
-
-            div { class: "md-drawer-user",
-                UserAvatar { name: drawer_name.clone(), tone: persona(current).tone }
-                div {
-                    div { class: "md-drawer-user-name", "{drawer_name}" }
-                    div { class: "md-drawer-user-sub", "{drawer_sub}" }
-                }
-            }
+        
+        // div { class: "md-drawer-user",
+        //     UserAvatar { name: drawer_name.clone(), tone: persona(current).tone }
+        //     div {
+        //         div { class: "md-drawer-user-name", "{drawer_name}" }
+        //         div { class: "md-drawer-user-sub", "{drawer_sub}" }
+        //     }
+        // }
         }
     }
 }
@@ -680,7 +683,7 @@ fn Login(session: Signal<Option<AuthSession>>, role: Signal<Role>) -> Element {
         div { class: "auth-screen",
             div { class: "auth-card",
                 div { class: "auth-logo",
-                    span { class: "material-symbols-outlined", "rocket_launch" }
+                    img { src: LOGO, alt: "E-Lupane logo" }
                 }
                 h1 { class: "auth-title", "E-Lupane" }
                 p { class: "auth-sub", "Lupane State University · Learning OS" }
@@ -757,14 +760,23 @@ pub fn StudentContent() -> Element {
     let ctx = use_context::<UiCtx>();
     let session = (ctx.session)();
     if let Some(s) = session {
-        let mut selected: Signal<Option<course_types::CourseView>> = use_signal(|| None);
+        let mut selected: Signal<Option<CourseView>> = use_signal(|| None);
         let token = s.token.clone();
 
         rsx! {
             div { class: "page",
-                SectionTitle { title: "My learning content", subtitle: "Select a course to view its modules and lessons" }
+                SectionTitle {
+                    title: "My learning content",
+                    subtitle: "Select a course to view its modules and lessons",
+                }
                 if selected().is_none() {
-                    MyCourseList { token, on_select: { let mut selected = selected; move |c| selected.set(Some(c)) } }
+                    MyCourseList {
+                        token,
+                        on_select: {
+                            let mut selected = selected;
+                            move |c| selected.set(Some(c))
+                        },
+                    }
                 } else if let Some(c) = selected() {
                     div { class: "md-actions",
                         Button {
@@ -788,14 +800,23 @@ pub fn LecturerContent() -> Element {
     let ctx = use_context::<UiCtx>();
     let session = (ctx.session)();
     if let Some(s) = session {
-        let mut selected: Signal<Option<course_types::CourseView>> = use_signal(|| None);
+        let mut selected: Signal<Option<CourseView>> = use_signal(|| None);
         let token = s.token.clone();
 
         rsx! {
             div { class: "page",
-                SectionTitle { title: "Course content management", subtitle: "Create modules, lessons and publish materials" }
+                SectionTitle {
+                    title: "Course content management",
+                    subtitle: "Create modules, lessons and publish materials",
+                }
                 if selected().is_none() {
-                    MyCourseList { token, on_select: { let mut selected = selected; move |c| selected.set(Some(c)) } }
+                    MyCourseList {
+                        token,
+                        on_select: {
+                            let mut selected = selected;
+                            move |c| selected.set(Some(c))
+                        },
+                    }
                 } else if let Some(c) = selected() {
                     div { class: "md-actions",
                         Button {
@@ -817,7 +838,7 @@ pub fn LecturerContent() -> Element {
 #[component]
 fn MyCourseList(
     token: String,
-    on_select: EventHandler<course_types::CourseView>,
+    on_select: EventHandler<CourseView>,
 ) -> Element {
     let mut refresh = use_signal(|| 0u32);
     let mut courses = use_resource(move || {
@@ -830,7 +851,7 @@ fn MyCourseList(
         }
     });
     let list_ref = courses.read();
-    let list_opt: &Option<Vec<course_types::CourseView>> = &*list_ref;
+    let list_opt: &Option<Vec<CourseView>> = &*list_ref;
 
     rsx! {
         if let Some(list) = list_opt {

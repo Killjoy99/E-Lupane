@@ -219,8 +219,8 @@ pub fn LiveClassesPage(can_manage: bool) -> Element {
                                         td { "{s.scheduled_start}" }
                                         td {
                                             StatusChip {
-                                                status: status_tone(s.status.as_str()),
-                                                label: status_label(s.status.as_str()),
+                                                status: status_tone(s.status.as_str()).to_string(),
+                                                label: status_label(s.status.as_str()).to_string(),
                                             }
                                         }
                                         td {

@@ -1,6 +1,7 @@
 //! Learning content UI (live — backed by the content plugin).
 
 use dioxus::prelude::*;
+use uuid::Uuid;
 
 use crate::components::*;
 use crate::content_types::*;
@@ -33,24 +34,25 @@ pub fn CourseModules(course_id: Uuid, can_manage: bool) -> Element {
 
     let list_ref = modules.read();
     let list_opt: &Option<Vec<ContentModuleView>> = &*list_ref;
+    let action = if can_manage {
+        Some(rsx! {
+            Button {
+                variant: "filled",
+                icon: "add",
+                onclick: move |_| creating.set(true),
+                "New module"
+            }
+        })
+    } else {
+        None
+    };
 
     rsx! {
         div { class: "page",
             SectionTitle {
                 title: "Course content",
                 subtitle: "Modules, lessons and learning materials",
-                action: if can_manage {
-                    rsx! {
-                        Button {
-                            variant: "filled",
-                            icon: "add",
-                            onclick: move |_| creating.set(true),
-                            "New module"
-                        }
-                    }
-                } else {
-                    rsx! {}
-                }
+                action: action,
             }
             if creating() {
                 CreateModuleForm {
@@ -104,6 +106,7 @@ pub fn ModuleCard(
     let is_open = expanded() == Some(module.id);
     let mut local = use_signal(|| module.clone());
     let m = local();
+    let m_for_closure = m.clone();
 
     rsx! {
         div { class: "module-card",
@@ -124,11 +127,11 @@ pub fn ModuleCard(
                     h3 { "{m.title}" }
                     span { class: "muted", style: "font-size: 13px", "{m.description}" }
                 }
-                StatusChip { status: m.status.as_str(), label: Some(m.status.as_str()) }
+                StatusChip { status: m.status.clone(), label: Some(m.status.clone()) }
                 if can_manage {
                     ModuleActions {
                         module: m.clone(),
-                        on_changed: move |_| { local.set(m.clone()); on_refresh.call(()); },
+                        on_changed: move |_| { local.set(m_for_closure.clone()); on_refresh.call(()); },
                     }
                 }
             }
@@ -152,7 +155,8 @@ fn ModuleActions(
     let mut show_menu = use_signal(|| false);
     let mut show_edit = use_signal(|| false);
     let mut show_status = use_signal(|| false);
-    let token = use_context::<UiCtx>().session().map(|s| s.token.clone());
+    let token = (use_context::<UiCtx>().session)().map(|s| s.token.clone());
+    let token_for_status = token.clone();
 
     rsx! {
         div { class: "md-actions",
@@ -194,10 +198,10 @@ fn ModuleActions(
                             if let Some(t) = &token {
                                 let mid = module.id;
                                 let t = t.clone();
-                                async move {
-                                    let _ = content_modules_delete(&t, mid).await;
+                                spawn(async move {
+                                    let _ = content_modules_delete(t, mid).await;
                                     on_changed.call(());
-                                }
+                                });
                             }
                         },
                         span { class: "material-symbols-outlined", "delete" }
@@ -215,16 +219,16 @@ fn ModuleActions(
             if show_status() {
                 SetStatusDialog {
                     current: module.status.clone(),
-                    on_set: move |status| {
+                    on_set: move |status: String| {
                         show_status.set(false);
-                        if let Some(t) = &token {
+                        if let Some(t) = &token_for_status {
                             let mid = module.id;
                             let t = t.clone();
                             let status = status.clone();
-                            async move {
-                                let _ = content_modules_status(&t, mid, status).await;
+                            spawn(async move {
+                                let _ = content_modules_status(t, mid, status).await;
                                 on_changed.call(());
-                            }
+                            });
                         }
                     },
                     on_cancel: move |_| show_status.set(false),
@@ -245,7 +249,7 @@ pub fn ModuleLessons(
     can_manage: bool,
     on_refresh: EventHandler<()>,
 ) -> Element {
-    let token = use_context::<UiCtx>().session().map(|s| s.token.clone());
+    let token = (use_context::<UiCtx>().session)().map(|s| s.token.clone());
     let token_fetch = token.clone();
     let mut refresh = use_signal(|| 0u32);
     let mut creating = use_signal(|| false);
@@ -322,7 +326,7 @@ pub fn LessonRow(
 ) -> Element {
     let mut show_edit = use_signal(|| false);
     let mut show_status = use_signal(|| false);
-    let token = use_context::<UiCtx>().session().map(|s| s.token.clone());
+    let token = (use_context::<UiCtx>().session)().map(|s| s.token.clone());
 
     rsx! {
         div { class: "lesson-row",
@@ -331,7 +335,7 @@ pub fn LessonRow(
                 h4 { "{lesson.title}" }
                 span { class: "muted", style: "font-size: 13px", "{lesson.description}" }
             }
-            StatusChip { status: lesson.status.as_str(), label: Some(lesson.status.as_str()) }
+            StatusChip { status: lesson.status.clone(), label: Some(lesson.status.clone()) }
             if can_manage {
                 div { class: "md-actions",
                     button {
@@ -356,16 +360,16 @@ pub fn LessonRow(
             if show_status() {
                 SetStatusDialog {
                     current: lesson.status.clone(),
-                    on_set: move |status| {
+                    on_set: move |status: String| {
                         show_status.set(false);
                         if let Some(t) = &token {
                             let lid = lesson.id;
                             let t = t.clone();
                             let status = status.clone();
-                            async move {
-                                let _ = content_lessons_status(&t, lid, status).await;
+                            spawn(async move {
+                                let _ = content_lessons_status(t, lid, status).await;
                                 on_changed.call(());
-                            }
+                            });
                         }
                     },
                     on_cancel: move |_| show_status.set(false),
@@ -389,7 +393,7 @@ pub fn CreateModuleForm(
     let mut description = use_signal(String::new);
     let mut busy = use_signal(|| false);
     let mut error = use_signal(|| None::<String>);
-    let token = use_context::<UiCtx>().session().map(|s| s.token.clone());
+    let token = (use_context::<UiCtx>().session)().map(|s| s.token.clone());
 
     rsx! {
         div { class: "md-card",
@@ -413,34 +417,34 @@ pub fn CreateModuleForm(
                     onclick: move |_| on_cancel.call(()),
                     "Cancel"
                 }
-                Button {
-                    variant: "filled",
-                    disabled: busy() || title().trim().is_empty(),
-                    onclick: move |_| {
-                        busy.set(true);
-                        error.set(None);
-                        if let Some(t) = &token {
-                            let course_id = course_id;
-                            let title = title.trim().to_string();
-                            let description = description.trim().to_string();
-                            let t = t.clone();
-                            async move {
-                                let _ = content_modules_create(&t, CreateModuleInput {
-                                    course_id,
-                                    title,
-                                    description,
-                                    sort_order: 0,
-                                }).await;
+                    Button {
+                        variant: "filled",
+                        disabled: busy() || title().trim().is_empty(),
+                        onclick: move |_| {
+                            busy.set(true);
+                            error.set(None);
+                            if let Some(t) = &token {
+                                let course_id = course_id;
+                                let title = title().trim().to_string();
+                                let description = description().trim().to_string();
+                                let t = t.clone();
+                                spawn(async move {
+                                    let _ = content_modules_create(t, CreateModuleInput {
+                                        course_id,
+                                        title,
+                                        description,
+                                        sort_order: 0,
+                                    }).await;
+                                    busy.set(false);
+                                    on_created.call(());
+                                });
+                            } else {
                                 busy.set(false);
-                                on_created.call(());
+                                error.set(Some("Not authenticated".to_string()));
                             }
-                        } else {
-                            busy.set(false);
-                            error.set(Some("Not authenticated".to_string()));
-                        }
-                    },
-                    if busy() { "Saving…" } else { "Create module" }
-                }
+                        },
+                        if busy() { "Saving…" } else { "Create module" }
+                    }
             }
         }
     }
@@ -455,7 +459,7 @@ fn EditModuleDialog(
     let mut title = use_signal(|| module.title.clone());
     let mut description = use_signal(|| module.description.clone());
     let mut busy = use_signal(|| false);
-    let token = use_context::<UiCtx>().session().map(|s| s.token.clone());
+    let token = (use_context::<UiCtx>().session)().map(|s| s.token.clone());
 
     rsx! {
         div { class: "md-dialog-backdrop",
@@ -484,11 +488,11 @@ fn EditModuleDialog(
                             busy.set(true);
                             if let Some(t) = &token {
                                 let module = module.clone();
-                                let title = title.trim().to_string();
-                                let description = description.trim().to_string();
+                                let title = title().trim().to_string();
+                                let description = description().trim().to_string();
                                 let t = t.clone();
-                                async move {
-                                    let _ = content_modules_update(&t, UpdateModuleInput {
+                                spawn(async move {
+                                    let _ = content_modules_update(t, UpdateModuleInput {
                                         module_id: module.id,
                                         title: Some(title),
                                         description: Some(description),
@@ -496,7 +500,7 @@ fn EditModuleDialog(
                                     }).await;
                                     busy.set(false);
                                     on_saved.call(());
-                                }
+                                });
                             } else {
                                 busy.set(false);
                             }
@@ -519,7 +523,7 @@ fn CreateLessonForm(
     let mut description = use_signal(String::new);
     let mut busy = use_signal(|| false);
     let mut error = use_signal(|| None::<String>);
-    let token = use_context::<UiCtx>().session().map(|s| s.token.clone());
+    let token = (use_context::<UiCtx>().session)().map(|s| s.token.clone());
 
     rsx! {
         div { class: "md-card",
@@ -551,11 +555,11 @@ fn CreateLessonForm(
                         error.set(None);
                         if let Some(t) = &token {
                             let module_id = module_id;
-                            let title = title.trim().to_string();
-                            let description = description.trim().to_string();
+                            let title = title().trim().to_string();
+                            let description = description().trim().to_string();
                             let t = t.clone();
-                            async move {
-                                let _ = content_lessons_create(&t, CreateLessonInput {
+                            spawn(async move {
+                                let _ = content_lessons_create(t, CreateLessonInput {
                                     module_id,
                                     title,
                                     description,
@@ -563,7 +567,7 @@ fn CreateLessonForm(
                                 }).await;
                                 busy.set(false);
                                 on_created.call(());
-                            }
+                            });
                         } else {
                             busy.set(false);
                             error.set(Some("Not authenticated".to_string()));
@@ -585,7 +589,7 @@ fn EditLessonDialog(
     let mut title = use_signal(|| lesson.title.clone());
     let mut description = use_signal(|| lesson.description.clone());
     let mut busy = use_signal(|| false);
-    let token = use_context::<UiCtx>().session().map(|s| s.token.clone());
+    let token = (use_context::<UiCtx>().session)().map(|s| s.token.clone());
 
     rsx! {
         div { class: "md-dialog-backdrop",
@@ -612,24 +616,24 @@ fn EditLessonDialog(
                         disabled: busy() || title().trim().is_empty(),
                         onclick: move |_| {
                             busy.set(true);
-                            if let Some(t) = &token {
-                                let lesson = lesson.clone();
-                                let title = title.trim().to_string();
-                                let description = description.trim().to_string();
-                                let t = t.clone();
-                                async move {
-                                    let _ = content_lessons_update(&t, UpdateLessonInput {
-                                        lesson_id: lesson.id,
-                                        title: Some(title),
-                                        description: Some(description),
-                                        sort_order: None,
-                                    }).await;
-                                    busy.set(false);
-                                    on_saved.call(());
-                                }
-                            } else {
+                        if let Some(t) = &token {
+                            let lesson = lesson.clone();
+                            let title = title().trim().to_string();
+                            let description = description().trim().to_string();
+                            let t = t.clone();
+                            spawn(async move {
+                                let _ = content_lessons_update(t, UpdateLessonInput {
+                                    lesson_id: lesson.id,
+                                    title: Some(title),
+                                    description: Some(description),
+                                    sort_order: None,
+                                }).await;
                                 busy.set(false);
-                            }
+                                on_saved.call(());
+                            });
+                        } else {
+                            busy.set(false);
+                        }
                         },
                         if busy() { "Saving…" } else { "Save" }
                     }
