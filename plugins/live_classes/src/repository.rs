@@ -88,6 +88,20 @@ pub async fn update_session(
     .await?)
 }
 
+/// Expire scheduled sessions whose `scheduled_end` has passed without the host
+/// starting them (`status: scheduled → expired`). Called lazily from
+/// `services::sweep_expired` before reads and joins, so expiry happens without
+/// a background worker. Returns the number of rows expired.
+pub async fn expire_stale_sessions(pool: &PgPool) -> Result<u64> {
+    let result = sqlx::query(
+        "UPDATE live_sessions SET status = 'expired', updated_at = now() \
+         WHERE status = 'scheduled' AND scheduled_end < now()",
+    )
+    .execute(pool)
+    .await?;
+    Ok(result.rows_affected())
+}
+
 pub async fn set_status(
     pool: &PgPool,
     id: Uuid,

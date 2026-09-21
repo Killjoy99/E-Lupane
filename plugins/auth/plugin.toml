@@ -19,6 +19,7 @@ capabilities = [
   "auth.permission.list",
   "auth.login",
   "auth.verify",
+  "auth.google_login",
   "events.subscribe"
 ]
 dependencies = []

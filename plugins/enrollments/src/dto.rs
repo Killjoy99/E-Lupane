@@ -207,7 +207,7 @@ pub struct CreateInviteRequest {
     pub expires_at: Option<DateTime<Utc>>,
     /// Maximum number of students that may use it.
     #[serde(default)]
-    pub max_uses: Option<i64>,
+    pub max_uses: Option<i32>,
 }
 
 /// Join a course via an invite token (the "course link" flow).
@@ -271,8 +271,8 @@ pub struct InviteView {
     pub course_id: Uuid,
     pub token: String,
     pub created_by: Uuid,
-    pub max_uses: Option<i64>,
-    pub uses: i64,
+    pub max_uses: Option<i32>,
+    pub uses: i32,
     pub expires_at: Option<DateTime<Utc>>,
     pub active: bool,
     pub created_at: DateTime<Utc>,

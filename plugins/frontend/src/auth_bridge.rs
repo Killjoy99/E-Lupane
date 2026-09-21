@@ -109,6 +109,30 @@ pub async fn login(username: &str, password: &str) -> Result<(String, UserView)>
     Ok((resp.token, resp.user))
 }
 
+/// `auth.google_login` → `(token, user)` for Google OAuth sign-in. Creates the
+/// user in the auth plugin's `users` table if the email is new.
+pub async fn google_login(email: &str, full_name: &str, roles: Vec<String>) -> Result<(String, UserView)> {
+    if !cache::connection::is_initialized() {
+        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+    }
+
+    let reply = client()
+        .request(
+            AUTH_PLUGIN,
+            "auth.google_login",
+            json!({ "email": email, "full_name": full_name, "roles": roles }),
+        )
+        .await?;
+
+    if let Some(err) = &reply.error {
+        return Err(anyhow!("{}", err.message));
+    }
+
+    let resp: LoginResponse = serde_json::from_value(reply.payload)
+        .map_err(|_| anyhow!("auth plugin returned an unexpected google_login payload"))?;
+    Ok((resp.token, resp.user))
+}
+
 /// `auth.verify` → `Some(user)` when the token is valid, `None` otherwise.
 pub async fn verify(token: &str) -> Result<Option<UserView>> {
     if !cache::connection::is_initialized() {
@@ -258,3 +282,107 @@ pub async fn bulk_create_users(
 
 /// Valid account types (roles) that can be assigned to users when creating accounts.
 pub const ACCOUNT_TYPES: &[&str] = &["student", "lecturer", "admin", "registrar", "manager", "developer"];
+
+// ---------------------------------------------------------------------------
+// Role / permission administration (RBAC matrix + user role management)
+// ---------------------------------------------------------------------------
+
+/// A role with its granted permissions (from `role.list`).
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct RoleView {
+    pub id: String,
+    pub name: String,
+    pub description: Option<String>,
+    pub permissions: Vec<String>,
+}
+
+/// A permission definition (from `permission.list`).
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct PermissionView {
+    pub id: String,
+    pub name: String,
+    pub description: Option<String>,
+}
+
+async fn rpc(op: &str, payload: serde_json::Value) -> Result<serde_json::Value> {
+    if !cache::connection::is_initialized() {
+        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+    }
+    let reply = client().request(AUTH_PLUGIN, op, payload).await?;
+    if let Some(err) = &reply.error {
+        return Err(anyhow!("{}", err.message));
+    }
+    Ok(reply.payload)
+}
+
+/// `role.list` — every role with its permission set.
+pub async fn list_roles() -> Result<Vec<RoleView>> {
+    let payload = rpc("role.list", json!({})).await?;
+    serde_json::from_value(payload)
+        .map_err(|_| anyhow!("auth plugin returned an unexpected role.list payload"))
+}
+
+/// `permission.list` — every permission in the catalog.
+pub async fn list_permissions() -> Result<Vec<PermissionView>> {
+    let payload = rpc("permission.list", json!({})).await?;
+    serde_json::from_value(payload)
+        .map_err(|_| anyhow!("auth plugin returned an unexpected permission.list payload"))
+}
+
+/// `role.assign` — grant `role` to a user (admin only).
+pub async fn grant_role(admin_token: &str, user_id: &str, role: &str) -> Result<UserView> {
+    let payload = rpc(
+        "role.assign",
+        json!({ "user_id": user_id, "role": role, "admin_token": admin_token }),
+    )
+    .await?;
+    serde_json::from_value(payload)
+        .map_err(|_| anyhow!("auth plugin returned an unexpected role.assign payload"))
+}
+
+/// `role.revoke` — take `role` away from a user (admin only).
+pub async fn revoke_role(admin_token: &str, user_id: &str, role: &str) -> Result<UserView> {
+    let payload = rpc(
+        "role.revoke",
+        json!({ "user_id": user_id, "role": role, "admin_token": admin_token }),
+    )
+    .await?;
+    serde_json::from_value(payload)
+        .map_err(|_| anyhow!("auth plugin returned an unexpected role.revoke payload"))
+}
+
+/// `role.permissions.set` — replace a role's whole permission set (admin only).
+pub async fn set_role_permissions(
+    admin_token: &str,
+    role: &str,
+    permissions: Vec<String>,
+) -> Result<RoleView> {
+    let payload = rpc(
+        "role.permissions.set",
+        json!({ "role": role, "permissions": permissions, "admin_token": admin_token }),
+    )
+    .await?;
+    serde_json::from_value(payload)
+        .map_err(|_| anyhow!("auth plugin returned an unexpected role.permissions.set payload"))
+}
+
+/// `role.create` — define a new role, optionally with permissions (admin only).
+pub async fn create_role(
+    admin_token: &str,
+    name: &str,
+    description: Option<String>,
+    permissions: Vec<String>,
+) -> Result<RoleView> {
+    let payload = rpc(
+        "role.create",
+        json!({
+            "name": name,
+            "description": description,
+            "permissions": permissions,
+            "admin_token": admin_token
+        }),
+    )
+    .await?;
+    serde_json::from_value(payload)
+        .map_err(|_| anyhow!("auth plugin returned an unexpected role.create payload"))
+}

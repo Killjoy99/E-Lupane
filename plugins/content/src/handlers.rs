@@ -44,13 +44,13 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
         "content.module.list" => {
             let claims = authorize(&command.payload)?;
             let req: CourseIdRequest = parse_payload(&command.payload)?;
-            let view = services::list_modules(pool, req.course_id).await?;
+            let view = services::list_modules(pool, &claims, req.course_id).await?;
             reply(command, &view)
         }
         "content.module.get" => {
             let claims = authorize(&command.payload)?;
             let req: ModuleIdRequest = parse_payload(&command.payload)?;
-            let view = services::get_module(pool, req.module_id).await?;
+            let view = services::get_module(pool, &claims, req.module_id).await?;
             reply(command, &view)
         }
         "content.module.create" => {
@@ -92,13 +92,13 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
         "content.lesson.list" => {
             let claims = authorize(&command.payload)?;
             let req: ModuleIdRequest = parse_payload(&command.payload)?;
-            let view = services::list_lessons(pool, req.module_id).await?;
+            let view = services::list_lessons(pool, &claims, req.module_id).await?;
             reply(command, &view)
         }
         "content.lesson.get" => {
             let claims = authorize(&command.payload)?;
             let req: LessonIdRequest = parse_payload(&command.payload)?;
-            let view = services::get_lesson(pool, req.lesson_id).await?;
+            let view = services::get_lesson(pool, &claims, req.lesson_id).await?;
             reply(command, &view)
         }
         "content.lesson.create" => {
@@ -140,13 +140,13 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
         "content.item.list" => {
             let claims = authorize(&command.payload)?;
             let req: LessonIdRequest = parse_payload(&command.payload)?;
-            let view = services::list_items(pool, req.lesson_id).await?;
+            let view = services::list_items(pool, &claims, req.lesson_id).await?;
             reply(command, &view)
         }
         "content.item.get" => {
             let claims = authorize(&command.payload)?;
             let req: IdRequest = parse_payload(&command.payload)?;
-            let view = services::get_item(pool, req.id).await?;
+            let view = services::get_item(pool, &claims, req.id).await?;
             reply(command, &view)
         }
         "content.item.create" => {
@@ -188,19 +188,19 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
         "content.file.list" => {
             let claims = authorize(&command.payload)?;
             let req: CourseIdRequest = parse_payload(&command.payload)?;
-            let view = services::list_files(pool, req.course_id).await?;
+            let view = services::list_files(pool, &claims, req.course_id).await?;
             reply(command, &view)
         }
         "content.file.get" => {
             let claims = authorize(&command.payload)?;
             let req: IdRequest = parse_payload(&command.payload)?;
-            let view = services::get_file(pool, req.id).await?;
+            let view = services::get_file(pool, &claims, req.id).await?;
             reply(command, &view)
         }
         "content.file.download" => {
             let claims = authorize(&command.payload)?;
             let req: IdRequest = parse_payload(&command.payload)?;
-            let view = services::download_file(pool, req.id).await?;
+            let view = services::download_file(pool, &claims, req.id).await?;
             reply(command, &view)
         }
         "content.file.delete" => {
@@ -212,6 +212,13 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
                 PLUGIN_ID,
                 serde_json::json!({ "deleted": true, "file_id": req.id }),
             ))
+        }
+
+        "content.material.add" => {
+            let claims = authorize(&command.payload)?;
+            let req: AddCourseMaterialRequest = parse_payload(&command.payload)?;
+            let view = services::add_course_material(pool, &claims, req).await?;
+            reply(command, &view)
         }
 
         // ---- Event subscription placeholder ----

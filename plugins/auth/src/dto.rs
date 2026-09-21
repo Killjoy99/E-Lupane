@@ -32,6 +32,14 @@ pub struct UserView {
 }
 
 #[derive(Debug, Deserialize)]
+pub struct GoogleLoginRequest {
+    pub email: String,
+    pub full_name: String,
+    #[serde(default)]
+    pub roles: Vec<String>,
+}
+
+#[derive(Debug, Deserialize)]
 pub struct LoginRequest {
     pub username: String,
     pub password: String,
@@ -58,12 +66,45 @@ pub struct VerifyResponse {
 #[derive(Debug, Deserialize)]
 pub struct DeleteUserRequest {
     pub user_id: Uuid,
+    /// Admin JWT token (required for user deletion).
+    #[serde(default)]
+    pub admin_token: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
 pub struct AssignRoleRequest {
     pub user_id: Uuid,
     pub role: String,
+    /// Admin JWT token (required for role grant/revoke).
+    #[serde(default)]
+    pub admin_token: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct RevokeRoleRequest {
+    pub user_id: Uuid,
+    pub role: String,
+    #[serde(default)]
+    pub admin_token: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct SetRolePermissionsRequest {
+    pub role: String,
+    pub permissions: Vec<String>,
+    #[serde(default)]
+    pub admin_token: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct CreateRoleRequest {
+    pub name: String,
+    #[serde(default)]
+    pub description: Option<String>,
+    #[serde(default)]
+    pub permissions: Vec<String>,
+    #[serde(default)]
+    pub admin_token: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]

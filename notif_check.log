@@ -1,0 +1,70 @@
+    Checking notifications v0.1.0 (D:\Work\E-Lupane\plugins\notifications)
+warning: unused import: `crate::models::*`
+  --> plugins\notifications\src\handlers.rs:11:5
+   |
+11 | use crate::models::*;
+   |     ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0308]: mismatched types
+  --> plugins\notifications\src\main.rs:65:30
+   |
+65 |                     Ok(s) => Box::pin(s),
+   |                              ^^^^^^^^^^^ expected `Box<...>`, found `Pin<Box<impl Stream<Item = Message>>>`
+   |
+  ::: crates\messaging_core\src\events.rs:20:55
+   |
+20 | pub async fn subscribe_events(domain: &str) -> Result<impl Stream<Item = Message>> {
+   |                                                       --------------------------- the found opaque type
+   |
+   = note: expected struct `Box<dyn Stream<Item = elupane_core::message::Message> + std::marker::Send + Unpin>`
+              found struct `Pin<Box<impl Stream<Item = elupane_core::message::Message>>>`
+   = note: for more on the distinction between the stack and the heap, read https://doc.rust-lang.org/book/ch15-01-box.html, https://doc.rust-lang.org/rust-by-example/std/box.html, and https://doc.rust-lang.org/std/boxed/index.html
+help: store this in the heap by calling `Box::new`
+   |
+65 |                     Ok(s) => Box::new(Box::pin(s)),
+   |                              +++++++++           +
+
+warning: unused variable: `claims`
+  --> plugins\notifications\src\handlers.rs:47:17
+   |
+47 |             let claims = authorize(&command.payload)?;
+   |                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_claims`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `claims`
+  --> plugins\notifications\src\handlers.rs:53:17
+   |
+53 |             let claims = authorize(&command.payload)?;
+   |                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_claims`
+
+warning: unused variable: `claims`
+  --> plugins\notifications\src\handlers.rs:59:17
+   |
+59 |             let claims = authorize(&command.payload)?;
+   |                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_claims`
+
+warning: unused variable: `claims`
+  --> plugins\notifications\src\handlers.rs:65:17
+   |
+65 |             let claims = authorize(&command.payload)?;
+   |                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_claims`
+
+warning: unused variable: `claims`
+  --> plugins\notifications\src\handlers.rs:77:17
+   |
+77 |             let claims = authorize(&command.payload)?;
+   |                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_claims`
+
+warning: unused variable: `claims`
+  --> plugins\notifications\src\handlers.rs:83:17
+   |
+83 |             let claims = authorize(&command.payload)?;
+   |                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_claims`
+
+For more information about this error, try `rustc --explain E0308`.
+warning: `notifications` (bin "notifications") generated 7 warnings
+error: could not compile `notifications` (bin "notifications") due to 1 previous error; 7 warnings emitted
+DONE  

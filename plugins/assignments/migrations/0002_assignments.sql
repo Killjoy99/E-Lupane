@@ -128,3 +128,31 @@ CREATE TABLE IF NOT EXISTS rubrics (
 
 CREATE INDEX IF NOT EXISTS idx_rubrics_assignment ON rubrics (assignment_id);
 
+-- Marks are modelled as f64 throughout the Rust code (sqlx maps f64 to
+-- DOUBLE PRECISION / FLOAT8). Older databases created these columns as NUMERIC,
+-- which sqlx refuses to decode into f64. Convert any still-NUMERIC mark
+-- columns to DOUBLE PRECISION. Guarded + idempotent: after the first run the
+-- data_type is already 'double precision' and the block is a no-op.
+DO $$
+DECLARE
+    r record;
+BEGIN
+    FOR r IN
+        SELECT table_name, column_name
+        FROM information_schema.columns
+        WHERE table_schema = 'public'
+          AND data_type = 'numeric'
+          AND (table_name, column_name) IN (
+              ('assignments', 'max_marks'),
+              ('assignments', 'late_penalty_percent'),
+              ('grades', 'marks'),
+              ('grades', 'raw_marks'),
+              ('grade_history', 'marks'),
+              ('grade_history', 'raw_marks')
+          )
+    LOOP
+        EXECUTE format('ALTER TABLE %I ALTER COLUMN %I TYPE DOUBLE PRECISION',
+                       r.table_name, r.column_name);
+    END LOOP;
+END $$;
+

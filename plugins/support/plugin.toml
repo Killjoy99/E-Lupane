@@ -1,0 +1,22 @@
+id = "com.elupane.support"
+name = "User Support"
+version = "1.0.0"
+authors = [
+  "E-Lupane"
+]
+description = "User support: help-desk tickets and an FAQ/knowledge base"
+runtime = "process"
+language = "rust"
+entry = "target/debug/support"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "support.ticket.create",
+  "support.ticket.read",
+  "support.ticket.write",
+  "support.message.read",
+  "support.message.write",
+  "support.faq.read",
+  "support.faq.write",
+  "events.subscribe"
+]
+dependencies = ["com.elupane.auth", "com.elupane.notifications"]

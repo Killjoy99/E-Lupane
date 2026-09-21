@@ -125,6 +125,45 @@ pub async fn permissions_for_role(pool: &PgPool, role_id: Uuid) -> Result<Vec<St
     .await?)
 }
 
+pub async fn revoke_role(pool: &PgPool, user_id: Uuid, role_id: Uuid) -> Result<()> {
+    sqlx::query("DELETE FROM user_roles WHERE user_id = $1 AND role_id = $2")
+        .bind(user_id)
+        .bind(role_id)
+        .execute(pool)
+        .await?;
+    Ok(())
+}
+
+/// Replace a role's permission set atomically (delete + insert in one statement).
+pub async fn set_role_permissions(pool: &PgPool, role_id: Uuid, permissions: &[String]) -> Result<()> {
+    sqlx::query(
+        "WITH del AS ( \
+            DELETE FROM role_permissions WHERE role_id = $1 \
+         ) \
+         INSERT INTO role_permissions (role_id, permission_id) \
+         SELECT $1, p.id FROM permissions p WHERE p.name = ANY($2::TEXT[]) \
+         ON CONFLICT DO NOTHING",
+    )
+    .bind(role_id)
+    .bind(permissions.to_vec())
+    .execute(pool)
+    .await?;
+    Ok(())
+}
+
+pub async fn create_role(pool: &PgPool, name: &str, description: Option<&str>) -> Result<Role> {
+    Ok(sqlx::query_as::<_, Role>(
+        "INSERT INTO roles (name, description) VALUES ($1, $2) \
+         ON CONFLICT (name) DO UPDATE SET description = EXCLUDED.description \
+         RETURNING id, name, description",
+    )
+    .bind(name)
+    .bind(description)
+    .fetch_one(pool)
+    .await?)
+}
+
+
 pub async fn delete_user(pool: &PgPool, user_id: Uuid) -> Result<()> {
     // Delete user role assignments first
     sqlx::query("DELETE FROM user_roles WHERE user_id = $1")

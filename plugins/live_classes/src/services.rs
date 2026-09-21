@@ -101,12 +101,23 @@ pub async fn update(
     Ok(to_view(&updated))
 }
 
+/// Expire any scheduled sessions whose `scheduled_end` has passed
+/// (`status: scheduled → expired`). Runs before reads and joins so expiry is
+/// lazy — no background worker. Failures are non-fatal (best-effort sweep).
+async fn sweep_expired(pool: &PgPool) {
+    if let Err(err) = repository::expire_stale_sessions(pool).await {
+        tracing::warn!("live_classes: failed to sweep expired sessions: {err}");
+    }
+}
+
 pub async fn list_for_course(pool: &PgPool, course_id: Uuid) -> Result<Vec<SessionView>> {
+    sweep_expired(pool).await;
     let rows = repository::list_course_sessions(pool, course_id).await?;
     Ok(rows.iter().map(to_view).collect())
 }
 
 pub async fn get(pool: &PgPool, session_id: Uuid) -> Result<SessionView> {
+    sweep_expired(pool).await;
     let s = repository::find_session(pool, session_id)
         .await?
         .ok_or_else(|| anyhow!("session not found"))?;
@@ -131,8 +142,12 @@ async fn can_join(pool: &PgPool, actor: Uuid, is_admin: bool, session: &LiveSess
 /// `live.join`: validate access, record attendance, and return the signaling
 /// path the frontend should open a WebSocket to (webrtc sessions only).
 pub async fn join(pool: &PgPool, actor: Uuid, is_admin: bool, session_id: Uuid) -> Result<JoinView> {
+    sweep_expired(pool).await;
     let session = require_session(pool, session_id).await?;
     if !matches!(session.status.as_str(), "scheduled" | "live") {
+        if session.status == "expired" {
+            return Err(anyhow!("this session has expired: its scheduled end time has passed"));
+        }
         return Err(anyhow!("this session is not currently joinable"));
     }
     let allowed = can_join(pool, actor, is_admin, &session).await?;

@@ -10,8 +10,13 @@ language = "rust"
 entry = "target/debug/messaging"
 minimum_core_version = "1.0.0"
 capabilities = [
-  "messaging.read",
-  "messaging.write",
+  "messaging.discussion.list",
+  "messaging.discussion.create",
+  "messaging.discussion.update",
+  "messaging.discussion.delete",
+  "messaging.discussion.reply",
+  "messaging.discussion.list_replies",
+  "messaging.discussion.mark_answer",
   "events.subscribe"
 ]
 dependencies = []

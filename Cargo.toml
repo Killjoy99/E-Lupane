@@ -39,16 +39,14 @@ members = [
     "plugins/audit",
     "plugins/certificates",
     "plugins/content",
-    "plugins/courses",
-    "plugins/discussions",
     "plugins/enrollments",
     "plugins/exams",
-    "plugins/files",
     "plugins/gamification",
     "plugins/grades",
     "plugins/learning_progress",
     "plugins/learning_paths",
     "plugins/live_classes",
+    "plugins/media",
     "plugins/messaging",
     "plugins/payments",
     "plugins/search",
@@ -57,6 +55,7 @@ members = [
     "services/media_service",
     "services/search_service",
     "services/notification_service", "crates/cache",
+    "plugins/support",
 ]
 
 [workspace.dependencies]

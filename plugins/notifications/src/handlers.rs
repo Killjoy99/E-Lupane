@@ -8,7 +8,6 @@ use elupane_core::message::Message;
 use crate::authz::{self, Claims};
 use crate::dto::*;
 use crate::services;
-use crate::models::*;
 
 pub const PLUGIN_ID: &str = "com.elupane.notifications";
 
@@ -44,25 +43,25 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
             reply(command, &view)
         }
         "notifications.list" => {
-            let claims = authorize(&command.payload)?;
+            let _claims = authorize(&command.payload)?;
             let req: UserIdRequest = parse_payload(&command.payload)?;
             let view = services::list_user_notifications(pool, req.user_id, false).await?;
             reply(command, &view)
         }
         "notifications.unread" => {
-            let claims = authorize(&command.payload)?;
+            let _claims = authorize(&command.payload)?;
             let req: UserIdRequest = parse_payload(&command.payload)?;
             let view = services::list_user_notifications(pool, req.user_id, true).await?;
             reply(command, &view)
         }
         "notifications.mark_read" => {
-            let claims = authorize(&command.payload)?;
+            let _claims = authorize(&command.payload)?;
             let req: MarkReadRequest = parse_payload(&command.payload)?;
             let view = services::mark_read(pool, req.notification_id).await?;
             reply(command, &view)
         }
         "notifications.mark_all_read" => {
-            let claims = authorize(&command.payload)?;
+            let _claims = authorize(&command.payload)?;
             let req: MarkAllReadRequest = parse_payload(&command.payload)?;
             let count = services::mark_all_read(pool, req.user_id).await?;
             Ok(Message::reply_to(command, PLUGIN_ID, serde_json::json!({ "marked_read": count })))
@@ -74,13 +73,13 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
             reply(command, &view)
         }
         "notifications.preferences.list" => {
-            let claims = authorize(&command.payload)?;
+            let _claims = authorize(&command.payload)?;
             let req: UserIdRequest = parse_payload(&command.payload)?;
             let view = services::list_preferences(pool, req.user_id).await?;
             reply(command, &view)
         }
         "notifications.deliveries" => {
-            let claims = authorize(&command.payload)?;
+            let _claims = authorize(&command.payload)?;
             let req: IdRequest = parse_payload(&command.payload)?;
             let view = services::get_deliveries(pool, req.id).await?;
             reply(command, &view)

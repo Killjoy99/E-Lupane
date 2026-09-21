@@ -58,7 +58,8 @@ pub async fn update_topic(pool: &PgPool, id: Uuid, title: Option<String>, body: 
 }
 
 pub async fn delete_topic(pool: &PgPool, id: Uuid) -> anyhow::Result<()> {
-    sqlx::query!("DELETE FROM discussion_topics WHERE id = $1", id)
+    sqlx::query("DELETE FROM discussion_topics WHERE id = $1")
+        .bind(id)
         .execute(pool)
         .await?;
     Ok(())

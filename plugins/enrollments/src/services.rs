@@ -146,7 +146,7 @@ pub async fn enroll_student(
 ) -> Result<crate::dto::EnrollmentView> {
     course_admission(pool, course_id, source).await?;
     let state = initial_state(source);
-    let enrollment = repository::upsert_enrollment(
+    let enrollment_id = repository::upsert_enrollment(
         pool,
         course_id,
         student_id,
@@ -158,13 +158,16 @@ pub async fn enroll_student(
     .await?;
     repository::insert_history(
         pool,
-        enrollment.id,
+        enrollment_id,
         None,
         state.as_str(),
         actor,
         Some("enrolled"),
     )
     .await?;
+    let enrollment = repository::find_enrollment_by_id(pool, enrollment_id)
+        .await?
+        .ok_or_else(|| anyhow!("enrollment vanished after creation"))?;
     Ok(to_enrollment_view(&enrollment))
 }
 
@@ -535,7 +538,7 @@ pub async fn create_invite(
     actor_id: Uuid,
     is_admin: bool,
     course_id: Uuid,
-    max_uses: Option<i64>,
+    max_uses: Option<i32>,
     expires_at: Option<DateTime<Utc>>,
 ) -> Result<crate::dto::InviteView> {
     if !is_manager(pool, actor_id, is_admin, course_id).await? {

@@ -55,6 +55,26 @@ async fn main() -> anyhow::Result<()> {
     let announcer = client.announce(PLUGIN_VERSION, capabilities.to_vec()).await?;
     println!("[notifications] capabilities announced");
 
+    // Consume support-domain events and turn them into in-app notifications.
+    {
+        let pool = pool.clone();
+        tokio::spawn(async move {
+            use futures_util::StreamExt;
+            let mut stream = match messaging_core::events::subscribe_events("support").await {
+                Ok(stream) => Box::pin(stream),
+                Err(err) => {
+                    eprintln!("[notifications] support event subscribe failed: {err}");
+                    return;
+                }
+            };
+            while let Some(event) = stream.next().await {
+                if let Err(err) = services::handle_support_event(&pool, &event).await {
+                    eprintln!("[notifications] failed to ingest support event: {err}");
+                }
+            }
+        });
+    }
+
     for consumed in client.drain_pending().await? {
         let reply = handlers::handle_command(&pool, &consumed.message).await;
         let _ = client.send_reply(&reply).await;

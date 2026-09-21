@@ -38,6 +38,21 @@ log() { echo "[serve.sh] $*"; }
 check_cmd() { command -v "$1" >/dev/null 2>&1 || { log "ERROR: '$1' not found."; exit 1; }; }
 check_cmd cargo
 
+DB_URL="${DATABASE_URL:-postgres://elupane:elupane@localhost:5432/elupane}"
+
+# Idempotently seed the User Support module: `support` role + demo staff account
+# (support / support123). Safe to run before auth has started; if the auth
+# tables don't exist yet it prints a NOTICE and is a no-op.
+seed_support() {
+    log "Seeding support role + demo account (support / support123)..."
+    if command -v psql >/dev/null 2>&1; then
+        psql "$DB_URL" -v ON_ERROR_STOP=1 -f "$PROJECT_ROOT/scripts/seed_support.sql" 2>&1 \
+            || log "WARN: support seed did not complete; auth tables may not be ready yet."
+    else
+        log "WARN: psql not found; skipping support seed."
+    fi
+}
+
 # =========================================================================
 # PRODUCTION MODE — gateway launches everything
 # =========================================================================
@@ -62,6 +77,8 @@ if [ "$PROD_MODE" = true ]; then
         exit 1
     fi
     log "Frontend binary ready: $FRONTEND_BIN"
+
+    seed_support
 
     log "Starting gateway (supervisor)..."
     cd "$PROJECT_ROOT"
@@ -116,6 +133,8 @@ cleanup() {
 trap cleanup EXIT
 
 check_cmd dx
+
+seed_support
 
 log "Starting backend engine (gateway)..."
 cd "$PROJECT_ROOT"

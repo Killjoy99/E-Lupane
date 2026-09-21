@@ -91,8 +91,8 @@ pub async fn upsert_enrollment(
     source: &str,
     enrolled_by: Option<Uuid>,
     expires_at: Option<DateTime<Utc>>,
-) -> Result<Enrollment> {
-    Ok(sqlx::query_as::<_, Enrollment>(AssertSqlSafe(format!(
+) -> Result<Uuid> {
+    let id: Uuid = sqlx::query_scalar::<_, Uuid>(
         "INSERT INTO course_enrollments \
              (course_id, student_id, state, source, enrolled_by, expires_at) \
          VALUES ($1, $2, $3, $4, $5, $6) \
@@ -101,8 +101,8 @@ pub async fn upsert_enrollment(
              enrolled_by = EXCLUDED.enrolled_by, expires_at = EXCLUDED.expires_at, \
              approved_by = NULL, approved_at = NULL, completed_at = NULL, \
              suspended_at = NULL, cancelled_at = NULL, updated_at = now() \
-         RETURNING {ENROLLMENT_COLUMNS}"
-    )))
+         RETURNING id",
+    )
     .bind(course_id)
     .bind(student_id)
     .bind(state)
@@ -110,7 +110,8 @@ pub async fn upsert_enrollment(
     .bind(enrolled_by)
     .bind(expires_at)
     .fetch_one(pool)
-    .await?)
+    .await?;
+    Ok(id)
 }
 
 /// Move an enrollment to `state`, stamping the matching lifecycle timestamp.
@@ -121,7 +122,7 @@ pub async fn update_enrollment_state(
     state: &str,
     expires_at: Option<DateTime<Utc>>,
     approved_by: Option<Uuid>,
-) -> Result<Enrollment> {
+) -> Result<Uuid> {
     let (approved_by, completed_at, suspended_at, cancelled_at) = match state {
         "active" => (approved_by, None, None, None),
         "completed" => (None, Some(Utc::now()), None, None),
@@ -129,15 +130,15 @@ pub async fn update_enrollment_state(
         "cancelled" => (None, None, None, Some(Utc::now())),
         _ => (None, None, None, None),
     };
-    Ok(sqlx::query_as::<_, Enrollment>(AssertSqlSafe(format!(
+    let returned_id: Uuid = sqlx::query_scalar::<_, Uuid>(
         "UPDATE course_enrollments SET \
              state = $2, expires_at = $3, approved_by = $4, approved_at = \
              CASE WHEN $4::uuid IS NOT NULL THEN now() ELSE approved_at END, \
              completed_at = $5, suspended_at = $6, cancelled_at = $7, \
              updated_at = now() \
          WHERE id = $1 \
-         RETURNING {ENROLLMENT_COLUMNS}"
-    )))
+         RETURNING id",
+    )
     .bind(id)
     .bind(state)
     .bind(expires_at)
@@ -146,7 +147,8 @@ pub async fn update_enrollment_state(
     .bind(suspended_at)
     .bind(cancelled_at)
     .fetch_one(pool)
-    .await?)
+    .await?;
+    Ok(returned_id)
 }
 
 /// Expire every active enrollment whose deadline has passed (sweep).
@@ -173,13 +175,13 @@ pub async fn insert_enrollment(
     source: &str,
     enrolled_by: Option<Uuid>,
     expires_at: Option<DateTime<Utc>>,
-) -> Result<Enrollment> {
-    Ok(sqlx::query_as::<_, Enrollment>(AssertSqlSafe(format!(
+) -> Result<Uuid> {
+    let id: Uuid = sqlx::query_scalar::<_, Uuid>(
         "INSERT INTO course_enrollments \
              (course_id, student_id, state, source, enrolled_by, expires_at) \
          VALUES ($1, $2, $3, $4, $5, $6) \
-         RETURNING {ENROLLMENT_COLUMNS}"
-    )))
+         RETURNING id",
+    )
     .bind(course_id)
     .bind(student_id)
     .bind(state)
@@ -187,7 +189,8 @@ pub async fn insert_enrollment(
     .bind(enrolled_by)
     .bind(expires_at)
     .fetch_one(pool)
-    .await?)
+    .await?;
+    Ok(id)
 }
 
 pub async fn get_enrollment(pool: &PgPool, id: Uuid) -> Result<Option<Enrollment>> {
@@ -206,8 +209,8 @@ pub async fn update_enrollment_state_full(
     completed_at: Option<DateTime<Utc>>,
     suspended_at: Option<DateTime<Utc>>,
     cancelled_at: Option<DateTime<Utc>>,
-) -> Result<Enrollment> {
-    Ok(sqlx::query_as::<_, Enrollment>(AssertSqlSafe(format!(
+) -> Result<Uuid> {
+    Ok(sqlx::query_scalar::<_, Uuid>(
         "UPDATE course_enrollments SET \
              state = $2, \
              approved_by = COALESCE($3, approved_by), \
@@ -217,8 +220,8 @@ pub async fn update_enrollment_state_full(
              cancelled_at = COALESCE($7, cancelled_at), \
              updated_at = now() \
          WHERE id = $1 \
-         RETURNING {ENROLLMENT_COLUMNS}"
-    )))
+         RETURNING id",
+    )
     .bind(id)
     .bind(state)
     .bind(approved_by)
@@ -288,7 +291,7 @@ pub async fn insert_invite(
     course_id: Uuid,
     token: &str,
     created_by: Uuid,
-    max_uses: Option<i64>,
+    max_uses: Option<i32>,
     expires_at: Option<DateTime<Utc>>,
 ) -> Result<Invite> {
     Ok(sqlx::query_as::<_, Invite>(

@@ -11,7 +11,7 @@ use crate::courses_ui::*;
 use crate::enrollments_ui::*;
 use crate::mock_data::NOTIFICATIONS;
 use crate::mock_pages::*;
-use crate::server_functions::{auth_login, auth_verify, courses_list, AuthSession};
+use crate::server_functions::{auth_login, auth_logout, auth_verify, courses_list, AuthSession};
 
 const LOGO: Asset = asset!("/assets/logo.png");
 
@@ -24,25 +24,31 @@ pub enum Role {
     Student,
     Lecturer,
     Developer,
+    HoD,
+    Dean,
     Admin,
 }
 
 impl Role {
     pub(crate) fn label(self) -> &'static str {
         match self {
-            Role::Student => "Student",
-            Role::Lecturer => "Lecturer",
-            Role::Developer => "Developer",
-            Role::Admin => "Admin",
+            Role::Student =>"Student",
+            Role::Lecturer =>"Lecturer",
+            Role::Developer =>"Developer",
+            Role::HoD =>"Head of Department",
+            Role::Dean =>"Dean",
+            Role::Admin =>"Admin",
         }
     }
 
     pub(crate) fn icon(self) -> &'static str {
         match self {
-            Role::Student => "school",
-            Role::Lecturer => "co_present",
-            Role::Developer => "code_blocks",
-            Role::Admin => "admin_panel_settings",
+            Role::Student =>"school",
+            Role::Lecturer =>"co_present",
+            Role::Developer =>"code_blocks",
+            Role::HoD =>"account_tree",
+            Role::Dean =>"account_balance",
+            Role::Admin =>"admin_panel_settings",
         }
     }
 }
@@ -68,11 +74,23 @@ pub(crate) fn persona(role: Role) -> &'static Persona {
             initials: "ND",
             tone: "indigo",
         },
-        Role::Developer => &Persona {
+Role::Developer => &Persona {
             name: "Lerato Molefe",
             subtitle: "Platform Engineering",
             initials: "LM",
             tone: "green",
+        },
+        Role::HoD => &Persona {
+            name: "Dr. Nkosana Dlamini",
+            subtitle: "Department of Computer Science",
+            initials: "ND",
+            tone: "orange",
+        },
+        Role::Dean => &Persona {
+            name: "Prof. Zanele Mkhize",
+            subtitle: "Faculty of Computing � Dean",
+            initials: "ZM",
+            tone: "cyan",
         },
         Role::Admin => &Persona {
             name: "Simphiwe Khumalo",
@@ -86,9 +104,11 @@ pub(crate) fn persona(role: Role) -> &'static Persona {
 pub(crate) fn greeting(role: Role) -> &'static str {
     match role {
         Role::Student => "Good morning, Thandiwe",
-        Role::Lecturer => "Good morning, Dr. Dlamini",
-        Role::Developer => "Good morning, Lerato",
-        Role::Admin => "Good morning, Simphiwe",
+        Role::Lecturer =>"Good morning, Dr. Dlamini",
+        Role::Developer =>"Good morning, Lerato",
+        Role::HoD =>"Good morning, Dr. Dlamini",
+        Role::Dean =>"Good morning, Prof. Mkhize",
+        Role::Admin =>"Good morning, Simphiwe",
     }
 }
 
@@ -106,6 +126,7 @@ fn nav_items(role: Role) -> &'static [NavItem] {
     match role {
                 Role::Student => &[
             NavItem { label: "Dashboard", icon: "space_dashboard", view: "overview" },
+            NavItem { label: "Support", icon: "support_agent", view: "support" },
             NavItem { label: "My Courses", icon: "menu_book", view: "courses" },
             NavItem { label: "My Enrollments", icon: "manage_accounts", view: "enrollments" },
             NavItem { label: "Timetable", icon: "calendar_month", view: "timetable" },
@@ -118,6 +139,7 @@ fn nav_items(role: Role) -> &'static [NavItem] {
         ],
                 Role::Lecturer => &[
             NavItem { label: "Dashboard", icon: "space_dashboard", view: "overview" },
+            NavItem { label: "Support", icon: "support_agent", view: "support" },
             NavItem { label: "My Courses", icon: "menu_book", view: "courses" },
             NavItem { label: "Enrollments", icon: "manage_accounts", view: "enrollments" },
             NavItem { label: "Assignments", icon: "assignment", view: "assignments" },
@@ -129,14 +151,16 @@ fn nav_items(role: Role) -> &'static [NavItem] {
         ],
         Role::Developer => &[
             NavItem { label: "Dashboard", icon: "space_dashboard", view: "overview" },
+            NavItem { label: "Support", icon: "support_agent", view: "support" },
             NavItem { label: "Plugins", icon: "extension", view: "plugins" },
             NavItem { label: "SDKs", icon: "inventory_2", view: "sdks" },
             NavItem { label: "System Health", icon: "monitor_heart", view: "system" },
             NavItem { label: "Webhooks", icon: "webhook", view: "webhooks" },
             NavItem { label: "API Docs", icon: "description", view: "docs" },
         ],
-                Role::Admin => &[
+                        Role::Admin => &[
             NavItem { label: "Dashboard", icon: "space_dashboard", view: "overview" },
+            NavItem { label: "Support", icon: "support_agent", view: "support" },
             NavItem { label: "Courses", icon: "menu_book", view: "courses" },
             NavItem { label: "Enrollments", icon: "manage_accounts", view: "enrollments" },
             NavItem { label: "Live Classes", icon: "video_camera_front", view: "live_classes" },
@@ -146,6 +170,35 @@ fn nav_items(role: Role) -> &'static [NavItem] {
             NavItem { label: "Plugins", icon: "extension", view: "plugins" },
             NavItem { label: "Permissions", icon: "lock", view: "permissions" },
             NavItem { label: "Audit Log", icon: "receipt_long", view: "audit" },
+        ],
+        // HoD = departmental chairperson: lecturer navigation plus department ops.
+        Role::HoD => &[
+            NavItem { label: "Dashboard", icon: "space_dashboard", view: "overview" },
+            NavItem { label: "Support", icon: "support_agent", view: "support" },
+            NavItem { label: "My Courses", icon: "menu_book", view: "courses" },
+            NavItem { label: "Enrollments", icon: "manage_accounts", view: "enrollments" },
+            NavItem { label: "Assignments", icon: "assignment", view: "assignments" },
+            NavItem { label: "Students", icon: "groups", view: "students" },
+            NavItem { label: "Grade Book", icon: "fact_check", view: "gradebook" },
+            NavItem { label: "Content", icon: "video_library", view: "content" },
+            NavItem { label: "Live Classes", icon: "video_camera_front", view: "live_classes" },
+            NavItem { label: "Subjects", icon: "topic", view: "subjects" },
+            NavItem { label: "Departments", icon: "account_tree", view: "departments" },
+        ],
+        // Dean = faculty head: HoD navigation plus faculty oversight + analytics.
+        Role::Dean => &[
+            NavItem { label: "Dashboard", icon: "space_dashboard", view: "overview" },
+            NavItem { label: "Support", icon: "support_agent", view: "support" },
+            NavItem { label: "My Courses", icon: "menu_book", view: "courses" },
+            NavItem { label: "Enrollments", icon: "manage_accounts", view: "enrollments" },
+            NavItem { label: "Assignments", icon: "assignment", view: "assignments" },
+            NavItem { label: "Students", icon: "groups", view: "students" },
+            NavItem { label: "Grade Book", icon: "fact_check", view: "gradebook" },
+            NavItem { label: "Content", icon: "video_library", view: "content" },
+            NavItem { label: "Live Classes", icon: "video_camera_front", view: "live_classes" },
+            NavItem { label: "Subjects", icon: "topic", view: "subjects" },
+            NavItem { label: "Departments", icon: "account_tree", view: "departments" },
+            NavItem { label: "Analytics", icon: "monitoring", view: "analytics" },
         ],
     }
 }
@@ -185,6 +238,8 @@ pub fn Dashboard() -> Element {
     // token persisted in `localStorage` once the app mounts in the browser.
     let session: Signal<Option<AuthSession>> = use_signal(|| None);
     let auth_checked = use_signal(|| false);
+    // Error surfaced from the OAuth callback (`/?auth_error=…`).
+    let mut oauth_error: Signal<Option<String>> = use_signal(|| None);
 
     let ctx = use_context_provider(move || UiCtx {
         search,
@@ -225,10 +280,40 @@ pub fn Dashboard() -> Element {
         let mut auth_checked = auth_checked;
         let mut role = role;
         use_future(move || async move {
+            // Pick up an OAuth callback (`/?token=…` or `/?auth_error=…`),
+            // stash the token in localStorage, and strip both from the
+            // address bar so a refresh starts clean.
             let eval = dioxus::document::eval(
-                "try { return localStorage.getItem('elupane-token') || ''; } catch (e) { return ''; }",
+                "try { const p = new URLSearchParams(window.location.search); \
+                       const t = p.get('token') || ''; const e = p.get('auth_error') || ''; \
+                       if (t || e) { p.delete('token'); p.delete('auth_error'); \
+                         const q = p.toString(); \
+                         window.history.replaceState({}, '', window.location.pathname + (q ? '?' + q : '')); } \
+                       return JSON.stringify({ token: t, error: e }); \
+                     } catch (err) { return '{\\\"token\\\":\\\"\\\",\\\"error\\\":\\\"\\\"}'; }",
             );
-            let token = eval.join::<String>().await.unwrap_or_default();
+            let mut token = String::new();
+            if let Ok(raw) = eval.join::<String>().await {
+                if let Ok(v) = serde_json::from_str::<serde_json::Value>(&raw) {
+                    token = v["token"].as_str().unwrap_or_default().to_string();
+                    let err = v["error"].as_str().unwrap_or_default().to_string();
+                    if !err.is_empty() {
+                        oauth_error.set(Some(err));
+                    }
+                }
+            }
+            if !token.is_empty() {
+                // Fresh Google sign-in: persist the new token immediately.
+                let _ = dioxus::document::eval(&format!(
+                    "try {{ localStorage.setItem('elupane-token','{}'); }} catch (e) {{}}",
+                    token
+                ));
+            } else {
+                let eval = dioxus::document::eval(
+                    "try { return localStorage.getItem('elupane-token') || ''; } catch (e) { return ''; }",
+                );
+                token = eval.join::<String>().await.unwrap_or_default();
+            }
             if !token.is_empty() {
                 match auth_verify(token).await {
                     Ok(restored) => {
@@ -264,7 +349,7 @@ pub fn Dashboard() -> Element {
     }
     if session().is_none() {
         return rsx! {
-            Login { session, role }
+            Login { session, role, oauth_error }
         };
     }
 
@@ -338,6 +423,8 @@ fn TopBar(role: Signal<Role>, active_view: Signal<&'static str>) -> Element {
     let mut ctx = use_context::<UiCtx>();
     let mut notif_open = ctx.notif_open;
     let session = (ctx.session)();
+    // Role switcher dropdown (only shown for multi-role users).
+    let mut role_menu_open = use_signal(|| false);
     let (_user_name, _user_sub) = match &session {
         Some(s) => (
             s.user.full_name.clone(),
@@ -373,6 +460,14 @@ fn TopBar(role: Signal<Role>, active_view: Signal<&'static str>) -> Element {
         .unwrap_or_else(|| persona(current).subtitle.to_string());
     let initials = initials_of(&display_name);
 
+    // Role switcher: offered when the signed-in user holds more than one
+    // dashboard role (e.g. lecturer + student).
+    let available = authed
+        .as_ref()
+        .map(|u| available_roles(&u.roles))
+        .unwrap_or_default();
+    let can_switch_roles = available.len() > 1;
+
     rsx! {
         header { class: "md-topbar",
             div { class: "md-search",
@@ -394,9 +489,51 @@ fn TopBar(role: Signal<Role>, active_view: Signal<&'static str>) -> Element {
 
             div { class: "md-topbar-spacer" }
 
-            div { class: "md-topbar-role",
-                span { class: "material-symbols-outlined", "{current.icon()}" }
-                span { "{current.label()} view" }
+            if can_switch_roles {
+                div { style: "position: relative",
+                    button {
+                        class: "md-topbar-role md-role-switch",
+                        title: "Switch dashboard role",
+                        onclick: move |_| role_menu_open.toggle(),
+                        span { class: "material-symbols-outlined", "{current.icon()}" }
+                        span { "{current.label()} view" }
+                        span {
+                            class: "material-symbols-outlined",
+                            if role_menu_open() { "expand_less" } else { "expand_more" }
+                        }
+                    }
+                    if role_menu_open() {
+                        div { class: "md-role-menu",
+                            for r in available.clone() {
+                                button {
+                                    class: if r == current {
+                                        "md-role-item active"
+                                    } else {
+                                        "md-role-item"
+                                    },
+                                    onclick: move |_| {
+                                        // Switch the dashboard shell; every
+                                        // role nav starts at "overview", so
+                                        // reset the active view too.
+                                        role.set(r);
+                                        active_view.set("overview");
+                                        role_menu_open.set(false);
+                                    },
+                                    span { class: "material-symbols-outlined", "{r.icon()}" }
+                                    span { "{r.label()}" }
+                                    if r == current {
+                                        span { class: "material-symbols-outlined md-role-check", "check" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                div { class: "md-topbar-role",
+                    span { class: "material-symbols-outlined", "{current.icon()}" }
+                    span { "{current.label()} view" }
+                }
             }
 
             button {
@@ -459,8 +596,15 @@ fn TopBar(role: Signal<Role>, active_view: Signal<&'static str>) -> Element {
                     class: "md-icon-btn",
                     title: "Sign out",
                     onclick: move |_| {
-                        // Clear the stored token and drop the session — the
-                        // auth gate will render the login screen again.
+                        // Revoke the server-side session (Google OAuth) and
+                        // clear the stored token — the auth gate will render
+                        // the login screen again.
+                        if let Some(s) = session() {
+                            let token = s.token.clone();
+                            spawn(async move {
+                                let _ = auth_logout(token).await;
+                            });
+                        }
                         session.set(None);
                         let _ = dioxus::document::eval(
                             "try { localStorage.removeItem('elupane-token'); } catch (e) {}",
@@ -485,6 +629,10 @@ fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'stat
         return rsx! {
             LiveLesson { id, role }
         };
+    }
+
+    if view == "support" {
+        return rsx! { crate::support_ui::SupportPage {} };
     }
 
     match role {
@@ -520,7 +668,7 @@ fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'stat
                 {student_overview(search)}
             },
         },
-                Role::Lecturer => match view {
+                                Role::Lecturer => match view {
             "courses" => rsx! {
                 CourseManager {}
             },
@@ -544,6 +692,77 @@ fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'stat
             },
             "analytics" => rsx! {
                 {lecturer_analytics()}
+            },
+            _ => rsx! {
+                {lecturer_overview()}
+            },
+        },
+        // HoD = departmental chairperson: lecturer powers plus department
+        // administration (users, subjects, institutions).
+                Role::HoD => match view {
+            "courses" => rsx! {
+                CourseManager {}
+            },
+            "enrollments" => rsx! {
+                LecturerEnrollments {}
+            },
+            "assignments" => rsx! {
+                LecturerAssignments {}
+            },
+            "students" => rsx! {
+                {lecturer_students()}
+            },
+            "gradebook" => rsx! {
+                {lecturer_gradebook()}
+            },
+            "content" => rsx! {
+                LecturerContent {}
+            },
+            "live_classes" => rsx! {
+                crate::live_classes_ui::LiveClassesPage { can_manage: true }
+            },
+            "subjects" => rsx! {
+                {hod_subjects()}
+            },
+            "departments" => rsx! {
+                {hod_departments()}
+            },
+            _ => rsx! {
+                {lecturer_overview()}
+            },
+        },
+        // Dean = faculty head: everything an HoD can do, plus faculty-level
+        // oversight (analytics, cross-department management).
+                Role::Dean => match view {
+            "courses" => rsx! {
+                CourseManager {}
+            },
+            "enrollments" => rsx! {
+                LecturerEnrollments {}
+            },
+            "assignments" => rsx! {
+                LecturerAssignments {}
+            },
+            "students" => rsx! {
+                {lecturer_students()}
+            },
+            "gradebook" => rsx! {
+                {lecturer_gradebook()}
+            },
+            "content" => rsx! {
+                LecturerContent {}
+            },
+            "live_classes" => rsx! {
+                crate::live_classes_ui::LiveClassesPage { can_manage: true }
+            },
+            "subjects" => rsx! {
+                {dean_subjects()}
+            },
+            "departments" => rsx! {
+                {dean_departments()}
+            },
+            "analytics" => rsx! {
+                {faculty_analytics()}
             },
             _ => rsx! {
                 {lecturer_overview()}
@@ -583,7 +802,7 @@ fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'stat
                 AdminAssignments {}
             },
             "users" => rsx! {
-                {admin_users(search)}
+                crate::admin_pages::AdminUsersPage {}
             },
             "institutions" => rsx! {
                 {admin_institutions(search)}
@@ -592,7 +811,7 @@ fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'stat
                 AdminPlugins {}
             },
             "permissions" => rsx! {
-                AdminPermissions {}
+                crate::admin_pages::AdminPermissionsPage {}
             },
             "audit" => rsx! {
                 {admin_audit()}
@@ -608,10 +827,14 @@ fn render_page(role: Role, view: &'static str, search: &str, live: Option<&'stat
 // Authentication UI
 // ---------------------------------------------------------------------------
 
-/// Map the auth plugin's role names onto a dashboard role view.
+/// Map role names (auth plugin or Google matrix) onto a dashboard role view.
 fn role_for_roles(roles: &[String]) -> Role {
-    if roles.iter().any(|r| r == "admin") {
+    if roles.iter().any(|r| r == "admin" || r == "super_admin") {
         Role::Admin
+    } else if roles.iter().any(|r| r == "dean") {
+        Role::Dean
+    } else if roles.iter().any(|r| r == "hod") {
+        Role::HoD
     } else if roles.iter().any(|r| r == "lecturer") {
         Role::Lecturer
     } else if roles.iter().any(|r| r == "developer") {
@@ -619,6 +842,29 @@ fn role_for_roles(roles: &[String]) -> Role {
     } else {
         Role::Student
     }
+}
+
+/// All distinct dashboard views the user's roles grant, in the same priority
+/// order as [`role_for_roles`]. Users holding more than one get a switcher in
+/// the top bar.
+fn available_roles(roles: &[String]) -> Vec<Role> {
+    let mut out = Vec::new();
+    let mut push = |granted: bool, role: Role, out: &mut Vec<Role>| {
+        if granted && !out.contains(&role) {
+            out.push(role);
+        }
+    };
+        push(roles.iter().any(|r| r == "admin" || r == "super_admin"), Role::Admin, &mut out);
+    push(roles.iter().any(|r| r == "dean"), Role::Dean, &mut out);
+    push(roles.iter().any(|r| r == "hod"), Role::HoD, &mut out);
+    push(roles.iter().any(|r| r == "lecturer"), Role::Lecturer, &mut out);
+    push(roles.iter().any(|r| r == "developer"), Role::Developer, &mut out);
+    push(
+        roles.iter().any(|r| r == "student") || roles.is_empty(),
+        Role::Student,
+        &mut out,
+    );
+    out
 }
 
 /// Avatar with initials derived from an arbitrary (runtime) name.
@@ -671,9 +917,14 @@ async fn perform_login(
     busy.set(false);
 }
 
-/// Full-screen sign-in: authenticates against the auth plugin over Redis.
+/// Full-screen sign-in: username/password (auth plugin over Redis) or
+/// "Sign in with Google" (OAuth authorization-code flow).
 #[component]
-fn Login(session: Signal<Option<AuthSession>>, role: Signal<Role>) -> Element {
+fn Login(
+    session: Signal<Option<AuthSession>>,
+    role: Signal<Role>,
+    mut oauth_error: Signal<Option<String>>,
+) -> Element {
     let mut username = use_signal(String::new);
     let mut password = use_signal(String::new);
     let mut error: Signal<Option<String>> = use_signal(|| None);
@@ -701,6 +952,7 @@ fn Login(session: Signal<Option<AuthSession>>, role: Signal<Role>) -> Element {
                                 error.set(Some("Enter your username and password.".into()));
                                 return;
                             }
+                            oauth_error.set(None);
                             perform_login(user, password(), session, role, error, busy).await;
                         }
                     },
@@ -726,6 +978,12 @@ fn Login(session: Signal<Option<AuthSession>>, role: Signal<Role>) -> Element {
                         }
                     }
 
+                    if let Some(err) = oauth_error() {
+                        div { class: "auth-error",
+                            span { class: "material-symbols-outlined", "error" }
+                            span { "{err}" }
+                        }
+                    }
                     if let Some(err) = error() {
                         div { class: "auth-error",
                             span { class: "material-symbols-outlined", "error" }
@@ -745,11 +1003,26 @@ fn Login(session: Signal<Option<AuthSession>>, role: Signal<Role>) -> Element {
                     }
                 }
 
-                p { class: "auth-hint", "Authenticate via the auth service · Redis messaging" }
+                div { class: "auth-divider", span { "or" } }
+
+                a {
+                    class: "auth-google-btn",
+                    href: "/api/auth/google/start",
+                    span {
+                        class: "auth-google-g",
+                        dangerous_inner_html: GOOGLE_G_SVG,
+                    }
+                    "Sign in with Google"
+                }
+
+                p { class: "auth-hint", "Username/password via the auth service · Google via OAuth" }
             }
         }
     }
 }
+
+/// The official "G" logo mark for the Google sign-in button.
+const GOOGLE_G_SVG: &str = r##"<svg width="18" height="18" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>"##;
 
 // ---------------------------------------------------------------------------
 // Content views (backed by the content plugin)

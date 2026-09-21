@@ -1,0 +1,1072 @@
+.kilo\worktrees\copy-dungeon\crates\cache\src\connection.rs:    CLIENT.get().expect("Redis client not initialized")
+.kilo\worktrees\copy-dungeon\crates\common\src\lib.rs:        // OffsetTime::new returns OffsetTime directly, not Result
+.kilo\worktrees\copy-dungeon\crates\database\src\connection.rs:        .expect("Database not initialized")
+.kilo\worktrees\copy-dungeon\crates\installer\src\checks\postgres.rs:            "installed but not running",
+.kilo\worktrees\copy-dungeon\crates\installer\src\checks\postgres.rs:            "not installed",
+.kilo\worktrees\copy-dungeon\crates\installer\src\checks\postgres.rs:        return CheckResult::failure("PostgreSQL (elupane)", "PostgreSQL not installed");
+.kilo\worktrees\copy-dungeon\crates\installer\src\checks\postgres.rs:            format!("role '{}' not created", crate::DB_USER),
+.kilo\worktrees\copy-dungeon\crates\installer\src\checks\postgres.rs:            format!("database '{}' not created", crate::DB_NAME),
+.kilo\worktrees\copy-dungeon\crates\installer\src\checks\redis.rs:            "installed but not running",
+.kilo\worktrees\copy-dungeon\crates\installer\src\checks\redis.rs:            "not installed",
+.kilo\worktrees\copy-dungeon\crates\installer\src\package_manager.rs:    #[cfg(not(target_os = "windows"))]
+.kilo\worktrees\copy-dungeon\crates\installer\src\wsl.rs://! through `bash -lc`, elevated with `sudo` when the current user is not root.
+.kilo\worktrees\copy-dungeon\crates\installer\src\wsl.rs:    #[cfg(not(target_os = "windows"))]
+.kilo\worktrees\copy-dungeon\crates\installer\src\wsl.rs:    #[cfg(not(target_os = "windows"))]
+.kilo\worktrees\copy-dungeon\crates\kernel\src\bootstrap.rs:                // One missing/broken plugin must not take the whole gateway
+.kilo\worktrees\copy-dungeon\crates\messaging_core\src\command.rs:/// Do **not** use `XREADGROUP ... BLOCK` here: redis-rs `MultiplexedConnection`
+.kilo\worktrees\copy-dungeon\crates\messaging_core\src\command.rs:    /// (idempotently) if it does not exist yet.
+.kilo\worktrees\copy-dungeon\crates\messaging_core\src\idempotency.rs://! does not execute the operation twice.
+.kilo\worktrees\copy-dungeon\crates\plugin_manager\src\discovery.rs:        warn!("Plugins directory does not exist");
+.kilo\worktrees\copy-dungeon\plugins\academics\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\academics\src\main.rs:    // `0005` in the shared `_sqlx_migrations` table, so `sqlx::migrate!` cannot
+.kilo\worktrees\copy-dungeon\plugins\academics\src\main.rs:    // be used. Our schema is applied with idempotent raw SQL (`IF NOT EXISTS`
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("faculty not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("faculty not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        return Err(anyhow!("faculty not found"));
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("department not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("department not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("program not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("program not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        return Err(anyhow!("program not found"));
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("academic year not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("academic year not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("semester not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("semester not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        return Err(anyhow!("semester not found"));
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        return Err(anyhow!("academic year not found"));
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        return Err(anyhow!("department not found"));
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("class not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("class not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        return Err(anyhow!("class not found"));
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("offering not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("offering not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\academics\src\services.rs:        return Err(anyhow!("offering not found"));
+.kilo\worktrees\copy-dungeon\plugins\analytics\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\analytics\src\repository.rs:           ON CONFLICT (bucket, bucket_start, bucket_end, user_id, course_id, metric) WHERE user_id IS NOT NULL AND course_id IS NOT NULL
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\main.rs:    // `_sqlx_migrations` table, so `sqlx::migrate!` cannot be used here (it
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\main.rs:    // run our schema directly — every statement is idempotent (`IF NOT EXISTS`).
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:/// manage. If course_management has not initialized yet (tables missing), the
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("course not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage course {course_id}"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:/// `course_enrollments`). If the enrollments plugin has not initialized yet
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        // enrollments plugin not initialized yet — defer.
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:            "forbidden: you are not enrolled in this course"
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        return Err(anyhow!("assignment title must not be empty"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        return Err(anyhow!("max marks must not be negative"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:            return Err(anyhow!("max marks must not be negative"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        return Err(anyhow!("assignment not found"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("resource not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("resource not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:    // rights) — unenrolled/suspended users cannot take them.
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:            return Err(anyhow!("submission link url must not be empty"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission file not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:            return Err(anyhow!("forbidden: submission belongs to another student"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("grade not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:            return Err(anyhow!("forbidden: grade belongs to another student"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:            return Err(anyhow!("forbidden: submission belongs to another student"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        return Err(anyhow!("rubric name must not be empty"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("rubric not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\services.rs:    fn no_penalty_when_not_late_or_policy_without_penalty() {
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\storage.rs:        return Err(anyhow!("file name must not be empty"));
+.kilo\worktrees\copy-dungeon\plugins\assignments\src\storage.rs:        return Err(anyhow!("file content must not be empty"));
+.kilo\worktrees\copy-dungeon\plugins\auth\src\repository.rs:    sqlx::query("INSERT INTO user_roles (user_id, role_id) VALUES ($1, $2) ON CONFLICT DO NOTHING")
+.kilo\worktrees\copy-dungeon\plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("user not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\auth\src\services.rs:                .map_err(|_| anyhow!("token subject is not a valid user id"))?;
+.kilo\worktrees\copy-dungeon\plugins\auth\src\services.rs:                    reason: Some("user not found".to_string()),
+.kilo\worktrees\copy-dungeon\plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("user not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("role not found: {role_name}"))?;
+.kilo\worktrees\copy-dungeon\plugins\auth\src\services.rs:        assert!(verify_token("not-a-token").is_err());
+.kilo\worktrees\copy-dungeon\plugins\content\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\content\src\main.rs:    // 2. PostgreSQL. Idempotent raw SQL with IF NOT EXISTS so it is safe to
+.kilo\worktrees\copy-dungeon\plugins\content\src\services.rs://! This plugin does **not** own user authentication; it trusts JWTs issued by
+.kilo\worktrees\copy-dungeon\plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("module not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("lesson not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("content item not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("file not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("file not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("file not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\authz.rs:/// for the course (not including the owner).
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\authz.rs:    fn other_lecturer_cannot_manage_without_authorization() {
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\authz.rs:    fn student_cannot_manage() {
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\dto.rs:    /// Initial state: being authored, not visible to students.
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\dto.rs:    /// Taken down but not deleted (e.g. temporarily).
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\main.rs:    // in the shared `_sqlx_migrations` table, so `sqlx::migrate!` cannot be used.
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\main.rs:    // Our schema is applied with idempotent raw SQL (`IF NOT EXISTS` + guarded
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\repository.rs:         VALUES ($1, $2, $3) ON CONFLICT (course_id, user_id) DO NOTHING",
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\services.rs:/// A course plus its extra instructor ids (owner not included).
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\services.rs:        .ok_or_else(|| anyhow!("course not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\services.rs:        return Err(anyhow!("forbidden: course is not published"));
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\services.rs:        // Belt-and-braces: drop rows the caller may not view.
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\services.rs:            return Err(anyhow!("course title cannot be empty"));
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\services.rs:/// Remove an instructor from a course. Cannot remove the owner.
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\services.rs:        return Err(anyhow!("cannot remove the course owner"));
+.kilo\worktrees\copy-dungeon\plugins\course_management\src\services.rs:        assert!(validate_course_code("CS 101").is_err()); // spaces not allowed
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\authz.rs:    fn unauthorized_lecturer_cannot_enroll_others() {
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\main.rs:    // `sqlx::migrate!` cannot be used. Our schema is applied with idempotent
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\main.rs:    // raw SQL (`IF NOT EXISTS`), so it is safe alongside the other plugins.
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\repository.rs:             CASE WHEN $4::uuid IS NOT NULL THEN now() ELSE approved_at END, \
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\repository.rs:         WHERE state = 'active' AND expires_at IS NOT NULL AND expires_at <= now() \
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\repository.rs:         WHERE e.state = 'active' AND e.expires_at IS NOT NULL AND e.expires_at <= $1"
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:/// `owner_id` is `nil` when course_management has not initialized yet.
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        // course_management has not initialized yet — defer the check.
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("course not found"))
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        // course_management not initialized yet — defer.
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:            Some(false) => return Err(anyhow!("course is not open for enrollment")),
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:            None => return Err(anyhow!("course not found")),
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you cannot modify this enrollment"));
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:            "cannot move enrollment from '{}' to '{}'",
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("invite not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:            "an enrollment in state '{}' cannot be re-enrolled",
+.kilo\worktrees\copy-dungeon\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you cannot re-enroll this student"));
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\assignments_ui.rs:    // Precompute (id, label) pairs outside the rsx (rsx! `let` cannot call methods).
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\assignments_ui.rs:                                                            None => message.set(Some("Not signed in.".into())),
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\content_ui.rs:                                error.set(Some("Not authenticated".to_string()));
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\content_ui.rs:                            error.set(Some("Not authenticated".to_string()));
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:use crate::mock_data::NOTIFICATIONS;
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:    pub(crate) notif_open: Signal<bool>,
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:    // NOTE: hooks must be created at the top level of the component, never inside
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:    // another hook's closure. Calling `use_signal` inside `use_context_provider`'s
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:    let notif_open = use_signal(|| false);
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:        notif_open,
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:    let mut notif_open = ctx.notif_open;
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:                    onclick: move |_| notif_open.set(!notif_open()),
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:                    span { class: "material-symbols-outlined", "notifications" }
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:                if notif_open() {
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:                    div { class: "notif-panel",
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:                        div { class: "notif-head",
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:                            span { "Notifications" }
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:                                onclick: move |_| notif_open.set(false),
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\dashboard.rs:                            for & (icon , title , sub , tone) in NOTIFICATIONS {
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\db.rs://! SQLx and the PostgreSQL driver cannot be compiled to WASM (the client).
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\db.rs:/// If PostgreSQL is not reachable we log a warning and continue, so the Dioxus
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\db.rs:            eprintln!("[sqlx] warning: could not connect to PostgreSQL at {url}: {err}");
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\live_classes_ui.rs:                        p { "Nothing scheduled for this course yet." }
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\live_signaling.rs://! Not durable and not distributed: state lives in this process's memory, so
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\main.rs:// SQLx and the PostgreSQL driver cannot be compiled to WASM.
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\main.rs:        // PostgreSQL is not reachable yet — `/api/health` will report it).
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\main.rs:    #[cfg(not(feature = "server"))]
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:    PluginRow { name: "notifications", lang: "Python", version: "0.1.0", status: "running", signed: true, port: 9106 },
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:    pub note: &'static str,
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:    Sdk { lang: "Rust", version: "0.1.0", status: "available", note: "Native, first-class support" },
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:    Sdk { lang: "Python", version: "0.1.0", status: "available", note: "Built with maturin" },
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:    Sdk { lang: "WebAssembly", version: "0.1.0-beta", status: "review", note: "Sandboxed WASM plugins" },
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:    Sdk { lang: "PHP", version: "—", status: "pending", note: "Structured shared objects" },
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:    Sdk { lang: "C#", version: "—", status: "pending", note: "On the roadmap" },
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:            Msg { text: "Hi Thandiwe, I noticed your submission for 'Sorting algorithms — Part 2' came in just before the deadline.", sent: false, time: "09:20" },
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:// --- Notifications ----------------------------------------------------------
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_data.rs:pub(crate) const NOTIFICATIONS: &[(&str, &str, &str, &str)] = &[
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_pages.rs:            SectionTitle { title: "Messages", subtitle: "Conversations and notifications" },
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\mock_pages.rs:                        p { class: "muted", style: "font-size: 13px; flex: 1", "{s.note}" }
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\server_functions.rs:/// table does not exist yet (migrations are currently empty) this returns a
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\server_functions.rs:        crate::db::pool().ok_or_else(|| anyhow::anyhow!("database not available"))?;
+.kilo\worktrees\copy-dungeon\plugins\frontend\src\server_functions.rs:// `/ws/live/{session_id}` WebSocket (see `live_signaling`), not these RPCs.
+.kilo\worktrees\copy-dungeon\plugins\grades\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\grades\src\repository.rs:           ON CONFLICT (source_type, source_id) WHERE source_type NOT IN ('manual') DO UPDATE SET
+.kilo\worktrees\copy-dungeon\plugins\grades\src\services.rs:    let existing = repository::get_entry(pool, req.id).await?.ok_or_else(|| anyhow::anyhow!("not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("institution not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("institution not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\services.rs:        return Err(anyhow!("institution not found"));
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\services.rs:        return Err(anyhow!("institution not found"));
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("campus not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("campus not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\services.rs:        return Err(anyhow!("campus not found"));
+.kilo\worktrees\copy-dungeon\plugins\institution_management\src\services.rs:        assert!(validate_code("lower", "campus").is_err()); // not upper-case
+.kilo\worktrees\copy-dungeon\plugins\learning_progress\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\learning_progress\src\repository.rs:           ON CONFLICT (student_id, course_id, lesson_id) WHERE lesson_id IS NOT NULL
+.kilo\worktrees\copy-dungeon\plugins\learning_progress\src\services.rs:        status: "not_started".to_string(),
+.kilo\worktrees\copy-dungeon\plugins\learning_progress\src\services.rs:            status: "not_started".to_string(),
+.kilo\worktrees\copy-dungeon\plugins\learning_progress\src\services.rs:            status: "not_started".to_string(),
+.kilo\worktrees\copy-dungeon\plugins\learning_progress\src\services.rs:    let not_started = progresses.iter().find(|p| p.status == "not_started");
+.kilo\worktrees\copy-dungeon\plugins\learning_progress\src\services.rs:    if let Some(progress) = not_started {
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        .ok_or_else(|| anyhow!("session not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        .ok_or_else(|| anyhow!("session not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        .ok_or_else(|| anyhow!("session not found"))
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        return Err(anyhow!("this session is not currently joinable"));
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        return Err(anyhow!("message cannot be empty"));
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+.kilo\worktrees\copy-dungeon\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+.kilo\worktrees\copy-dungeon\plugins\messaging\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\messaging\src\services.rs:    let topic = repository::get_topic(pool, req.id).await?.ok_or_else(|| anyhow::anyhow!("topic not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\messaging\src\services.rs:    let topic = repository::get_topic(pool, id).await?.ok_or_else(|| anyhow::anyhow!("topic not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\messaging\src\services.rs:    let topic = repository::get_topic(pool, req.topic_id).await?.ok_or_else(|| anyhow::anyhow!("topic not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\messaging\src\services.rs:        anyhow::bail!("not a participant");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:pub struct CreateNotificationRequest {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:    pub notification_type: String,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:pub struct NotificationResponse {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:    pub notification_type: String,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:    pub notification_id: Uuid,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:    pub notification_type: String,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:pub struct NotificationPreferenceResponse {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:    pub notification_type: String,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:pub struct NotificationDeliveryResponse {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\dto.rs:    pub notification_id: Uuid,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:pub const PLUGIN_ID: &str = "com.elupane.notifications";
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:        Err(err) => Message::error_reply(command, PLUGIN_ID, "notifications.error", &err.to_string()),
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:        "notifications.send" => {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:            let req: CreateNotificationRequest = parse_payload(&command.payload)?;
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:            let view = services::create_notification(pool, &claims, req).await?;
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:        "notifications.list" => {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:            let view = services::list_user_notifications(pool, req.user_id, false).await?;
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:        "notifications.unread" => {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:            let view = services::list_user_notifications(pool, req.user_id, true).await?;
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:        "notifications.mark_read" => {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:            let view = services::mark_read(pool, req.notification_id).await?;
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:        "notifications.mark_all_read" => {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:        "notifications.preferences.set" => {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:        "notifications.preferences.list" => {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\handlers.rs:        "notifications.deliveries" => {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs://! Notification system plugin: in-app, email, push notifications with preferences.
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs://! commands from `elupane:commands:com.elupane.notifications` → reply → ack.
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:const PLUGIN_ID: &str = "com.elupane.notifications";
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:    println!("Notifications Plugin Started");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:    println!("[notifications] connected to Redis at {redis_url}");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:    sqlx::raw_sql(include_str!("../migrations/0012_notifications.sql"))
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:    println!("[notifications] database ready");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:        "notifications.read",
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:        "notifications.write",
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:        "notifications.preferences.read",
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:        "notifications.preferences.write",
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:    println!("[notifications] capabilities announced");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:                    println!("[notifications] heartbeat");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:                        println!("[notifications] executing {}", consumed.message.op);
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:                            println!("[notifications] failed to send reply: {err}");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:                            println!("[notifications] failed to ack: {err}");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:                        println!("[notifications] consume error: {err}");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\main.rs:                println!("[notifications] shutting down");
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\models.rs:pub struct Notification {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\models.rs:    pub notification_type: String,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\models.rs:pub struct NotificationPreference {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\models.rs:    pub notification_type: String,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\models.rs:pub struct NotificationDelivery {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\models.rs:    pub notification_id: Uuid,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:pub async fn create_notification(pool: &PgPool, notification: &Notification) -> anyhow::Result<Notification> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, Notification>(
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:        r#"INSERT INTO notifications (id, user_id, type, title, body, data, read, read_at, created_at)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(notification.id)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(notification.user_id)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(&notification.notification_type)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(&notification.title)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(&notification.body)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(&notification.data)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(notification.read)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(notification.read_at)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(notification.created_at)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:pub async fn get_notification(pool: &PgPool, id: Uuid) -> anyhow::Result<Option<Notification>> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, Notification>("SELECT * FROM notifications WHERE id = $1")
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:pub async fn list_user_notifications(pool: &PgPool, user_id: Uuid, unread_only: bool) -> anyhow::Result<Vec<Notification>> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:        "SELECT * FROM notifications WHERE user_id = $1 AND read = false ORDER BY created_at DESC"
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:        "SELECT * FROM notifications WHERE user_id = $1 ORDER BY created_at DESC"
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let rows = sqlx::query_as::<_, Notification>(sql)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:pub async fn mark_read(pool: &PgPool, id: Uuid) -> anyhow::Result<Notification> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, Notification>(
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:        r#"UPDATE notifications SET read = true, read_at = now() WHERE id = $1
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let result = sqlx::query("UPDATE notifications SET read = true, read_at = now() WHERE user_id = $1 AND read = false")
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:pub async fn set_preference(pool: &PgPool, preference: &NotificationPreference) -> anyhow::Result<NotificationPreference> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, NotificationPreference>(
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:        r#"INSERT INTO notification_preferences (id, user_id, notification_type, channel, enabled, updated_at)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:           ON CONFLICT (user_id, notification_type, channel) DO UPDATE SET enabled = EXCLUDED.enabled, updated_at = EXCLUDED.updated_at
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:           RETURNING id, user_id, notification_type, channel, enabled, updated_at"#,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(&preference.notification_type)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:pub async fn list_preferences(pool: &PgPool, user_id: Uuid) -> anyhow::Result<Vec<NotificationPreference>> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let rows = sqlx::query_as::<_, NotificationPreference>("SELECT * FROM notification_preferences WHERE user_id = $1")
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:pub async fn create_delivery(pool: &PgPool, delivery: &NotificationDelivery) -> anyhow::Result<NotificationDelivery> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, NotificationDelivery>(
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:        r#"INSERT INTO notification_deliveries (id, notification_id, channel, status, error_message, delivered_at, created_at)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:           RETURNING id, notification_id, channel, status, error_message, delivered_at, created_at"#,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    .bind(delivery.notification_id)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:pub async fn update_delivery(pool: &PgPool, id: Uuid, status: &str, error_message: Option<&str>) -> anyhow::Result<NotificationDelivery> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, NotificationDelivery>(
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:        r#"UPDATE notification_deliveries SET status = $2, error_message = COALESCE($3, error_message), delivered_at = CASE WHEN $2 = 'sent' THEN now() ELSE delivered_at END WHERE id = $1
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:           RETURNING id, notification_id, channel, status, error_message, delivered_at, created_at"#,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:pub async fn list_deliveries(pool: &PgPool, notification_id: Uuid) -> anyhow::Result<Vec<NotificationDelivery>> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:    let rows = sqlx::query_as::<_, NotificationDelivery>("SELECT * FROM notification_deliveries WHERE notification_id = $1 ORDER BY created_at")
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\repository.rs:        .bind(notification_id)
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:pub async fn create_notification(pool: &PgPool, claims: &Claims, req: CreateNotificationRequest) -> anyhow::Result<Notification> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:    let notification = Notification {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:        notification_type: req.notification_type,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:    repository::create_notification(pool, &notification).await
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:pub async fn get_notification(pool: &PgPool, notification_id: Uuid) -> anyhow::Result<Option<Notification>> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:    repository::get_notification(pool, notification_id).await
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:pub async fn list_user_notifications(pool: &PgPool, user_id: Uuid, unread_only: bool) -> anyhow::Result<Vec<Notification>> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:    repository::list_user_notifications(pool, user_id, unread_only).await
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:pub async fn mark_read(pool: &PgPool, notification_id: Uuid) -> anyhow::Result<Notification> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:    repository::mark_read(pool, notification_id).await
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:pub async fn set_preference(pool: &PgPool, claims: &Claims, req: SetPreferenceRequest) -> anyhow::Result<NotificationPreference> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:    let preference = NotificationPreference {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:        notification_type: req.notification_type,
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:pub async fn list_preferences(pool: &PgPool, user_id: Uuid) -> anyhow::Result<Vec<NotificationPreference>> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:pub async fn get_deliveries(pool: &PgPool, notification_id: Uuid) -> anyhow::Result<Vec<NotificationDelivery>> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:    repository::list_deliveries(pool, notification_id).await
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:pub async fn create_delivery(pool: &PgPool, delivery: &NotificationDelivery) -> anyhow::Result<NotificationDelivery> {
+.kilo\worktrees\copy-dungeon\plugins\notifications\src\services.rs:pub async fn update_delivery(pool: &PgPool, id: Uuid, status: &str, error_message: Option<&str>) -> anyhow::Result<NotificationDelivery> {
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:    let quiz = repository::get_quiz(pool, req.quiz_id).await?.ok_or_else(|| anyhow::anyhow!("quiz not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:        anyhow::bail!("quiz is not published");
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:    let attempt = repository::get_attempt(pool, req.attempt_id).await?.ok_or_else(|| anyhow::anyhow!("attempt not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:        anyhow::bail!("attempt is not in progress");
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:        anyhow::bail!("not your attempt");
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:    let attempt = repository::get_attempt(pool, req.attempt_id).await?.ok_or_else(|| anyhow::anyhow!("attempt not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:        anyhow::bail!("attempt is not in progress");
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:        anyhow::bail!("not your attempt");
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:    let attempt = repository::get_attempt(pool, attempt_id).await?.ok_or_else(|| anyhow::anyhow!("attempt not found"))?;
+.kilo\worktrees\copy-dungeon\plugins\quizzes\src\services.rs:    let quiz = repository::get_quiz(pool, quiz_id).await?.ok_or_else(|| anyhow::anyhow!("quiz not found"))?;
+.kilo\worktrees\private-salt\crates\cache\src\connection.rs:    CLIENT.get().expect("Redis client not initialized")
+.kilo\worktrees\private-salt\crates\common\src\lib.rs:        // OffsetTime::new returns OffsetTime directly, not Result
+.kilo\worktrees\private-salt\crates\database\src\connection.rs:        .expect("Database not initialized")
+.kilo\worktrees\private-salt\crates\installer\src\checks\postgres.rs:            "installed but not running",
+.kilo\worktrees\private-salt\crates\installer\src\checks\postgres.rs:            "not installed",
+.kilo\worktrees\private-salt\crates\installer\src\checks\postgres.rs:        return CheckResult::failure("PostgreSQL (elupane)", "PostgreSQL not installed");
+.kilo\worktrees\private-salt\crates\installer\src\checks\postgres.rs:            format!("role '{}' not created", crate::DB_USER),
+.kilo\worktrees\private-salt\crates\installer\src\checks\postgres.rs:            format!("database '{}' not created", crate::DB_NAME),
+.kilo\worktrees\private-salt\crates\installer\src\checks\redis.rs:            "installed but not running",
+.kilo\worktrees\private-salt\crates\installer\src\checks\redis.rs:            "not installed",
+.kilo\worktrees\private-salt\crates\installer\src\package_manager.rs:    #[cfg(not(target_os = "windows"))]
+.kilo\worktrees\private-salt\crates\installer\src\wsl.rs://! through `bash -lc`, elevated with `sudo` when the current user is not root.
+.kilo\worktrees\private-salt\crates\installer\src\wsl.rs:    #[cfg(not(target_os = "windows"))]
+.kilo\worktrees\private-salt\crates\installer\src\wsl.rs:    #[cfg(not(target_os = "windows"))]
+.kilo\worktrees\private-salt\crates\kernel\src\bootstrap.rs:                // One missing/broken plugin must not take the whole gateway
+.kilo\worktrees\private-salt\crates\messaging_core\src\command.rs:/// Do **not** use `XREADGROUP ... BLOCK` here: redis-rs `MultiplexedConnection`
+.kilo\worktrees\private-salt\crates\messaging_core\src\command.rs:    /// (idempotently) if it does not exist yet.
+.kilo\worktrees\private-salt\crates\messaging_core\src\idempotency.rs://! does not execute the operation twice.
+.kilo\worktrees\private-salt\crates\plugin_manager\src\discovery.rs:        warn!("Plugins directory does not exist");
+.kilo\worktrees\private-salt\plugins\academics\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\private-salt\plugins\academics\src\main.rs:    // `0005` in the shared `_sqlx_migrations` table, so `sqlx::migrate!` cannot
+.kilo\worktrees\private-salt\plugins\academics\src\main.rs:    // be used. Our schema is applied with idempotent raw SQL (`IF NOT EXISTS`
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("faculty not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("faculty not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        return Err(anyhow!("faculty not found"));
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("department not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("department not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("program not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("program not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        return Err(anyhow!("program not found"));
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("academic year not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("academic year not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("semester not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("semester not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        return Err(anyhow!("semester not found"));
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        return Err(anyhow!("academic year not found"));
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        return Err(anyhow!("department not found"));
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("class not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("class not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        return Err(anyhow!("class not found"));
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("offering not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("offering not found"))?;
+.kilo\worktrees\private-salt\plugins\academics\src\services.rs:        return Err(anyhow!("offering not found"));
+.kilo\worktrees\private-salt\plugins\assignments\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\private-salt\plugins\assignments\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+.kilo\worktrees\private-salt\plugins\assignments\src\main.rs:    // `_sqlx_migrations` table, so `sqlx::migrate!` cannot be used here (it
+.kilo\worktrees\private-salt\plugins\assignments\src\main.rs:    // run our schema directly — every statement is idempotent (`IF NOT EXISTS`).
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:/// manage. If course_management has not initialized yet (tables missing), the
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("course not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage course {course_id}"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:/// `course_enrollments`). If the enrollments plugin has not initialized yet
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        // enrollments plugin not initialized yet — defer.
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:            "forbidden: you are not enrolled in this course"
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        return Err(anyhow!("assignment title must not be empty"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        return Err(anyhow!("max marks must not be negative"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:            return Err(anyhow!("max marks must not be negative"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        return Err(anyhow!("assignment not found"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("resource not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("resource not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:    // rights) — unenrolled/suspended users cannot take them.
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:            return Err(anyhow!("submission link url must not be empty"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission file not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:            return Err(anyhow!("forbidden: submission belongs to another student"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("grade not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:            return Err(anyhow!("forbidden: grade belongs to another student"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:            return Err(anyhow!("forbidden: submission belongs to another student"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        return Err(anyhow!("rubric name must not be empty"));
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("rubric not found"))?;
+.kilo\worktrees\private-salt\plugins\assignments\src\services.rs:    fn no_penalty_when_not_late_or_policy_without_penalty() {
+.kilo\worktrees\private-salt\plugins\assignments\src\storage.rs:        return Err(anyhow!("file name must not be empty"));
+.kilo\worktrees\private-salt\plugins\assignments\src\storage.rs:        return Err(anyhow!("file content must not be empty"));
+.kilo\worktrees\private-salt\plugins\auth\src\repository.rs:    sqlx::query("INSERT INTO user_roles (user_id, role_id) VALUES ($1, $2) ON CONFLICT DO NOTHING")
+.kilo\worktrees\private-salt\plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("user not found"))?;
+.kilo\worktrees\private-salt\plugins\auth\src\services.rs:                .map_err(|_| anyhow!("token subject is not a valid user id"))?;
+.kilo\worktrees\private-salt\plugins\auth\src\services.rs:                    reason: Some("user not found".to_string()),
+.kilo\worktrees\private-salt\plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("user not found"))?;
+.kilo\worktrees\private-salt\plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("role not found: {role_name}"))?;
+.kilo\worktrees\private-salt\plugins\auth\src\services.rs:        assert!(verify_token("not-a-token").is_err());
+.kilo\worktrees\private-salt\plugins\course_management\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\private-salt\plugins\course_management\src\authz.rs:/// for the course (not including the owner).
+.kilo\worktrees\private-salt\plugins\course_management\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+.kilo\worktrees\private-salt\plugins\course_management\src\authz.rs:    fn other_lecturer_cannot_manage_without_authorization() {
+.kilo\worktrees\private-salt\plugins\course_management\src\authz.rs:    fn student_cannot_manage() {
+.kilo\worktrees\private-salt\plugins\course_management\src\dto.rs:    /// Initial state: being authored, not visible to students.
+.kilo\worktrees\private-salt\plugins\course_management\src\dto.rs:    /// Taken down but not deleted (e.g. temporarily).
+.kilo\worktrees\private-salt\plugins\course_management\src\main.rs:    // in the shared `_sqlx_migrations` table, so `sqlx::migrate!` cannot be used.
+.kilo\worktrees\private-salt\plugins\course_management\src\main.rs:    // Our schema is applied with idempotent raw SQL (`IF NOT EXISTS` + guarded
+.kilo\worktrees\private-salt\plugins\course_management\src\repository.rs:         VALUES ($1, $2, $3) ON CONFLICT (course_id, user_id) DO NOTHING",
+.kilo\worktrees\private-salt\plugins\course_management\src\services.rs:/// A course plus its extra instructor ids (owner not included).
+.kilo\worktrees\private-salt\plugins\course_management\src\services.rs:        .ok_or_else(|| anyhow!("course not found"))?;
+.kilo\worktrees\private-salt\plugins\course_management\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\private-salt\plugins\course_management\src\services.rs:        return Err(anyhow!("forbidden: course is not published"));
+.kilo\worktrees\private-salt\plugins\course_management\src\services.rs:        // Belt-and-braces: drop rows the caller may not view.
+.kilo\worktrees\private-salt\plugins\course_management\src\services.rs:            return Err(anyhow!("course title cannot be empty"));
+.kilo\worktrees\private-salt\plugins\course_management\src\services.rs:/// Remove an instructor from a course. Cannot remove the owner.
+.kilo\worktrees\private-salt\plugins\course_management\src\services.rs:        return Err(anyhow!("cannot remove the course owner"));
+.kilo\worktrees\private-salt\plugins\course_management\src\services.rs:        assert!(validate_course_code("CS 101").is_err()); // spaces not allowed
+.kilo\worktrees\private-salt\plugins\enrollments\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\private-salt\plugins\enrollments\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+.kilo\worktrees\private-salt\plugins\enrollments\src\authz.rs:    fn unauthorized_lecturer_cannot_enroll_others() {
+.kilo\worktrees\private-salt\plugins\enrollments\src\main.rs:    // `sqlx::migrate!` cannot be used. Our schema is applied with idempotent
+.kilo\worktrees\private-salt\plugins\enrollments\src\main.rs:    // raw SQL (`IF NOT EXISTS`), so it is safe alongside the other plugins.
+.kilo\worktrees\private-salt\plugins\enrollments\src\repository.rs:             CASE WHEN $4::uuid IS NOT NULL THEN now() ELSE approved_at END, \
+.kilo\worktrees\private-salt\plugins\enrollments\src\repository.rs:         WHERE state = 'active' AND expires_at IS NOT NULL AND expires_at <= now() \
+.kilo\worktrees\private-salt\plugins\enrollments\src\repository.rs:         WHERE e.state = 'active' AND e.expires_at IS NOT NULL AND e.expires_at <= $1"
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:/// `owner_id` is `nil` when course_management has not initialized yet.
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        // course_management has not initialized yet — defer the check.
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("course not found"))
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        // course_management not initialized yet — defer.
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:            Some(false) => return Err(anyhow!("course is not open for enrollment")),
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:            None => return Err(anyhow!("course not found")),
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you cannot modify this enrollment"));
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:            "cannot move enrollment from '{}' to '{}'",
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("invite not found"))?;
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:            "an enrollment in state '{}' cannot be re-enrolled",
+.kilo\worktrees\private-salt\plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you cannot re-enroll this student"));
+.kilo\worktrees\private-salt\plugins\frontend\src\assignments_ui.rs:    // Precompute (id, label) pairs outside the rsx (rsx! `let` cannot call methods).
+.kilo\worktrees\private-salt\plugins\frontend\src\assignments_ui.rs:                                                            None => message.set(Some("Not signed in.".into())),
+.kilo\worktrees\private-salt\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\private-salt\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\private-salt\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\private-salt\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\private-salt\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\private-salt\plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:use crate::mock_data::NOTIFICATIONS;
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:    pub(crate) notif_open: Signal<bool>,
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:    // NOTE: hooks must be created at the top level of the component, never inside
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:    // another hook's closure. Calling `use_signal` inside `use_context_provider`'s
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:    let notif_open = use_signal(|| false);
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:        notif_open,
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:    let mut notif_open = ctx.notif_open;
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:                    onclick: move |_| notif_open.set(!notif_open()),
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:                    span { class: "material-symbols-outlined", "notifications" }
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:                if notif_open() {
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:                    div { class: "notif-panel",
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:                        div { class: "notif-head",
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:                            span { "Notifications" }
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:                                onclick: move |_| notif_open.set(false),
+.kilo\worktrees\private-salt\plugins\frontend\src\dashboard.rs:                            for & (icon , title , sub , tone) in NOTIFICATIONS {
+.kilo\worktrees\private-salt\plugins\frontend\src\db.rs://! SQLx and the PostgreSQL driver cannot be compiled to WASM (the client).
+.kilo\worktrees\private-salt\plugins\frontend\src\db.rs:/// If PostgreSQL is not reachable we log a warning and continue, so the Dioxus
+.kilo\worktrees\private-salt\plugins\frontend\src\db.rs:            eprintln!("[sqlx] warning: could not connect to PostgreSQL at {url}: {err}");
+.kilo\worktrees\private-salt\plugins\frontend\src\live_classes_ui.rs:                        p { "Nothing scheduled for this course yet." }
+.kilo\worktrees\private-salt\plugins\frontend\src\live_signaling.rs://! Not durable and not distributed: state lives in this process's memory, so
+.kilo\worktrees\private-salt\plugins\frontend\src\main.rs:// SQLx and the PostgreSQL driver cannot be compiled to WASM.
+.kilo\worktrees\private-salt\plugins\frontend\src\main.rs:        // PostgreSQL is not reachable yet — `/api/health` will report it).
+.kilo\worktrees\private-salt\plugins\frontend\src\main.rs:    #[cfg(not(feature = "server"))]
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:    PluginRow { name: "notifications", lang: "Python", version: "0.1.0", status: "running", signed: true, port: 9106 },
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:    pub note: &'static str,
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:    Sdk { lang: "Rust", version: "0.1.0", status: "available", note: "Native, first-class support" },
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:    Sdk { lang: "Python", version: "0.1.0", status: "available", note: "Built with maturin" },
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:    Sdk { lang: "WebAssembly", version: "0.1.0-beta", status: "review", note: "Sandboxed WASM plugins" },
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:    Sdk { lang: "PHP", version: "—", status: "pending", note: "Structured shared objects" },
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:    Sdk { lang: "C#", version: "—", status: "pending", note: "On the roadmap" },
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:            Msg { text: "Hi Thandiwe, I noticed your submission for 'Sorting algorithms — Part 2' came in just before the deadline.", sent: false, time: "09:20" },
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:// --- Notifications ----------------------------------------------------------
+.kilo\worktrees\private-salt\plugins\frontend\src\mock_data.rs:pub(crate) const NOTIFICATIONS: &[(&str, &str, &str, &str)] = &[
+.kilo\worktrees\private-salt\plugins\frontend\src\server_functions.rs:/// table does not exist yet (migrations are currently empty) this returns a
+.kilo\worktrees\private-salt\plugins\frontend\src\server_functions.rs:        crate::db::pool().ok_or_else(|| anyhow::anyhow!("database not available"))?;
+.kilo\worktrees\private-salt\plugins\frontend\src\server_functions.rs:// `/ws/live/{session_id}` WebSocket (see `live_signaling`), not these RPCs.
+.kilo\worktrees\private-salt\plugins\institution_management\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\private-salt\plugins\institution_management\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+.kilo\worktrees\private-salt\plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("institution not found"))?;
+.kilo\worktrees\private-salt\plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("institution not found"))?;
+.kilo\worktrees\private-salt\plugins\institution_management\src\services.rs:        return Err(anyhow!("institution not found"));
+.kilo\worktrees\private-salt\plugins\institution_management\src\services.rs:        return Err(anyhow!("institution not found"));
+.kilo\worktrees\private-salt\plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("campus not found"))?;
+.kilo\worktrees\private-salt\plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("campus not found"))?;
+.kilo\worktrees\private-salt\plugins\institution_management\src\services.rs:        return Err(anyhow!("campus not found"));
+.kilo\worktrees\private-salt\plugins\institution_management\src\services.rs:        assert!(validate_code("lower", "campus").is_err()); // not upper-case
+.kilo\worktrees\private-salt\plugins\live_classes\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        .ok_or_else(|| anyhow!("session not found"))?;
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        .ok_or_else(|| anyhow!("session not found"))?;
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        .ok_or_else(|| anyhow!("session not found"))
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        return Err(anyhow!("this session is not currently joinable"));
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        return Err(anyhow!("message cannot be empty"));
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+.kilo\worktrees\private-salt\plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+.kilo\worktrees\private-salt\plugins\notifications\src\main.rs:    println!("Notifications Plugin Started");
+.kilo\worktrees\private-salt\plugins\notifications\src\main.rs:                println!("notifications heartbeat");
+.kilo\worktrees\private-salt\plugins\notifications\src\main.rs:                println!("Notifications Plugin Shutting Down");
+crates\cache\src\connection.rs:    CLIENT.get().expect("Redis client not initialized")
+crates\common\src\lib.rs:        // OffsetTime::new returns OffsetTime directly, not Result
+crates\database\src\connection.rs:        .expect("Database not initialized")
+crates\installer\src\checks\postgres.rs:            "installed but not running",
+crates\installer\src\checks\postgres.rs:            "not installed",
+crates\installer\src\checks\postgres.rs:        return CheckResult::failure("PostgreSQL (elupane)", "PostgreSQL not installed");
+crates\installer\src\checks\postgres.rs:            format!("role '{}' not created", crate::DB_USER),
+crates\installer\src\checks\postgres.rs:            format!("database '{}' not created", crate::DB_NAME),
+crates\installer\src\checks\redis.rs:            "installed but not running",
+crates\installer\src\checks\redis.rs:            "not installed",
+crates\installer\src\package_manager.rs:    #[cfg(not(target_os = "windows"))]
+crates\installer\src\wsl.rs://! through `bash -lc`, elevated with `sudo` when the current user is not root.
+crates\installer\src\wsl.rs:    #[cfg(not(target_os = "windows"))]
+crates\installer\src\wsl.rs:    #[cfg(not(target_os = "windows"))]
+crates\kernel\src\bootstrap.rs:                // One missing/broken plugin must not take the whole gateway
+crates\messaging_core\src\command.rs:/// Do **not** use `XREADGROUP ... BLOCK` here: redis-rs `MultiplexedConnection`
+crates\messaging_core\src\command.rs:    /// (idempotently) if it does not exist yet.
+crates\messaging_core\src\idempotency.rs://! does not execute the operation twice.
+crates\plugin_manager\src\discovery.rs:        warn!("Plugins directory does not exist");
+plugins\academics\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\academics\src\main.rs:    // `0005` in the shared `_sqlx_migrations` table, so `sqlx::migrate!` cannot
+plugins\academics\src\main.rs:    // be used. Our schema is applied with idempotent raw SQL (`IF NOT EXISTS`
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("faculty not found"))?;
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("faculty not found"))?;
+plugins\academics\src\services.rs:        return Err(anyhow!("faculty not found"));
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("department not found"))?;
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("department not found"))?;
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("program not found"))?;
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("program not found"))?;
+plugins\academics\src\services.rs:        return Err(anyhow!("program not found"));
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("academic year not found"))?;
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("academic year not found"))?;
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("semester not found"))?;
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("semester not found"))?;
+plugins\academics\src\services.rs:        return Err(anyhow!("semester not found"));
+plugins\academics\src\services.rs:        return Err(anyhow!("academic year not found"));
+plugins\academics\src\services.rs:        return Err(anyhow!("department not found"));
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("class not found"))?;
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("class not found"))?;
+plugins\academics\src\services.rs:        return Err(anyhow!("class not found"));
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("offering not found"))?;
+plugins\academics\src\services.rs:        .ok_or_else(|| anyhow!("offering not found"))?;
+plugins\academics\src\services.rs:        return Err(anyhow!("offering not found"));
+plugins\analytics\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\analytics\src\repository.rs:           ON CONFLICT (bucket, bucket_start, bucket_end, user_id, course_id, metric) WHERE user_id IS NOT NULL AND course_id IS NOT NULL
+plugins\assignments\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\assignments\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+plugins\assignments\src\main.rs:    // `_sqlx_migrations` table, so `sqlx::migrate!` cannot be used here (it
+plugins\assignments\src\main.rs:    // run our schema directly — every statement is idempotent (`IF NOT EXISTS`).
+plugins\assignments\src\services.rs:/// manage. If course_management has not initialized yet (tables missing), the
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("course not found"))?;
+plugins\assignments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage course {course_id}"));
+plugins\assignments\src\services.rs:/// `course_enrollments`). If the enrollments plugin has not initialized yet
+plugins\assignments\src\services.rs:        // enrollments plugin not initialized yet — defer.
+plugins\assignments\src\services.rs:            "forbidden: you are not enrolled in this course"
+plugins\assignments\src\services.rs:        return Err(anyhow!("assignment title must not be empty"));
+plugins\assignments\src\services.rs:        return Err(anyhow!("max marks must not be negative"));
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+plugins\assignments\src\services.rs:            return Err(anyhow!("max marks must not be negative"));
+plugins\assignments\src\services.rs:        return Err(anyhow!("assignment not found"));
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("resource not found"))?;
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("resource not found"))?;
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+plugins\assignments\src\services.rs:    // rights) — unenrolled/suspended users cannot take them.
+plugins\assignments\src\services.rs:            return Err(anyhow!("submission link url must not be empty"));
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission file not found"))?;
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission not found"))?;
+plugins\assignments\src\services.rs:            return Err(anyhow!("forbidden: submission belongs to another student"));
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission not found"))?;
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("grade not found"))?;
+plugins\assignments\src\services.rs:            return Err(anyhow!("forbidden: grade belongs to another student"));
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("submission not found"))?;
+plugins\assignments\src\services.rs:            return Err(anyhow!("forbidden: submission belongs to another student"));
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("assignment not found"))?;
+plugins\assignments\src\services.rs:        return Err(anyhow!("rubric name must not be empty"));
+plugins\assignments\src\services.rs:        .ok_or_else(|| anyhow!("rubric not found"))?;
+plugins\assignments\src\services.rs:    fn no_penalty_when_not_late_or_policy_without_penalty() {
+plugins\assignments\src\storage.rs:        return Err(anyhow!("file name must not be empty"));
+plugins\assignments\src\storage.rs:        return Err(anyhow!("file content must not be empty"));
+plugins\auth\src\repository.rs:    sqlx::query("INSERT INTO user_roles (user_id, role_id) VALUES ($1, $2) ON CONFLICT DO NOTHING")
+plugins\auth\src\repository.rs:         ON CONFLICT DO NOTHING",
+plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("user not found"))?;
+plugins\auth\src\services.rs:                .map_err(|_| anyhow!("token subject is not a valid user id"))?;
+plugins\auth\src\services.rs:                    reason: Some("user not found".to_string()),
+plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("user not found"))?;
+plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("role not found: {role_name}"))?;
+plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("user not found"))?;
+plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("role not found: {role_name}"))?;
+plugins\auth\src\services.rs:        .ok_or_else(|| anyhow!("role not found: {role_name}"))?;
+plugins\auth\src\services.rs:        assert!(verify_token("not-a-token").is_err());
+plugins\certificates\src\services.rs:    // Determine the student (self or admin generating for another)
+plugins\certificates\src\services.rs:    let certificate = certificate.ok_or_else(|| anyhow::anyhow!("certificate not found"))?;
+plugins\certificates\src\services.rs:            message: "Certificate not found".to_string(),
+plugins\content\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\content\src\main.rs:    // 2. PostgreSQL. Idempotent raw SQL with IF NOT EXISTS so it is safe to
+plugins\content\src\repository.rs:/// * `None`   — not the owner/instructor and not an active enrollee.
+plugins\content\src\repository.rs:/// Admins are treated as `Manage` by the service layer (they are not stored on
+plugins\content\src\services.rs://! This plugin does **not** own user authentication; it trusts JWTs issued by
+plugins\content\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+plugins\content\src\services.rs:        return Err(anyhow!("forbidden: not the course owner or an authorised instructor"));
+plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("module not found"))?;
+plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("lesson not found"))?;
+plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("content item not found"))?;
+plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("file not found"))?;
+plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("file not found"))?;
+plugins\content\src\services.rs:        .ok_or_else(|| anyhow!("file not found"))?;
+plugins\course_management\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\course_management\src\authz.rs:/// for the course (not including the owner).
+plugins\course_management\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+plugins\course_management\src\authz.rs:    fn other_lecturer_cannot_manage_without_authorization() {
+plugins\course_management\src\authz.rs:    fn student_cannot_manage() {
+plugins\course_management\src\dto.rs:    /// Initial state: being authored, not visible to students.
+plugins\course_management\src\dto.rs:    /// Taken down but not deleted (e.g. temporarily).
+plugins\course_management\src\main.rs:    // in the shared `_sqlx_migrations` table, so `sqlx::migrate!` cannot be used.
+plugins\course_management\src\main.rs:    // Our schema is applied with idempotent raw SQL (`IF NOT EXISTS` + guarded
+plugins\course_management\src\repository.rs:         VALUES ($1, $2, $3) ON CONFLICT (course_id, user_id) DO NOTHING",
+plugins\course_management\src\services.rs:/// A course plus its extra instructor ids (owner not included).
+plugins\course_management\src\services.rs:        .ok_or_else(|| anyhow!("course not found"))?;
+plugins\course_management\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+plugins\course_management\src\services.rs:        return Err(anyhow!("forbidden: course is not published"));
+plugins\course_management\src\services.rs:        // Belt-and-braces: drop rows the caller may not view.
+plugins\course_management\src\services.rs:            return Err(anyhow!("course title cannot be empty"));
+plugins\course_management\src\services.rs:/// Remove an instructor from a course. Cannot remove the owner.
+plugins\course_management\src\services.rs:        return Err(anyhow!("cannot remove the course owner"));
+plugins\course_management\src\services.rs:        assert!(validate_course_code("CS 101").is_err()); // spaces not allowed
+plugins\enrollments\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\enrollments\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+plugins\enrollments\src\authz.rs:    fn unauthorized_lecturer_cannot_enroll_others() {
+plugins\enrollments\src\main.rs:    // `sqlx::migrate!` cannot be used. Our schema is applied with idempotent
+plugins\enrollments\src\main.rs:    // raw SQL (`IF NOT EXISTS`), so it is safe alongside the other plugins.
+plugins\enrollments\src\repository.rs:             CASE WHEN $4::uuid IS NOT NULL THEN now() ELSE approved_at END, \
+plugins\enrollments\src\repository.rs:         WHERE state = 'active' AND expires_at IS NOT NULL AND expires_at <= now() \
+plugins\enrollments\src\repository.rs:         WHERE e.state = 'active' AND e.expires_at IS NOT NULL AND e.expires_at <= $1"
+plugins\enrollments\src\services.rs:/// `owner_id` is `nil` when course_management has not initialized yet.
+plugins\enrollments\src\services.rs:        // course_management has not initialized yet — defer the check.
+plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("course not found"))
+plugins\enrollments\src\services.rs:        // course_management not initialized yet — defer.
+plugins\enrollments\src\services.rs:            Some(false) => return Err(anyhow!("course is not open for enrollment")),
+plugins\enrollments\src\services.rs:            None => return Err(anyhow!("course not found")),
+plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you cannot modify this enrollment"));
+plugins\enrollments\src\services.rs:            "cannot move enrollment from '{}' to '{}'",
+plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("invite not found"))?;
+plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+plugins\enrollments\src\services.rs:        .ok_or_else(|| anyhow!("enrollment not found"))?;
+plugins\enrollments\src\services.rs:            "an enrollment in state '{}' cannot be re-enrolled",
+plugins\enrollments\src\services.rs:        return Err(anyhow!("forbidden: you cannot re-enroll this student"));
+plugins\frontend\src\admin_pages.rs:    let mut notice: Signal<Option<String>> = use_signal(|| None);
+plugins\frontend\src\admin_pages.rs:            if let Some(msg) = notice() {
+plugins\frontend\src\admin_pages.rs:                            notice.set(Some(msg));
+plugins\frontend\src\admin_pages.rs:                            notice.set(None);
+plugins\frontend\src\admin_pages.rs:                        on_error: move |msg: String| { error.set(Some(msg)); notice.set(None); },
+plugins\frontend\src\admin_pages.rs:                        on_notice: move |msg: String| { notice.set(Some(msg)); error.set(None); },
+plugins\frontend\src\admin_pages.rs:    on_notice: EventHandler<String>,
+plugins\frontend\src\admin_pages.rs:                            on_notice,
+plugins\frontend\src\admin_pages.rs:    on_notice: EventHandler<String>,
+plugins\frontend\src\admin_pages.rs:                                                    on_notice.call(if held {
+plugins\frontend\src\admin_pages.rs:                        span { class: "admin-chip orphan", title: "Role not in the role list", "…" }
+plugins\frontend\src\admin_pages.rs:                                            on_notice.call(format!("Deleted account “{uname}”."));
+plugins\frontend\src\admin_pages.rs:    let mut notice: Signal<Option<String>> = use_signal(|| None);
+plugins\frontend\src\admin_pages.rs:                if let Some(msg) = notice() {
+plugins\frontend\src\admin_pages.rs:                    div { class: "admin-notice",
+plugins\frontend\src\admin_pages.rs:                                    on_notice: move |m| notice.set(Some(m)),
+plugins\frontend\src\admin_pages.rs:    on_notice: EventHandler<String>,
+plugins\frontend\src\admin_pages.rs:                                                on_notice.call(if held {
+plugins\frontend\src\assignments_ui.rs:    // Precompute (id, label) pairs outside the rsx (rsx! `let` cannot call methods).
+plugins\frontend\src\assignments_ui.rs:                                                            None => message.set(Some("Not signed in.".into())),
+plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+plugins\frontend\src\auth_bridge.rs:        return Err(anyhow!("auth service is unavailable (Redis not connected)"));
+plugins\frontend\src\content_ui.rs:                                error.set(Some("Not authenticated".to_string()));
+plugins\frontend\src\content_ui.rs:                            error.set(Some("Not authenticated".to_string()));
+plugins\frontend\src\dashboard.rs:use crate::mock_data::NOTIFICATIONS;
+plugins\frontend\src\dashboard.rs:    pub(crate) notif_open: Signal<bool>,
+plugins\frontend\src\dashboard.rs:    // NOTE: hooks must be created at the top level of the component, never inside
+plugins\frontend\src\dashboard.rs:    // another hook's closure. Calling `use_signal` inside `use_context_provider`'s
+plugins\frontend\src\dashboard.rs:    let notif_open = use_signal(|| false);
+plugins\frontend\src\dashboard.rs:        notif_open,
+plugins\frontend\src\dashboard.rs:    let mut notif_open = ctx.notif_open;
+plugins\frontend\src\dashboard.rs:                    onclick: move |_| notif_open.set(!notif_open()),
+plugins\frontend\src\dashboard.rs:                    span { class: "material-symbols-outlined", "notifications" }
+plugins\frontend\src\dashboard.rs:                if notif_open() {
+plugins\frontend\src\dashboard.rs:                    div { class: "notif-panel",
+plugins\frontend\src\dashboard.rs:                        div { class: "notif-head",
+plugins\frontend\src\dashboard.rs:                            span { "Notifications" }
+plugins\frontend\src\dashboard.rs:                                onclick: move |_| notif_open.set(false),
+plugins\frontend\src\dashboard.rs:                            for & (icon , title , sub , tone) in NOTIFICATIONS {
+plugins\frontend\src\db.rs://! SQLx and the PostgreSQL driver cannot be compiled to WASM (the client).
+plugins\frontend\src\db.rs:/// If PostgreSQL is not reachable we log a warning and continue, so the Dioxus
+plugins\frontend\src\db.rs:            eprintln!("[sqlx] warning: could not connect to PostgreSQL at {url}: {err}");
+plugins\frontend\src\google_classroom_bridge.rs:    std::env::var(var).map_err(|_| anyhow!("{var} is not set (check .env)"))
+plugins\frontend\src\google_classroom_bridge.rs:        return Err(anyhow!("Google account email is not verified"));
+plugins\frontend\src\google_classroom_bridge.rs:/// Revoke a Google session. JWT-backed sessions cannot be individually revoked
+plugins\frontend\src\google_sessions.rs://! NOTE: the current Google sign-in flow mints short-lived JWTs via the auth
+plugins\frontend\src\google_sessions.rs://! NOT use opaque Redis tokens. This module is kept only as a self-contained
+plugins\frontend\src\google_sessions.rs:/// Refresh session TTL. Returns `false` if the session did not exist.
+plugins\frontend\src\live_classes_ui.rs:                        p { "Nothing scheduled for this course yet." }
+plugins\frontend\src\live_signaling.rs://! Not durable and not distributed: state lives in this process's memory, so
+plugins\frontend\src\main.rs:// SQLx and the PostgreSQL driver cannot be compiled to WASM.
+plugins\frontend\src\main.rs:// the notification operations to external AI clients as MCP tools.
+plugins\frontend\src\main.rs:        // PostgreSQL is not reachable yet — `/api/health` will report it).
+plugins\frontend\src\main.rs:            // Model Context Protocol (Streamable HTTP): E-Lupane's notification
+plugins\frontend\src\main.rs:    #[cfg(not(feature = "server"))]
+plugins\frontend\src\mcp_server.rs://! This exposes E-Lupane's notification operations to external AI clients
+plugins\frontend\src\mcp_server.rs://! act on a signed-in user's notifications instead of a human clicking the bell
+plugins\frontend\src\mcp_server.rs://! AI client ──POST /api/mcp──▶ frontend Axum server ──Redis stream──▶ notifications plugin
+plugins\frontend\src\mcp_server.rs://! Design notes (mirrors the other frontend bridges):
+plugins\frontend\src\mcp_server.rs://! * **The caller can never choose whose notifications to touch.** Every read /
+plugins\frontend\src\mcp_server.rs://!   model cannot ask for another user's data (the plugin's ops only validate
+plugins\frontend\src\mcp_server.rs://!   the JWT, not ownership — see `plugins/notifications/src/handlers.rs`).
+plugins\frontend\src\mcp_server.rs://! Only the notifications plugin is mapped today; adding another plugin means
+plugins\frontend\src\mcp_server.rs:/// The notifications plugin's registered id (`plugins/notifications/plugin.toml`).
+plugins\frontend\src\mcp_server.rs:pub const NOTIFICATIONS_PLUGIN: &str = "com.elupane.notifications";
+plugins\frontend\src\mcp_server.rs:/// Roles the notifications plugin accepts for `notifications.send`
+plugins\frontend\src\mcp_server.rs:/// One generic tool per plugin operation (notifications is excluded — it has
+plugins\frontend\src\mcp_server.rs:/// hand-written typed tools — and `events.subscribe` internals are not
+plugins\frontend\src\mcp_server.rs:/// Ops that remove or irreversibly change data (`annotations.destructiveHint`).
+plugins\frontend\src\mcp_server.rs:        "description": "JSON payload forwarded to the plugin operation. Do not include 'token' — the signed-in session token is injected automatically."
+plugins\frontend\src\mcp_server.rs:/// `?token=...` fallback for clients that cannot set request headers.
+plugins\frontend\src\mcp_server.rs:    /// `token` *inside* the payload — see `plugins/notifications/src/handlers.rs`).
+plugins\frontend\src\mcp_server.rs:                "session user id is not a uuid",
+plugins\frontend\src\mcp_server.rs:        // not a credential failure.
+plugins\frontend\src\mcp_server.rs:        name: "notifications_list",
+plugins\frontend\src\mcp_server.rs:        description: "List every in-app notification of the signed-in user, newest first. Read-only.",
+plugins\frontend\src\mcp_server.rs:        op: "notifications.list",
+plugins\frontend\src\mcp_server.rs:        name: "notifications_unread",
+plugins\frontend\src\mcp_server.rs:        description: "List the signed-in user's unread in-app notifications, newest first. Read-only.",
+plugins\frontend\src\mcp_server.rs:        op: "notifications.unread",
+plugins\frontend\src\mcp_server.rs:        name: "notifications_mark_read",
+plugins\frontend\src\mcp_server.rs:        description: "Mark one of the signed-in user's notifications as read. Mutates state.",
+plugins\frontend\src\mcp_server.rs:        op: "notifications.mark_read",
+plugins\frontend\src\mcp_server.rs:        schema: schema_notification_id,
+plugins\frontend\src\mcp_server.rs:        name: "notifications_mark_all_read",
+plugins\frontend\src\mcp_server.rs:        description: "Mark all of the signed-in user's unread notifications as read. Mutates state; returns how many were marked.",
+plugins\frontend\src\mcp_server.rs:        op: "notifications.mark_all_read",
+plugins\frontend\src\mcp_server.rs:        name: "notifications_send",
+plugins\frontend\src\mcp_server.rs:        description: "Create and deliver an in-app notification to a user. Requires the admin or lecturer role.",
+plugins\frontend\src\mcp_server.rs:        op: "notifications.send",
+plugins\frontend\src\mcp_server.rs:        name: "notifications_preferences_list",
+plugins\frontend\src\mcp_server.rs:        description: "List the signed-in user's per-type notification channel preferences. Read-only.",
+plugins\frontend\src\mcp_server.rs:        op: "notifications.preferences.list",
+plugins\frontend\src\mcp_server.rs:        name: "notifications_preferences_set",
+plugins\frontend\src\mcp_server.rs:        description: "Enable or disable one notification channel (in_app/email/push) for one notification type for the signed-in user. Mutates state.",
+plugins\frontend\src\mcp_server.rs:        op: "notifications.preferences.set",
+plugins\frontend\src\mcp_server.rs:        name: "notifications_deliveries",
+plugins\frontend\src\mcp_server.rs:        description: "List the delivery attempts (channel, status, error) recorded for one notification. Read-only.",
+plugins\frontend\src\mcp_server.rs:        op: "notifications.deliveries",
+plugins\frontend\src\mcp_server.rs:fn schema_notification_id() -> Value {
+plugins\frontend\src\mcp_server.rs:            "notification_id": {
+plugins\frontend\src\mcp_server.rs:                "description": "Id of the notification (as returned by notifications_list)."
+plugins\frontend\src\mcp_server.rs:        "required": ["notification_id"],
+plugins\frontend\src\mcp_server.rs:            "notification_type": {
+plugins\frontend\src\mcp_server.rs:                "description": "Notification category stored on the row (e.g. message, announcement, support, certificate)."
+plugins\frontend\src\mcp_server.rs:            "title": { "type": "string", "description": "Short notification title." },
+plugins\frontend\src\mcp_server.rs:            "body": { "type": "string", "description": "Optional notification body." },
+plugins\frontend\src\mcp_server.rs:                "description": "Optional structured payload stored with the notification."
+plugins\frontend\src\mcp_server.rs:        "required": ["user_id", "notification_type", "title"],
+plugins\frontend\src\mcp_server.rs:            "notification_type": {
+plugins\frontend\src\mcp_server.rs:                "description": "Notification type the preference applies to."
+plugins\frontend\src\mcp_server.rs:        "required": ["notification_type", "channel", "enabled"],
+plugins\frontend\src\mcp_server.rs:            "notification_id": {
+plugins\frontend\src\mcp_server.rs:                "description": "Notification whose delivery log to read."
+plugins\frontend\src\mcp_server.rs:        "required": ["notification_id"],
+plugins\frontend\src\mcp_server.rs:/// Translate MCP tool arguments into the payload the notifications plugin's
+plugins\frontend\src\mcp_server.rs:        // plugin checks the JWT but not ownership, so this is what keeps one
+plugins\frontend\src\mcp_server.rs:        // user's notifications out of reach of another user's agent.
+plugins\frontend\src\mcp_server.rs:        "notifications.list"
+plugins\frontend\src\mcp_server.rs:        | "notifications.unread"
+plugins\frontend\src\mcp_server.rs:        | "notifications.mark_all_read"
+plugins\frontend\src\mcp_server.rs:        | "notifications.preferences.list" => json!({ "token": token, "user_id": user_id }),
+plugins\frontend\src\mcp_server.rs:        "notifications.mark_read" => json!({
+plugins\frontend\src\mcp_server.rs:            "notification_id": arg_str(args, "notification_id")?,
+plugins\frontend\src\mcp_server.rs:        // `notifications.deliveries` names its input `id` (`dto::IdRequest`).
+plugins\frontend\src\mcp_server.rs:        "notifications.deliveries" => json!({
+plugins\frontend\src\mcp_server.rs:            "id": arg_str(args, "notification_id")?,
+plugins\frontend\src\mcp_server.rs:        "notifications.preferences.set" => json!({
+plugins\frontend\src\mcp_server.rs:            "notification_type": arg_str(args, "notification_type")?,
+plugins\frontend\src\mcp_server.rs:        "notifications.send" => {
+plugins\frontend\src\mcp_server.rs:                "notification_type".to_string(),
+plugins\frontend\src\mcp_server.rs:                arg_str(args, "notification_type")?.into(),
+plugins\frontend\src\mcp_server.rs:/// The plugin ops that only read state (`annotations.readOnlyHint`).
+plugins\frontend\src\mcp_server.rs:/// The `tools/list` payload: hand-written notification tools plus one generic
+plugins\frontend\src\mcp_server.rs:                "annotations": { "readOnlyHint": is_read_only(spec.op) }
+plugins\frontend\src\mcp_server.rs:            "annotations": {
+plugins\frontend\src\mcp_server.rs:    // Hand-written notification tools first, then the generic catalog.
+plugins\frontend\src\mcp_server.rs:        dispatch_plugin(NOTIFICATIONS_PLUGIN, spec.op, payload).await
+plugins\frontend\src\mcp_server.rs:/// Handle one JSON-RPC message. `None` means "notification → no response body".
+plugins\frontend\src\mcp_server.rs:    // A message without `id` is a JSON-RPC notification (e.g.
+plugins\frontend\src\mcp_server.rs:    // `notifications/initialized`): it is executed but never answered.
+plugins\frontend\src\mcp_server.rs:                    "instructions": "Tools for every E-Lupane plugin operation: notifications, academics, analytics, assignments, auth, certificates, content, course management, enrollments, grades, institution management, learning progress, live classes, media, messaging, quizzes, search and support. The signed-in session token is injected automatically — never pass 'token' or 'admin_token'. Role and ownership checks are enforced by each plugin; destructive operations are marked and should be confirmed with the user first."
+plugins\frontend\src\mcp_server.rs:        other => Some(rpc_error(id, -32601, &format!("method not found: {other}"))),
+plugins\frontend\src\mcp_server.rs:        // JSON-RPC batch: answer each message, dropping the notifications.
+plugins\frontend\src\mcp_server.rs:        // Nothing but notifications was sent.
+plugins\frontend\src\mcp_server.rs:    // nothing is stored server-side.
+plugins\frontend\src\mcp_server.rs:        StatusCode::METHOD_NOT_ALLOWED,
+plugins\frontend\src\mcp_server.rs:        "SSE streaming is not offered by this server; POST JSON-RPC to this endpoint.",
+plugins\frontend\src\mcp_server.rs:/// 202 Accepted with an empty body (JSON-RPC notifications get no response).
+plugins\frontend\src\mock_data.rs:    PluginRow { name: "notifications", lang: "Python", version: "0.1.0", status: "running", signed: true, port: 9106 },
+plugins\frontend\src\mock_data.rs:    pub note: &'static str,
+plugins\frontend\src\mock_data.rs:    Sdk { lang: "Rust", version: "0.1.0", status: "available", note: "Native, first-class support" },
+plugins\frontend\src\mock_data.rs:    Sdk { lang: "Python", version: "0.1.0", status: "available", note: "Built with maturin" },
+plugins\frontend\src\mock_data.rs:    Sdk { lang: "WebAssembly", version: "0.1.0-beta", status: "review", note: "Sandboxed WASM plugins" },
+plugins\frontend\src\mock_data.rs:    Sdk { lang: "PHP", version: "—", status: "pending", note: "Structured shared objects" },
+plugins\frontend\src\mock_data.rs:    Sdk { lang: "C#", version: "—", status: "pending", note: "On the roadmap" },
+plugins\frontend\src\mock_data.rs:            Msg { text: "Hi Thandiwe, I noticed your submission for 'Sorting algorithms — Part 2' came in just before the deadline.", sent: false, time: "09:20" },
+plugins\frontend\src\mock_data.rs:// --- Notifications ----------------------------------------------------------
+plugins\frontend\src\mock_data.rs:pub(crate) const NOTIFICATIONS: &[(&str, &str, &str, &str)] = &[
+plugins\frontend\src\mock_pages.rs:            SectionTitle { title: "Messages", subtitle: "Conversations and notifications" },
+plugins\frontend\src\mock_pages.rs:                        p { class: "muted", style: "font-size: 13px; flex: 1", "{s.note}" }
+plugins\frontend\src\server_functions.rs:/// table does not exist yet (migrations are currently empty) this returns a
+plugins\frontend\src\server_functions.rs:        crate::db::pool().ok_or_else(|| anyhow::anyhow!("database not available"))?;
+plugins\frontend\src\server_functions.rs:    // 1. Google OAuth session (opaque UUID — cannot be an auth-plugin JWT).
+plugins\frontend\src\server_functions.rs:/// session server-side; password-issued JWTs cannot be revoked (no logout RPC
+plugins\frontend\src\server_functions.rs:// `/ws/live/{session_id}` WebSocket (see `live_signaling`), not these RPCs.
+plugins\grades\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\grades\src\repository.rs:           ON CONFLICT (source_type, source_id) WHERE source_type NOT IN ('manual') DO UPDATE SET
+plugins\grades\src\services.rs:    let existing = repository::get_entry(pool, req.id).await?.ok_or_else(|| anyhow::anyhow!("not found"))?;
+plugins\institution_management\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\institution_management\src\authz.rs:        assert!(verify_token("not-a-real-token").is_err());
+plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("institution not found"))?;
+plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("institution not found"))?;
+plugins\institution_management\src\services.rs:        return Err(anyhow!("institution not found"));
+plugins\institution_management\src\services.rs:        return Err(anyhow!("institution not found"));
+plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("campus not found"))?;
+plugins\institution_management\src\services.rs:        .ok_or_else(|| anyhow!("campus not found"))?;
+plugins\institution_management\src\services.rs:        return Err(anyhow!("campus not found"));
+plugins\institution_management\src\services.rs:        assert!(validate_code("lower", "campus").is_err()); // not upper-case
+plugins\learning_progress\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\learning_progress\src\repository.rs:           ON CONFLICT (student_id, course_id, lesson_id) WHERE lesson_id IS NOT NULL
+plugins\learning_progress\src\services.rs:        status: "not_started".to_string(),
+plugins\learning_progress\src\services.rs:            status: "not_started".to_string(),
+plugins\learning_progress\src\services.rs:            status: "not_started".to_string(),
+plugins\learning_progress\src\services.rs:    let not_started = progresses.iter().find(|p| p.status == "not_started");
+plugins\learning_progress\src\services.rs:    if let Some(progress) = not_started {
+plugins\live_classes\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+plugins\live_classes\src\services.rs:        .ok_or_else(|| anyhow!("session not found"))?;
+plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you do not manage this course"));
+plugins\live_classes\src\services.rs:        .ok_or_else(|| anyhow!("session not found"))?;
+plugins\live_classes\src\services.rs:        .ok_or_else(|| anyhow!("session not found"))
+plugins\live_classes\src\services.rs:        return Err(anyhow!("this session is not currently joinable"));
+plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+plugins\live_classes\src\services.rs:        return Err(anyhow!("message cannot be empty"));
+plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+plugins\live_classes\src\services.rs:        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+plugins\media\src\services.rs:    STORAGE_PATH.get().expect("Storage path not initialized")
+plugins\media\src\services.rs:    let file = file.ok_or_else(|| anyhow::anyhow!("file not found"))?;
+plugins\media\src\services.rs:        return Err(anyhow::anyhow!("file not found on storage"));
+plugins\media\src\services.rs:    let file = updated.ok_or_else(|| anyhow::anyhow!("file not found"))?;
+plugins\media\src\services.rs:    let file = file.ok_or_else(|| anyhow::anyhow!("file not found"))?;
+plugins\media\src\services.rs:        return Err(anyhow::anyhow!("file not ready for download"));
+plugins\media\src\services.rs:    let file = file.ok_or_else(|| anyhow::anyhow!("file not found"))?;
+plugins\media\src\services.rs:    let file = file.ok_or_else(|| anyhow::anyhow!("file not found"))?;
+plugins\messaging\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\messaging\src\services.rs:    let topic = repository::get_topic(pool, req.id).await?.ok_or_else(|| anyhow::anyhow!("topic not found"))?;
+plugins\messaging\src\services.rs:    let topic = repository::get_topic(pool, id).await?.ok_or_else(|| anyhow::anyhow!("topic not found"))?;
+plugins\messaging\src\services.rs:    let topic = repository::get_topic(pool, req.topic_id).await?.ok_or_else(|| anyhow::anyhow!("topic not found"))?;
+plugins\messaging\src\services.rs:        anyhow::bail!("not a participant");
+plugins\notifications\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\notifications\src\dto.rs:pub struct CreateNotificationRequest {
+plugins\notifications\src\dto.rs:    pub notification_type: String,
+plugins\notifications\src\dto.rs:pub struct NotificationResponse {
+plugins\notifications\src\dto.rs:    pub notification_type: String,
+plugins\notifications\src\dto.rs:    pub notification_id: Uuid,
+plugins\notifications\src\dto.rs:    pub notification_type: String,
+plugins\notifications\src\dto.rs:pub struct NotificationPreferenceResponse {
+plugins\notifications\src\dto.rs:    pub notification_type: String,
+plugins\notifications\src\dto.rs:pub struct NotificationDeliveryResponse {
+plugins\notifications\src\dto.rs:    pub notification_id: Uuid,
+plugins\notifications\src\handlers.rs:pub const PLUGIN_ID: &str = "com.elupane.notifications";
+plugins\notifications\src\handlers.rs:        Err(err) => Message::error_reply(command, PLUGIN_ID, "notifications.error", &err.to_string()),
+plugins\notifications\src\handlers.rs:        "notifications.send" => {
+plugins\notifications\src\handlers.rs:            let req: CreateNotificationRequest = parse_payload(&command.payload)?;
+plugins\notifications\src\handlers.rs:            let view = services::create_notification(pool, &claims, req).await?;
+plugins\notifications\src\handlers.rs:        "notifications.list" => {
+plugins\notifications\src\handlers.rs:            let view = services::list_user_notifications(pool, req.user_id, false).await?;
+plugins\notifications\src\handlers.rs:        "notifications.unread" => {
+plugins\notifications\src\handlers.rs:            let view = services::list_user_notifications(pool, req.user_id, true).await?;
+plugins\notifications\src\handlers.rs:        "notifications.mark_read" => {
+plugins\notifications\src\handlers.rs:            let view = services::mark_read(pool, req.notification_id).await?;
+plugins\notifications\src\handlers.rs:        "notifications.mark_all_read" => {
+plugins\notifications\src\handlers.rs:        "notifications.preferences.set" => {
+plugins\notifications\src\handlers.rs:        "notifications.preferences.list" => {
+plugins\notifications\src\handlers.rs:        "notifications.deliveries" => {
+plugins\notifications\src\main.rs://! Notification system plugin: in-app, email, push notifications with preferences.
+plugins\notifications\src\main.rs://! commands from `elupane:commands:com.elupane.notifications` → reply → ack.
+plugins\notifications\src\main.rs:const PLUGIN_ID: &str = "com.elupane.notifications";
+plugins\notifications\src\main.rs:    println!("Notifications Plugin Started");
+plugins\notifications\src\main.rs:    println!("[notifications] connected to Redis at {redis_url}");
+plugins\notifications\src\main.rs:    sqlx::raw_sql(include_str!("../migrations/0012_notifications.sql"))
+plugins\notifications\src\main.rs:    println!("[notifications] database ready");
+plugins\notifications\src\main.rs:        "notifications.read",
+plugins\notifications\src\main.rs:        "notifications.write",
+plugins\notifications\src\main.rs:        "notifications.preferences.read",
+plugins\notifications\src\main.rs:        "notifications.preferences.write",
+plugins\notifications\src\main.rs:    println!("[notifications] capabilities announced");
+plugins\notifications\src\main.rs:    // Consume support-domain events and turn them into in-app notifications.
+plugins\notifications\src\main.rs:                    eprintln!("[notifications] support event subscribe failed: {err}");
+plugins\notifications\src\main.rs:                    eprintln!("[notifications] failed to ingest support event: {err}");
+plugins\notifications\src\main.rs:                    println!("[notifications] heartbeat");
+plugins\notifications\src\main.rs:                        println!("[notifications] executing {}", consumed.message.op);
+plugins\notifications\src\main.rs:                            println!("[notifications] failed to send reply: {err}");
+plugins\notifications\src\main.rs:                            println!("[notifications] failed to ack: {err}");
+plugins\notifications\src\main.rs:                        println!("[notifications] consume error: {err}");
+plugins\notifications\src\main.rs:                println!("[notifications] shutting down");
+plugins\notifications\src\models.rs:pub struct Notification {
+plugins\notifications\src\models.rs:    pub notification_type: String,
+plugins\notifications\src\models.rs:pub struct NotificationPreference {
+plugins\notifications\src\models.rs:    pub notification_type: String,
+plugins\notifications\src\models.rs:pub struct NotificationDelivery {
+plugins\notifications\src\models.rs:    pub notification_id: Uuid,
+plugins\notifications\src\repository.rs:pub async fn create_notification(pool: &PgPool, notification: &Notification) -> anyhow::Result<Notification> {
+plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, Notification>(
+plugins\notifications\src\repository.rs:        r#"INSERT INTO notifications (id, user_id, type, title, body, data, read, read_at, created_at)
+plugins\notifications\src\repository.rs:    .bind(notification.id)
+plugins\notifications\src\repository.rs:    .bind(notification.user_id)
+plugins\notifications\src\repository.rs:    .bind(&notification.notification_type)
+plugins\notifications\src\repository.rs:    .bind(&notification.title)
+plugins\notifications\src\repository.rs:    .bind(&notification.body)
+plugins\notifications\src\repository.rs:    .bind(&notification.data)
+plugins\notifications\src\repository.rs:    .bind(notification.read)
+plugins\notifications\src\repository.rs:    .bind(notification.read_at)
+plugins\notifications\src\repository.rs:    .bind(notification.created_at)
+plugins\notifications\src\repository.rs:pub async fn get_notification(pool: &PgPool, id: Uuid) -> anyhow::Result<Option<Notification>> {
+plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, Notification>("SELECT * FROM notifications WHERE id = $1")
+plugins\notifications\src\repository.rs:pub async fn list_user_notifications(pool: &PgPool, user_id: Uuid, unread_only: bool) -> anyhow::Result<Vec<Notification>> {
+plugins\notifications\src\repository.rs:        "SELECT * FROM notifications WHERE user_id = $1 AND read = false ORDER BY created_at DESC"
+plugins\notifications\src\repository.rs:        "SELECT * FROM notifications WHERE user_id = $1 ORDER BY created_at DESC"
+plugins\notifications\src\repository.rs:    let rows = sqlx::query_as::<_, Notification>(sql)
+plugins\notifications\src\repository.rs:pub async fn mark_read(pool: &PgPool, id: Uuid) -> anyhow::Result<Notification> {
+plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, Notification>(
+plugins\notifications\src\repository.rs:        r#"UPDATE notifications SET read = true, read_at = now() WHERE id = $1
+plugins\notifications\src\repository.rs:    let result = sqlx::query("UPDATE notifications SET read = true, read_at = now() WHERE user_id = $1 AND read = false")
+plugins\notifications\src\repository.rs:pub async fn set_preference(pool: &PgPool, preference: &NotificationPreference) -> anyhow::Result<NotificationPreference> {
+plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, NotificationPreference>(
+plugins\notifications\src\repository.rs:        r#"INSERT INTO notification_preferences (id, user_id, notification_type, channel, enabled, updated_at)
+plugins\notifications\src\repository.rs:           ON CONFLICT (user_id, notification_type, channel) DO UPDATE SET enabled = EXCLUDED.enabled, updated_at = EXCLUDED.updated_at
+plugins\notifications\src\repository.rs:           RETURNING id, user_id, notification_type, channel, enabled, updated_at"#,
+plugins\notifications\src\repository.rs:    .bind(&preference.notification_type)
+plugins\notifications\src\repository.rs:pub async fn list_preferences(pool: &PgPool, user_id: Uuid) -> anyhow::Result<Vec<NotificationPreference>> {
+plugins\notifications\src\repository.rs:    let rows = sqlx::query_as::<_, NotificationPreference>("SELECT * FROM notification_preferences WHERE user_id = $1")
+plugins\notifications\src\repository.rs:pub async fn create_delivery(pool: &PgPool, delivery: &NotificationDelivery) -> anyhow::Result<NotificationDelivery> {
+plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, NotificationDelivery>(
+plugins\notifications\src\repository.rs:        r#"INSERT INTO notification_deliveries (id, notification_id, channel, status, error_message, delivered_at, created_at)
+plugins\notifications\src\repository.rs:           RETURNING id, notification_id, channel, status, error_message, delivered_at, created_at"#,
+plugins\notifications\src\repository.rs:    .bind(delivery.notification_id)
+plugins\notifications\src\repository.rs:pub async fn update_delivery(pool: &PgPool, id: Uuid, status: &str, error_message: Option<&str>) -> anyhow::Result<NotificationDelivery> {
+plugins\notifications\src\repository.rs:    let row = sqlx::query_as::<_, NotificationDelivery>(
+plugins\notifications\src\repository.rs:        r#"UPDATE notification_deliveries SET status = $2, error_message = COALESCE($3, error_message), delivered_at = CASE WHEN $2 = 'sent' THEN now() ELSE delivered_at END WHERE id = $1
+plugins\notifications\src\repository.rs:           RETURNING id, notification_id, channel, status, error_message, delivered_at, created_at"#,
+plugins\notifications\src\repository.rs:pub async fn list_deliveries(pool: &PgPool, notification_id: Uuid) -> anyhow::Result<Vec<NotificationDelivery>> {
+plugins\notifications\src\repository.rs:    let rows = sqlx::query_as::<_, NotificationDelivery>("SELECT * FROM notification_deliveries WHERE notification_id = $1 ORDER BY created_at")
+plugins\notifications\src\repository.rs:        .bind(notification_id)
+plugins\notifications\src\services.rs:pub async fn create_notification(pool: &PgPool, claims: &Claims, req: CreateNotificationRequest) -> anyhow::Result<Notification> {
+plugins\notifications\src\services.rs:    let notification = Notification {
+plugins\notifications\src\services.rs:        notification_type: req.notification_type,
+plugins\notifications\src\services.rs:    repository::create_notification(pool, &notification).await
+plugins\notifications\src\services.rs:pub async fn get_notification(pool: &PgPool, notification_id: Uuid) -> anyhow::Result<Option<Notification>> {
+plugins\notifications\src\services.rs:    repository::get_notification(pool, notification_id).await
+plugins\notifications\src\services.rs:pub async fn list_user_notifications(pool: &PgPool, user_id: Uuid, unread_only: bool) -> anyhow::Result<Vec<Notification>> {
+plugins\notifications\src\services.rs:    repository::list_user_notifications(pool, user_id, unread_only).await
+plugins\notifications\src\services.rs:pub async fn mark_read(pool: &PgPool, notification_id: Uuid) -> anyhow::Result<Notification> {
+plugins\notifications\src\services.rs:    repository::mark_read(pool, notification_id).await
+plugins\notifications\src\services.rs:pub async fn set_preference(pool: &PgPool, claims: &Claims, req: SetPreferenceRequest) -> anyhow::Result<NotificationPreference> {
+plugins\notifications\src\services.rs:    let preference = NotificationPreference {
+plugins\notifications\src\services.rs:        notification_type: req.notification_type,
+plugins\notifications\src\services.rs:pub async fn list_preferences(pool: &PgPool, user_id: Uuid) -> anyhow::Result<Vec<NotificationPreference>> {
+plugins\notifications\src\services.rs:pub async fn get_deliveries(pool: &PgPool, notification_id: Uuid) -> anyhow::Result<Vec<NotificationDelivery>> {
+plugins\notifications\src\services.rs:    repository::list_deliveries(pool, notification_id).await
+plugins\notifications\src\services.rs:pub async fn create_delivery(pool: &PgPool, delivery: &NotificationDelivery) -> anyhow::Result<NotificationDelivery> {
+plugins\notifications\src\services.rs:pub async fn update_delivery(pool: &PgPool, id: Uuid, status: &str, error_message: Option<&str>) -> anyhow::Result<NotificationDelivery> {
+plugins\notifications\src\services.rs:/// Persist a single in-app notification (+ a "sent" in_app delivery row).
+plugins\notifications\src\services.rs:    let notification = Notification {
+plugins\notifications\src\services.rs:        notification_type: "support".to_string(),
+plugins\notifications\src\services.rs:    let notification = repository::create_notification(pool, &notification).await?;
+plugins\notifications\src\services.rs:    let delivery = NotificationDelivery {
+plugins\notifications\src\services.rs:        notification_id: notification.id,
+plugins\notifications\src\services.rs:/// Handle a support-domain event: translate it into in-app notifications for the
+plugins\notifications\src\services.rs:                    // A staff member replied -> notify the ticket requester.
+plugins\notifications\src\services.rs:                    // A user replied -> notify support staff.
+plugins\quizzes\src\authz.rs:        Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\quizzes\src\services.rs:    let quiz = repository::get_quiz(pool, req.quiz_id).await?.ok_or_else(|| anyhow::anyhow!("quiz not found"))?;
+plugins\quizzes\src\services.rs:        anyhow::bail!("quiz is not published");
+plugins\quizzes\src\services.rs:    let attempt = repository::get_attempt(pool, req.attempt_id).await?.ok_or_else(|| anyhow::anyhow!("attempt not found"))?;
+plugins\quizzes\src\services.rs:        anyhow::bail!("attempt is not in progress");
+plugins\quizzes\src\services.rs:        anyhow::bail!("not your attempt");
+plugins\quizzes\src\services.rs:    let attempt = repository::get_attempt(pool, req.attempt_id).await?.ok_or_else(|| anyhow::anyhow!("attempt not found"))?;
+plugins\quizzes\src\services.rs:        anyhow::bail!("attempt is not in progress");
+plugins\quizzes\src\services.rs:        anyhow::bail!("not your attempt");
+plugins\quizzes\src\services.rs:    let attempt = repository::get_attempt(pool, attempt_id).await?.ok_or_else(|| anyhow::anyhow!("attempt not found"))?;
+plugins\quizzes\src\services.rs:    let quiz = repository::get_quiz(pool, quiz_id).await?.ok_or_else(|| anyhow::anyhow!("quiz not found"))?;
+plugins\support\src\authz.rs:        uuid::Uuid::parse_str(&self.sub).map_err(|_| anyhow!("token subject is not a valid user id"))
+plugins\support\src\services.rs:/// notifications plugin can alert the right people. Never fails the operation.
+plugins\support\src\services.rs:        return Err(anyhow!("ticket subject must not be empty"));
+plugins\support\src\services.rs:        .ok_or_else(|| anyhow!("ticket not found"))?;
+plugins\support\src\services.rs:        return Err(anyhow!("forbidden: ticket belongs to another user"));
+plugins\support\src\services.rs:        .ok_or_else(|| anyhow!("ticket not found"))?;
+plugins\support\src\services.rs:        return Err(anyhow!("forbidden: ticket belongs to another user"));
+plugins\support\src\services.rs:        return Err(anyhow!("message body must not be empty"));
+plugins\support\src\services.rs:        return Err(anyhow!("FAQ title must not be empty"));

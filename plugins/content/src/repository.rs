@@ -401,3 +401,99 @@ pub async fn delete_file(pool: &PgPool, id: Uuid) -> Result<bool> {
         .await?;
     Ok(res.rows_affected() > 0)
 }
+
+// ---------------------------------------------------------------------------
+// Course access control (shared read model across content objects)
+// ---------------------------------------------------------------------------
+
+/// The caller's level of access to a course's content.
+///
+/// * `None`   — not the owner/instructor and not an active enrollee.
+/// * `View`   — actively enrolled student: may read/download content.
+/// * `Manage` — course owner or an authorised instructor: may author content.
+///
+/// Admins are treated as `Manage` by the service layer (they are not stored on
+/// the `courses` row, so they are checked from the JWT roles before this query).
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+pub enum CourseAccess {
+    None,
+    View,
+    Manage,
+}
+
+/// Resolve how much access `user_id` has to `course_id`'s content.
+pub async fn course_access(pool: &PgPool, user_id: Uuid, course_id: Uuid) -> Result<CourseAccess> {
+    let lvl: Option<String> = sqlx::query_scalar(
+        "SELECT CASE \
+            WHEN EXISTS (SELECT 1 FROM courses c \
+                         WHERE c.id = $2 AND (c.owner_id = $1 OR c.created_by = $1)) THEN 'manage' \
+            WHEN EXISTS (SELECT 1 FROM course_instructors ci \
+                         WHERE ci.course_id = $2 AND ci.user_id = $1) THEN 'manage' \
+            WHEN EXISTS (SELECT 1 FROM course_enrollments ce \
+                         WHERE ce.course_id = $2 AND ce.student_id = $1 AND ce.state = 'active') THEN 'view' \
+            ELSE 'none' \
+         END",
+    )
+    .bind(user_id)
+    .bind(course_id)
+    .fetch_one(pool)
+    .await?;
+
+    Ok(match lvl.as_deref() {
+        Some("manage") => CourseAccess::Manage,
+        Some("view") => CourseAccess::View,
+        _ => CourseAccess::None,
+    })
+}
+
+/// The parent course of a module (if any).
+pub async fn module_course_id(pool: &PgPool, module_id: Uuid) -> Result<Option<Uuid>> {
+    Ok(sqlx::query_scalar("SELECT course_id FROM content_modules WHERE id = $1")
+        .bind(module_id)
+        .fetch_optional(pool)
+        .await?)
+}
+
+/// The parent course of a lesson (via its module).
+pub async fn lesson_course_id(pool: &PgPool, lesson_id: Uuid) -> Result<Option<Uuid>> {
+    Ok(sqlx::query_scalar(
+        "SELECT m.course_id \
+         FROM content_lessons l \
+         JOIN content_modules m ON m.id = l.module_id \
+         WHERE l.id = $1",
+    )
+    .bind(lesson_id)
+    .fetch_optional(pool)
+    .await?)
+}
+
+/// The parent course of a content item (via lesson -> module).
+pub async fn item_course_id(pool: &PgPool, item_id: Uuid) -> Result<Option<Uuid>> {
+    Ok(sqlx::query_scalar(
+        "SELECT m.course_id \
+         FROM content_items i \
+         JOIN content_lessons l ON l.id = i.lesson_id \
+         JOIN content_modules m ON m.id = l.module_id \
+         WHERE i.id = $1",
+    )
+    .bind(item_id)
+    .fetch_optional(pool)
+    .await?)
+}
+
+/// Find a module by its course and title (used to idempotently ensure a
+/// well-known "Course Materials" container when a creator uploads content).
+pub async fn find_module_by_course_title(
+    pool: &PgPool,
+    course_id: Uuid,
+    title: &str,
+) -> Result<Option<ContentModule>> {
+    Ok(sqlx::query_as::<_, ContentModule>(AssertSqlSafe(format!(
+        "SELECT {MODULE_COLUMNS} FROM content_modules WHERE course_id = $1 AND title = $2 ORDER BY created_at LIMIT 1"
+    )))
+    .bind(course_id)
+    .bind(title)
+    .fetch_optional(pool)
+    .await?)
+}
+

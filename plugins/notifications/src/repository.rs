@@ -126,3 +126,52 @@ pub async fn list_deliveries(pool: &PgPool, notification_id: Uuid) -> anyhow::Re
         .await?;
     Ok(rows)
 }
+
+// ---------------------------------------------------------------------------
+// Support-event recipients (shared database lookups)
+// ---------------------------------------------------------------------------
+
+/// Ids of all users holding at least one of `roles`.
+pub async fn role_user_ids(pool: &PgPool, roles: &[&str]) -> anyhow::Result<Vec<Uuid>> {
+    let roles: Vec<String> = roles.iter().map(|s| s.to_string()).collect();
+    Ok(sqlx::query_scalar(
+        "SELECT DISTINCT u.id \
+         FROM users u \
+         JOIN user_roles ur ON ur.user_id = u.id \
+         JOIN roles r ON r.id = ur.role_id \
+         WHERE r.name = ANY($1::text[])",
+    )
+    .bind(roles)
+    .fetch_all(pool)
+    .await?)
+}
+
+/// Whether `user_id` holds at least one of `roles`.
+pub async fn user_has_role(pool: &PgPool, user_id: Uuid, roles: &[&str]) -> anyhow::Result<bool> {
+    let roles: Vec<String> = roles.iter().map(|s| s.to_string()).collect();
+    Ok(sqlx::query_scalar(
+        "SELECT EXISTS( \
+            SELECT 1 FROM user_roles ur \
+            JOIN roles r ON r.id = ur.role_id \
+            WHERE ur.user_id = $1 AND r.name = ANY($2::text[]) \
+         )",
+    )
+    .bind(user_id)
+    .bind(roles)
+    .fetch_one(pool)
+    .await?)
+}
+
+/// The requester of a support ticket (only if the support plugin's tables exist).
+pub async fn support_ticket_requester(pool: &PgPool, ticket_id: Uuid) -> anyhow::Result<Option<Uuid>> {
+    let exists: Option<String> = sqlx::query_scalar("SELECT to_regclass('public.support_tickets')::text")
+        .fetch_one(pool)
+        .await?;
+    if exists.is_none() {
+        return Ok(None);
+    }
+    Ok(sqlx::query_scalar("SELECT requester_id FROM support_tickets WHERE id = $1")
+        .bind(ticket_id)
+        .fetch_optional(pool)
+        .await?)
+}

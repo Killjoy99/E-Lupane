@@ -13,6 +13,7 @@ chrono.workspace = true
 dotenvy.workspace = true
 sqlx.workspace = true
 jsonwebtoken.workspace = true
+tracing.workspace = true
 
 cache = { path = "../../crates/cache" }
 elupane_core = { path = "../../crates/elupane_core" }

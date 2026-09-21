@@ -886,13 +886,96 @@ pub fn admin_overview() -> Element {
                             div { class: "timeline-item",
                                 span { class: format!("material-symbols-outlined timeline-icon"), "{a.0}" }
                                 div { class: "timeline-content",
-                                    div { class: "timeline-text", "{a.1}" }
+                                                                        div { class: "timeline-text", "{a.1}" }
                                     div { class: "timeline-meta", "{a.2}" }
                                 }
                             }
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// HoD / Dean stub views (departmental & faculty oversight)
+//
+// These are placeholders wired into the role nav; they render a scoped
+// dashboard card so HoD/Dean switching lands somewhere meaningful while the
+// full department/faculty UIs are built out.
+// ---------------------------------------------------------------------------
+
+/// HoD view: subjects under the department the chairperson heads.
+pub fn hod_subjects() -> Element {
+    rsx! {
+        div { class: "page",
+            SectionTitle {
+                title: "Department subjects",
+                subtitle: "Subjects organised under your department"
+            }
+            div { class: "md-card table-card",
+                p { class: "muted", "No subjects assigned to this department yet." }
+            }
+        }
+    }
+}
+
+/// HoD view: departments the chairperson can manage.
+pub fn hod_departments() -> Element {
+    rsx! {
+        div { class: "page",
+            SectionTitle {
+                title: "My departments",
+                subtitle: "Departments you chair within the faculty"
+            }
+            div { class: "md-card table-card",
+                p { class: "muted", "No departments listed for your account." }
+            }
+        }
+    }
+}
+
+/// Dean view: subjects across the faculty the dean heads.
+pub fn dean_subjects() -> Element {
+    rsx! {
+        div { class: "page",
+            SectionTitle {
+                title: "Faculty subjects",
+                subtitle: "All subjects across departments in your faculty"
+            }
+            div { class: "md-card table-card",
+                p { class: "muted", "No subjects found in your faculty." }
+            }
+        }
+    }
+}
+
+/// Dean view: departments under the faculty the dean heads.
+pub fn dean_departments() -> Element {
+    rsx! {
+        div { class: "page",
+            SectionTitle {
+                title: "Faculty departments",
+                subtitle: "Departments within your faculty"
+            }
+            div { class: "md-card table-card",
+                p { class: "muted", "No departments listed for your faculty." }
+            }
+        }
+    }
+}
+
+/// Dean view: faculty-level analytics (placeholder).
+pub fn faculty_analytics() -> Element {
+    rsx! {
+        div { class: "page",
+            SectionTitle {
+                title: "Faculty analytics",
+                subtitle: "Dean-level reporting across departments"
+            }
+            div { class: "md-card table-card",
+                p { class: "muted", "Faculty analytics will appear here." }
             }
         }
     }

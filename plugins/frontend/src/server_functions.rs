@@ -52,24 +52,6 @@ pub async fn health() -> anyhow::Result<Health> {
     })
 }
 
-/// Validates an opaque Google OAuth session and returns the signed-in profile.
-#[post("/api/auth/verify")]
-pub async fn auth_verify(token: String) -> anyhow::Result<AuthSession> {
-    let user = crate::google_classroom_bridge::verify_session(&token)?;
-    Ok(AuthSession {
-        token,
-        user: AuthUser {
-            id: user.id,
-            username: user.username,
-            email: user.email,
-            full_name: user.full_name,
-            active: user.active,
-            roles: user.roles,
-        },
-    })
-}
-
-
 /// `/api/courses` — read rows from the `courses` table using SQLx.
 ///
 /// Requires the E-Lupane migrations to have created the `courses` table. If the
@@ -120,7 +102,7 @@ pub struct Course {
 // ---------------------------------------------------------------------------
 
 /// Authenticated user, as reported by the auth plugin.
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct AuthUser {
     pub id: String,
     pub username: String,
@@ -135,6 +117,12 @@ pub struct AuthUser {
 pub struct AuthSession {
     pub token: String,
     pub user: AuthUser,
+    /// Admin credential for the auth plugin's RBAC API. For password users
+    /// this is the login JWT itself; for Google sessions it is a separate
+    /// admin JWT minted from the shared `AUTH_JWT_SECRET`. `None` when the
+    /// user holds no admin-tier role.
+    #[serde(default)]
+    pub admin_token: Option<String>,
 }
 
 /// Convert the auth plugin's `UserView` into the client-facing `AuthUser`.
@@ -156,22 +144,63 @@ fn to_auth_user(view: crate::auth_bridge::UserView) -> AuthUser {
 #[post("/api/auth/login")]
 pub async fn auth_login(username: String, password: String) -> anyhow::Result<AuthSession> {
     let (token, user) = crate::auth_bridge::login(&username, &password).await?;
+    let is_admin = user
+        .roles
+        .iter()
+        .any(|r| r == "admin" || r == "super_admin");
     Ok(AuthSession {
+        admin_token: if is_admin { Some(token.clone()) } else { None },
         token,
         user: to_auth_user(user),
     })
 }
 
 /// `/api/auth/verify` — validate a stored token and rebuild the session.
+///
+/// Accepts **both** credential kinds:
+/// * opaque Google OAuth session tokens (Redis-backed, minted by the Google
+///   sign-in flow), tried first;
+/// * username/password JWTs issued by the auth plugin (Redis RPC fallback).
 #[post("/api/auth/verify")]
 pub async fn auth_verify(token: String) -> anyhow::Result<AuthSession> {
+    // 1. Google OAuth session (opaque UUID — cannot be an auth-plugin JWT).
+    if let Ok(user) = crate::google_classroom_bridge::verify_session(&token).await {
+        return Ok(AuthSession {
+            admin_token: crate::google_classroom_bridge::mint_admin_jwt(&user),
+            token,
+            user: AuthUser {
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                full_name: user.full_name,
+                active: user.active,
+                roles: user.roles,
+            },
+        });
+    }
+
+    // 2. Username/password JWT from the auth plugin.
     let user = crate::auth_bridge::verify(&token)
         .await?
         .ok_or_else(|| anyhow::anyhow!("session expired or invalid"))?;
+    let is_admin = user
+        .roles
+        .iter()
+        .any(|r| r == "admin" || r == "super_admin");
     Ok(AuthSession {
+        admin_token: if is_admin { Some(token.clone()) } else { None },
         token,
         user: to_auth_user(user),
     })
+}
+
+/// `/api/auth/logout` — revoke the current session. Revokes a Google OAuth
+/// session server-side; password-issued JWTs cannot be revoked (no logout RPC
+/// on the auth plugin) and simply expire client-side.
+#[post("/api/auth/logout")]
+pub async fn auth_logout(token: String) -> anyhow::Result<()> {
+    let _ = crate::google_classroom_bridge::logout(&token).await;
+    Ok(())
 }
 
 // ---------------------------------------------------------------------------
@@ -232,8 +261,8 @@ pub async fn assignments_attach(
 }
 /// Delete an existing user account (admin only).
 #[post("/api/users/delete")]
-pub async fn users_delete(token: String, user_id: String) -> anyhow::Result<()> {
-    crate::auth_bridge::delete_user(&token, &user_id).await
+pub async fn users_delete(admin_token: String, user_id: String) -> anyhow::Result<()> {
+    crate::auth_bridge::delete_user(&admin_token, &user_id).await
 }
 
 /// Create a new user account (admin only).
@@ -247,9 +276,9 @@ pub struct CreateUserInput {
 }
 
 #[post("/api/users/create")]
-pub async fn users_create(token: String, input: CreateUserInput) -> anyhow::Result<AuthUser> {
+pub async fn users_create(admin_token: String, input: CreateUserInput) -> anyhow::Result<AuthUser> {
     let user = crate::auth_bridge::create_user(
-        &token,
+        &admin_token,
         &input.username,
         &input.email,
         &input.password,
@@ -262,8 +291,8 @@ pub async fn users_create(token: String, input: CreateUserInput) -> anyhow::Resu
 
 /// List all users (admin only).
 #[post("/api/users/list")]
-pub async fn users_list(token: String) -> anyhow::Result<Vec<AuthUser>> {
-    let users = crate::auth_bridge::list_users(&token).await?;
+pub async fn users_list(admin_token: String) -> anyhow::Result<Vec<AuthUser>> {
+    let users = crate::auth_bridge::list_users(&admin_token).await?;
     Ok(users.into_iter().map(to_auth_user).collect())
 }
 
@@ -274,7 +303,7 @@ pub struct BulkCreateUserInput {
 }
 
 #[post("/api/users/bulk_create")]
-pub async fn users_bulk_create(token: String, input: BulkCreateUserInput) -> anyhow::Result<Vec<AuthUser>> {
+pub async fn users_bulk_create(admin_token: String, input: BulkCreateUserInput) -> anyhow::Result<Vec<AuthUser>> {
     let bridge_users: Vec<crate::auth_bridge::CreateUserInput> = input
         .users
         .into_iter()
@@ -287,7 +316,7 @@ pub async fn users_bulk_create(token: String, input: BulkCreateUserInput) -> any
             admin_token: None,
         })
         .collect();
-    let users = crate::auth_bridge::bulk_create_users(&token, bridge_users).await?;
+    let users = crate::auth_bridge::bulk_create_users(&admin_token, bridge_users).await?;
     Ok(users.into_iter().map(to_auth_user).collect())
 }
 
@@ -295,6 +324,123 @@ pub async fn users_bulk_create(token: String, input: BulkCreateUserInput) -> any
 #[get("/api/auth/roles")]
 pub async fn auth_roles() -> anyhow::Result<Vec<String>> {
     Ok(crate::auth_bridge::ACCOUNT_TYPES.iter().map(|s| s.to_string()).collect())
+}
+
+// ---------------------------------------------------------------------------
+// RBAC administration (users + role/permission matrix)
+// ---------------------------------------------------------------------------
+
+/// A role with its granted permissions.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct RolePermissionsView {
+    pub id: String,
+    pub name: String,
+    pub description: Option<String>,
+    pub permissions: Vec<String>,
+}
+
+/// A permission definition.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct PermissionDefView {
+    pub id: String,
+    pub name: String,
+    pub description: Option<String>,
+}
+
+fn require_admin_token(admin_token: Option<String>) -> anyhow::Result<String> {
+    admin_token.ok_or_else(|| anyhow::anyhow!("admin role required"))
+}
+
+/// `role.list` — every role with its permission set (admin matrix).
+#[post("/api/admin/roles/list")]
+pub async fn admin_roles_list(admin_token: Option<String>) -> anyhow::Result<Vec<RolePermissionsView>> {
+    let admin_token = require_admin_token(admin_token)?;
+    let roles = crate::auth_bridge::list_roles().await?;
+    Ok(roles
+        .into_iter()
+        .map(|r| RolePermissionsView {
+            id: r.id,
+            name: r.name,
+            description: r.description,
+            permissions: r.permissions,
+        })
+        .collect())
+}
+
+/// `permission.list` — every permission definition.
+#[post("/api/admin/permissions/list")]
+pub async fn admin_permissions_list(
+    admin_token: Option<String>,
+) -> anyhow::Result<Vec<PermissionDefView>> {
+    let admin_token = require_admin_token(admin_token)?;
+    let perms = crate::auth_bridge::list_permissions().await?;
+    Ok(perms
+        .into_iter()
+        .map(|p| PermissionDefView {
+            id: p.id,
+            name: p.name,
+            description: p.description,
+        })
+        .collect())
+}
+
+/// `role.permissions.set` — replace a role's permission set.
+#[post("/api/admin/role/permissions/set")]
+pub async fn admin_role_permissions_set(
+    admin_token: Option<String>,
+    role: String,
+    permissions: Vec<String>,
+) -> anyhow::Result<RolePermissionsView> {
+    let admin_token = require_admin_token(admin_token)?;
+    crate::auth_bridge::set_role_permissions(&admin_token, &role, permissions.clone()).await?;
+    Ok(RolePermissionsView {
+        id: role.clone(),
+        name: role,
+        description: None,
+        permissions,
+    })
+}
+
+/// `role.create` — define a new role (optionally with initial permissions).
+#[post("/api/admin/role/create")]
+pub async fn admin_role_create(
+    admin_token: Option<String>,
+    name: String,
+    description: Option<String>,
+    permissions: Vec<String>,
+) -> anyhow::Result<RolePermissionsView> {
+    let admin_token = require_admin_token(admin_token)?;
+    crate::auth_bridge::create_role(&admin_token, &name, description, permissions.clone()).await?;
+    Ok(RolePermissionsView {
+        id: name.clone(),
+        name,
+        description: None,
+        permissions,
+    })
+}
+
+/// `role.grant` — grant a role to a user (admin matrix / user management).
+#[post("/api/admin/role/grant")]
+pub async fn admin_role_grant(
+    admin_token: Option<String>,
+    user_id: String,
+    role: String,
+) -> anyhow::Result<AuthUser> {
+    let admin_token = require_admin_token(admin_token)?;
+    let user = crate::auth_bridge::grant_role(&admin_token, &user_id, &role).await?;
+    Ok(to_auth_user(user))
+}
+
+/// `role.revoke` — revoke a role from a user.
+#[post("/api/admin/role/revoke")]
+pub async fn admin_role_revoke(
+    admin_token: Option<String>,
+    user_id: String,
+    role: String,
+) -> anyhow::Result<AuthUser> {
+    let admin_token = require_admin_token(admin_token)?;
+    let user = crate::auth_bridge::revoke_role(&admin_token, &user_id, &role).await?;
+    Ok(to_auth_user(user))
 }
 
 /// `/api/assignments/resource/download` — download an attached resource.
@@ -920,4 +1066,94 @@ pub async fn content_files_delete(
 ) -> anyhow::Result<()> {
     crate::content_bridge::delete_file(&token, file_id).await
 }
+
+// ---------------------------------------------------------------------------
+// User Support (backed by the support plugin over the Redis messaging layer)
+// ---------------------------------------------------------------------------
+
+#[post("/api/support/tickets/create")]
+pub async fn support_ticket_create(
+    token: String,
+    input: crate::support_types::CreateTicketInput,
+) -> anyhow::Result<crate::support_types::SupportTicketView> {
+    crate::support_bridge::create_ticket(&token, input).await
+}
+
+#[post("/api/support/tickets/list")]
+pub async fn support_tickets_list(
+    token: String,
+) -> anyhow::Result<Vec<crate::support_types::SupportTicketView>> {
+    crate::support_bridge::list_tickets(&token).await
+}
+
+#[post("/api/support/tickets/get")]
+pub async fn support_ticket_get(
+    token: String,
+    ticket_id: uuid::Uuid,
+) -> anyhow::Result<crate::support_types::SupportTicketDetail> {
+    crate::support_bridge::get_ticket(&token, ticket_id).await
+}
+
+#[post("/api/support/tickets/status")]
+pub async fn support_ticket_set_status(
+    token: String,
+    ticket_id: uuid::Uuid,
+    status: String,
+) -> anyhow::Result<crate::support_types::SupportTicketView> {
+    crate::support_bridge::set_ticket_status(&token, ticket_id, &status).await
+}
+
+#[post("/api/support/messages/create")]
+pub async fn support_message_create(
+    token: String,
+    ticket_id: uuid::Uuid,
+    body: String,
+) -> anyhow::Result<crate::support_types::SupportMessageView> {
+    crate::support_bridge::create_message(&token, ticket_id, &body).await
+}
+
+#[post("/api/support/faq/list")]
+pub async fn support_faq_list(
+    token: String,
+) -> anyhow::Result<Vec<crate::support_types::SupportFaqView>> {
+    crate::support_bridge::list_faq(&token).await
+}
+
+#[post("/api/support/faq/create")]
+pub async fn support_faq_create(
+    token: String,
+    input: crate::support_types::CreateFaqInput,
+) -> anyhow::Result<crate::support_types::SupportFaqView> {
+    crate::support_bridge::create_faq(&token, input).await
+}
+
+#[post("/api/support/tickets/assign")]
+pub async fn support_ticket_assign(
+    token: String,
+    ticket_id: uuid::Uuid,
+    assignee_id: Option<uuid::Uuid>,
+) -> anyhow::Result<crate::support_types::SupportTicketView> {
+    crate::support_bridge::assign_ticket(&token, ticket_id, assignee_id).await
+}
+
+#[post("/api/support/faq/update")]
+pub async fn support_faq_update(
+    token: String,
+    faq_id: uuid::Uuid,
+    title: Option<String>,
+    body: Option<String>,
+    category: Option<String>,
+    published: Option<bool>,
+) -> anyhow::Result<crate::support_types::SupportFaqView> {
+    crate::support_bridge::update_faq(&token, faq_id, title, body, category, published).await
+}
+
+#[post("/api/support/faq/delete")]
+pub async fn support_faq_delete(
+    token: String,
+    faq_id: uuid::Uuid,
+) -> anyhow::Result<()> {
+    crate::support_bridge::delete_faq(&token, faq_id).await
+}
+
 

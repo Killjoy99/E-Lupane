@@ -277,7 +277,20 @@ dependencies = [
 name = "certificates"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
+ "cache",
+ "chrono",
+ "dotenvy",
+ "elupane_core",
+ "jsonwebtoken",
+ "permissions",
+ "rand 0.9.5",
+ "rust_sdk",
+ "serde",
+ "serde_json",
+ "sqlx",
  "tokio",
+ "uuid",
 ]
 
 [[package]]
@@ -414,13 +427,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "courses"
-version = "0.1.0"
-dependencies = [
- "tokio",
-]
-
-[[package]]
 name = "cpufeatures"
 version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -530,13 +536,6 @@ dependencies = [
  "block-buffer 0.12.1",
  "crypto-common 0.2.2",
  "ctutils",
-]
-
-[[package]]
-name = "discussions"
-version = "0.1.0"
-dependencies = [
- "tokio",
 ]
 
 [[package]]
@@ -666,13 +665,6 @@ dependencies = [
 
 [[package]]
 name = "exams"
-version = "0.1.0"
-dependencies = [
- "tokio",
-]
-
-[[package]]
-name = "files"
 version = "0.1.0"
 dependencies = [
  "tokio",
@@ -1238,6 +1230,7 @@ dependencies = [
  "serde_json",
  "sqlx",
  "tokio",
+ "tracing",
  "uuid",
 ]
 
@@ -1273,6 +1266,29 @@ checksum = "69b6441f590336821bb897fb28fc622898ccceb1d6cea3fde5ea86b090c4de98"
 dependencies = [
  "cfg-if",
  "digest 0.11.3",
+]
+
+[[package]]
+name = "media"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "base64",
+ "cache",
+ "chrono",
+ "dotenvy",
+ "elupane_core",
+ "hex",
+ "jsonwebtoken",
+ "permissions",
+ "rust_sdk",
+ "serde",
+ "serde_json",
+ "sha2 0.10.9",
+ "sqlx",
+ "tokio",
+ "tokio-util",
+ "uuid",
 ]
 
 [[package]]
@@ -1346,7 +1362,9 @@ dependencies = [
  "chrono",
  "dotenvy",
  "elupane_core",
+ "futures-util",
  "jsonwebtoken",
+ "messaging_core",
  "permissions",
  "rust_sdk",
  "serde",
@@ -1774,7 +1792,19 @@ checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 name = "search"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
+ "cache",
+ "chrono",
+ "dotenvy",
+ "elupane_core",
+ "jsonwebtoken",
+ "permissions",
+ "rust_sdk",
+ "serde",
+ "serde_json",
+ "sqlx",
  "tokio",
+ "uuid",
 ]
 
 [[package]]
@@ -2155,6 +2185,26 @@ name = "subtle"
 version = "2.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
+
+[[package]]
+name = "support"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "cache",
+ "chrono",
+ "dotenvy",
+ "elupane_core",
+ "jsonwebtoken",
+ "messaging_core",
+ "permissions",
+ "rust_sdk",
+ "serde",
+ "serde_json",
+ "sqlx",
+ "tokio",
+ "uuid",
+]
 
 [[package]]
 name = "syn"

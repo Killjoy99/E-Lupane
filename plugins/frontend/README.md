@@ -130,6 +130,78 @@ state and by this frontend's own WebSocket relay for real-time transport:
 * `src/live_bridge.rs` — server-only Redis RPC bridge to `com.elupane.live_classes`
 * `src/live_classes_ui.rs` — schedule/browse/join UI
 * `src/live_room.rs` — the live classroom component (video grid, chat, whiteboard controls)
+* `src/mcp_server.rs` — server-only Model Context Protocol endpoint (Streamable
+  HTTP) exposing **every plugin's operations** as AI-callable tools
+
+## MCP endpoint (AI clients)
+
+`POST /api/mcp` speaks the [Model Context Protocol](https://modelcontextprotocol.io)
+(Streamable HTTP transport, JSON-RPC 2.0) and exposes the system's operations as
+AI-callable **tools**, so an external agent (Claude Desktop, Cline, VS Code, …)
+can read and act on E-Lupane on behalf of the signed-in user.
+
+Two kinds of tools are served:
+
+1. **Typed notification tools** — hand-written JSON schemas:
+
+| Tool                              | Plugin op                      | Notes                |
+|-----------------------------------|--------------------------------|----------------------|
+| `notifications_list`              | `notifications.list`           | signed-in user only  |
+| `notifications_unread`            | `notifications.unread`         | signed-in user only  |
+| `notifications_mark_read`         | `notifications.mark_read`      | mutates state        |
+| `notifications_mark_all_read`     | `notifications.mark_all_read`  | mutates state        |
+| `notifications_send`              | `notifications.send`           | admin / lecturer     |
+| `notifications_preferences_list`  | `notifications.preferences.list` | signed-in user only |
+| `notifications_preferences_set`   | `notifications.preferences.set` | mutates state       |
+| `notifications_deliveries`        | `notifications.deliveries`     | read-only            |
+
+2. **Generic plugin-op tools** — one tool per operation of every other plugin
+   (academics, analytics, assignments, auth, certificates, content, course
+   management, enrollments, grades, institution management, learning progress,
+   live classes, media, messaging, quizzes, search, support — ~200 tools).
+   Names follow `<plugin>_<op with dots → underscores>` (e.g.
+   `messaging_discussion_list`, `quizzes_attempts_start`,
+   `enrollments_enrollment_enroll`). Their input schema is a free-form JSON
+   object passed through to the plugin, which validates fields and returns a
+   descriptive error the model can self-correct from.
+
+* **Auth**: `Authorization: Bearer <auth-plugin JWT>` — the same session token
+  the browser holds (`?token=` is also accepted). It is verified through
+  `auth_bridge::verify` and forwarded to the plugin unchanged.
+* **Credential injection**: the verified token is injected as `token` (or
+  `admin_token` for the auth admin ops that expect it there); any `token` /
+  `admin_token` supplied by the model is stripped first, so an agent can never
+  present a different identity.
+* **Scoping**: the *verified* user id is injected into every user-scoped
+  notification payload, so an agent can never ask for another user's
+  notifications or preferences. For the other plugins, each plugin's own authz
+  (roles/ownership) still enforces access — the MCP layer adds authentication,
+  not authorization.
+* **Annotations**: `readOnlyHint` is set on read-shaped ops (`get`, `list`,
+  `history`, search, …), and a DESTRUCTIVE warning is appended to the
+  description of ops that delete/cancel/archive/revoke, so agents confirm with
+  the user first.
+* **Shape**: only `tools/*` is advertised; `GET` (server-initiated SSE) answers
+  `405`, and no server-side session state is kept (`DELETE` is a no-op success).
+
+Example MCP client configuration:
+
+```json
+{
+  "mcpServers": {
+    "elupane": {
+      "type": "http",
+      "url": "http://127.0.0.1:8090/api/mcp",
+      "headers": { "Authorization": "Bearer <session token>" }
+    }
+  }
+}
+```
+
+Implementation: `src/mcp_server.rs`. Typed tools live in `TOOLS` +
+`build_payload`; new plugin ops only need one line appended to `GENERIC_TOOLS`
+(the `(plugin id, short name, op)` table) — names, descriptions, annotations,
+dispatch and credential injection are derived automatically.
 
 ## Recent changes
 

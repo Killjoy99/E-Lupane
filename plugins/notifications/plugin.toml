@@ -1,17 +1,19 @@
-id = "notifications"
+id = "com.elupane.notifications"
 name = "Notifications"
-version = "0.1.0"
-description = "Notification system with in-app, email, and push channels."
-
-[permissions]
-notifications_read = ["View notifications", "notifications.read"]
-notifications_write = ["Manage notifications", "notifications.write"]
-preferences_read = ["View preferences", "notifications.preferences.read"]
-preferences_write = ["Manage preferences", "notifications.preferences.write"]
-events_subscribe = ["Subscribe to events", "events.subscribe"]
-
-[migrations]
-0012 = "migrations/0012_notifications.sql"
-
-[routes]
-prefix = "/api/notifications"
+version = "1.0.0"
+authors = [
+  "E-Lupane"
+]
+description = "Notification system: in-app, email and push notifications with per-user preferences"
+runtime = "process"
+language = "rust"
+entry = "target/debug/notifications"
+minimum_core_version = "1.0.0"
+capabilities = [
+  "notifications.read",
+  "notifications.write",
+  "notifications.preferences.read",
+  "notifications.preferences.write",
+  "events.subscribe"
+]
+dependencies = ["com.elupane.auth"]

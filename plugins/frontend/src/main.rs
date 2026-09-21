@@ -16,6 +16,11 @@ mod db;
 #[cfg(feature = "server")]
 mod auth_bridge;
 
+// Server-only bridge to Google OAuth ("Sign in with Google"): authorization
+// code flow, local user table, and Redis-backed opaque sessions.
+#[cfg(feature = "server")]
+mod google_classroom_bridge;
+
 // Shared assignment view types (client + server).
 mod assignments_types;
 
@@ -48,12 +53,34 @@ mod live_bridge;
 #[cfg(feature = "server")]
 mod live_signaling;
 
+// Server-only Model Context Protocol endpoint (Streamable HTTP) that exposes
+// the notification operations to external AI clients as MCP tools.
+#[cfg(feature = "server")]
+mod mcp_server;
+
 // Shared content view types (client + server).
 mod content_types;
 
 // Server-only bridge to the content plugin over the Redis messaging layer.
 #[cfg(feature = "server")]
 mod content_bridge;
+
+// Shared messaging view types (client + server).
+mod messaging_types;
+
+// Server-only bridge to the messaging plugin over the Redis messaging layer.
+#[cfg(feature = "server")]
+mod messaging_bridge;
+
+// Shared support view types (client + server).
+mod support_types;
+
+// Server-only bridge to the support plugin over the Redis messaging layer.
+#[cfg(feature = "server")]
+mod support_bridge;
+
+// Shared support UI (client + server).
+mod support_ui;
 
 // Shared dashboard UI modules.
 mod ui_helpers;
@@ -65,6 +92,9 @@ mod live_room;
 mod live_classes_ui;
 mod mock_data;
 mod mock_pages;
+
+// Live RBAC administration (users + roles × permissions matrix).
+mod admin_pages;
 
 // Dioxus "server functions". This module is compiled on BOTH the client and the
 // server: on the client it generates a stub that calls the server over HTTP,
@@ -89,7 +119,7 @@ fn main() {
     // functions). We augment it with our own Axum route and initialise SQLx here.
     #[cfg(feature = "server")]
     dioxus::serve(|| async move {
-        use dioxus::server::axum::routing::get;
+        use dioxus::server::axum::routing::{get, post};
         use dioxus::server::router;
 
         // Initialise the SQLx pool (best-effort, so the app still serves even if
@@ -106,9 +136,32 @@ fn main() {
                 "/api/about",
                 get(|| async { "E-Lupane · Dioxus + SQLx + Axum (port 8090)" }),
             )
+            // Google OAuth ("Sign in with Google") authorization-code flow.
+            .route(
+                "/api/auth/google/start",
+                get(google_classroom_bridge::start_handler),
+            )
+            .route(
+                "/auth/google/callback",
+                get(google_classroom_bridge::callback_handler),
+            )
+            .route(
+                "/api/auth/google/dev_login",
+                get(google_classroom_bridge::dev_login_handler),
+            )
             // Real-time signaling relay for webrtc-provider live sessions:
             // WebRTC offer/answer/ICE, chat and whiteboard strokes.
-            .route("/ws/live/{session_id}", get(live_signaling::ws_handler)))
+            .route("/ws/live/{session_id}", get(live_signaling::ws_handler))
+            // Model Context Protocol (Streamable HTTP): E-Lupane's notification
+            // operations as AI-callable tools, authenticated with the same
+            // session JWT the browser uses.
+            .route(
+                mcp_server::MCP_PATH,
+                post(mcp_server::mcp_post)
+                    .get(mcp_server::mcp_get)
+                    .delete(mcp_server::mcp_delete)
+                    .options(mcp_server::mcp_options),
+            ))
     });
 
     // ---- Client / other platforms ----

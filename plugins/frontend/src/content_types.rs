@@ -10,6 +10,7 @@ use uuid::Uuid;
 pub struct ContentModuleView {
     pub id: Uuid,
     pub course_id: Uuid,
+    pub subject_id: Option<Uuid>,
     pub title: String,
     pub description: String,
     pub sort_order: i32,

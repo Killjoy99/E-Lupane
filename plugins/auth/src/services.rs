@@ -5,14 +5,14 @@ use serde::{Deserialize, Serialize};
 use sqlx::PgPool;
 use uuid::Uuid;
 
-use crate::dto::{BulkCreateError, BulkCreateUserRequest, BulkCreateUserResponse, CreateUserRequest, LoginResponse, UserView, VerifyResponse};
+use crate::dto::{BulkCreateError, BulkCreateUserRequest, BulkCreateUserResponse, CreateUserRequest, GoogleLoginRequest, LoginResponse, UserView, VerifyResponse};
 use crate::models::User;
 use crate::repository;
 
 /// Valid account types (roles) that can be assigned to users when creating accounts.
-pub const ACCOUNT_TYPES: &[&str] = &["student", "lecturer", "developer", "admin"];
+pub const ACCOUNT_TYPES: &[&str] = &["student", "lecturer", "hod", "dean", "developer", "admin"];
 
-const SEED_ROLE_ORDER: [&str; 4] = ["student", "lecturer", "developer", "admin"];
+const SEED_ROLE_ORDER: [&str; 6] = ["student", "lecturer", "hod", "dean", "developer", "admin"];
 
 /// JWT claims issued by this plugin.
 #[derive(Debug, Serialize, Deserialize)]
@@ -24,9 +24,9 @@ pub struct Claims {
 }
 
 impl Claims {
-    /// Check if the caller has admin role.
+    /// Check if the caller has admin role (or the owner-tier super_admin).
     pub fn is_admin(&self) -> bool {
-        self.roles.iter().any(|r| r == "admin")
+        self.roles.iter().any(|r| r == "admin" || r == "super_admin")
     }
 }
 
@@ -46,9 +46,11 @@ pub fn seeded_account_plan() -> Vec<SeedAccountSpec> {
             let (label, password) = match role {
                 "student" => ("Student", "Student123!"),
                 "lecturer" => ("Lecturer", "Lecturer123!"),
+                "hod" => ("HoD", "Hod123!"),
+                "dean" => ("Dean", "Dean123!"),
                 "developer" => ("Developer", "Developer123!"),
                 "admin" => ("Admin", "Admin123!"),
-                _ => unreachable!("unsupported seed role {role}"),
+                other => unreachable!("unsupported seed role {other}"),
             };
 
             out.push(SeedAccountSpec {
@@ -185,6 +187,60 @@ pub async fn authenticate(pool: &PgPool, username: &str, password: &str) -> Resu
     })
 }
 
+pub async fn google_login(pool: &PgPool, req: GoogleLoginRequest) -> Result<LoginResponse> {
+    let email = req.email.trim().to_ascii_lowercase();
+    let roles = if req.roles.is_empty() {
+        vec!["student".to_string()]
+    } else {
+        req.roles
+    };
+
+    if let Some(existing) = repository::find_user_by_email(pool, &email).await? {
+        let current_roles = repository::roles_for_user(pool, existing.id).await?;
+        for role_name in &current_roles {
+            if let Some(r) = repository::find_role_by_name(pool, role_name).await? {
+                repository::revoke_role(pool, existing.id, r.id).await?;
+            }
+        }
+        for role_name in &roles {
+            if let Some(r) = repository::find_role_by_name(pool, role_name).await? {
+                repository::assign_role(pool, existing.id, r.id).await?;
+            }
+        }
+        let updated_roles = repository::roles_for_user(pool, existing.id).await?;
+        let token = issue_token(&existing.id, &existing.username, &updated_roles)?;
+        return Ok(LoginResponse {
+            token,
+            user: to_view_from_parts(existing, updated_roles),
+        });
+    }
+
+    let username = email.clone();
+    let full_name = if req.full_name.trim().is_empty() {
+        email.clone()
+    } else {
+        req.full_name.trim().to_string()
+    };
+    let password = Uuid::new_v4().to_string();
+    let password_hash = bcrypt::hash(&password, 12)?;
+
+    let user = repository::create_user(pool, &username, &email, &password_hash, &full_name).await?;
+
+    for role in &roles {
+        if let Some(r) = repository::find_role_by_name(pool, role).await? {
+            repository::assign_role(pool, user.id, r.id).await?;
+        }
+    }
+
+    let user_roles = repository::roles_for_user(pool, user.id).await?;
+    let token = issue_token(&user.id, &user.username, &user_roles)?;
+
+    Ok(LoginResponse {
+        token,
+        user: to_view_from_parts(user, user_roles),
+    })
+}
+
 pub async fn verify(pool: &PgPool, token: &str) -> Result<VerifyResponse> {
     match verify_token(token) {
         Ok(claims) => {
@@ -248,6 +304,54 @@ pub async fn list_permissions(pool: &PgPool) -> Result<Vec<serde_json::Value>> {
         .collect())
 }
 
+pub async fn revoke_role(pool: &PgPool, user_id: Uuid, role_name: &str) -> Result<UserView> {
+    let user = repository::find_user_by_id(pool, user_id)
+        .await?
+        .ok_or_else(|| anyhow!("user not found"))?;
+    let role = repository::find_role_by_name(pool, role_name)
+        .await?
+        .ok_or_else(|| anyhow!("role not found: {role_name}"))?;
+    repository::revoke_role(pool, user.id, role.id).await?;
+    to_view(pool, &user).await
+}
+
+/// Replace a role's permission set (the permission-matrix "save row" operation).
+pub async fn set_role_permissions(
+    pool: &PgPool,
+    role_name: &str,
+    permissions: Vec<String>,
+) -> Result<serde_json::Value> {
+    let role = repository::find_role_by_name(pool, role_name)
+        .await?
+        .ok_or_else(|| anyhow!("role not found: {role_name}"))?;
+    repository::set_role_permissions(pool, role.id, &permissions).await?;
+    let granted = repository::permissions_for_role(pool, role.id).await?;
+    Ok(serde_json::json!({
+        "id": role.id,
+        "name": role.name,
+        "description": role.description,
+        "permissions": granted,
+    }))
+}
+
+/// Create (or update the description of) a role, optionally seeding permissions.
+pub async fn create_role(
+    pool: &PgPool,
+    name: &str,
+    description: Option<String>,
+    permissions: Vec<String>,
+) -> Result<serde_json::Value> {
+    let role = repository::create_role(pool, name, description.as_deref()).await?;
+    repository::set_role_permissions(pool, role.id, &permissions).await?;
+    let granted = repository::permissions_for_role(pool, role.id).await?;
+    Ok(serde_json::json!({
+        "id": role.id,
+        "name": role.name,
+        "description": role.description,
+        "permissions": granted,
+    }))
+}
+
 fn jwt_secret() -> String {
     std::env::var("AUTH_JWT_SECRET").unwrap_or_else(|_| "dev-secret-change-me".to_string())
 }
@@ -285,17 +389,16 @@ mod tests {
     #[test]
     fn seeded_account_plan_has_three_accounts_per_role() {
         let plan = seeded_account_plan();
-        assert_eq!(plan.len(), 12);
+        assert_eq!(plan.len(), 18);
 
         let mut counts = std::collections::BTreeMap::new();
         for acc in &plan {
             *counts.entry(acc.role.clone()).or_insert(0usize) += 1;
         }
 
-        assert_eq!(counts.get("student"), Some(&3));
-        assert_eq!(counts.get("lecturer"), Some(&3));
-        assert_eq!(counts.get("developer"), Some(&3));
-        assert_eq!(counts.get("admin"), Some(&3));
+        for role in ["student", "lecturer", "hod", "dean", "developer", "admin"] {
+            assert_eq!(counts.get(role), Some(&3), "missing three accounts for role {role}");
+        }
 
         assert!(plan.iter().all(|acc| !acc.username.is_empty()));
         assert!(plan.iter().all(|acc| acc.email.ends_with("@elupane.local")));

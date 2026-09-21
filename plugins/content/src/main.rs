@@ -57,6 +57,7 @@ async fn main() -> anyhow::Result<()> {
         "content.item.write",
         "content.file.read",
         "content.file.write",
+        "content.material.add",
         "events.subscribe",
     ] {
         capabilities.grant(capability);

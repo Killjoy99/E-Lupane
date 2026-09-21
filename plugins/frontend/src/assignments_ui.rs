@@ -189,6 +189,7 @@ pub fn StudentSubmissionForm(assignment: assignments_types::AssignmentView, toke
     let mut link_url = use_signal(String::new);
     let mut busy = use_signal(|| false);
     let mut message: Signal<Option<String>> = use_signal(|| None);
+    let mut selected_file: Signal<Option<assignments_types::FileUploadInput>> = use_signal(|| None);
     // Pre-clone for the submit closure so the originals stay usable below.
     let submit_token = token.clone();
     let submit_assignment = assignment.clone();
@@ -213,7 +214,16 @@ pub fn StudentSubmissionForm(assignment: assignments_types::AssignmentView, toke
                 }
             }
             if assignment.submission_type == "file" || assignment.submission_type == "any" {
-                input { id: "student-file-input", r#type: "file" }
+                input {
+                    id: "student-file-input",
+                    r#type: "file",
+                    onchange: move |_| {
+                        spawn(async move {
+                            let f = read_file_base64("student-file-input").await;
+                            selected_file.set(f);
+                        });
+                    },
+                }
             }
             div { class: "submission-actions",
                 Button {
@@ -227,6 +237,7 @@ pub fn StudentSubmissionForm(assignment: assignments_types::AssignmentView, toke
                             link_url,
                             busy,
                             message,
+                            selected_file,
                         ));
                     },
                     if busy() { "Submitting…" } else { "Submit" }
@@ -239,7 +250,8 @@ pub fn StudentSubmissionForm(assignment: assignments_types::AssignmentView, toke
     }
 }
 
-/// Execute a student submission (reads the file input + form signals).
+/// Execute a student submission (uses the text/link state + the file captured
+/// at selection time).
 async fn run_student_submit(
     token: String,
     assignment: assignments_types::AssignmentView,
@@ -247,10 +259,13 @@ async fn run_student_submit(
     mut link_url: Signal<String>,
     mut busy: Signal<bool>,
     mut message: Signal<Option<String>>,
+    mut selected_file: Signal<Option<assignments_types::FileUploadInput>>,
 ) {
     busy.set(true);
     message.set(None);
-    let file = read_file_base64("student-file-input").await;
+    // Use the file that was captured when the user chose it (robust against DOM
+    // re-renders clearing the uncontrolled file input after `busy` flips).
+    let file = selected_file();
     let files = file.map(|f| vec![f]).unwrap_or_default();
     let links = if link_url().trim().is_empty() {
         Vec::new()
@@ -273,6 +288,7 @@ async fn run_student_submit(
             )));
             text.set(String::new());
             link_url.set(String::new());
+            selected_file.set(None);
         }
         Err(e) => message.set(Some(e.to_string())),
     }

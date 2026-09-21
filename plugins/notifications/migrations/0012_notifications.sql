@@ -16,13 +16,10 @@ CREATE INDEX IF NOT EXISTS idx_notifications_user ON notifications (user_id, cre
 
 DO $$
 BEGIN
-    IF NOT EXISTS (
-        SELECT 1 FROM pg_constraint WHERE conname = 'chk_notifications_type'
-    ) THEN
-        ALTER TABLE notifications
-            ADD CONSTRAINT chk_notifications_type
-            CHECK (type IN ('enrollment', 'lesson', 'assignment_created', 'assignment_deadline', 'assignment_graded', 'quiz_available', 'exam_scheduled', 'exam_results', 'message', 'announcement', 'certificate', 'payment'));
-    END IF;
+    ALTER TABLE notifications DROP CONSTRAINT IF EXISTS chk_notifications_type;
+    ALTER TABLE notifications
+        ADD CONSTRAINT chk_notifications_type
+        CHECK (type IN ('enrollment', 'lesson', 'assignment_created', 'assignment_deadline', 'assignment_graded', 'quiz_available', 'exam_scheduled', 'exam_results', 'message', 'announcement', 'certificate', 'payment', 'support'));
 END $$;
 
 CREATE TABLE IF NOT EXISTS notification_preferences (

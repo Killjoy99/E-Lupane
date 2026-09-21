@@ -7,7 +7,7 @@ use sqlx::PgPool;
 
 use elupane_core::message::Message;
 
-use crate::dto::{AssignRoleRequest, BulkCreateUserRequest, BulkCreateUserResponse, CreateUserRequest, DeleteUserRequest, GetUserRequest, LoginRequest, VerifyRequest};
+use crate::dto::{AssignRoleRequest, BulkCreateUserRequest, CreateRoleRequest, CreateUserRequest, DeleteUserRequest, GetUserRequest, GoogleLoginRequest, LoginRequest, RevokeRoleRequest, SetRolePermissionsRequest, VerifyRequest};
 use crate::services;
 
 pub const PLUGIN_ID: &str = "com.elupane.auth";
@@ -61,12 +61,23 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
         }
         "user.delete" => {
             let req: DeleteUserRequest = parse_payload(&command.payload)?;
+            let token = req.admin_token.as_ref()
+                .ok_or_else(|| anyhow!("admin_token required in request payload"))?;
+            let claims = services::verify_token(token)?;
+            if !claims.is_admin() {
+                return Err(anyhow!("admin privileges required to delete users"));
+            }
             services::delete_user(pool, req.user_id).await?;
             Ok(Message::reply_to(command, PLUGIN_ID, serde_json::json!({"deleted": true})))
         }
         "auth.login" => {
             let req: LoginRequest = parse_payload(&command.payload)?;
             let resp = services::authenticate(pool, &req.username, &req.password).await?;
+            Ok(Message::reply_to(command, PLUGIN_ID, serde_json::to_value(resp)?))
+        }
+        "auth.google_login" => {
+            let req: GoogleLoginRequest = parse_payload(&command.payload)?;
+            let resp = services::google_login(pool, req).await?;
             Ok(Message::reply_to(command, PLUGIN_ID, serde_json::to_value(resp)?))
         }
         "auth.verify" => {
@@ -76,6 +87,7 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
         }
         "role.assign" => {
             let req: AssignRoleRequest = parse_payload(&command.payload)?;
+            require_admin(&command, &req.admin_token)?;
             let view = services::assign_role(pool, req.user_id, &req.role).await?;
             Ok(Message::reply_to(command, PLUGIN_ID, serde_json::to_value(view)?))
         }
@@ -87,8 +99,37 @@ async fn dispatch(pool: &PgPool, command: &Message) -> Result<Message> {
             let permissions = services::list_permissions(pool).await?;
             Ok(Message::reply_to(command, PLUGIN_ID, serde_json::to_value(permissions)?))
         }
+        "role.revoke" => {
+            let req: RevokeRoleRequest = parse_payload(&command.payload)?;
+            require_admin(&command, &req.admin_token)?;
+            let view = services::revoke_role(pool, req.user_id, &req.role).await?;
+            Ok(Message::reply_to(command, PLUGIN_ID, serde_json::to_value(view)?))
+        }
+        "role.permissions.set" => {
+            let req: SetRolePermissionsRequest = parse_payload(&command.payload)?;
+            require_admin(&command, &req.admin_token)?;
+            let role = services::set_role_permissions(pool, &req.role, req.permissions.clone()).await?;
+            Ok(Message::reply_to(command, PLUGIN_ID, serde_json::to_value(role)?))
+        }
+        "role.create" => {
+            let req: CreateRoleRequest = parse_payload(&command.payload)?;
+            require_admin(&command, &req.admin_token)?;
+            let role = services::create_role(pool, &req.name, req.description.clone(), req.permissions.clone()).await?;
+            Ok(Message::reply_to(command, PLUGIN_ID, serde_json::to_value(role)?))
+        }
         _ => Err(anyhow!("unknown operation: {}", command.op)),
     }
+}
+
+/// Validate the admin JWT carried in the request payload (`admin_token`).
+fn require_admin(_command: &Message, token: &Option<String>) -> Result<()> {
+    let token = token.as_ref()
+        .ok_or_else(|| anyhow!("admin_token required in request payload"))?;
+    let claims = services::verify_token(token)?;
+    if !claims.is_admin() {
+        return Err(anyhow!("admin privileges required"));
+    }
+    Ok(())
 }
 
 fn parse_payload<T: DeserializeOwned>(payload: &Value) -> Result<T> {

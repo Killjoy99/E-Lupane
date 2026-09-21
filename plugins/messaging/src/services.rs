@@ -88,8 +88,9 @@ pub async fn list_conversations(pool: &PgPool, claims: &Claims) -> anyhow::Resul
 }
 
 pub async fn send_message(pool: &PgPool, claims: &Claims, req: SendMessageRequest) -> anyhow::Result<Message> {
+    let actor = claims.user_id()?;
     let participants = repository::get_conversation_participants(pool, req.conversation_id).await?;
-    if !participants.iter().any(|p| p.user_id == claims.user_id()?) {
+    if !participants.iter().any(|p| p.user_id == actor) {
         anyhow::bail!("not a participant");
     }
     let message = Message {

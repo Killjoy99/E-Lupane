@@ -89,6 +89,9 @@ impl PublishStatus {
 #[derive(Debug, Deserialize)]
 pub struct CreateModuleRequest {
     pub course_id: Uuid,
+    /// Optional subject under the course this module belongs to.
+    #[serde(default)]
+    pub subject_id: Option<Uuid>,
     pub title: String,
     #[serde(default)]
     pub description: String,
@@ -105,6 +108,9 @@ pub struct UpdateModuleRequest {
     pub description: Option<String>,
     #[serde(default)]
     pub sort_order: Option<i32>,
+    /// Optional re-scope to a subject (None leaves it unchanged).
+    #[serde(default)]
+    pub subject_id: Option<Uuid>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -204,6 +210,30 @@ pub struct UploadFileRequest {
     pub content_base64: String,
 }
 
+/// Upload a document/video and attach it directly to a course (auto-creating
+/// a "Course Materials" module + "General" lesson when the course has none).
+#[derive(Debug, Deserialize)]
+pub struct AddCourseMaterialRequest {
+    pub course_id: Uuid,
+    /// Optional display title; falls back to the file name.
+    #[serde(default)]
+    pub title: Option<String>,
+    pub filename: String,
+    pub mime_type: String,
+    pub size_bytes: i64,
+    pub content_base64: String,
+}
+
+/// The result of adding course material: the container the item was placed in,
+/// the created content item, and the stored file.
+#[derive(Debug, Serialize)]
+pub struct CourseMaterialView {
+    pub module: ContentModuleView,
+    pub lesson: ContentLessonView,
+    pub item: ContentItemView,
+    pub file: ContentFileView,
+}
+
 #[derive(Debug, Deserialize)]
 pub struct IdRequest {
     pub id: Uuid,
@@ -212,6 +242,9 @@ pub struct IdRequest {
 #[derive(Debug, Deserialize)]
 pub struct CourseIdRequest {
     pub course_id: Uuid,
+    /// Optional subject-scope: only modules belonging to this subject.
+    #[serde(default)]
+    pub subject_id: Option<Uuid>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -232,6 +265,8 @@ pub struct LessonIdRequest {
 pub struct ContentModuleView {
     pub id: Uuid,
     pub course_id: Uuid,
+    /// The subject (module unit under the course) this module belongs to, if any.
+    pub subject_id: Option<Uuid>,
     pub title: String,
     pub description: String,
     pub sort_order: i32,

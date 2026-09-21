@@ -17,5 +17,9 @@ base64.workspace = true
 
 cache = { path = "../../crates/cache" }
 elupane_core = { path = "../../crates/elupane_core" }
+messaging_core = { path = "../../crates/messaging_core" }
 permissions = { path = "../../crates/permissions" }
 rust_sdk = { path = "../../crates/sdk/rust_sdk" }
+
+[dependencies.futures-util]
+workspace = true

@@ -58,6 +58,7 @@ async fn main() -> anyhow::Result<()> {
         "auth.permission.list",
         "auth.login",
         "auth.verify",
+        "auth.google_login",
     ] {
         capabilities.grant(capability);
     }

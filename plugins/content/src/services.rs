@@ -18,6 +18,7 @@ use crate::authz::{self, Claims};
 use crate::dto::*;
 use crate::models::*;
 use crate::repository;
+use crate::repository::CourseAccess;
 use sqlx::PgPool;
 
 // ---------------------------------------------------------------------------
@@ -28,6 +29,7 @@ fn to_module_view(m: &ContentModule) -> ContentModuleView {
     ContentModuleView {
         id: m.id,
         course_id: m.course_id,
+        subject_id: m.subject_id,
         title: m.title.clone(),
         description: m.description.clone(),
         sort_order: m.sort_order,
@@ -87,6 +89,38 @@ fn to_file_view(f: &ContentFile) -> ContentFileView {
     }
 }
 
+// ---------------------------------------------------------------------------
+// Course access gating
+// ---------------------------------------------------------------------------
+
+/// Resolve how much access `claims` has to a course's content (admins always
+/// manage; everyone else is decided by the shared `courses` / `course_instructors`
+/// / `course_enrollments` tables in `repository::course_access`).
+async fn course_access_for(pool: &PgPool, claims: &Claims, course_id: Uuid) -> Result<CourseAccess> {
+    if claims.is_admin() {
+        return Ok(CourseAccess::Manage);
+    }
+    repository::course_access(pool, claims.user_id()?, course_id).await
+}
+
+/// Gate: caller must be at least an active enrollee (or owner/admin) to read.
+async fn require_view(pool: &PgPool, claims: &Claims, course_id: Uuid) -> Result<()> {
+    let access = course_access_for(pool, claims, course_id).await?;
+    if access < CourseAccess::View {
+        return Err(anyhow!("forbidden: you are not enrolled in this course"));
+    }
+    Ok(())
+}
+
+/// Gate: caller must be the course owner/instructor (or admin) to manage.
+async fn require_manage(pool: &PgPool, claims: &Claims, course_id: Uuid) -> Result<()> {
+    let access = course_access_for(pool, claims, course_id).await?;
+    if access < CourseAccess::Manage {
+        return Err(anyhow!("forbidden: not the course owner or an authorised instructor"));
+    }
+    Ok(())
+}
+
 fn ensure_content_type(ct: &str) -> Result<ContentType> {
     ContentType::from_str(ct).ok_or_else(|| anyhow!("invalid content_type: {}", ct))
 }
@@ -131,15 +165,22 @@ fn base64_decode(s: &str) -> Result<Vec<u8>> {
 // Module services
 // ---------------------------------------------------------------------------
 
-pub async fn list_modules(pool: &PgPool, course_id: Uuid) -> Result<Vec<ContentModuleView>> {
+pub async fn list_modules(
+    pool: &PgPool,
+    claims: &Claims,
+    course_id: Uuid,
+) -> Result<Vec<ContentModuleView>> {
+    require_view(pool, claims, course_id).await?;
     let rows = repository::list_modules_by_course(pool, course_id).await?;
     Ok(rows.iter().map(to_module_view).collect())
 }
 
-pub async fn get_module(pool: &PgPool, module_id: Uuid) -> Result<ContentModuleView> {
+pub async fn get_module(pool: &PgPool, claims: &Claims, module_id: Uuid) -> Result<ContentModuleView> {
     let m = repository::find_module_by_id(pool, module_id)
         .await?
         .ok_or_else(|| anyhow!("module not found"))?;
+    let course_id = m.course_id;
+    require_view(pool, claims, course_id).await?;
     Ok(to_module_view(&m))
 }
 
@@ -149,6 +190,7 @@ pub async fn create_module(
     req: CreateModuleRequest,
 ) -> Result<ContentModuleView> {
     authz::require_instructor(claims)?;
+    require_manage(pool, claims, req.course_id).await?;
     let me = claims.user_id()?;
     let m = repository::insert_module(
         pool,
@@ -223,15 +265,21 @@ pub async fn set_module_status(
 // Lesson services
 // ---------------------------------------------------------------------------
 
-pub async fn list_lessons(pool: &PgPool, module_id: Uuid) -> Result<Vec<ContentLessonView>> {
+pub async fn list_lessons(pool: &PgPool, claims: &Claims, module_id: Uuid) -> Result<Vec<ContentLessonView>> {
+    if let Some(course_id) = repository::module_course_id(pool, module_id).await? {
+        require_view(pool, claims, course_id).await?;
+    }
     let rows = repository::list_lessons_by_module(pool, module_id).await?;
     Ok(rows.iter().map(to_lesson_view).collect())
 }
 
-pub async fn get_lesson(pool: &PgPool, lesson_id: Uuid) -> Result<ContentLessonView> {
+pub async fn get_lesson(pool: &PgPool, claims: &Claims, lesson_id: Uuid) -> Result<ContentLessonView> {
     let l = repository::find_lesson_by_id(pool, lesson_id)
         .await?
         .ok_or_else(|| anyhow!("lesson not found"))?;
+    if let Some(course_id) = repository::lesson_course_id(pool, lesson_id).await? {
+        require_view(pool, claims, course_id).await?;
+    }
     Ok(to_lesson_view(&l))
 }
 
@@ -241,6 +289,9 @@ pub async fn create_lesson(
     req: CreateLessonRequest,
 ) -> Result<ContentLessonView> {
     authz::require_instructor(claims)?;
+    if let Some(course_id) = repository::module_course_id(pool, req.module_id).await? {
+        require_manage(pool, claims, course_id).await?;
+    }
     let me = claims.user_id()?;
     let l = repository::insert_lesson(
         pool,
@@ -315,15 +366,21 @@ pub async fn set_lesson_status(
 // Content item services
 // ---------------------------------------------------------------------------
 
-pub async fn list_items(pool: &PgPool, lesson_id: Uuid) -> Result<Vec<ContentItemView>> {
+pub async fn list_items(pool: &PgPool, claims: &Claims, lesson_id: Uuid) -> Result<Vec<ContentItemView>> {
+    if let Some(course_id) = repository::lesson_course_id(pool, lesson_id).await? {
+        require_view(pool, claims, course_id).await?;
+    }
     let rows = repository::list_items_by_lesson(pool, lesson_id).await?;
     Ok(rows.iter().map(to_item_view).collect())
 }
 
-pub async fn get_item(pool: &PgPool, item_id: Uuid) -> Result<ContentItemView> {
+pub async fn get_item(pool: &PgPool, claims: &Claims, item_id: Uuid) -> Result<ContentItemView> {
     let i = repository::find_item_by_id(pool, item_id)
         .await?
         .ok_or_else(|| anyhow!("content item not found"))?;
+    if let Some(course_id) = repository::item_course_id(pool, item_id).await? {
+        require_view(pool, claims, course_id).await?;
+    }
     Ok(to_item_view(&i))
 }
 
@@ -334,6 +391,9 @@ pub async fn create_item(
 ) -> Result<ContentItemView> {
     authz::require_instructor(claims)?;
     let _ = ensure_content_type(&req.content_type)?;
+    if let Some(course_id) = repository::lesson_course_id(pool, req.lesson_id).await? {
+        require_manage(pool, claims, course_id).await?;
+    }
     let me = claims.user_id()?;
     let i = repository::insert_item(
         pool,
@@ -411,6 +471,7 @@ pub async fn upload_file(
     req: UploadFileRequest,
 ) -> Result<ContentFileView> {
     authz::require_instructor(claims)?;
+    require_manage(pool, claims, req.course_id).await?;
     let file_id = Uuid::new_v4();
     let storage_path = save_file(req.course_id, file_id, &req.filename, &req.content_base64)?;
     let f = repository::insert_file(
@@ -426,22 +487,31 @@ pub async fn upload_file(
     Ok(to_file_view(&f))
 }
 
-pub async fn list_files(pool: &PgPool, course_id: Uuid) -> Result<Vec<ContentFileView>> {
+pub async fn list_files(
+    pool: &PgPool,
+    claims: &Claims,
+    course_id: Uuid,
+) -> Result<Vec<ContentFileView>> {
+    require_view(pool, claims, course_id).await?;
     let rows = repository::list_files_by_course(pool, course_id).await?;
     Ok(rows.iter().map(to_file_view).collect())
 }
 
-pub async fn get_file(pool: &PgPool, file_id: Uuid) -> Result<ContentFileView> {
+pub async fn get_file(pool: &PgPool, claims: &Claims, file_id: Uuid) -> Result<ContentFileView> {
     let f = repository::find_file_by_id(pool, file_id)
         .await?
         .ok_or_else(|| anyhow!("file not found"))?;
+    let course_id = f.course_id;
+    require_view(pool, claims, course_id).await?;
     Ok(to_file_view(&f))
 }
 
-pub async fn download_file(pool: &PgPool, file_id: Uuid) -> Result<FileDownloadView> {
+pub async fn download_file(pool: &PgPool, claims: &Claims, file_id: Uuid) -> Result<FileDownloadView> {
     let f = repository::find_file_by_id(pool, file_id)
         .await?
         .ok_or_else(|| anyhow!("file not found"))?;
+    let course_id = f.course_id;
+    require_view(pool, claims, course_id).await?;
     let content = fs::read(&f.storage_path)?;
     use base64::Engine;
     let engine = base64::engine::general_purpose::STANDARD;
@@ -459,7 +529,122 @@ pub async fn delete_file(pool: &PgPool, claims: &Claims, file_id: Uuid) -> Resul
     let f = repository::find_file_by_id(pool, file_id)
         .await?
         .ok_or_else(|| anyhow!("file not found"))?;
+    let course_id = f.course_id;
+    require_manage(pool, claims, course_id).await?;
     let _ = fs::remove_file(&f.storage_path);
     repository::delete_file(pool, file_id).await?;
     Ok(())
+}
+
+// ---------------------------------------------------------------------------
+// Convenience: add a document/video to a course
+// ---------------------------------------------------------------------------
+
+/// Map an uploaded file's MIME type (plus extension fallback) to one of the
+/// allowed `content_items.content_type` values (documents and media only).
+fn content_type_for_mime(mime: &str, filename: &str) -> Result<&'static str> {
+    let mime = mime.to_ascii_lowercase();
+    let name = filename.to_ascii_lowercase();
+
+    if mime.starts_with("video/") {
+        return Ok("video");
+    }
+    if mime.starts_with("audio/") {
+        return Ok("audio");
+    }
+    if mime.starts_with("image/") {
+        return Ok("image");
+    }
+    if mime == "application/pdf" || name.ends_with(".pdf") {
+        return Ok("pdf");
+    }
+    if mime.contains("word") || name.ends_with(".doc") || name.ends_with(".docx") {
+        return Ok("word");
+    }
+    if mime.contains("powerpoint") || name.ends_with(".ppt") || name.ends_with(".pptx") {
+        return Ok("powerpoint");
+    }
+    if mime.starts_with("text/") {
+        return Ok("text");
+    }
+    Err(anyhow!("unsupported document/video MIME type: {mime}"))
+}
+
+/// Upload a document/video straight onto a course, auto-creating a
+/// "Course Materials" module (and a "General" lesson) if the course has none.
+///
+/// The caller must be the course owner/instructor (or an admin).
+pub async fn add_course_material(
+    pool: &PgPool,
+    claims: &Claims,
+    req: AddCourseMaterialRequest,
+) -> Result<CourseMaterialView> {
+    authz::require_instructor(claims)?;
+    require_manage(pool, claims, req.course_id).await?;
+    let me = claims.user_id()?;
+
+    let content_type = content_type_for_mime(&req.mime_type, &req.filename)?;
+    let title = req.title.clone().unwrap_or_else(|| req.filename.clone());
+
+    // 1. Ensure a well-known module + lesson exist for this course.
+    let module = match repository::find_module_by_course_title(pool, req.course_id, "Course Materials")
+        .await?
+    {
+        Some(m) => m,
+        None => {
+            repository::insert_module(
+                pool,
+                req.course_id,
+                "Course Materials",
+                "Documents and videos added by the course creator.",
+                0,
+                me,
+                me,
+            )
+            .await?
+        }
+    };
+    let lessons = repository::list_lessons_by_module(pool, module.id).await?;
+    let lesson = match lessons.first() {
+        Some(l) => l.clone(),
+        None => repository::insert_lesson(pool, module.id, "General", "Learning material.", 0, me, me).await?,
+    };
+
+    // 2. Store the uploaded file.
+    let file_id = Uuid::new_v4();
+    let storage_path = save_file(req.course_id, file_id, &req.filename, &req.content_base64)?;
+    let file = repository::insert_file(
+        pool,
+        req.course_id,
+        &req.filename,
+        &req.mime_type,
+        req.size_bytes,
+        &storage_path,
+        me,
+    )
+    .await?;
+
+    // 3. Attach it as a content item inside the lesson.
+    let sort_order = repository::list_items_by_lesson(pool, lesson.id).await?.len() as i32;
+    let item = repository::insert_item(
+        pool,
+        lesson.id,
+        content_type,
+        &title,
+        "",
+        "",
+        Some(file.id),
+        &req.mime_type,
+        sort_order,
+        me,
+        me,
+    )
+    .await?;
+
+    Ok(CourseMaterialView {
+        module: to_module_view(&module),
+        lesson: to_lesson_view(&lesson),
+        item: to_item_view(&item),
+        file: to_file_view(&file),
+    })
 }
